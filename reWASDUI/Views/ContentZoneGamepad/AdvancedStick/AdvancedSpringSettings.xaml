@@ -1,0 +1,91 @@
+<advancedStick:BaseDirectionalAnalogGroupUserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.AdvancedStick.AdvancedSpringSettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:markupExtensions="clr-namespace:DiscSoft.NET.Common.Utils.Markup_Extensions;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:advancedStick="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:base1="clr-namespace:reWASDUI.ViewModels.Base">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type advancedStick:AdvancedSpringSettings}">
+			<StackPanel
+				FrameworkElement.MinWidth="230">
+				<checkBoxes:FillCheckBox
+					Name="chkIsRadial"
+					FrameworkElement.Style="{DynamicResource ShiftColoredCheckBox}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RADIAL_MENU_MODE}}"
+					IsChecked="{Binding DirectionalGroup.RadialMode, RelativeSource={RelativeSource TemplatedParent}}"
+					UIElement.Visibility="{Binding DirectionalGroup.IsMouseStick, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}" />
+				<checkBoxes:FillCheckBox
+					Name="chkIsSpring"
+					FrameworkElement.Style="{DynamicResource ShiftColoredCheckBox}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_SPRING_MODE}}"
+					IsChecked="{Binding DirectionalGroup.SpringMode, RelativeSource={RelativeSource TemplatedParent}}"
+					ToolTip="{Binding DirectionalGroup.UncheckedSpringTooltip, RelativeSource={RelativeSource TemplatedParent}}"
+					ToolTipService.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsSwitchReadOnlyModeView}"
+					UIElement.Visibility="{Binding DirectionalGroup.IsMouseStick, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+				<StackPanel
+					attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_DTT_DEADZONE_PANEL}}"
+					UIElement.IsEnabled="{Binding DirectionalGroup.SpringMode, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:InverseBooleanConverter}}"
+					ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_DEADZONE_PANEL}}"
+					ToolTipService.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+					UIElement.Visibility="{Binding DirectionalGroup.IsAdvancedSpringDeadzoneVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}">
+					<TextBlock
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_DEADZONE}}" />
+					<controls:ScrollableSliderWithManual
+						x:Name="sliderXLow"
+						IsSnapToTickEnabled="True"
+						Maximum="32768"
+						ScrollStep="1000"
+						ScrollableSliderStyle="{DynamicResource ShiftColoredSliderStyle}"
+						Minimum="{Binding DirectionalGroup.DeadZoneMinimum, RelativeSource={RelativeSource TemplatedParent}}"
+						Value="{Binding DirectionalGroup.XLow, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+				</StackPanel>
+				<StackPanel
+					attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_DTT_SMOOTHING_PANEL}}"
+					UIElement.IsEnabled="{Binding DirectionalGroup.SpringMode, RelativeSource={RelativeSource TemplatedParent}}"
+					ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_SMOOTHING_PANEL}}"
+					ToolTipService.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+					UIElement.Visibility="{Binding DirectionalGroup.IsMouseGroup, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}">
+					<TextBlock
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_SMOOTHING}}" />
+					<controls:ScrollableSliderWithManual
+						x:Name="sliderSmoothing"
+						IsSnapToTickEnabled="True"
+						Minimum="1"
+						ScrollStep="1"
+						ScrollableSliderStyle="{DynamicResource ShiftColoredSliderStyle}"
+						Maximum="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.MouseStickSmoothingMaxValue}}"
+						Value="{Binding DirectionalGroup.Smoothing, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+				</StackPanel>
+				<StackPanel
+					UIElement.IsEnabled="{Binding DirectionalGroup.SpringMode, RelativeSource={RelativeSource TemplatedParent}}"
+					UIElement.Visibility="{Binding DirectionalGroup.IsMouseGroup, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}">
+					<TextBlock
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_NOISE_FILTER}}" />
+					<controls:ScrollableSliderWithManual
+						x:Name="sliderNoiseFilter"
+						IsSnapToTickEnabled="True"
+						Minimum="1"
+						ScrollStep="1"
+						ScrollableSliderStyle="{DynamicResource ShiftColoredSliderStyle}"
+						attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_DTT_SMOOTHING_PANEL}}"
+						Maximum="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.MouseStickNoiseFilterMaxValue}}"
+						ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_SM_MOUSE}}"
+						ToolTipService.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						Value="{Binding DirectionalGroup.NoiseFilter, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+				</StackPanel>
+				<StackPanel />
+			</StackPanel>
+			<ControlTemplate.Triggers>
+				<Trigger
+					SourceName="chkIsSpring"
+					Property="ToggleButton.IsChecked"
+					Value="True">
+					<Setter
+						TargetName="chkIsSpring"
+						Property="FrameworkElement.ToolTip"
+						Value="{Binding DirectionalGroup.CheckedSpringTooltip, RelativeSource={RelativeSource TemplatedParent}}" />
+				</Trigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</advancedStick:BaseDirectionalAnalogGroupUserControl>

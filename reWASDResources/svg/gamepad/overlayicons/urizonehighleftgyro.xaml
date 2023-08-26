@@ -1,0 +1,57 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriZoneHighLeftGyro" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriZoneHighLeftGyro">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M4.5,6.5L1.5,6.5 1.5,12.5 4.5,12.5 4.5,6.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.5,4.5L5.5,4.5 5.5,12.5 8.5,12.5 8.5,4.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M12.5,2.5L9.5,2.5 9.5,12.5 12.5,12.5 12.5,2.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M20.5,9.5L17.28,9.5 18.4,8.38 17.69,7.67 15.57,9.79 15.57,9.79C15.463,9.902,15.463,10.078,15.57,10.19L15.57,10.19 17.69,12.31 18.4,11.6 17.28,10.5 20.5,10.5 20.5,9.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M22.5,10L22.5,11.61C23.257,10.89 23.756,9.941 23.92,8.91 25.77,8.5 27,7.6 27,6.5 27,5.4 25.77,4.5 23.92,4.08 23.5,2.23 22.6,1 21.5,1 20.4,1 19.5,2.23 19.08,4.08 17.23,4.5 16,5.4 16,6.5L17,6.5C17,6.05 17.69,5.5 18.9,5.15 18.844,5.598 18.814,6.049 18.81,6.5L19.81,6.5C19.812,5.974 19.852,5.45 19.93,4.93 20.971,4.77 22.029,4.77 23.07,4.93 23.148,5.45 23.188,5.974 23.19,6.5 23.19,7.026 23.147,7.551 23.06,8.07 22.544,8.149 22.022,8.189 21.5,8.19L21.5,9.19C21.951,9.186 22.402,9.156 22.85,9.1 22.763,9.411 22.645,9.712 22.5,10z M20.15,3.9C20.5,2.69 21.05,2 21.5,2 21.95,2 22.5,2.69 22.85,3.9 21.954,3.78 21.046,3.78 20.15,3.9z M24.15,6.5C24.146,6.049 24.116,5.598 24.06,5.15 25.27,5.5 25.96,6.05 25.96,6.5 25.96,6.95 25.27,7.5 24.06,7.85 24.13,7.403 24.173,6.952 24.19,6.5L24.15,6.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,28,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

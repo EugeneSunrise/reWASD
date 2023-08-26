@@ -1,0 +1,194 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Esptool" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Esptool">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,130,135" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FF535353">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M42.901,101.522C42.901,106.582 38.8,110.685 33.738,110.685 28.676,110.685 24.575,106.585 24.575,101.522 24.575,96.46 28.676,92.359 33.738,92.359 38.798,92.362 42.901,96.463 42.901,101.522z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FF535353">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M122.82,91.991C116.82,50.282 84.052,17.514 42.343,11.514 37.489,14.09 33.012,17.318 29.033,21.11L29.033,29.961C70.601,29.996,104.301,63.666,104.369,105.237L113.22,105.237C116.98,101.254,120.206,96.802,122.82,91.991z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FF535353">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M130,64.196C130,31.306 103.34,4.643 70.45,4.643 70.347,4.643 70.244,4.643 70.138,4.643 68.034,4.643 65.991,4.643 63.949,4.952L62.587,8.915C91.945,19.205,115.04,42.274,125.357,71.623L129.32,70.198C129.87,67.514,130,64.196,130,64.196z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FF535353">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M70.818,134.643C31.826,134.643 0.170999999999992,103.126 0,64.134 -0.057,45.339 7.411,27.306 20.737,14.053L24.762,17.829C-0.88,43.243 -1.061,84.635 24.353,110.274 24.488,110.412 24.624,110.547 24.762,110.683 50.176,136.325 91.568,136.506 117.208,111.092 117.346,110.956 117.481,110.821 117.617,110.683L121.392,114.459C107.933,127.714,89.705,134.987,70.818,134.643z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FF535353">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M70.014,109.323C71.311,95.155 65.204,81.322 53.857,72.739 47.879,68.032 40.688,65.112 33.12,64.321 31.156,64.064 29.726,62.336 29.84,60.358 30,58.348 31.76,56.848 33.77,57.007 33.8,57.01 33.832,57.012 33.865,57.015 60.463,59.78 79.826,83.518 77.196,110.129 76.941,112.962 76.402,115.76 75.587,118.485L86.359,121.519C89.547,120.603 92.654,119.422 95.644,117.99 96.446,113.808 96.838,109.558 96.819,105.3 96.781,71.714 72.261,43.171 39.062,38.074 35.481,37.416 31.811,37.416 28.228,38.074 23.694,39.271 19.62,41.793 16.527,45.317 8.168,54.995 9.238,69.613 18.916,77.971 21.243,79.981 23.943,81.506 26.866,82.459 28.784,82.917 30.728,83.269 32.684,83.513 43.123,85.292 50.761,94.342 50.761,104.933 50.761,109.085 49.556,113.15 47.294,116.634L54.724,121.401C58.364,122.4 62.099,123.023 65.867,123.259 68.088,118.803 69.472,113.976 69.952,109.02" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<LinearGradientBrush
+										StartPoint="33.738,136.4631"
+										EndPoint="33.738,2.2008"
+										MappingMode="Absolute"
+										Opacity="1"
+										Transform="1,0,0,-1,0,136">
+										<GradientBrush.GradientStops>
+											<GradientStop
+												Color="#FFFFE384"
+												Offset="0" />
+											<GradientStop
+												Color="#FFFFF0BA"
+												Offset="1" />
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M42.901,96.879C42.901,101.939 38.8,106.042 33.738,106.042 28.676,106.042 24.575,101.941 24.575,96.879 24.575,91.819 28.676,87.716 33.738,87.716 38.798,87.719 42.901,91.82 42.901,96.879z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<LinearGradientBrush
+										StartPoint="33.738,136.4631"
+										EndPoint="33.738,2.2008"
+										MappingMode="Absolute"
+										Opacity="1"
+										Transform="1,0,0,-1,0,136">
+										<GradientBrush.GradientStops>
+											<GradientStop
+												Color="#FFFFE384"
+												Offset="0" />
+											<GradientStop
+												Color="#FFFFF0BA"
+												Offset="1" />
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M122.82,87.348C116.82,45.639 84.052,12.871 42.343,6.872 37.489,9.448 33.012,12.676 29.033,16.468L29.033,25.32C70.601,25.355,104.301,59.025,104.369,100.596L113.22,100.596C116.98,96.612,120.206,92.159,122.82,87.348z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<LinearGradientBrush
+										StartPoint="33.738,136.4631"
+										EndPoint="33.738,2.2008"
+										MappingMode="Absolute"
+										Opacity="1"
+										Transform="1,0,0,-1,0,136">
+										<GradientBrush.GradientStops>
+											<GradientStop
+												Color="#FFFFE384"
+												Offset="0" />
+											<GradientStop
+												Color="#FFFFF0BA"
+												Offset="1" />
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M130,59.553C130,26.663 103.34,0 70.45,0 70.347,0 70.244,0 70.138,0 68.034,0 65.991,0 63.949,0.309L62.587,4.272C91.945,14.562,115.04,37.631,125.357,66.98L129.32,65.555C129.87,62.871,130,59.553,130,59.553z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<LinearGradientBrush
+										StartPoint="33.738,136.4631"
+										EndPoint="33.738,2.2008"
+										MappingMode="Absolute"
+										Opacity="1"
+										Transform="1,0,0,-1,0,136">
+										<GradientBrush.GradientStops>
+											<GradientStop
+												Color="#FFFFE384"
+												Offset="0" />
+											<GradientStop
+												Color="#FFFFF0BA"
+												Offset="1" />
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M70.818,129.999C31.826,129.999 0.171,98.483 0,59.491 -0.057,40.696 7.411,22.662 20.737,9.409L24.762,13.185C-0.88,38.6 -1.061,79.992 24.353,105.631 24.488,105.769 24.624,105.904 24.762,106.04 50.176,131.681 91.568,131.863 117.208,106.449 117.346,106.313 117.481,106.178 117.617,106.04L121.392,109.815C107.933,123.071,89.705,130.343,70.818,129.999z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<LinearGradientBrush
+										StartPoint="33.738,136.4631"
+										EndPoint="33.738,2.2008"
+										MappingMode="Absolute"
+										Opacity="1"
+										Transform="1,0,0,-1,0,136">
+										<GradientBrush.GradientStops>
+											<GradientStop
+												Color="#FFFFE384"
+												Offset="0" />
+											<GradientStop
+												Color="#FFFFF0BA"
+												Offset="1" />
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M70.014,104.68C71.311,90.511 65.204,76.679 53.857,68.096 47.879,63.388 40.688,60.469 33.12,59.678 31.156,59.421 29.726,57.693 29.84,55.715 30,53.705 31.76,52.205 33.77,52.364 33.8,52.367 33.832,52.369 33.865,52.372 60.463,55.137 79.826,78.875 77.196,105.487 76.941,108.32 76.402,111.118 75.587,113.843L86.359,116.876C89.547,115.961 92.654,114.78 95.644,113.347 96.446,109.165 96.838,104.916 96.819,100.658 96.781,67.072 72.261,38.529 39.062,33.431 35.481,32.773 31.811,32.773 28.228,33.431 23.694,34.628 19.62,37.15 16.527,40.674 8.168,50.352 9.238,64.97 18.916,73.328 21.243,75.338 23.943,76.863 26.866,77.816 28.784,78.274 30.728,78.626 32.684,78.87 43.123,80.65 50.761,89.699 50.761,100.289 50.761,104.442 49.556,108.507 47.294,111.99L54.724,116.757C58.364,117.757 62.099,118.38 65.867,118.615 68.088,114.16 69.472,109.333 69.952,104.377" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,130,135" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

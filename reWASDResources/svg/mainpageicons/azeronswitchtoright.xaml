@@ -1,0 +1,37 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="AzeronSwitchToRight" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="AzeronSwitchToRight">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M8.874,15C7.747,15,6.66,14.67,5.77,13.989L2.182,10.401C2.064,10.283 1.999,10.126 1.999,9.959 1.999,9.792 2.064,9.635 2.182,9.517 2.418,9.281 2.829,9.281 3.066,9.517L5.146,11.597C5.461,11.913,6,11.689,6,11.244L6,1.625C6,1.28 6.28,1 6.625,1 6.97,1 7.25,1.28 7.25,1.625L7.25,8.557C7.25,8.833 7.474,9.057 7.75,9.057 8.026,9.057 8.25,8.833 8.25,8.557L8.25,4.625C8.25,4.28 8.53,4 8.875,4 9.22,4 9.5,4.28 9.5,4.625L9.5,8.557C9.5,8.833 9.724,9.057 10,9.057 10.276,9.057 10.5,8.833 10.5,8.557L10.5,5.625C10.5,5.28 10.78,5 11.125,5 11.47,5 11.75,5.28 11.75,5.625L11.75,9.557C11.75,9.833 11.974,10.057 12.25,10.057 12.526,10.057 12.75,9.833 12.75,9.557L12.75,6.625C12.75,6.28 13.03,6 13.375,6 13.72,6 14,6.28 14,6.625L14,9 15,9 15,6.711C15,6.013 14.595,5.349 13.941,5.105 13.474,4.931 13.041,4.988 12.675,5.164 12.475,4.494 11.86,4 11.125,4 10.874,4 10.638,4.062 10.425,4.165 10.225,3.494 9.61,3 8.875,3 8.653,3 8.442,3.045 8.25,3.126L8.25,1.625C8.25,0.639 7.367,-0.145 6.35,0.0229999999999999 5.551,0.154 5,0.907 5,1.717L5,10.037 3.839,8.876C3.266,8.303 2.344,8.16 1.685,8.632 0.847,9.232 0.777,10.411 1.475,11.108L4.936,14.569C4.936,14.569 5.183,14.791 5.22,14.82 6.259,15.636 7.553,16 8.874,16L9.5,16 9.5,15 8.874,15z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M12.06,14.081L12.06,16 11,16 11,11 12.457,11C13.136,11 13.639,11.124 13.965,11.371 14.291,11.618 14.454,11.994 14.454,12.498 14.454,12.792 14.373,13.054 14.212,13.283 14.05,13.512 13.821,13.692 13.525,13.821 14.277,14.945 14.767,15.671 14.995,15.999L13.819,15.999 12.625,14.081 12.06,14.081z M12.06,13.22L12.403,13.22C12.738,13.22 12.986,13.164 13.146,13.053 13.305,12.941 13.385,12.766 13.385,12.526 13.385,12.289 13.304,12.12 13.14,12.02 12.977,11.92 12.725,11.869 12.383,11.869L12.06,11.869 12.06,13.22z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

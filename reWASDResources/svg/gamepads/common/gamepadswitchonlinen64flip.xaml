@@ -1,0 +1,116 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="GamepadSwitchOnlineN64Flip" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="GamepadSwitchOnlineN64Flip">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0.011,0,35.978,36" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup
+						svr:SvgObject.Id="GamepadSwitchOnlineN64Flip">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								svr:SvgObject.Id="_x3C_Path_x3E_">
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M23.831,2.311L23.831,2.045C23.831,1.992,23.795,1.945,23.744,1.93L22.078,1.464C22.002,1.443,21.927,1.5,21.927,1.579L21.927,1.752" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M12.169,2.311L12.169,2.045C12.169,1.992,12.205,1.945,12.256,1.93L13.922,1.464C13.998,1.443,14.073,1.5,14.073,1.579L14.073,1.752" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M11.224,2.744C11.259,2.67 11.309,2.634 11.387,2.599 11.61,2.5 12.972,2.002 14.069,1.753 15.604,1.404 17.711,1.343 18,1.343 18.289,1.343 20.396,1.404 21.931,1.753 23.027,2.002 24.39,2.5 24.613,2.6 24.69,2.635 24.741,2.67 24.776,2.745 24.836,2.873 25.188,3.604 25.188,3.604 25.215,3.66 25.249,3.686 25.311,3.69 25.58,3.707 26.281,3.721 27.357,3.892 29.9,4.296 31.7,5.196 32.136,5.47 32.313,5.582 32.4,5.748 32.401,5.958 32.402,6.088 32.394,6.219 32.402,6.349 32.405,6.396 32.432,6.451 32.466,6.484L32.466,6.485C32.757,6.734 33.158,7.143 33.507,7.607 34.042,8.318 34.62,9.612 34.726,10.493 34.779,10.929 34.848,11.885 34.837,12.248 34.832,12.393 35.09,13.9 35.114,14.047 35.148,14.254 35.573,16.932 35.489,19.416 35.429,21.185 35.327,22.536 35.229,23.195 35.068,24.268 34.942,25.587 34.253,26.623 33.971,27.047 33.575,27.314 33.091,27.485 32.079,27.844 31.112,27.29 30.715,26.738 29.985,25.724 29.545,23.907 29.482,23.678 29.426,23.477 28.777,20.602 28.671,20.174 28.294,18.648 27.514,18.498 27.124,18.464 26.172,18.382 24.88,18.699 24.352,19.012 23.757,19.365 23.434,20.192 23.234,20.816 23.105,21.218 22.676,23.777 22.562,24.775 22.173,28.167 21.12,31.534 20.588,32.541 20.304,33.078 19.89,34.444 18.232,34.65 18.194,34.655 18.098,34.657 18.001,34.657 17.904,34.657 17.809,34.655 17.77,34.65 16.112,34.444 15.698,33.078 15.414,32.541 14.882,31.534 13.829,28.167 13.44,24.775 13.326,23.778 12.897,21.218 12.768,20.816 12.568,20.192 12.245,19.365 11.65,19.012 11.122,18.699 9.82999999999999,18.382 8.87799999999999,18.464 8.48699999999999,18.498 7.70799999999999,18.648 7.33099999999999,20.174 7.22499999999999,20.602 6.57599999999999,23.477 6.51999999999999,23.678 6.45599999999999,23.907 6.01599999999999,25.724 5.28699999999999,26.738 4.88999999999999,27.29 3.92299999999999,27.844 2.91099999999999,27.485 2.42699999999999,27.313 2.03099999999999,27.047 1.74899999999999,26.623 1.05999999999999,25.587 0.932999999999989,24.267 0.772999999999989,23.195 0.673999999999989,22.536 0.571999999999989,21.184 0.512999999999989,19.416 0.428999999999989,16.932 0.853999999999989,14.254 0.887999999999989,14.047 0.911999999999989,13.9 1.16999999999999,12.393 1.16499999999999,12.248 1.15399999999999,11.886 1.22299999999999,10.93 1.27599999999999,10.493 1.381,9.61 1.958,8.316 2.493,7.605 2.842,7.141 3.243,6.732 3.534,6.483L3.534,6.482C3.568,6.45 3.595,6.395 3.598,6.348 3.606,6.218 3.598,6.087 3.599,5.957 3.6,5.748 3.687,5.581 3.865,5.469 4.301,5.195 6.1,4.295 8.644,3.891 9.72,3.72 10.42,3.706 10.69,3.689 10.752,3.685 10.786,3.659 10.813,3.603 10.812,3.603 11.164,2.872 11.224,2.744z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M25.199,3.601L25.199,5.669C25.199,6.3,24.73,6.833,24.109,6.909L21.115,7.277C20.081,7.404 19.041,7.467 18,7.467 16.959,7.467 15.919,7.404 14.885,7.276L11.891,6.908C11.269,6.832,10.801,6.299,10.801,5.668L10.801,3.601" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M18.809,16.75L17.191,16.75C16.915,16.75,16.691,16.526,16.691,16.25L16.691,13.68C16.691,13.404,16.915,13.18,17.191,13.18L18.809,13.18C19.085,13.18,19.309,13.404,19.309,13.68L19.309,16.25C19.309,16.526,19.085,16.75,18.809,16.75z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

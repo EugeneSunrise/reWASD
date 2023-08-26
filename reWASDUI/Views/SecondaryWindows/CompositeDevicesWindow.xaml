@@ -1,0 +1,76 @@
+<base:BaseSecondaryWindow
+	x:Class="reWASDUI.Views.SecondaryWindows.CompositeDevicesWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:base="clr-namespace:DiscSoft.NET.Common.View.SecondaryWindows.Base;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:secondaryWindows="clr-namespace:reWASDUI.ViewModels.SecondaryWindows"
+	Title="My groups"
+	FrameworkElement.MinWidth="960"
+	FrameworkElement.MinHeight="410"
+	FrameworkElement.MaxWidth="960"
+	FrameworkElement.MaxHeight="410"
+	FrameworkElement.Style="{DynamicResource SecondaryWindowStyle}" xmlns:secondarywindows="clr-namespace:reWASDUI.Views.SecondaryWindows"
+	MouseDown="OnMouseDown">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="Auto" />
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="Auto" />
+		</Grid.RowDefinitions>
+		<Border
+			FrameworkElement.MinHeight="54"
+			Border.Background="{DynamicResource MacroHeaderBackground}">
+			<buttons:ColoredButton
+				Name="btnCreateCompositeDevice"
+				FrameworkElement.Margin="10,0,0,0"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.Style="{DynamicResource Button}"
+				ButtonBase.Command="{Binding AddGroupCommand}"
+				ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_CREATE_NEW_GROUP}}" />
+		</Border>
+		<Grid
+			Name="CompositeDevicesGrid"
+			Row="1"
+			IsSharedSizeScope="True"
+			UIElement.Visibility="{Binding Path=GamepadService.CompositeDevices.Count, ConverterParameter='> 0', Converter={converters:ValueSatisfiesRuleParameterToVisibilityConverter}}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto"
+					ColumnDefinition.MinWidth="62"
+					SharedSizeGroup="miEditControls" />
+			</Grid.ColumnDefinitions>
+			<ScrollViewer
+				Grid.Column="0"
+				Grid.ColumnSpan="2">
+				<ItemsControl
+					ItemsControl.ItemsSource="{Binding GamepadService.CompositeDevices}" />
+			</ScrollViewer>
+			<Border
+				Grid.Column="1"
+				Border.BorderBrush="{DynamicResource ContentBorderBrush}"
+				Border.BorderThickness="1,0,0,0" />
+		</Grid>
+		<TextBlock
+			Grid.Row="1"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Center"
+			TextBlock.FontSize="16"
+			FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+			TextAlignment="Center"
+			TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_CLICK_CREATE_DESCRIPTION}}"
+			UIElement.Visibility="{Binding GamepadService.CompositeDevices.Count, ConverterParameter='== 0', Converter={converters:ValueSatisfiesRuleParameterToVisibilityConverter}}" />
+		<Border
+			Grid.Row="2"
+			FrameworkElement.MinHeight="54"
+			Border.Background="{DynamicResource MacroHeaderBackground}">
+			<buttons:ColoredButton
+				Name="btnCloseWindow"
+				FrameworkElement.Margin="10,0"
+				FrameworkElement.HorizontalAlignment="Right"
+				FrameworkElement.Style="{DynamicResource Button}"
+				ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_5003_CLOSE}}"
+				Click="CloseButton_Click" />
+		</Border>
+	</Grid>
+</base:BaseSecondaryWindow>

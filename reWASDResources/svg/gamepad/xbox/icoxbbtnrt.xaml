@@ -1,0 +1,37 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoXbBtnRT" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoXbBtnRT">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M9.688,8.719L9.688,11 8.754,11 8.754,5.29 10.367,5.29C11.104,5.29 11.65,5.428 12.004,5.704 12.358,5.98 12.535,6.396 12.535,6.954 12.535,7.665 12.166,8.172 11.426,8.474L13.039,11 11.976,11 10.609,8.719 9.688,8.719z M9.688,7.946L10.336,7.946C10.772,7.946 11.086,7.865 11.281,7.704 11.476,7.543 11.574,7.303 11.574,6.985 11.574,6.662 11.469,6.43 11.258,6.29 11.047,6.15 10.73,6.079 10.305,6.079L9.688,6.079 9.688,7.946z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M0,16.032C0,18.064,1.968,18.001,1.968,18.001L10.989,18.001C15.968,18.001 17.989,13.001 17.989,11.043 17.989,9.342 17.989,7.907 17.989,7.001 17.989,6.363 17.989,5.98 17.989,5.98L17.989,4.021C17.989,4.021 17.989,4.004 17.989,3.042 17.989,2.776 17.989,2.453 17.989,2.021 17.989,0.0209999999999999 15.968,0 15.968,0L2.968,0C2.968,0 0.989,0 0.989,2 0.989,4 2.989,4 2.989,4L2.989,6 2.989,10C2.989,13,0,14,0,16.032z M0.989,16C0.989,15 3.989,13 3.989,10 3.989,7 3.989,4 3.989,4 3.989,3 2.989,3 2.989,3 2.989,3 2,3.001 2,2.011 2,1.021 3.011,1 3.011,1 3.011,1 14.99,1 15.99,1 16.99,1 16.99,2 16.99,2L16.99,3.042 16.99,4 16.99,5.979C16.99,5.979 16.99,6.358 16.99,7 16.99,7.879 16.99,9.268 16.99,11 16.99,14 13.99,17 10.99,17 7.99,17 2.99,17 1.99,17 0.990000000000002,17 0.989,16 0.989,16z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,18,18" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

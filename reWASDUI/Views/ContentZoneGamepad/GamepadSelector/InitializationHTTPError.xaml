@@ -1,0 +1,43 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.GamepadSelector.InitializationHTTPError" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://prismlibrary.com/" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:gamepadselector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector">
+	<Grid
+		FrameworkElement.HorizontalAlignment="Center"
+		FrameworkElement.VerticalAlignment="Center">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			FrameworkElement.Margin="0,25,0,20">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="1*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="6*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="1*" />
+			</Grid.ColumnDefinitions>
+			<ScrollViewer
+				Grid.Column="1"
+				ScrollViewer.VerticalScrollBarVisibility="Auto">
+				<StackPanel>
+					<TextBlock
+						FrameworkElement.MaxWidth="808"
+						FrameworkElement.Margin="0,0,0,30"
+						TextBlock.FontSize="22"
+						TextBlock.FontWeight="Bold"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_HTTP_INITIALIZATIONG_ERROR_HERDER}}" />
+					<TextBlock
+						FrameworkElement.MaxWidth="808"
+						TextBlock.FontSize="14"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						utils:NavigationServiceHTML.Command="{Binding ShowLogFolderCommand}"
+						utils:NavigationServiceHTML.Text="{l:Translate {x:Static s:StringConsts.STR_HTTP_INITIALIZATIONG_ERROR_DESCRIPTION}}" />
+				</StackPanel>
+			</ScrollViewer>
+		</Grid>
+	</Grid>
+</UserControl>

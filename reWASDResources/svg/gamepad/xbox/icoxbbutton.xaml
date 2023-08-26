@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoXbButton" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoXbButton">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8,0C3.582,0 0,3.582 0,8 0,12.418 3.582,16 8,16 12.418,16 16,12.418 16,8 16,3.582 12.418,0 8,0z M15,8C15,9.255 14.663,10.431 14.083,11.451 13.533,8.346 10.395,4.597 10.395,4.597 10.866,3.817 12.052,3.083 12.625,2.759 14.077,4.043 15,5.914 15,8z M10.97,1.671C9.292,1.732,8.005,2.682,8.005,2.682L8,2.694 7.995,2.682C7.995,2.682 6.709,1.731 5.029,1.671 5.932,1.245 6.937,1 8,1 9.063,1 10.067,1.245 10.97,1.671z M3.374,2.76C3.947,3.083 5.137,3.818 5.606,4.597 5.606,4.597 2.468,8.348 1.92,11.454 1.337,10.435 1,9.257 1,8 1,5.914 1.922,4.044 3.374,2.76z M8,15C6.055,15 4.294,14.201 3.025,12.917 3.166,11.962 3.966,9.736 7.995,6.514L8.001,6.501 8.011,6.514C12.028,9.729 12.832,11.95 12.98,12.911 11.71,14.199 9.947,15 8,15z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

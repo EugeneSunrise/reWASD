@@ -1,0 +1,74 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriKeyScanCodeRMB" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriKeyScanCodeRMB">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#00FFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,14,14" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M7,3C6,3 4,4 4,7 4,10 4,10 4,10 4,10 4,13 6,13 8,13 9,13 9,13 9,13 11,13 11,10 11,10 11,10 11,7 11,4 9,3 8,3L8,2C8,2,12,2,12,7L12,10C12,10,12,14,9,14L6,14C6,14,3,14,3,10L3,7C3,7,3,2,7,2L7,3z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M9,2.5C9,2.8,8.8,3,8.5,3L6.5,3C6.2,3,6,2.8,6,2.5L6,2.5C6,2.2,6.203,2,7,2L8,2C8.578,2,9,2.2,9,2.5L9,2.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M12,7.5C12,7.8,11.8,8,11.5,8L3.5,8C3.2,8,3,7.8,3,7.5L3,7.5C3,7.2,3.2,7,3.5,7L11.5,7C11.8,7,12,7.2,12,7.5L12,7.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8,2.5C8,2.2,7.8,2,7.5,2L7.5,2C7.2,2,7,2.2,7,2.5L7,7.5C7,7.8,7.2,8,7.5,8L7.5,8C7.8,8,8,7.8,8,7.5L8,2.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M7,2C7,2,7,0,9,0L9,1C9,1 8,1 8,2 8,3 7,2 7,2z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M11,6C11,6,11.266,3,8,3L7,3 7,8 11,8 11,6z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

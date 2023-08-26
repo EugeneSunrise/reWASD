@@ -1,0 +1,49 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesLEDSettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:led="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:preferences="clr-namespace:reWASDUI.Views.Preferences" xmlns:preferences1="clr-namespace:reWASDUI.ViewModels.Preferences" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	x:Name="ucPreferencesLED">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type preferences:PreferencesLEDSettings}">
+			<Border
+				Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+				Border.BorderThickness="1,0,0,0">
+				<ScrollViewer
+					FrameworkElement.Style="{DynamicResource PreferencesPageGridStyle}">
+					<StackPanel>
+						<checkBoxes:FillCheckBox
+							Name="chkIsEnableLed"
+							FrameworkElement.Margin="0,5,0,10"
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_ENABLE_LED}}"
+							IsChecked="{Binding IsLedSettingsEnabled}" />
+						<StackPanel
+							UIElement.IsEnabled="{Binding IsLedSettingsEnabled}">
+							<TextBlock
+								FrameworkElement.Margin="0,0,0,8"
+								FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+								TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_WORK_WITH_LED_ON}}" />
+							<comboBoxes:ColoredComboBox
+								Name="cmbLEDDeviceToWorkWith"
+								FrameworkElement.Width="220"
+								FrameworkElement.HorizontalAlignment="Left"
+								ItemsControl.ItemTemplate="{DynamicResource LocalizedDescriptionDataTemplate}"
+								ItemsControl.ItemsSource="{Binding LEDSupportedDevices}"
+								SelectedItem="{Binding SelectedLedDevice}"
+								SelectionChanged="cmbLEDDeviceToWorkWith_SelectionChanged" />
+							<ContentControl>
+								<ContentControl.Content>
+									<MultiBinding
+										Converter="{converters:BindToDictionaryWithKeyConverter}">
+										<Binding
+											Path="UserSettingsService.PerDeviceGlobalLedSettings.LEDSettingsGlobalDictionary" />
+										<Binding
+											Path="SelectedLedDevice" />
+									</MultiBinding>
+								</ContentControl.Content>
+							</ContentControl>
+						</StackPanel>
+					</StackPanel>
+				</ScrollViewer>
+			</Border>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

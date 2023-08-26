@@ -1,0 +1,69 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoNS15BtnClick" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoNS15BtnClick">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M4.171,7.003C3.907,7.003 3.703,7.102 3.558,7.301 3.414,7.499 3.341,7.774 3.341,8.129 3.341,8.866 3.618,9.235 4.171,9.235 4.403,9.235 4.685,9.177 5.014,9.061L5.014,9.648C4.743,9.761 4.44,9.818 4.105,9.818 3.624,9.818 3.256,9.672 3.002,9.381 2.747,9.089 2.621,8.67 2.621,8.124 2.621,7.78 2.683,7.479 2.808,7.221 2.933,6.962 3.113,6.764 3.347,6.626 3.581,6.488 3.856,6.42 4.172,6.42 4.493,6.42 4.815,6.498 5.14,6.653L4.913,7.222C4.79,7.163 4.666,7.112 4.541,7.068 4.414,7.024 4.291,7.003 4.171,7.003z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M6.353,9.772L5.663,9.772 5.663,6.254 6.353,6.254 6.353,9.772z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M7.046,6.59C7.046,6.365 7.171,6.253 7.422,6.253 7.672,6.253 7.797,6.365 7.797,6.59 7.797,6.697 7.765,6.78 7.703,6.84 7.641,6.9 7.547,6.929 7.422,6.929 7.171,6.93 7.046,6.817 7.046,6.59z M7.765,9.772L7.075,9.772 7.075,7.245 7.765,7.245 7.765,9.772z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M9.515,9.818C8.728,9.818 8.335,9.386 8.335,8.522 8.335,8.092 8.442,7.764 8.656,7.538 8.87,7.311 9.177,7.198 9.576,7.198 9.869,7.198 10.131,7.255 10.363,7.369L10.16,7.902C10.051,7.858 9.95,7.822 9.857,7.795 9.764,7.768 9.67,7.753 9.577,7.753 9.219,7.753 9.039,8.008 9.039,8.517 9.039,9.011 9.218,9.259 9.577,9.259 9.71,9.259 9.832,9.241 9.946,9.206 10.06,9.171 10.172,9.115 10.286,9.041L10.286,9.631C10.175,9.702 10.061,9.751 9.948,9.779 9.833,9.804 9.689,9.818 9.515,9.818z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M11.533,8.398L11.833,8.014 12.541,7.245 13.319,7.245 12.316,8.341 13.38,9.773 12.585,9.773 11.857,8.749 11.561,8.987 11.561,9.774 10.871,9.774 10.871,6.255 11.561,6.255 11.561,7.825 11.524,8.399 11.533,8.398 11.533,8.398z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M12.571,4.048C13.911,4.048,15,5.137,15,6.476L15,9.524C15,10.863,13.911,11.953,12.571,11.953L3.429,11.953C2.089,11.952,1,10.863,1,9.524L1,6.476C1,5.137,2.089,4.047,3.429,4.047L12.571,4.047 M12.571,3.048L3.429,3.048C1.538,3.048,0,4.586,0,6.476L0,9.524C0,11.415,1.538,12.953,3.429,12.953L12.572,12.953C14.463,12.953,16.001,11.415,16.001,9.524L16.001,6.476C16,4.586,14.462,3.048,12.571,3.048L12.571,3.048z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

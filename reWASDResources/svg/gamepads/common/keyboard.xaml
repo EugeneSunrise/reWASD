@@ -1,0 +1,1049 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Keyboard" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Keyboard">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M25,17.499L25,17.499 27,17.499 27,20.499 23,20.499 23,18.499 25,18.499z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="10,23.499,12,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="19,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="12,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="14,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="16,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="17,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="21,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="18,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="20,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="15,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="25,23.499,2,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M33,13.499L33,25.499 3,25.499 3,13.499 33,13.499 M33,12.499L3,12.499C2.447,12.499,2,12.946,2,13.499L2,25.499C2,26.052,2.447,26.499,3,26.499L33,26.499C33.553,26.499,34,26.052,34,25.499L34,13.499C34,12.946,33.553,12.499,33,12.499L33,12.499z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="31,23.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="29,23.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="29,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="31,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="29,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="31,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="29,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="31,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="29,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="31,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="26,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="22,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="24,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="24,21.499,3,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="23,23.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="22,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="10,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="13,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="11,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="7,23.499,2,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="4,23.499,2,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="9,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="8,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="6,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="4,21.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="7,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="5,19.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="20,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="18,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="16,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="14,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="12,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="10,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="8,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="6,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="4,17.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="17,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="19,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="15,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="10,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="12,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="8,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="6,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="0.3"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="4,14.499,1,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M16,11.499C16,11.499 16,8.499 19,8.499 21,8.499 21,6.499 21,6.499L22,6.499C22,6.499 22,9.499 19,9.499 17,9.499 17,11.499 17,11.499L16,11.499z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#00FFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,36,36" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

@@ -1,0 +1,63 @@
+<UserControl
+	x:Class="reWASDUI.Controls.UnmapControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:xbEliteWpf="clr-namespace:XBEliteWPF" xmlns:licenseFeatureManaging="clr-namespace:reWASDUI.Controls.LicenseFeatureManaging" xmlns:reWasdui="clr-namespace:reWASDUI" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:base1="clr-namespace:reWASDUI.ViewModels.Base">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type controls:UnmapControl}">
+			<licenseFeatureManaging:LicenseFeatureManagingContainer
+				x:Name="licenseContainer"
+				AssociatedFeatureGUID="{x:Static reWasdui:App.ADVANCED_MAPPING_FEATURE_GUID}">
+				<UIElement.Visibility>
+					<MultiBinding
+						ConverterParameter="invert"
+						Converter="{converters:MultiBooleanOrConverterToVisibilityConverter}">
+						<Binding
+							Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ActivatorType"
+							ConverterParameter="{x:Static enums:ActivatorType.Single}"
+							Converter="{converters:ValuesAreNotEqual}" />
+						<Binding
+							Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.ControllerButton.IsUnmapAvailiable"
+							FallbackValue="False"
+							Converter="{converters:InverseBooleanConverter}" />
+						<Binding
+							Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.SubConfigData.IsUnmapAvailable"
+							Converter="{converters:InverseBooleanConverter}" />
+					</MultiBinding>
+				</UIElement.Visibility>
+				<licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+					<MultiBinding
+						Converter="{converters:MultiBooleanOrConverter}">
+						<Binding
+							Path="LicensingService.IsAdvancedMappingFeatureUnlocked" />
+						<Binding
+							Path="GamepadService.CurrentGamepad.CurrentController.IsUnmapAvailableConsideringMappings" />
+						<Binding
+							Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsCurrentUnmapped" />
+						<Binding
+							Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.SubConfigData.IsPeripheral" />
+					</MultiBinding>
+				</licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+				<buttons:ColoredButton
+					Name="btnUnmap"
+					FrameworkElement.Margin="0"
+					FrameworkElement.Style="{DynamicResource ButtonSmallShiftRecolored}"
+					ToolTipService.ShowOnDisabled="True"
+					ButtonBase.Command="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.UnmapCurrentCommand}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_MUTE}}"
+					UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+					IsTriggered="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsCurrentUnmapped}"
+					ToolTip="{l:Translate {x:Static s:StringConsts.STR_MUTE_TOOLTIP}}">
+					<ToolTipService.IsEnabled>
+						<MultiBinding
+							Converter="{converters:MultiBooleanAndConverter}">
+							<Binding
+								Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+							<Binding
+								Path="IsFeatureUnlocked"
+								ElementName="licenseContainer" />
+						</MultiBinding>
+					</ToolTipService.IsEnabled>
+				</buttons:ColoredButton>
+			</licenseFeatureManaging:LicenseFeatureManagingContainer>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

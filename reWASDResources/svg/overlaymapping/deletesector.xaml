@@ -1,0 +1,41 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="DeleteSector" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="DeleteSector">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M14.363,2.271C12.31,1.424 10.155,1 7.999,1 5.843,1 3.688,1.424 1.638,2.271L1,2.533 6.182,15 6.802,14.744C7.187,14.586 7.593,14.507 7.999,14.507 8.405,14.507 8.812,14.586 9.198,14.744L9.818,15 15,2.533 14.363,2.271z M9.273,13.707C8.86,13.574 8.433,13.506 7.999,13.506 7.565,13.506 7.139,13.573 6.727,13.706L2.31,3.078C4.142,2.363 6.054,2 7.999,2 9.944,2 11.858,2.363 13.691,3.078L9.273,13.707z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M9.64655,3.64618L5.64648,7.64624 6.35358,8.35334 10.3536,4.35328 9.64655,3.64618z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M6.35358,3.64666L5.64648,4.35376 9.64655,8.35382 10.3536,7.64672 6.35358,3.64666z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

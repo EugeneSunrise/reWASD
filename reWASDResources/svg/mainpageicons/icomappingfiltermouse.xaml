@@ -1,0 +1,41 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoMappingFilterMouse" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoMappingFilterMouse">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<DrawingGroup>
+								<DrawingGroup.Children>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M7,12C4.757,12,3,10.133,3,7.75L3,6.25C3,3.867 4.757,2 7,2 9.243,2 11,3.867 11,6.25L11,7.75C11,10.133,9.243,12,7,12z M7,3C5.29,3,4,4.397,4,6.25L4,7.75C4,9.603 5.29,11 7,11 8.71,11 10,9.603 10,7.75L10,6.25C10,4.397,8.71,3,7,3z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M7,7.5C6.724,7.5,6.5,7.308,6.5,7.071L6.5,4.929C6.5,4.692 6.724,4.5 7,4.5 7.276,4.5 7.5,4.692 7.5,4.929L7.5,7.072C7.5,7.308,7.276,7.5,7,7.5z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

@@ -1,0 +1,210 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common">
+	<Style
+		x:Key="HorizontalTabItem"
+		TargetType="{x:Type TabItem}">
+		<Setter
+			Property="Control.Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type TabItem}">
+					<Grid>
+						<Border
+							FrameworkElement.Name="Border"
+							Border.Background="{DynamicResource ContentBackground}">
+							<ContentPresenter
+								FrameworkElement.Height="42"
+								FrameworkElement.Margin="20,0"
+								FrameworkElement.HorizontalAlignment="Center"
+								FrameworkElement.VerticalAlignment="Center"
+								ContentPresenter.ContentSource="Header"
+								ContentPresenter.RecognizesAccessKey="True" />
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="TabItem.IsSelected"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource ItemControlHighlightedBackground}"
+								Property="Border.Background" />
+							<Setter
+								Value="{DynamicResource SelectedForeground}"
+								Property="Control.Foreground" />
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsEnabled"
+							Value="False">
+							<Setter
+								Property="UIElement.Opacity"
+								Value="0.5" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ThinHorizontalTabItem"
+		TargetType="{x:Type TabItem}">
+		<Setter
+			Property="Control.Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="FrameworkElement.MaxWidth"
+			Value="155" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type TabItem}">
+					<Grid>
+						<Border
+							FrameworkElement.Name="Border"
+							Border.Background="{DynamicResource ContentBackground}">
+							<ContentPresenter
+								FrameworkElement.Height="42"
+								FrameworkElement.Margin="13,0"
+								FrameworkElement.HorizontalAlignment="Center"
+								FrameworkElement.VerticalAlignment="Center"
+								ContentPresenter.ContentSource="Header"
+								ContentPresenter.RecognizesAccessKey="True" />
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="TabItem.IsSelected"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource ItemControlHighlightedBackground}"
+								Property="Border.Background" />
+							<Setter
+								Value="{DynamicResource SelectedForeground}"
+								Property="Control.Foreground" />
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsEnabled"
+							Value="False">
+							<Setter
+								Property="UIElement.Opacity"
+								Value="0.5" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="TabControlHorizontalStyle"
+		TargetType="{x:Type TabControl}">
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type TabControl}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+						</Grid.RowDefinitions>
+						<ScrollViewer
+							FrameworkElement.FlowDirection="LeftToRight"
+							ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+							ScrollViewer.VerticalScrollBarVisibility="Auto">
+							<TabPanel
+								Name="HeaderPanel"
+								FrameworkElement.MinWidth="100"
+								ZIndex="1"
+								IsItemsHost="True"
+								KeyboardNavigation.TabIndex="1"
+								Panel.Background="{x:Null}" />
+						</ScrollViewer>
+						<Border
+							Grid.Row="1"
+							Border.BorderThickness="1"
+							SnapsToDevicePixels="true">
+							<ContentPresenter
+								Name="PART_SelectedContentHost"
+								ContentPresenter.ContentSource="SelectedContent" />
+						</Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="VirtualSettingsTabControlHorizontalStyle"
+		TargetType="{x:Type TabControl}">
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type TabControl}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+						</Grid.RowDefinitions>
+						<StackPanel
+							FrameworkElement.HorizontalAlignment="Center"
+							Orientation="Horizontal">
+							<TextBlock
+								FrameworkElement.Margin="0,0,10,0"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+								TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_ADVANCED_SETTINGS}}" />
+							<TabPanel
+								Name="HeaderPanel"
+								FrameworkElement.MinWidth="100"
+								ZIndex="1"
+								IsItemsHost="True"
+								KeyboardNavigation.TabIndex="1"
+								Panel.Background="{x:Null}" />
+						</StackPanel>
+						<Border
+							Grid.Row="1"
+							Border.BorderThickness="1"
+							SnapsToDevicePixels="true">
+							<ContentPresenter
+								Name="PART_SelectedContentHost"
+								ContentPresenter.ContentSource="SelectedContent" />
+						</Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="TabControlTabStripHidden"
+		TargetType="{x:Type TabControl}">
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type TabControl}">
+					<Grid>
+						<TabPanel
+							Name="HeaderPanel"
+							FrameworkElement.MinWidth="100"
+							ZIndex="1"
+							IsItemsHost="True"
+							KeyboardNavigation.TabIndex="1"
+							UIElement.Visibility="Collapsed"
+							Panel.Background="{x:Null}" />
+						<ContentPresenter
+							Name="PART_SelectedContentHost"
+							ContentPresenter.ContentSource="SelectedContent" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

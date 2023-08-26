@@ -1,0 +1,186 @@
+<base:BaseSecondaryWindow
+	x:Class="reWASDUI.Views.SecondaryWindows.ESP32Preferences" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base="clr-namespace:DiscSoft.NET.Common.View.SecondaryWindows.Base;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dataModels="clr-namespace:reWASDUI.DataModels" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common"
+	Title="Config"
+	FrameworkElement.MinWidth="220"
+	attachedBehaviours:FocusBehavior.FocusFirst="true"
+	SizeToContent="WidthAndHeight"
+	AutomationProperties.AutomationId="ESP32Preferences"
+	FrameworkElement.Style="{DynamicResource SecondaryWindowStyle}" xmlns:secondarywindows="clr-namespace:reWASDUI.Views.SecondaryWindows">
+	<StackPanel>
+		<StackPanel
+			FrameworkElement.Style="{DynamicResource SecondaryWindowContentGridStyle}"
+			UIElement.IsEnabled="{Binding PingInProgress, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}, Converter={converters:InverseBooleanConverter}}">
+			<StackPanel
+				Orientation="Horizontal">
+				<TextBlock
+					Name="Header"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_ESP32_SETTINGS}}" />
+				<recolorableImages:RecolorableSVG
+					Name="svgSmallHelp"
+					FrameworkElement.Margin="5,0,0,0"
+					ColorShiftBrush="{DynamicResource CreamBrush}"
+					Drawing="{DynamicResource Help}"
+					IsColorShift="True"
+					ToolTip="{l:Translate {x:Static s:StringConsts.STR_ESP32_SMALL_SETTINGS_TT}}"
+					UIElement.Visibility="{Binding CanChangeLatencyTimer, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+				<recolorableImages:RecolorableSVG
+					Name="svgHelp"
+					FrameworkElement.Margin="5,0,0,0"
+					ColorShiftBrush="{DynamicResource CreamBrush}"
+					Drawing="{DynamicResource Help}"
+					IsColorShift="True"
+					ToolTip="{l:Translate {x:Static s:StringConsts.STR_ESP32_SETTINGS_TT}}"
+					UIElement.Visibility="{Binding CanChangeLatencyTimer, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}, Converter={converters:BooleanToVisibilityConverter}}" />
+			</StackPanel>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="200" />
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+				</Grid.ColumnDefinitions>
+				<Border
+					FrameworkElement.Margin="0,10,0,0"
+					Padding="10"
+					Border.BorderBrush="{DynamicResource SidePanelBorderBrush}"
+					Border.BorderThickness="1">
+					<StackPanel
+						Orientation="Vertical">
+						<TextBlock
+							Name="BaudRateTextBlock"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_BAUD_RATE}}" />
+						<comboBoxes:ColoredComboBox
+							Name="cmbBaudRates"
+							FrameworkElement.Width="100"
+							FrameworkElement.HorizontalAlignment="Left"
+							ItemsControl.ItemsSource="{Binding BaudRates, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}}"
+							SelectedItem="{Binding SelectedBaudRate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}}" />
+						<Grid
+							FrameworkElement.Margin="0,15,0,0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<StackPanel
+								Orientation="Vertical">
+								<TextBlock
+									Name="PacketsSentTextBlock"
+									TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PACKETS_SENT}}" />
+								<TextBlock
+									Name="MinTimeTextBlock"
+									TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_MINIMUM_TIME}}" />
+								<TextBlock
+									Name="MaxTimeTextBlock"
+									TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_MAXIMUM_TIME}}" />
+								<TextBlock
+									Name="AvgTimeTextBlock"
+									TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_AVERAGE_TIME}}" />
+							</StackPanel>
+							<StackPanel
+								Grid.Column="1"
+								FrameworkElement.Margin="5,0,0,0"
+								Orientation="Vertical">
+								<TextBlock
+									Name="PacketsSentValue"
+									FrameworkElement.HorizontalAlignment="Right"
+									TextBlock.Text="{Binding NumPingPacketsSent, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}}" />
+								<TextBlock
+									Name="MinTimeValue"
+									FrameworkElement.HorizontalAlignment="Right"
+									TextBlock.Text="{Binding MinPingTime, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}}" />
+								<TextBlock
+									Name="MaxTimeValue"
+									FrameworkElement.HorizontalAlignment="Right"
+									TextBlock.Text="{Binding MaxPingTime, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}}" />
+								<TextBlock
+									Name="AvgTimeValue"
+									FrameworkElement.HorizontalAlignment="Right"
+									TextBlock.Text="{Binding AvgPingTime, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}}" />
+							</StackPanel>
+						</Grid>
+						<buttons:ColoredButton
+							Name="PingBtn"
+							FrameworkElement.HorizontalAlignment="Left"
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_PING}}"
+							Click="Ping_Click" />
+					</StackPanel>
+				</Border>
+				<Border
+					Grid.Column="1"
+					FrameworkElement.Margin="10,10,0,0"
+					Padding="10"
+					Border.BorderBrush="{DynamicResource SidePanelBorderBrush}"
+					Border.BorderThickness="1"
+					UIElement.Visibility="{Binding CanChangeLatencyTimer, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}, Converter={converters:BooleanToVisibilityConverter}}">
+					<Grid>
+						<StackPanel>
+							<TextBlock
+								Name="LatencySpeedTextBlock"
+								FrameworkElement.Margin="0,0,0,0"
+								FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+								TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_LATENCY_SPEED}}" />
+							<comboBoxes:ColoredComboBox
+								Name="cbLatency"
+								FrameworkElement.HorizontalAlignment="Left">
+								<ComboBoxItem
+									IsSelected="True">2ms</ComboBoxItem>
+								<ComboBoxItem>3ms</ComboBoxItem>
+								<ComboBoxItem>4ms</ComboBoxItem>
+							</comboBoxes:ColoredComboBox>
+							<TextBlock
+								Name="MinPrefLatencyTextBlock"
+								FrameworkElement.Margin="0,10,10,10"
+								FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+								utils:NavigationServiceHTML.Text="{Binding LatencySpeedMessage, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type base:BaseSecondaryWindow}}}" />
+						</StackPanel>
+						<StackPanel
+							FrameworkElement.VerticalAlignment="Bottom"
+							Orientation="Horizontal">
+							<buttons:ColoredButton
+								Name="ChangeLatencyTimerBtn"
+								FrameworkElement.Margin="0,10,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.Style="{DynamicResource Button}"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_CHANGE_LATENCY_TIMER}}"
+								Click="ChangeLatencyTimer_Click" />
+							<buttons:ColoredButton
+								Name="RestoreLatency"
+								FrameworkElement.Width="32"
+								FrameworkElement.Margin="10,10,0,0"
+								Control.Padding="0"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STR_RESET_LATENCY_TIMER}}"
+								Click="RestoreLatency_Click">
+								<recolorableImages:RecolorableSVG
+									Drawing="{DynamicResource default_settings}" />
+							</buttons:ColoredButton>
+						</StackPanel>
+					</Grid>
+				</Border>
+			</Grid>
+		</StackPanel>
+		<Border
+			FrameworkElement.Margin="0,15,0,0"
+			FrameworkElement.Style="{DynamicResource SecondaryWindowFooterBorderStyle}">
+			<StackPanel
+				Orientation="Horizontal"
+				FrameworkElement.Style="{DynamicResource SecondaryWindowFooterContainerStyle}">
+				<!--Присоединяемое событие 'add_Click'.-->
+				<buttons:ColoredButton
+					Name="OkButton"
+					FrameworkElement.Margin="10,0,0,0"
+					FrameworkElement.Style="{DynamicResource Button}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_5004_OK}}" />
+				<!--Присоединяемое событие 'add_Click'.-->
+				<buttons:ColoredButton
+					Name="CancelButton"
+					FrameworkElement.Margin="10,0,0,0"
+					FrameworkElement.Style="{DynamicResource Button}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_5005_CANCEL}}" />
+			</StackPanel>
+		</Border>
+	</StackPanel>
+</base:BaseSecondaryWindow>

@@ -1,0 +1,26 @@
+<bindingFrameViews:BaseBFView
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews.BFAdvanced" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:bindingFrameViews="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews" xmlns:bindingFrame="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<bindingFrame:BindingFrameAdvancedTemplateSelector
+				x:Key="BindingFrameAdvancedTemplateSelector" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<StackPanel>
+		<Border
+			FrameworkElement.Style="{DynamicResource BindingFrameBackBorderStyle}">
+			<buttons:SVGButton
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.Style="{DynamicResource ButtonBackBindingFrame}" />
+		</Border>
+		<Border
+			Border.BorderBrush="{DynamicResource ContentBorderBrush}">
+			<StackPanel>
+				<ContentPresenter
+					FrameworkElement.Margin="10,0"
+					ContentPresenter.ContentTemplateSelector="{StaticResource BindingFrameAdvancedTemplateSelector}"
+					ContentPresenter.Content="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding}" />
+			</StackPanel>
+		</Border>
+	</StackPanel>
+</bindingFrameViews:BaseBFView>

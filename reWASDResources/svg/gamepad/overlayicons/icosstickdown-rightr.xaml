@@ -1,0 +1,49 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoSStickDown-RightR" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoSStickDown-RightR">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M9.5,15L9.5,15 9.5,14 14,14 14,9.5 15,9.5 15,15z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M9,6.62C9.569,6.535 10.144,6.495 10.72,6.5 11.385,6.453 12.046,6.629 12.6,7 12.956,7.299 13.152,7.746 13.13,8.21 13.121,8.84 12.723,9.397 12.13,9.61L12.13,9.61C12.543,9.823 12.83,10.221 12.9,10.68 13.08,11.32 13.25,12.07 13.36,12.29L12,12.29C11.819,11.862 11.685,11.416 11.6,10.96 11.44,10.24 11.2,10.05 10.67,10.04L10.3,10.04 10.3,12.29 9,12.29 9,6.62z M10.3,9.09L10.81,9.09C11.45,9.09 11.81,8.76 11.81,8.26 11.81,7.76 11.45,7.47 10.86,7.47 10.664,7.451 10.466,7.451 10.27,7.47L10.3,9.09z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing>
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M6,11L6,9C6,8.448,5.552,8,5,8L4.5,8C3.948,8,3.5,7.552,3.5,7L3.5,6C3.5,5.448,3.948,5,4.5,5L10.78,5" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

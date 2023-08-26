@@ -1,0 +1,79 @@
+<base:BaseSecondaryWindow
+	x:Class="reWASDUI.Views.SecondaryWindows.ExportConfig" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base="clr-namespace:DiscSoft.NET.Common.View.SecondaryWindows.Base;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:radioButtons="clr-namespace:DiscSoft.NET.Common.View.Controls.RadioButtons;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:secondaryWindows="clr-namespace:reWASDUI.Views.SecondaryWindows"
+	FrameworkElement.Height="490"
+	FrameworkElement.MinWidth="350"
+	FrameworkElement.MaxWidth="350"
+	attachedBehaviours:FocusBehavior.FocusFirst="true"
+	AutomationProperties.AutomationId="ExportConfig"
+	SizeToContent="Height"
+	FrameworkElement.Style="{DynamicResource SecondaryWindowStyle}"
+	Title="{localization:Translate {x:Static s:StringConsts.STR_SAVE_FOLDER}}">
+	<StackPanel>
+		<StackPanel
+			FrameworkElement.Style="{DynamicResource SecondaryWindowContentGridStyle}">
+			<GroupBox
+				FrameworkElement.Name="groupBox"
+				FrameworkElement.Margin="0,20,0,0"
+				FrameworkElement.Style="{StaticResource {x:Type GroupBox}}"
+				HeaderedContentControl.Header="{localization:Translate {x:Static s:StringConsts.STR_SAVE_FOLDER}}"
+				x:Name="groupBox">
+				<StackPanel>
+					<StackPanel
+						FrameworkElement.Margin="0,6,0,0">
+						<TextBlock
+							FrameworkElement.Name="PathTextBlock"
+							FrameworkElement.Margin="0,0,0,0"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_SAVE_AS}}"
+							x:Name="PathTextBlock" />
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									ColumnDefinition.Width="*" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<controls:WaterMarkTextBox
+								FrameworkElement.Name="PathTextBox"
+								Grid.Column="0"
+								IsReadOnly="True"
+								TextBox.Text="{Binding Path, UpdateSourceTrigger=PropertyChanged}"
+								x:Name="PathTextBox" />
+							<buttons:ColoredButton
+								FrameworkElement.Name="PathButton"
+								Grid.Column="1"
+								FrameworkElement.Style="{DynamicResource ButtonBrowse}"
+								x:Name="PathButton"
+								Click="ButtonPath_BrowseClick" />
+						</Grid>
+					</StackPanel>
+				</StackPanel>
+			</GroupBox>
+		</StackPanel>
+		<Border
+			FrameworkElement.Margin="0,15,5,0"
+			FrameworkElement.Style="{DynamicResource SecondaryWindowFooterBorderStyle}">
+			<StackPanel
+				Orientation="Horizontal"
+				FrameworkElement.Style="{DynamicResource SecondaryWindowFooterContainerStyle}">
+				<!--Присоединяемое событие 'add_Click'.-->
+				<buttons:ColoredButton
+					FrameworkElement.Name="ButtonOk"
+					FrameworkElement.Margin="0"
+					Control.Padding="10,5"
+					FrameworkElement.Style="{StaticResource Button}"
+					UIElement.IsEnabled="{Binding IsAvailableToClone}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_CLONE}}"
+					x:Name="ButtonOk" />
+				<!--Присоединяемое событие 'add_Click'.-->
+				<buttons:ColoredButton
+					FrameworkElement.Name="ButtonCancel"
+					FrameworkElement.Margin="10,0,0,0"
+					Control.Padding="10,5"
+					FrameworkElement.Style="{DynamicResource Button}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_5005_CANCEL}}"
+					x:Name="ButtonCancel" />
+			</StackPanel>
+		</Border>
+	</StackPanel>
+</base:BaseSecondaryWindow>

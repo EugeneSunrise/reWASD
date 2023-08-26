@@ -1,0 +1,46 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoNSLStickRight" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoNSLStickRight">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup
+						svr:SvgObject.Id="Layer_4">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M15.354,9.221L15.354,9.221 15.348,9.203 15.993,8.5 15.121,7.629 15.121,7.629 12.061,4.537 11.354,5.244 14.633,8.525 11.402,11.756 12.111,12.463z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M2.004,4C2.096,4 2.226,4 2.38,4 2.558,4 2.768,4 3.007,4L10.007,4 10.007,3 3.007,3 2.38,3 2.004,3C2.004,3,0.0069999999999999,3.004,0.0069999999999999,5.023L0.0069999999999999,6.043C0.0069999999999999,6.043,-0.0350000000000001,8.02,1.985,8.02L3.007,8.02 3.007,14 4.004,14 4.004,8C4.004,8 4.004,7 3.004,7 2.004,7 2.004,7 2.004,7 2.004,7 1.004,7 1.004,6 1.004,5 1.004,5 1.004,5 1.004,5 1.004,4 2.004,4z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M6.003,11.702L6.003,6.003 7.203,6.003 7.203,10.702 9.503,10.702 9.503,11.702 6.003,11.702z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

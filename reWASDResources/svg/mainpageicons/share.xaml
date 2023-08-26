@@ -1,0 +1,34 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Share" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Share">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#00FFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,16,16" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M12.492,8.984C11.571,8.984,10.775,9.486,10.339,10.226L5.851,8.332C5.953,8.06 6.016,7.769 6.016,7.461 6.016,7.185 5.96,6.923 5.878,6.674L10.437,4.938C10.89,5.588 11.641,6.015 12.493,6.015 13.877,6.016 15,4.893 15,3.508 15,2.123 13.877,1 12.492,1 11.107,1 9.984,2.123 9.984,3.508 9.984,3.684 10.003,3.855 10.038,4.021L5.371,5.797C4.912,5.283 4.251,4.953 3.508,4.953 2.123,4.953 1,6.076 1,7.461 1,8.846 2.123,9.969 3.508,9.969 4.22,9.969 4.86,9.668 5.317,9.192L10.017,11.176C10.003,11.28 9.985,11.384 9.985,11.492 9.985,12.877 11.108,14 12.493,14 13.878,14 15,12.877 15,11.492 15,10.107 13.877,8.984 12.492,8.984z M12.492,2C13.324,2 14,2.676 14,3.508 14,4.34 13.324,5.016 12.492,5.016 11.66,5.016 10.984,4.34 10.984,3.508 10.984,2.676 11.66,2 12.492,2z M3.508,8.969C2.676,8.969 2,8.292 2,7.461 2,6.63 2.676,5.953 3.508,5.953 4.34,5.953 5.016,6.629 5.016,7.461 5.016,8.293 4.339,8.969 3.508,8.969z M12.492,13C11.66,13 10.984,12.324 10.984,11.492 10.984,10.66 11.66,9.984 12.492,9.984 13.324,9.984 14,10.66 14,11.492 14,12.324 13.324,13 12.492,13z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

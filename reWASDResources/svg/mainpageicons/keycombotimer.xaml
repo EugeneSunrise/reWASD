@@ -1,0 +1,34 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="KeyComboTimer" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="KeyComboTimer">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#00231F1F">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,14,14" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M12.379,5.002L10.293,2.916 9.36,3.852C8.65,3.409,7.845,3.106,6.968,3.026L6.968,2 7.968,2 7.968,1 6.968,1 5.968,1 4.968,1 4.968,2 5.968,2 5.968,3.025C3.166,3.279 0.968,5.63 0.968,8.499 0.968,11.538 3.432,13.999 6.468,13.999 9.506,13.999 11.968,11.538 11.968,8.499 11.968,7.604 11.736,6.773 11.357,6.027L12.379,5.002z M6.828,10.406C5.889,10.406 5.125,9.642 5.125,8.703 5.125,8.517 5.162,8.344 5.217,8.176L3.168,6.126 4.162,5.1 6.189,7.127C6.388,7.047 6.603,7 6.829,7 7.769,7 8.532,7.763 8.532,8.703 8.532,9.643 7.77,10.406 6.828,10.406z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

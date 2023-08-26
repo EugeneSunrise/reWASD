@@ -1,0 +1,41 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoTwoSwipeRight" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoTwoSwipeRight">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup
+						Transform="1,0,0,1,2480,-6589"
+						svr:SvgObject.Id="Group">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="Path_1988">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M-2469.5,6596.6L-2465,6594 -2469.5,6591.4 -2469.5,6593.5 -2479,6593.5 -2479,6594.5 -2469.5,6594.5 -2469.5,6596.6z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="Path_1989">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M-2469.5,6602.6L-2465,6600 -2469.5,6597.4 -2469.5,6599.5 -2479,6599.5 -2479,6600.5 -2469.5,6600.5 -2469.5,6602.6z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

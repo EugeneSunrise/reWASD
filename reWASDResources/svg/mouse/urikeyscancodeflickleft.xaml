@@ -1,0 +1,52 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriKeyScanCodeFlickLeft" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriKeyScanCodeFlickLeft">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="8,7,4,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="9,5,4,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="9,9,4,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.752,11.562C8.218,12.993 7,13 7,13 7,13 6,13 4,13 2,13 2,10 2,10 2,10 2,9.999 2,8L5,8 6,8 7,8 7,7 6,7 6,3C6.477,3,7.181,3.238,7.788,3.803L8.974,3.507C8.187,2.512 7.145,2.179 6.526,2.064 6.453,2.045 6.369,2.033 6.279,2.023 6.107,2.002 6,2 6,2 6,1 7,1 7,1L7,0C5,0 5,2 5,2 4.798,2 4.636,2.015 4.503,2.04 1.009,2.443 1,7 1,7L1,10C1,14,4,14,4,14L7,14C8.862,14,9.567,12.46,9.835,11.291L8.752,11.562z M5,3L5,7 2,7C2,4,4,3,5,3z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

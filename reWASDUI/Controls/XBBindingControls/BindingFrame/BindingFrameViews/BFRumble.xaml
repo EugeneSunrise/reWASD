@@ -1,0 +1,84 @@
+<bindingFrameViews:BaseBFView
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews.BFRumble" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:bindingFrame="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame" xmlns:bindingFrameViews="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:controls1="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:interfaces1="clr-namespace:reWASDUI.Services.Interfaces" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:markupExtensions="clr-namespace:DiscSoft.NET.Common.Utils.Markup_Extensions;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingFrameViews:BFRumble}">
+			<StackPanel>
+				<Border
+					FrameworkElement.Style="{DynamicResource BindingFrameBackBorderStyle}">
+					<buttons:SVGButton
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.Style="{DynamicResource ButtonBackBindingFrame}"
+						ColorShiftBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}"
+						ButtonBase.Command="{Binding RumbleBackCommand, RelativeSource={RelativeSource TemplatedParent}}"
+						HighlightedForeground="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+				</Border>
+				<Border
+					Border.BorderBrush="{DynamicResource ContentBorderBrush}">
+					<StackPanel
+						FrameworkElement.Margin="10,5,10,13"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto" />
+								<ColumnDefinition
+									ColumnDefinition.Width="*" />
+							</Grid.ColumnDefinitions>
+							<TextBlock
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+								TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_DURATION}}" />
+							<controls:MacrosDurationContainer
+								x:Name="mdcRumbleDuration"
+								Grid.Column="1"
+								FrameworkElement.Margin="5,0,0,0"
+								FrameworkElement.HorizontalAlignment="Right"
+								FrameworkElement.VerticalAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								Control.Foreground="#FFFFFFFF"
+								HighlightedBorderBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}"
+								Maximum="{markupExtensions:CastObjectToInt {x:Static infrastructure:Constants.RumbleDurationMaxValueInMS}}"
+								Minimum="{markupExtensions:CastObjectToInt {x:Static infrastructure:Constants.RumbleDurationUnit}}"
+								UnitsString="{localization:Translate {x:Static s:StringConsts.STR_TIME_UNITS}}"
+								UpDownArrowsBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}"
+								Duration="{Binding XBBinding.CurrentActivatorXBBinding.RumbleDuration, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+								<recolorableImages:RecolorableSVG
+									FrameworkElement.Margin="5,-1,5,0"
+									Drawing="{DynamicResource MacrosTimer}"
+									IsColorShift="True"
+									ColorShiftBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+							</controls:MacrosDurationContainer>
+						</Grid>
+						<bindingFrame:RumbleZone
+							x:Name="rzRightMotor"
+							ControlsBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}"
+							IsRumble="{Binding XBBinding.CurrentActivatorXBBinding.IsRumbleRightMotor, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							Label="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_MAIN}}"
+							Speed="{Binding XBBinding.CurrentActivatorXBBinding.RumbleRightMotorSpeed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+						<bindingFrame:RumbleZone
+							x:Name="rzLeftMotor"
+							ControlsBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}"
+							IsRumble="{Binding XBBinding.CurrentActivatorXBBinding.IsRumbleLeftMotor, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							Label="{localization:Translate {x:Static s:StringConsts.STR_LEFT_MAIN}}"
+							Speed="{Binding XBBinding.CurrentActivatorXBBinding.RumbleLeftMotorSpeed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+						<bindingFrame:RumbleZone
+							x:Name="rzRightTrigger"
+							ControlsBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}"
+							IsRumble="{Binding XBBinding.CurrentActivatorXBBinding.IsRumbleRightTrigger, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							Label="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_TRIGGER}}"
+							Speed="{Binding XBBinding.CurrentActivatorXBBinding.RumbleRightTriggerSpeed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							UIElement.Visibility="{Binding GamepadService.CurrentGamepad.CurrentController.IsTriggerRumbleMotorPresent, FallbackValue=Visible, Converter={converters:BooleanToVisibilityConverter}}" />
+						<bindingFrame:RumbleZone
+							x:Name="rzLeftTrigger"
+							ControlsBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}"
+							IsRumble="{Binding XBBinding.CurrentActivatorXBBinding.IsRumbleLeftTrigger, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							Label="{localization:Translate {x:Static s:StringConsts.STR_LEFT_TRIGGER}}"
+							Speed="{Binding XBBinding.CurrentActivatorXBBinding.RumbleLeftTriggerSpeed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							UIElement.Visibility="{Binding GamepadService.CurrentGamepad.CurrentController.IsTriggerRumbleMotorPresent, FallbackValue=Visible, Converter={converters:BooleanToVisibilityConverter}}" />
+					</StackPanel>
+				</Border>
+			</StackPanel>
+		</ControlTemplate>
+	</Control.Template>
+</bindingFrameViews:BaseBFView>

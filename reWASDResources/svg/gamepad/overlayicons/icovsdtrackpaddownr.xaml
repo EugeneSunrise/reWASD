@@ -1,0 +1,37 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoVSDTrackPadDownR" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoVSDTrackPadDownR">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M10.677,1.123C11.093,1.053 11.71,1 12.399,1 13.249,1 13.843,1.129 14.253,1.454 14.595,1.725 14.783,2.128 14.783,2.655 14.783,3.381 14.264,3.886 13.771,4.063L13.771,4.09C14.168,4.25 14.392,4.63 14.537,5.156 14.715,5.804 14.888,6.552 15,6.774L13.673,6.774C13.585,6.608 13.442,6.148 13.278,5.439 13.12,4.722 12.879,4.531 12.346,4.524L11.961,4.524 11.961,6.774 10.677,6.774 10.677,1.123z M11.961,3.587L12.468,3.587C13.111,3.587 13.494,3.26 13.494,2.762 13.494,2.238 13.135,1.97 12.544,1.966 12.233,1.966 12.052,1.986 11.961,2.009L11.961,3.587z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M8,1L2,1C1.914,1,1.837,1.029,1.757,1.049L8,7.293 9.37,5.923C9.617,6.17,9.831,6.384,10.077,6.63L8.707,8 14.951,14.244C14.971,14.164,15,14.086,15,14L15,8 16,8 16,14C16,15.105,15.105,16,14,16L2,16C0.895,16,0,15.105,0,14L0,2C0,0.895,0.895,0,2,0L8,0 8,1z M1,2L1,14C1,14.086,1.029,14.164,1.049,14.244L7.293,8 1.049,1.756C1.029,1.836,1,1.914,1,2z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

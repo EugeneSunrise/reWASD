@@ -1,0 +1,50 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesInputDevices" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:preferences="clr-namespace:reWASDUI.Views.Preferences" xmlns:preferences1="clr-namespace:reWASDUI.ViewModels.Preferences"
+	x:Name="ucPreferencesInputDevices">
+	<Border
+		Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+		Border.BorderThickness="1,0,0,0">
+		<ScrollViewer
+			FrameworkElement.Style="{DynamicResource PreferencesPageGridStyle}">
+			<Grid>
+				<StackPanel>
+					<checkBoxes:FillCheckBox
+						Name="chkUsePhysicalUSBHub"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_USE_PHYSICAL_USB_HUB}}"
+						IsChecked="{Binding UsePhysicalUSBHub}" />
+					<Border
+						FrameworkElement.Margin="0,20,0,10"
+						Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+						Border.BorderThickness="0,1,0,0" />
+					<preferences:InputDevicesControl
+						FrameworkElement.Margin="0,8,0,0"
+						DataContext="{Binding MouseInputDevice}" />
+					<preferences:InputDevicesControl
+						FrameworkElement.Margin="0,30,0,0"
+						DataContext="{Binding KeyboardInputDevice}" />
+					<checkBoxes:FillCheckBox
+						Name="chkDontCreateVID"
+						FrameworkElement.Margin="0,16,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_DONOT_CREATE_VIRTUAL_INPUT_DEVICE}}"
+						IsChecked="{Binding DontCreateVID}">
+						<UIElement.IsEnabled>
+							<MultiBinding
+								ConverterParameter="(!{0}  &amp;&amp; !{1})"
+								Converter="{converters:MultiBooleanParametrizedConverter}">
+								<Binding
+									Path="KeyboardInputDevice.CurrentInputDevice.IsVirtual" />
+								<Binding
+									Path="MouseInputDevice.CurrentInputDevice.IsVirtual" />
+							</MultiBinding>
+						</UIElement.IsEnabled>
+					</checkBoxes:FillCheckBox>
+				</StackPanel>
+			</Grid>
+		</ScrollViewer>
+	</Border>
+</UserControl>

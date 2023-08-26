@@ -1,0 +1,38 @@
+<Window
+	x:Class="Overlay.NET.Wpf.MessagesWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="reWASD overlay"
+	FrameworkElement.HorizontalAlignment="Left"
+	FrameworkElement.VerticalAlignment="Top"
+	AllowsTransparency="True"
+	AutomationProperties.AutomationId="OverlayMessages"
+	Left="24"
+	RenderOptions.ClearTypeHint="Enabled"
+	ShowInTaskbar="False"
+	SizeToContent="WidthAndHeight"
+	TextOptions.TextFormattingMode="Ideal"
+	Top="24"
+	Topmost="True"
+	UseLayoutRounding="True"
+	WindowStartupLocation="Manual"
+	WindowStyle="None" xmlns:wpf="clr-namespace:Overlay.NET.Wpf"
+	SizeChanged="UpdateSize">
+	<Control.Background>
+		<SolidColorBrush
+			Opacity="1" />
+	</Control.Background>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ScaleTransform
+				x:Key="windowScaleTransform"
+				ScaleX="{Binding Scale}"
+				ScaleY="{Binding Scale}" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Name="OverlayGrid"
+		LayoutTransform="{StaticResource windowScaleTransform}"
+		Opacity="{Binding Transparent}">
+		<ItemsControl
+			ItemsControl.ItemsSource="{Binding Messages}" />
+	</Grid>
+</Window>

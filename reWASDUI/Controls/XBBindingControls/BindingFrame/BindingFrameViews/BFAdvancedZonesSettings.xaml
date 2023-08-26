@@ -1,0 +1,10 @@
+<bindingFrameViews:BaseBFView
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews.BFAdvancedZonesSettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:bindingFrameViews="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews" xmlns:advancedStick="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick">
+	<Border
+		FrameworkElement.MinWidth="205"
+		Border.Background="{DynamicResource ContentBackground}"
+		Border.BorderBrush="{DynamicResource ContentBorderBrush}">
+		<advancedStick:AdvancedZonesSettings
+			DirectionalGroup="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrenDirectionalAnalogGroup}" />
+	</Border>
+</bindingFrameViews:BaseBFView>

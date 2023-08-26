@@ -1,0 +1,39 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriGyroGamepadLeft" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriGyroGamepadLeft">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<DrawingGroup
+								svr:SvgObject.Id="Layer_1">
+								<DrawingGroup.Children>
+									<DrawingGroup
+										svr:SvgObject.Id="UriGyroGamepadLeft">
+										<DrawingGroup.Children>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<PathGeometry
+														FillRule="Nonzero"
+														PathGeometry.Figures="M8,0C6.4,0 5.1,1.8 4.4,4.4 1.8,5.1 0,6.4 0,8 0,9.6 1.8,10.9 4.4,11.6 5.1,14.2 6.4,16 8,16 9.6,16 10.9,14.2 11.6,11.6 14.2,10.9 16,9.6 16,8 16,6.4 14.2,5.1 11.6,4.4 10.9,1.8 9.6,0 8,0z M11.8,10.5C11.9,9.7 12,8.8 12,8 12,7.2 11.9,6.3 11.8,5.5 13.8,6.1 15,7.1 15,8 15,8.9 13.8,9.9 11.8,10.5z M4.7,10.6C4.4,8.9 4.4,7.1 4.7,5.4 5.8,5.1 6.9,5 8,5 9.1,5 10.2,5.1 11.3,5.4 11.5,6.3 11.5,7.1 11.5,8 11.5,8.9 11.4,9.8 11.3,10.6 10.7,10.7 10.1,10.8 9.5,10.9L9.5,8.8 6.3,10.9 5.8,11.3 6.8,12 9.5,13.8 9.5,12C10,12 10.5,11.9 11,11.8 10.4,14 9.2,15.6 8,15.6 6.8,15.6 5.6,14 5,11.8 4.9,11.4 4.8,11 4.7,10.6L4.7,10.6z M4.2,5.5C3.9,7.1 3.9,8.8 4.2,10.4 2.2,9.9 1,8.9 1,8 1,7.1 2.2,6.1 4.2,5.5z M8,0.5C9.3,0.5 10.4,2.1 11,4.3 9,3.9 7,3.9 5,4.3 5.6,2.1 6.7,0.5 8,0.5z" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+										</DrawingGroup.Children>
+									</DrawingGroup>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

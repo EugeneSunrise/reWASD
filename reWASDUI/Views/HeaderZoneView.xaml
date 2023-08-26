@@ -1,0 +1,163 @@
+<UserControl
+	x:Class="reWASDUI.Views.HeaderZoneView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:controls1="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:XBEliteWPF.Views" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:views="clr-namespace:reWASDUI.Views"
+	AutomationProperties.AutomationId="HeaderZoneView">
+	<Grid>
+		<Grid
+			FrameworkElement.Name="headerGrid"
+			x:Name="headerGrid">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<views:GamesSelector
+				x:Name="gamesSelector"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Stretch"
+				UIElement.IsEnabled="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Window}}"
+				UIElement.Visibility="{Binding GamesSelectorVisibility, RelativeSource={RelativeSource AncestorType=views:HeaderZoneView}}">
+				<Grid
+					FrameworkElement.Margin="3,1,0,0"
+					FrameworkElement.VerticalAlignment="Top"
+					AutomationProperties.AutomationId="grid"
+					UIElement.Visibility="{Binding GameProfilesService.CurrentGame, Converter={converters:ValueIsNotNullToVisibilityConverter}, FallbackValue={x:Null}}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<buttons:SVGButton
+						FrameworkElement.Height="30"
+						Control.Padding="0,0,10,0"
+						FrameworkElement.VerticalAlignment="Top"
+						AutomationProperties.AutomationId="btnAddConfig"
+						ColorShiftBrush="#FFFFFFFF"
+						Drawing="{DynamicResource AddConfig}"
+						Control.FontSize="16"
+						Control.Foreground="#FFFFFFFF"
+						HighlightedBackground="{DynamicResource MiniGamepadHoverBackgroundBrush}"
+						HighlightedForeground="#FFFFFFFF"
+						PressedBackground="#00FFFFFF"
+						PressedForeground="#FFFFFFFF"
+						SVGMargin="8,4,5,3"
+						ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CreateConfigCommand}"
+						Text="{localization:Translate {x:Static s:StringConsts.IDS_ADD_NEW_CONFIG}}"
+						ToolTip="{localization:Translate {x:Static s:StringConsts.IDS_ADD_NEW_CONFIG}}"
+						UIElement.Visibility="{Binding GameProfilesService.CurrentGame.ConfigCollection.Count, ConverterParameter='== 0', Converter={converters:ValueSatisfiesRuleParameterToVisibilityConverter}}" />
+					<controls:ConfigSelectorControl
+						Grid.Column="1"
+						FrameworkElement.VerticalAlignment="Top"
+						AutomationProperties.AutomationId="CurrentConfigNameGroup"
+						UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig, ConverterParameter=Hidden, Converter={converters:NullVisibilityConverter}}">
+						<StackPanel
+							Orientation="Horizontal">
+							<buttons:SVGButton
+								FrameworkElement.Width="16"
+								FrameworkElement.Height="16"
+								FrameworkElement.Margin="5,0,1,0"
+								AutomationProperties.AutomationId="btnSaveConfig"
+								Drawing="{DynamicResource Save}"
+								PressedBackground="#00FFFFFF"
+								SVGHeight="16"
+								SVGMargin="0"
+								SVGWidth="16"
+								ToolTipService.ShowOnDisabled="True"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.SaveConfigCommand}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STRING_SAVE}}" />
+							<buttons:SVGButton
+								FrameworkElement.Margin="10,0,1,0"
+								attachedBehaviours:LeftClickContextMenuBehavior.IsEnabled="True"
+								AutomationProperties.AutomationId="btnMore"
+								ContextMenu="{DynamicResource ctxMenuConfig1}"
+								Drawing="{DynamicResource MoreInfo}"
+								PressedBackground="#00FFFFFF"
+								SVGHeight="16"
+								SVGMargin="0"
+								SVGWidth="16"
+								ToolTipService.ShowOnDisabled="True"
+								DataContext="{Binding GameProfilesService.CurrentGame.CurrentConfig}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_OPTIONS}}" />
+							<controls:MissingFeatureControl
+								FrameworkElement.Margin="5,5,0,0"
+								FrameworkElement.VerticalAlignment="Top"
+								AutomationProperties.AutomationId="MissingFeatureControl"
+								UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsMissingFeatureExist, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+						</StackPanel>
+					</controls:ConfigSelectorControl>
+				</Grid>
+			</views:GamesSelector>
+			<controls1:WindowTitle
+				Name="WindowTitle"
+				Grid.Column="1"
+				FrameworkElement.Height="34"
+				FrameworkElement.VerticalAlignment="Top"
+				Control.Background="#00FFFFFF"
+				IcoVisibility="Collapsed"
+				TrialInfoIsVisible="True"
+				VersionStringIsVisible="False"
+				UIElement.Visibility="Visible">
+				<Border />
+			</controls1:WindowTitle>
+			<TextBlock
+				Name="tbShowLicense"
+				Grid.Column="1"
+				FrameworkElement.Margin="0,8,0,0"
+				FrameworkElement.HorizontalAlignment="Right"
+				FrameworkElement.VerticalAlignment="Top"
+				TextBlock.TextTrimming="CharacterEllipsis"
+				ToolTip="{Binding LicenseDescription}">
+				<Hyperlink
+					TextElement.FontSize="13"
+					FrameworkContentElement.Style="{DynamicResource LicenseHyperlink}"
+					Command="{Binding ShowLicenseCommand}">
+					<TextBlock
+						TextBlock.Text="{Binding LicenseDescription}" />
+				</Hyperlink>
+			</TextBlock>
+			<Grid
+				Column="2"
+				FrameworkElement.HorizontalAlignment="Right"
+				UIElement.IsEnabled="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=Window}}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<StackPanel
+					Grid.Column="1"
+					Orientation="Horizontal">
+					<views:ButtonsZoneView
+						FrameworkElement.Margin="0,3,27,0"
+						FrameworkElement.HorizontalAlignment="Right"
+						FrameworkElement.VerticalAlignment="Top" />
+					<buttons:SVGButton
+						Name="btnUpdate"
+						FrameworkElement.Margin="5,5,4,0"
+						FrameworkElement.VerticalAlignment="Top"
+						ColorShiftBrush="#FFC2ED2E"
+						Drawing="{DynamicResource Update}"
+						SVGMargin="3"
+						ButtonBase.Command="{Binding LicensingService.CheckForUpdateCommand}"
+						ToolTip="{localization:Translate {x:Static s:StringConsts.STR_NEW_VERSION_IS_HERE}}"
+						UIElement.Visibility="{Binding LicensingService.NewVersionAvailable, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				</StackPanel>
+			</Grid>
+			<Border
+				Grid.Column="3"
+				FrameworkElement.Height="32"
+				FrameworkElement.HorizontalAlignment="Right"
+				FrameworkElement.VerticalAlignment="Top"
+				Border.Background="#00FFFFFF">
+				<controls1:WindowHeaderButtons
+					UIElement.Focusable="False" />
+			</Border>
+		</Grid>
+	</Grid>
+</UserControl>

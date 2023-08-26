@@ -1,0 +1,78 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoGCTGBtnDoubleCross" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoGCTGBtnDoubleCross">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8,1C11.77,1 15,4.229 15,8 15,11.771 11.77,15 8,15 4.229,15 1,11.771 1,8 1,4.229 4.229,1 8,1 M8,0C3.542,0 0,3.542 0,8 0,12.457 3.543,16 8,16 12.458,16 16,12.457 16,8 16,3.542 12.455,0 8,0L8,0z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M11.112,5.595L11.112,5.595 10.405,4.888 7.172,8.121 3.939,4.888 3.232,5.595 6.465,8.828 3.232,12.061 3.939,12.768 7.172,9.535 10.405,12.768 11.112,12.061 7.879,8.828z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FFFFFFFF"
+								Opacity="1"
+								Transform="0.7071,-0.7071,0.7071,0.7071,-1.5233,6.0192" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="6.004,3.063,1,3.571"
+								Transform="0.7071,-0.7071,0.7071,0.7071,-1.5233,6.0192" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FFFFFFFF"
+								Opacity="1"
+								Transform="0.7071,-0.7071,0.7071,0.7071,-3.4489,10.6668" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="10.652,7.712,1,3.569"
+								Transform="0.7071,-0.7071,0.7071,0.7071,-3.4489,10.6668" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FFFFFFFF"
+								Opacity="1"
+								Transform="0.7071,-0.7071,0.7071,0.7071,0.6262,9.632" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="11.269,3.56,1.341,1"
+								Transform="0.7071,-0.7071,0.7071,0.7071,0.6262,9.632" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

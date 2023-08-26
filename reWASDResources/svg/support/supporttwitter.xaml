@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="SupportTwitter" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="SupportTwitter">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFE795">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M27,2.60273C26.0069,3.0442 24.9406,3.34347 23.8201,3.47753 24.9636,2.79096 25.8402,1.70085 26.2548,0.406253 25.1818,1.04272 23.9976,1.5045 22.7348,1.75502 21.7241,0.673029 20.2866,0 18.6932,0 15.6339,0 13.1532,2.48763 13.1532,5.55485 13.1532,5.98954 13.2019,6.41475 13.2968,6.821 8.69425,6.58809 4.61336,4.37671 1.88192,1.01563 1.40365,1.83491 1.13268,2.78961 1.13268,3.80795 1.13268,5.7363 2.1109,7.4358 3.59585,8.43112 2.68808,8.39998 1.8345,8.14946 1.08661,7.73372L1.08661,7.80414C1.08661,10.4949 2.99699,12.7415 5.52926,13.252 5.06589,13.3779 4.57542,13.447 4.07005,13.447 3.71237,13.447 3.36687,13.4118 3.0268,13.3441 3.73269,15.5528 5.7772,17.1588 8.19972,17.2021 6.3056,18.6917 3.91695,19.576 1.32101,19.576 0.873897,19.576 0.433561,19.5489 0,19.5002 2.45233,21.0792 5.36261,22 8.49102,22 18.6797,22 24.2482,13.535 24.2482,6.19266L24.2306,5.47359C25.3186,4.69494,26.2602,3.71722,27,2.60273z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,27,22" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

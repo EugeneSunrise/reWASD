@@ -1,0 +1,424 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:discSoftReWasdGuiNamespace="clr-namespace:DiscSoftReWASDGuiNamespace;assembly=reWASDCommon" xmlns:ds="clr-namespace:DiscSoftReWASDServiceNamespace;assembly=reWASDCommon" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:logging="clr-namespace:DiscSoft.NET.Common.Logging;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mvvm="http://prismlibrary.com/" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	x:Name="ucPreferences" xmlns:mvvm1="clr-namespace:Prism.Mvvm;assembly=Prism.Wpf"
+	mvvm1:ViewModelLocator.AutoWireViewModel="True"
+	KeyDown="WindowKeyDown">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<Style
+				x:Key="PreferencesPageGridStyle"
+				TargetType="{x:Type ScrollViewer}"
+				BasedOn="{StaticResource {x:Type ScrollViewer}}">
+				<Setter
+					Property="ScrollViewer.PanningMode"
+					Value="Both" />
+				<Setter
+					Property="FrameworkElement.Margin"
+					Value="48,10,0,8" />
+				<Setter
+					Property="FrameworkElement.Width"
+					Value="620" />
+			</Style>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesGeneralVM}}"
+				DataType="{x:Type preferences:PreferencesGeneralVM}" />
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:ConfirmationPageVM}}"
+				DataType="{x:Type preferences:ConfirmationPageVM}">
+				<preferences1:ConfirmationPageView />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesTrayAgentVM}}"
+				DataType="{x:Type preferences:PreferencesTrayAgentVM}" />
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesGamepadsVM}}"
+				DataType="{x:Type preferences:PreferencesGamepadsVM}" />
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesInputDevicesVM}}"
+				DataType="{x:Type preferences:PreferencesInputDevicesVM}" />
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:ActivatorsPageVM}}"
+				DataType="{x:Type preferences:ActivatorsPageVM}" />
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesSlotsChangePageVM}}"
+				DataType="{x:Type preferences:PreferencesSlotsChangePageVM}">
+				<preferences1:PreferencesSlotsChangePageView />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesConfigsVM}}"
+				DataType="{x:Type preferences:PreferencesConfigsVM}" />
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesBlacklistVM}}"
+				DataType="{x:Type preferences:PreferencesBlacklistVM}" />
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesLEDSettingsVM}}"
+				DataType="{x:Type preferences:PreferencesLEDSettingsVM}">
+				<preferences1:PreferencesLEDSettings />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesExternalDevicesVM}}"
+				DataType="{x:Type preferences:PreferencesExternalDevicesVM}" />
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesHttpVM}}"
+				DataType="{x:Type preferences:PreferencesHttpVM}" />
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type preferences:PreferencesOverlayVM}}"
+				DataType="{x:Type preferences:PreferencesOverlayVM}">
+				<preferences1:PreferencesOverlay />
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<controls:WindowTitle
+			Name="WindowTitle"
+			FrameworkElement.VerticalAlignment="Top"
+			Control.Background="#00FFFFFF"
+			IcoVisibility="Hidden"
+			TrialInfoIsVisible="False"
+			VersionStringIsVisible="False"
+			UIElement.Visibility="Visible">
+			<Border />
+		</controls:WindowTitle>
+		<Grid
+			FrameworkElement.HorizontalAlignment="Right"
+			FrameworkElement.VerticalAlignment="Top">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<buttons:SVGButton
+				Name="btnShowHelp"
+				FrameworkElement.Margin="0,0,27,0"
+				FrameworkElement.HorizontalAlignment="Center"
+				Drawing="{DynamicResource Help}"
+				SVGHeight="16"
+				SVGMargin="0"
+				SVGWidth="16"
+				ButtonBase.Command="{Binding MainContentVM.OpenOnlineHelpSupportCommand}"
+				ToolTip="{l:Translate {x:Static s:StringConsts.STR_HELP}}" />
+			<buttons:SVGButton
+				Name="btnUpdatePreferences"
+				Grid.Column="1"
+				FrameworkElement.Margin="5,5,4,0"
+				FrameworkElement.HorizontalAlignment="Right"
+				FrameworkElement.VerticalAlignment="Top"
+				ColorShiftBrush="#FFC2ED2E"
+				Drawing="{DynamicResource Update}"
+				SVGMargin="3"
+				ButtonBase.Command="{Binding LicensingService.CheckForUpdateCommand}"
+				ToolTip="{l:Translate {x:Static s:StringConsts.STR_NEW_VERSION_IS_HERE}}"
+				UIElement.Visibility="{Binding LicensingService.NewVersionAvailable, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+			<controls:WindowHeaderButtons
+				Grid.Column="2"
+				FrameworkElement.Height="32"
+				UIElement.Focusable="False" />
+		</Grid>
+		<Grid
+			FrameworkElement.Margin="24,49,24,15">
+			<buttons:SVGButton
+				AutomationProperties.AutomationId="btnLicenseBackTop"
+				FrameworkElement.Style="{DynamicResource ButtonBackLicense}"
+				Click="ButtonClose_OnClick" />
+			<Grid
+				FrameworkElement.MaxWidth="935"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Stretch">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="*" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					Grid.Row="0"
+					FrameworkElement.Style="{DynamicResource LicenseMainHeaderTextBlockStyle}"
+					TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_5011}}" />
+				<Grid
+					Row="1"
+					FrameworkElement.VerticalAlignment="Stretch">
+					<Grid.RowDefinitions>
+						<RowDefinition
+							RowDefinition.Height="*" />
+						<RowDefinition
+							RowDefinition.Height="80" />
+					</Grid.RowDefinitions>
+					<Grid
+						Row="0"
+						FrameworkElement.VerticalAlignment="Stretch">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+						</Grid.ColumnDefinitions>
+						<ContentControl
+							Grid.Column="1"
+							ContentControl.Content="{Binding CurrentPage}" />
+						<TabControl
+							Name="tabControlPreferences"
+							Grid.Column="0"
+							Control.Background="#00FFFFFF"
+							Control.BorderThickness="0"
+							FrameworkElement.Style="{DynamicResource TabControlVerticalStyle}"
+							TabStripPlacement="Left"
+							SelectedIndex="{Binding SelectedPage}">
+							<TabItem
+								Name="tabGeneral">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesGeneral}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_GENERAL}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+								<preferences1:PreferencesGeneral
+									DataContext="{Binding PreferencesGeneralVM}" />
+							</TabItem>
+							<TabItem
+								Name="tabTray">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesAgent}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_TRAY_AGENT}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+								<preferences1:PreferencesTrayAgent
+									DataContext="{Binding PreferencesTrayAgentVM}" />
+							</TabItem>
+							<TabItem
+								Name="tabGamepads">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesGamepads}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_GAMEPADS}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+								<preferences1:PreferencesGamepads
+									DataContext="{Binding PreferencesGamepadsVM}" />
+							</TabItem>
+							<TabItem
+								Name="tabInputDevices">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											FrameworkElement.Width="32"
+											FrameworkElement.Height="32"
+											Drawing="{DynamicResource SwitchToVirtualKeyboard}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_INPUT_DEVICES}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+								<preferences1:PreferencesInputDevices
+									DataContext="{Binding PreferencesInputDevicesVM}" />
+							</TabItem>
+							<TabItem
+								Name="tabConfirmations">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesConfirmation}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_CONFIRMATIONS}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+							</TabItem>
+							<TabItem
+								Name="tabPressTimes">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesActivator}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PRESS_TIME}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+								<preferences1:ActivatorsPageView
+									DataContext="{Binding ActivatorsPageVM}" />
+							</TabItem>
+							<TabItem
+								Name="tabSlots">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesSlots}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_SLOTS}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+							</TabItem>
+							<TabItem
+								Name="tabMyData">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesConfigs}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_MY_DATA}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+								<preferences1:PreferencesConfigs
+									DataContext="{Binding PreferencesConfigsVM}" />
+							</TabItem>
+							<TabItem
+								Name="tabBlackList">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesBlacklist}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_BLACKLIST}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+								<preferences1:PreferencesBlacklist
+									DataContext="{Binding PreferencesBlacklistVM}" />
+							</TabItem>
+							<TabItem
+								Name="tabLED">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesLED}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_LED_SETTINGS}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+							</TabItem>
+							<TabItem
+								Name="tabExternalDevices">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesExternalDevices}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_EXTERNAL_DEVICE}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+								<preferences1:PreferencesExternalDevices
+									DataContext="{Binding PreferencesExternalDevicesVM}" />
+							</TabItem>
+							<TabItem
+								Name="tabHttp">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesServer}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_SERVERS}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+								<preferences1:PreferencesHttp
+									DataContext="{Binding PreferencesHttpVM}" />
+							</TabItem>
+							<TabItem
+								Name="tabOverlay">
+								<HeaderedContentControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Drawing="{DynamicResource PreferencesOverlay}"
+											FrameworkElement.Style="{StaticResource PreferencesRecolorableSVG}" />
+										<TextBlock
+											FrameworkElement.Margin="10,0,0,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_OVERLAY}}" />
+									</StackPanel>
+								</HeaderedContentControl.Header>
+							</TabItem>
+						</TabControl>
+					</Grid>
+					<Border
+						Grid.Row="1"
+						FrameworkElement.Margin="250,20,0,0"
+						Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+						Border.BorderThickness="0,1,0,0" />
+					<Grid
+						Row="1"
+						FrameworkElement.Margin="269,0,0,0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<TextBlock
+							Name="tbDescription"
+							Grid.Column="0"
+							FrameworkElement.Margin="0,30,5,0"
+							FrameworkElement.VerticalAlignment="Center"
+							FrameworkElement.Width="550"
+							FrameworkElement.Style="{DynamicResource LicenseNoteTextBlockStyle}"
+							TextBlock.Text="{Binding Description}" />
+						<buttons:ColoredButton
+							Name="btnApply"
+							Grid.Column="1"
+							FrameworkElement.Margin="0,40,0,0"
+							FrameworkElement.VerticalAlignment="Top"
+							IsDefault="True"
+							IsTriggered="True"
+							FrameworkElement.Style="{DynamicResource Button}"
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_APPLY}}"
+							UIElement.IsEnabled="{Binding IsOptionChanged}"
+							Click="ButtonApply_OnClick" />
+					</Grid>
+				</Grid>
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>

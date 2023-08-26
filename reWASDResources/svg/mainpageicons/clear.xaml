@@ -1,0 +1,38 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Clear" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Clear">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup
+						svr:SvgObject.Id="Clear">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M14.657,6.586C14.657,6.185,14.501,5.808,14.218,5.525L10.329,1.636C9.744,1.051,8.792,1.052,8.207,1.636L3.964,5.879 3.257,6.586 1.136,8.707C0.551,9.292,0.551,10.244,1.136,10.829L5.025,14.718C5.308,15.001 5.685,15.157 6.086,15.157 6.486,15.157 6.863,15.001 7.147,14.718L14.218,7.647C14.5,7.363,14.657,6.986,14.657,6.586z M6.439,14.01C6.25,14.199,5.921,14.199,5.732,14.01L1.842,10.121C1.647,9.926,1.647,9.609,1.842,9.413L3.963,7.292 8.559,11.888 6.439,14.01z M13.51,6.939L9.267,11.182 4.671,6.586 8.914,2.343C9.012,2.246 9.14,2.197 9.268,2.197 9.396,2.197 9.524,2.246 9.622,2.343L13.511,6.233C13.606,6.327 13.657,6.452 13.657,6.586 13.657,6.719 13.604,6.845 13.51,6.939z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M14.5,14L10,14C9.724,14 9.5,14.224 9.5,14.5 9.5,14.776 9.724,15 10,15L14.5,15C14.776,15 15,14.776 15,14.5 15,14.224 14.776,14 14.5,14z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

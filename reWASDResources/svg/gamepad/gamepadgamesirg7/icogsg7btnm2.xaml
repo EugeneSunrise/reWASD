@@ -1,0 +1,42 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoGSG7BtnM2" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoGSG7BtnM2">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,16,16" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M4.45,14.52L3.207,13.335C1.463,11.67,0.837,9.118,1.613,6.834L2.883,3.1C3.452,1.43 4.893,0.255 6.644,0.0369999999999999 8.401,-0.185 10.083,0.603 11.044,2.084L13.853,6.413C15.184,8.463,14.956,11.15,13.299,12.947L12.072,14.277C11.092,15.341 9.757,15.951 8.312,15.997 8.253,15.999 8.195,16 8.136,16 6.755,16 5.453,15.478 4.45,14.52z M12.564,12.269C13.911,10.808,14.096,8.624,13.014,6.957L10.205,2.629C9.443,1.454 8.159,0.854 6.768,1.029 5.38,1.202 4.281,2.096 3.831,3.422L2.561,7.156C1.909,9.073,2.434,11.214,3.898,12.612L5.141,13.797C5.991,14.608 7.105,15.03 8.28,14.997 9.455,14.959 10.541,14.463 11.337,13.599L12.564,12.269 12.564,12.269z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

@@ -1,0 +1,70 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.GamepadSelector.InitializeGameCube" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://prismlibrary.com/" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:gamepadSelector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector" xmlns:initializeGamepad="clr-namespace:reWASDUI.ViewModels.InitializeGamepad" xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Wpf"
+	mvvm:ViewModelLocator.AutoWireViewModel="True">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type gamepadSelector:InitializeGameCube}">
+			<Grid
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="*" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid
+					FrameworkElement.Margin="0,25,0,20">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="1*" />
+						<ColumnDefinition
+							ColumnDefinition.Width="6*" />
+						<ColumnDefinition
+							ColumnDefinition.Width="1*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="*" />
+					</Grid.RowDefinitions>
+					<TextBlock
+						Grid.Column="1"
+						FrameworkElement.Margin="0,0,0,30"
+						FrameworkElement.HorizontalAlignment="Center"
+						TextBlock.FontSize="22"
+						TextBlock.FontWeight="Bold"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_INIT_GAMECUBE_HEADER}}" />
+					<TextBlock
+						Grid.Row="1"
+						Grid.Column="1"
+						TextBlock.FontSize="14"
+						FrameworkElement.Width="808"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_INIT_GAMECUBE_DESCRIPTION}}" />
+					<Image
+						Grid.Row="2"
+						FrameworkElement.Width="808"
+						Grid.Column="1"
+						FrameworkElement.Margin="0,25,0,0"
+						Image.Source="{DynamicResource GameCubeWarning}"
+						Image.Stretch="None" />
+				</Grid>
+				<buttons:ColoredButton
+					Grid.Row="1"
+					FrameworkElement.Height="38"
+					FrameworkElement.Margin="0,0,0,20"
+					Control.Padding="41,0"
+					FrameworkElement.HorizontalAlignment="Center"
+					Control.Background="{DynamicResource CreamBrush}"
+					IsTriggered="True"
+					ButtonBase.Command="{Binding SubmitCommand}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_GOT_IT}}" />
+			</Grid>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

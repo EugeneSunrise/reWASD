@@ -1,0 +1,593 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="Colors.xaml" />
+		<ResourceDictionary
+			Source="ImplicitStyles/_ImplicitStyles.xaml" />
+		<ResourceDictionary
+			Source="Controls/_DTControlsStyles.xaml" />
+		<ResourceDictionary
+			Source="DTMessageBox/DTMessageBoxStyle.xaml" />
+		<ResourceDictionary
+			Source="GamesPanel/_GamesPanelStyle.xaml" />
+		<ResourceDictionary
+			Source="ScrollBar/_ScrollBarStyles.xaml" />
+		<ResourceDictionary
+			Source="SecondaryWindow/SecondaryWindowStyle.xaml" />
+		<ResourceDictionary
+			Source="WaitDialog/WaitDialogStyle.xaml" />
+		<ResourceDictionary
+			Source="ContainerStyles.xaml" />
+		<ResourceDictionary
+			Source="Generic/_Generic.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		x:Key="LicenseWindowBorderStyle"
+		TargetType="{x:Type Border}">
+		<Setter
+			Property="Border.Background"
+			Value="{DynamicResource WindowBackground}" />
+	</Style>
+	<Style
+		x:Key="PageBorderStyle"
+		TargetType="{x:Type Border}">
+		<Setter
+			Property="Border.BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Border.BorderBrush"
+			Value="{DynamicResource ContentBorderBrush}" />
+		<Setter
+			Property="Border.Background"
+			Value="{DynamicResource ContentBackground}" />
+	</Style>
+	<Style
+		x:Key="PageHeaderBorderStyle"
+		TargetType="{x:Type Border}">
+		<Setter
+			Property="Border.Background"
+			Value="{DynamicResource SideBarContentBackground}" />
+	</Style>
+	<Style
+		x:Key="PageHeaderTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="14" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource SideBarForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="10" />
+	</Style>
+	<Style
+		x:Key="ReportsTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="10,0,0,0" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Left" />
+	</Style>
+	<Style
+		x:Key="GridViewTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0,0,0,0" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Left" />
+	</Style>
+	<Style
+		x:Key="GridViewHeaderTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="10,0,0,0" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Left" />
+	</Style>
+	<Style
+		x:Key="DSImage"
+		TargetType="{x:Type Image}">
+		<Setter
+			Property="Image.Stretch"
+			Value="None" />
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Center" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+	</Style>
+	<Style
+		x:Key="PageContentScrollableContainerStyle"
+		TargetType="{x:Type ContentControl}">
+		<Setter
+			Property="Control.Padding"
+			Value="13,14,0,14" />
+	</Style>
+	<Style
+		x:Key="PageContentContainerStyle"
+		TargetType="{x:Type FrameworkElement}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="13,14" />
+	</Style>
+	<Style
+		x:Key="PageSubHeaderContainerOutsidePageContentStyle"
+		TargetType="{x:Type FrameworkElement}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="13,14,13,0" />
+	</Style>
+	<Style
+		x:Key="PageNavigationContainerStyle"
+		TargetType="{x:Type FrameworkElement}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="13,14" />
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Right" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Bottom" />
+	</Style>
+	<Style
+		x:Key="PageNavigationContainerBorderWithBackgroundStyle"
+		TargetType="{x:Type Border}">
+		<Setter
+			Property="Border.Background"
+			Value="{DynamicResource WaitDialogBackground}" />
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Bottom" />
+	</Style>
+	<Style
+		x:Key="WizardControlsGroup"
+		TargetType="{x:Type FrameworkElement}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0,13,0,0" />
+	</Style>
+	<Style
+		x:Key="DataTemplateButtonsContatinerStyle"
+		TargetType="{x:Type FrameworkElement}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0,6,0,0" />
+	</Style>
+	<Style
+		x:Key="ImageButtonWithHeaderAndDescriptionStyle"
+		TargetType="{x:Type buttons:ImageButton}">
+		<Setter
+			Property="Control.Padding"
+			Value="10" />
+		<Setter
+			Property="Control.Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="buttons:ImageButton.HighlightedBackground"
+			Value="#FF00FFFF" />
+		<Setter
+			Property="buttons:ImageButton.HighlightedBorderBrush"
+			Value="#FF000000" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Control.VerticalContentAlignment"
+			Value="Top" />
+	</Style>
+	<Style
+		x:Key="LicensePageFooterBorderStyle"
+		TargetType="{x:Type Border}">
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="Border.Background"
+			Value="{DynamicResource SideBarContentBackground}" />
+		<Setter
+			Property="Border.Padding"
+			Value="0,7,19,7" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0" />
+	</Style>
+	<Style
+		x:Key="LicensePageContentBorderStyle"
+		TargetType="{x:Type Border}">
+		<Setter
+			Property="Border.Background"
+			Value="{DynamicResource WindowBackground}" />
+		<Setter
+			Property="Border.Padding"
+			Value="20,0" />
+	</Style>
+	<Style
+		x:Key="LicenseHeaderTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="24" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource LicenseWizardForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.FontWeight"
+			Value="Light" />
+		<Setter
+			Property="TextBlock.TextWrapping"
+			Value="Wrap" />
+	</Style>
+	<Style
+		x:Key="LicenseMainHeaderTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="26" />
+		<Setter
+			Property="TextBlock.FontWeight"
+			Value="SemiBold" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource LicenseWizardForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Top" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0,25,0,0" />
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Center" />
+	</Style>
+	<Style
+		x:Key="FeatureDescriptionTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="14" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource LicenseWizardForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.TextAlignment"
+			Value="Left" />
+		<Setter
+			Property="TextBlock.FontWeight"
+			Value="Regular" />
+	</Style>
+	<Style
+		x:Key="LicenseTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="14" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource LicenseWizardForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.TextAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.FontWeight"
+			Value="Light" />
+	</Style>
+	<Style
+		x:Key="LicenseOldPriceTextBlockStyle"
+		BasedOn="{StaticResource LicenseTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource CheckBoxDisabledForeground}" />
+		<Setter
+			Property="TextBlock.TextDecorations"
+			Value="Strikethrough" />
+	</Style>
+	<Style
+		x:Key="FeatureHeaderTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="22" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource LicenseWizardForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.FontWeight"
+			Value="Normal" />
+	</Style>
+	<Style
+		x:Key="FeatureHeaderTrialTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="16" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource LicenseWizardImportantForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.FontWeight"
+			Value="Light" />
+	</Style>
+	<Style
+		x:Key="LicenseCaptionTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="14" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource LicenseWizardForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.FontWeight"
+			Value="Bold" />
+		<Setter
+			Property="TextBlock.TextWrapping"
+			Value="Wrap" />
+	</Style>
+	<Style
+		x:Key="LicenseNoteTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="12" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource LicenseWizardImportantForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.TextWrapping"
+			Value="Wrap" />
+	</Style>
+	<Style
+		x:Key="LicenseNoteImportantTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="12" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource LicenseWizardImportantForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="TextBlock.TextAlignment"
+			Value="Center" />
+	</Style>
+	<Style
+		x:Key="LicenseValueTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="14" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource LicenseWizardForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="TextBlock.Background"
+			Value="#00FFFFFF" />
+	</Style>
+	<Style
+		x:Key="LicenseValueTextBoxStyle"
+		TargetType="{x:Type TextBox}">
+		<Setter
+			Property="Control.FontSize"
+			Value="14" />
+		<Setter
+			Property="Control.Foreground"
+			Value="{DynamicResource LicenseWizardForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBox.TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="TextBoxBase.IsReadOnly"
+			Value="True" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Control.Background"
+			Value="#00FFFFFF" />
+	</Style>
+	<Style
+		x:Key="LicenseEditableValueTextBoxStyle"
+		TargetType="{x:Type TextBox}">
+		<Setter
+			Property="Control.FontSize"
+			Value="14" />
+		<Setter
+			Property="Control.Foreground"
+			Value="{DynamicResource LicenseWizardForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBox.TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Control.BorderBrush"
+			Value="{DynamicResource LicenseWizardImportantForeground}" />
+		<Setter
+			Property="Control.Background"
+			Value="{x:Null}" />
+	</Style>
+	<Style
+		x:Key="VSSDescriptionTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="#FFF6D5" />
+		<Setter
+			Property="TextBlock.TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="FrameworkElement.Width"
+			Value="600" />
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="UIElement.Opacity"
+					Value="0.7" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		x:Key="FacebookTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="11" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource ButtonForeground}" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.FontWeight"
+			Value="Bold" />
+	</Style>
+	<Style
+		x:Key="SecondaryWindowHeaderStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="27" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="#FFFFFFFF" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Top" />
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.FontWeight"
+			Value="Normal" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="20,32,20,0" />
+		<Setter
+			Property="TextBlock.TextWrapping"
+			Value="Wrap" />
+	</Style>
+	<Style
+		x:Key="FocusVisualStyle">
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate />
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ButtonFocusVisualStyle">
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Rectangle
+						FrameworkElement.Margin="-2"
+						Shape.Stroke="{DynamicResource CreamBrush}"
+						Shape.StrokeThickness="1" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="BigButtonFocusVisualStyle">
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Rectangle
+						Shape.Stroke="{DynamicResource CreamBrush}"
+						Shape.StrokeThickness="1" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<ResourceDictionary
+		x:Key="GenerationGamepadWindowResources">
+		<SolidColorBrush
+			x:Key="SingleActivatorBrush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="OverlayForeground"
+			Color="White" />
+	</ResourceDictionary>
+</ResourceDictionary>

@@ -1,0 +1,188 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+	<Style
+		x:Key="DTBaseTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="13" />
+		<Setter
+			Property="FrameworkElement.MinHeight"
+			Value="21" />
+		<Setter
+			Property="TextBlock.TextWrapping"
+			Value="Wrap" />
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="false">
+				<Setter
+					Property="TextBlock.Foreground"
+					Value="{DynamicResource DisabledControlForegroundColor}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		x:Key="DTDisabledTextBlockStyle"
+		TargetType="{x:Type TextBlock}">
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="false">
+				<Setter
+					Property="TextBlock.Foreground"
+					Value="{DynamicResource DisabledControlForegroundColor}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		x:Key="DTTextBlockStyle"
+		BasedOn="{StaticResource DTBaseTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+	</Style>
+	<Style
+		x:Key="WizardTextBlockStyle"
+		BasedOn="{StaticResource DTTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="14" />
+		<Setter
+			Property="TextBlock.TextAlignment"
+			Value="Left" />
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+	</Style>
+	<Style
+		x:Key="DTTextBlockCreamBrushStyle"
+		BasedOn="{StaticResource DTBaseTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource CreamBrush}" />
+	</Style>
+	<Style
+		x:Key="DTTextBlockStyleWithOpacity"
+		BasedOn="{StaticResource DTBaseTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="false">
+				<Setter
+					Property="UIElement.Opacity"
+					Value="0.7" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		x:Key="HintTextBlockStyle"
+		BasedOn="{StaticResource DTBaseTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource HintForeground}" />
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="false">
+				<Setter
+					Property="TextBlock.Foreground"
+					Value="{DynamicResource DisabledControlForegroundColor}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		x:Key="WizardNoteTextBlockStyle"
+		BasedOn="{StaticResource DTBaseTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource WizardNoteForegroundBrush}" />
+	</Style>
+	<Style
+		x:Key="WizardSingleMsgPageTextBlockStyle"
+		BasedOn="{StaticResource DTBaseTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="16" />
+		<Setter
+			Property="TextBlock.TextAlignment"
+			Value="Center" />
+		<Setter
+			Property="TextBlock.TextWrapping"
+			Value="Wrap" />
+	</Style>
+	<Style
+		x:Key="DTHeaderTextBlockStyle"
+		BasedOn="{StaticResource DTTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="16" />
+	</Style>
+	<Style
+		x:Key="DTBFHeaderTextBlockStyle"
+		BasedOn="{StaticResource DTTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="16" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0,12,0,0" />
+	</Style>
+	<Style
+		x:Key="DTBFDescriptionTextBlockStyle"
+		BasedOn="{StaticResource DTTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="12" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0,5,0,0" />
+	</Style>
+	<Style
+		x:Key="DTCreamTextBlockStyle"
+		BasedOn="{StaticResource DTTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource CreamBrush}" />
+	</Style>
+	<Style
+		x:Key="DTCreamHeaderTextBlockStyle"
+		BasedOn="{StaticResource DTTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="14" />
+	</Style>
+	<Style
+		x:Key="DTCreamBoldTextBlockStyle"
+		BasedOn="{StaticResource DTCreamTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.FontWeight"
+			Value="Bold" />
+	</Style>
+	<Style
+		x:Key="DTTextBlockControlLabelStyle"
+		BasedOn="{StaticResource DTTextBlockStyle}"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0,12,0,0" />
+	</Style>
+</ResourceDictionary>

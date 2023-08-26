@@ -1,0 +1,642 @@
+<Window
+	x:Class="reWASDEngine.OverlayAPI.RemapWindow.RemapWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:XBEliteWPF.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:listViewLayoutManager="clr-namespace:DiscSoft.NET.Common.Utils.ListViewLayoutManager;assembly=DiscSoft.NET.Common" xmlns:local="clr-namespace:reWASDEngine.Services.OverlayAPI" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableimages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:remapWindow="clr-namespace:reWASDEngine.OverlayAPI.RemapWindow" xmlns:wpf="clr-namespace:Overlay.NET.Wpf" xmlns:overlayApi="clr-namespace:reWASDEngine.Services.OverlayAPI;assembly=reWASDCommon"
+	x:Name="ConfigBindingsOverlay"
+	Title="reWASD overlay"
+	FrameworkElement.Width="590"
+	FrameworkElement.Height="290"
+	FrameworkElement.HorizontalAlignment="Right"
+	FrameworkElement.VerticalAlignment="Top"
+	AllowsTransparency="True"
+	AutomationProperties.AutomationId="ConfigBindingsOverlay"
+	Left="00"
+	RenderOptions.ClearTypeHint="Enabled"
+	ShowInTaskbar="False"
+	SizeToContent="WidthAndHeight"
+	TextOptions.TextFormattingMode="Ideal"
+	Top="624"
+	Topmost="True"
+	WindowStartupLocation="Manual"
+	WindowStyle="None"
+	SizeChanged="UpdateSize">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type local:SubConfigDataVM}}"
+				DataType="{x:Type local:SubConfigDataVM}">
+				<Border
+					FrameworkElement.Margin="0,0,10,10">
+					<StackPanel
+						FrameworkElement.VerticalAlignment="Bottom"
+						Panel.Background="{DynamicResource PageBackground}"
+						Grid.IsSharedSizeScope="True"
+						Orientation="Vertical">
+						<Grid
+							Name="Header">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="ColumnButton" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column0" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column1" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column2" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column3" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column4" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column5" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column6" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column7" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column8" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column9" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column10" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column11" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto"
+									SharedSizeGroup="Column12" />
+							</Grid.ColumnDefinitions>
+							<Border
+								FrameworkElement.Style="{DynamicResource FirstHeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column0MaxWidth}">
+								<recolorableimages:RecolorableSVG
+									Name="GridHeader"
+									FrameworkElement.MinWidth="36"
+									FrameworkElement.HorizontalAlignment="Center"
+									ColorShiftBrush="#FF000000"
+									IsColorShift="True">
+									<recolorableimages:RecolorableSVG.Drawing>
+										<MultiBinding
+											Converter="{converters1:ControllerFamilyOrMaskIconConverter}">
+											<Binding
+												Path="ControllerFamily" />
+											<Binding
+												Path="IsMaskItems" />
+										</MultiBinding>
+									</recolorableimages:RecolorableSVG.Drawing>
+								</recolorableimages:RecolorableSVG>
+							</Border>
+							<Border
+								Grid.Column="1"
+								FrameworkElement.MinWidth="72"
+								FrameworkElement.Style="{DynamicResource MainShiftHeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column1MaxWidth}">
+								<recolorableimages:RecolorableSVG
+									Name="S0"
+									ColorShiftBrush="{DynamicResource CreamBrush}"
+									Drawing="{DynamicResource Shift0White}"
+									IsColorShift="True"
+									FrameworkElement.Style="{DynamicResource HeaderFirstShiftStyle}" />
+							</Border>
+							<Border
+								Grid.Column="2"
+								FrameworkElement.Style="{DynamicResource Shift1HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column2MaxWidth}"
+								UIElement.Visibility="{Binding Shift1ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S1"
+									ColorShiftBrush="{DynamicResource Shift1Brush}"
+									Drawing="{DynamicResource Shift1White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="3"
+								FrameworkElement.Style="{DynamicResource Shift2HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column3MaxWidth}"
+								UIElement.Visibility="{Binding Shift2ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S2"
+									ColorShiftBrush="{DynamicResource Shift2Brush}"
+									Drawing="{DynamicResource Shift2White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="4"
+								FrameworkElement.Style="{DynamicResource Shift3HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column4MaxWidth}"
+								UIElement.Visibility="{Binding Shift3ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S3"
+									ColorShiftBrush="{DynamicResource Shift3Brush}"
+									Drawing="{DynamicResource Shift3White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="5"
+								FrameworkElement.Style="{DynamicResource Shift4HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column5MaxWidth}"
+								UIElement.Visibility="{Binding Shift4ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S4"
+									ColorShiftBrush="{DynamicResource Shift4Brush}"
+									Drawing="{DynamicResource Shift4White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="6"
+								FrameworkElement.Style="{DynamicResource Shift5HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column6MaxWidth}"
+								UIElement.Visibility="{Binding Shift5ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S5"
+									ColorShiftBrush="{DynamicResource Shift5Brush}"
+									Drawing="{DynamicResource Shift5White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="7"
+								FrameworkElement.Style="{DynamicResource Shift6HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column7MaxWidth}"
+								UIElement.Visibility="{Binding Shift6ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S6"
+									ColorShiftBrush="{DynamicResource Shift6Brush}"
+									Drawing="{DynamicResource Shift6White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="8"
+								FrameworkElement.Style="{DynamicResource Shift7HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column8MaxWidth}"
+								UIElement.Visibility="{Binding Shift7ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S7"
+									ColorShiftBrush="{DynamicResource Shift7Brush}"
+									Drawing="{DynamicResource Shift7White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="9"
+								FrameworkElement.Style="{DynamicResource Shift8HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column9MaxWidth}"
+								UIElement.Visibility="{Binding Shift8ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S8"
+									ColorShiftBrush="{DynamicResource Shift8Brush}"
+									Drawing="{DynamicResource Shift8White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="10"
+								FrameworkElement.Style="{DynamicResource Shift9HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column10MaxWidth}"
+								UIElement.Visibility="{Binding Shift9ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S9"
+									ColorShiftBrush="{DynamicResource Shift9Brush}"
+									Drawing="{DynamicResource Shift9White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="11"
+								FrameworkElement.Style="{DynamicResource Shift10HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column11MaxWidth}"
+								UIElement.Visibility="{Binding Shift10ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S10"
+									ColorShiftBrush="{DynamicResource Shift10Brush}"
+									Drawing="{DynamicResource Shift10White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="12"
+								FrameworkElement.Style="{DynamicResource Shift11HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column12MaxWidth}"
+								UIElement.Visibility="{Binding Shift11ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S11"
+									ColorShiftBrush="{DynamicResource Shift11Brush}"
+									Drawing="{DynamicResource Shift11White}"
+									IsColorShift="True" />
+							</Border>
+							<Border
+								Grid.Column="13"
+								FrameworkElement.Style="{DynamicResource Shift12HeaderStyle}"
+								FrameworkElement.MaxWidth="{Binding Column13MaxWidth}"
+								UIElement.Visibility="{Binding Shift12ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+								<recolorableimages:RecolorableSVG
+									Name="S12"
+									ColorShiftBrush="{DynamicResource Shift12Brush}"
+									Drawing="{DynamicResource Shift12White}"
+									IsColorShift="True" />
+							</Border>
+						</Grid>
+						<ItemsControl
+							AlternationCount="2"
+							Control.BorderThickness="0"
+							Control.Foreground="{DynamicResource OverlayForeground}"
+							ItemsControl.ItemsSource="{Binding Buttons}">
+							<ItemsControl.ItemContainerStyle>
+								<Style
+									TargetType="{x:Type ContentPresenter}">
+									<Setter
+										Property="FrameworkElement.MinHeight"
+										Value="22" />
+								</Style>
+							</ItemsControl.ItemContainerStyle>
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<Grid>
+										<FrameworkElement.Style>
+											<Style
+												TargetType="{x:Type Grid}">
+												<Style.Triggers>
+													<DataTrigger
+														Value="0"
+														Binding="{Binding Path=(ItemsControl.AlternationIndex), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}}">
+														<Setter
+															Property="Panel.Background"
+															Value="#00FFFFFF" />
+													</DataTrigger>
+													<DataTrigger
+														Value="1"
+														Binding="{Binding Path=(ItemsControl.AlternationIndex), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}}">
+														<Setter
+															Property="Panel.Background"
+															Value="{DynamicResource TableRowGrayBrush}" />
+													</DataTrigger>
+												</Style.Triggers>
+											</Style>
+										</FrameworkElement.Style>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="ColumnButton" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column0" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column1" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column2" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column3" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column4" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column5" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column6" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column7" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column8" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column9" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column10" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column11" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto"
+												SharedSizeGroup="Column12" />
+										</Grid.ColumnDefinitions>
+										<Border
+											FrameworkElement.Style="{DynamicResource OverlayFirstCellBorderBrush}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column0MaxWidth}">
+											<Grid>
+												<local:AssociatedControllerButtonView
+													FrameworkElement.Margin="10,0"
+													FrameworkElement.HorizontalAlignment="Center"
+													Control.Foreground="{DynamicResource OverlayForeground}"
+													AssociatedControllerButton="{Binding Btn}"
+													ControllerType="{Binding HostObject.ControllerType}"
+													UIElement.Visibility="{Binding HostObject.IsMaskItems, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+													<FrameworkElement.Style>
+														<Style
+															TargetType="{x:Type local:AssociatedControllerButtonView}">
+															<Style.Triggers>
+																<DataTrigger
+																	Value="false"
+																	Binding="{Binding Btn.IsKeyScanCode}">
+																	<Setter
+																		Property="AutomationProperties.AutomationId"
+																		Value="{Binding Btn.GamepadButton}" />
+																</DataTrigger>
+																<DataTrigger
+																	Value="true"
+																	Binding="{Binding Btn.IsKeyScanCode}">
+																	<Setter
+																		Property="AutomationProperties.AutomationId"
+																		Value="{Binding Btn.KeyScanCode.Description}" />
+																</DataTrigger>
+															</Style.Triggers>
+														</Style>
+													</FrameworkElement.Style>
+												</local:AssociatedControllerButtonView>
+												<remapWindow:MaskConditionView
+													AutomationProperties.AutomationId="{Binding Msk.MaskConditions.MaskItemConditionButtonsFriendlyName}"
+													ControllerType="{Binding HostObject.ControllerType}"
+													MaskCondition="{Binding Msk.MaskConditions}"
+													UIElement.Visibility="{Binding HostObject.IsMaskItems, Converter={converters:BooleanToVisibilityConverter}}" />
+											</Grid>
+										</Border>
+										<Border
+											Grid.Column="1"
+											FrameworkElement.Style="{DynamicResource OverlayMainCellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column1MaxWidth}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.HorizontalAlignment="Center"
+												FrameworkElement.VerticalAlignment="Center"
+												Control.Foreground="{DynamicResource CreamBrush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[0]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingMain}" />
+										</Border>
+										<Border
+											Grid.Column="2"
+											FrameworkElement.Style="{DynamicResource OverlayShift1CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column2MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift1ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift1Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[1]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift1}" />
+										</Border>
+										<Border
+											Grid.Column="3"
+											FrameworkElement.Style="{DynamicResource OverlayShift2CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column3MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift2ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift2Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[2]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift2}" />
+										</Border>
+										<Border
+											Grid.Column="4"
+											FrameworkElement.Style="{DynamicResource OverlayShift3CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column4MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift3ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift3Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[3]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift3}" />
+										</Border>
+										<Border
+											Grid.Column="5"
+											FrameworkElement.Style="{DynamicResource OverlayShift4CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column5MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift4ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift4Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[4]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift4}" />
+										</Border>
+										<Border
+											Grid.Column="6"
+											FrameworkElement.Style="{DynamicResource OverlayShift5CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column6MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift5ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift5Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[5]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift5}" />
+										</Border>
+										<Border
+											Grid.Column="7"
+											FrameworkElement.Style="{DynamicResource OverlayShift6CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column5MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift6ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift6Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[6]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift6}" />
+										</Border>
+										<Border
+											Grid.Column="8"
+											FrameworkElement.Style="{DynamicResource OverlayShift7CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column8MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift7ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift7Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[7]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift7}" />
+										</Border>
+										<Border
+											Grid.Column="9"
+											FrameworkElement.Style="{DynamicResource OverlayShift8CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column9MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift8ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift8Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[8]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift8}" />
+										</Border>
+										<Border
+											Grid.Column="10"
+											FrameworkElement.Style="{DynamicResource OverlayShift9CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column10MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift9ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift9Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[9]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift9}" />
+										</Border>
+										<Border
+											Grid.Column="11"
+											FrameworkElement.Style="{DynamicResource OverlayShift10CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column11MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift10ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift10Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[10]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift10}" />
+										</Border>
+										<Border
+											Grid.Column="12"
+											FrameworkElement.Style="{DynamicResource OverlayShift11CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column12MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift11ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift11Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[11]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift11}" />
+										</Border>
+										<Border
+											Grid.Column="13"
+											FrameworkElement.Style="{DynamicResource OverlayShift12CellBorderStyle}"
+											FrameworkElement.MaxWidth="{Binding HostObject.Column13MaxWidth}"
+											UIElement.Visibility="{Binding HostObject.Shift12ColumnVisible, Converter={converters:BooleanToVisibilityConverter}}">
+											<overlayApi:XBBindingView
+												FrameworkElement.Margin="10,0"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												Control.Foreground="{DynamicResource Shift12Brush}"
+												overlayApi:XBBindingView.ControllerType="{Binding HostObject.ControllerType}"
+												overlayApi:XBBindingView.IsLabelMode="{Binding IsLabelMode}"
+												overlayApi:XBBindingView.TriggerPreset="{Binding AdaptiveTrigger[12]}"
+												overlayApi:XBBindingView.XBBinding="{Binding XbBindingShift12}" />
+										</Border>
+									</Grid>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</StackPanel>
+				</Border>
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Control.Background>
+		<SolidColorBrush
+			Opacity="1" />
+	</Control.Background>
+	<StackPanel>
+		<Grid
+			Name="RemapGrid"
+			FrameworkElement.Margin="0,0"
+			Opacity="{Binding Transparent}">
+			<FrameworkElement.LayoutTransform>
+				<ScaleTransform
+					ScaleX="{Binding Scale}"
+					ScaleY="{Binding Scale}" />
+			</FrameworkElement.LayoutTransform>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+				<RowDefinition
+					RowDefinition.Height="10" />
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+			</Grid.RowDefinitions>
+			<Border
+				Name="GamepadWindowHint"
+				FrameworkElement.Margin="0,0,0,0"
+				Padding="5,5"
+				Border.Background="#FF000000"
+				FrameworkElement.HorizontalAlignment="{Binding AlignmentSettings}"
+				UIElement.Visibility="{Binding HeaderVisibility}">
+				<TextBlock
+					Name="GamepadWindowHintTB"
+					Grid.Row="3"
+					Grid.Column="1"
+					FrameworkElement.Margin="4,2,0,4"
+					Padding="0"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.VerticalAlignment="Top"
+					TextBlock.FontSize="13"
+					TextBlock.Foreground="{DynamicResource CreamBrush}"
+					TextBlock.TextWrapping="Wrap"
+					AutomationProperties.AutomationId="{Binding HintAutomationId}">
+					<Run
+						Run.Text="{Binding ToCloseString}" /> <Run><FrameworkContentElement.Style><Style
+								TargetType="{x:Type Run}"><Setter
+									Property="Run.Text"
+									Value="" /><Style.Triggers><DataTrigger
+										Value="false"
+										Binding="{Binding NewLine}"><Setter
+											Property="Run.Text"
+											Value="&#xA;" /></DataTrigger><DataTrigger
+										Value="true"
+										Binding="{Binding NewLine}"><Setter
+											Property="Run.Text"
+											Value="" /></DataTrigger></Style.Triggers></Style></FrameworkContentElement.Style></Run> <ContentControl
+						FrameworkElement.Margin="0,0,0,0"
+						ContentControl.ContentTemplate="{StaticResource HotkeysMappings}"
+						ContentControl.Content="{Binding HotKeyButtons}" /></TextBlock>
+			</Border>
+			<ItemsControl
+				Name="SubConfigItems"
+				Grid.Row="2"
+				FrameworkElement.Margin="0,0,-10,0"
+				FrameworkElement.HorizontalAlignment="{Binding AlignmentSettings}"
+				ItemsControl.ItemsSource="{Binding SubConfigs}"
+				LayoutUpdated="ItemsControl_LayoutUpdated">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel
+							Orientation="{Binding TablesOrientation}" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
+		</Grid>
+	</StackPanel>
+</Window>

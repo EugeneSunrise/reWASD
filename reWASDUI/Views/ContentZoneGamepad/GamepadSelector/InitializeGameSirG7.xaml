@@ -1,0 +1,101 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.GamepadSelector.InitializeGameSirG7" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:gamepadSelector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector" xmlns:initializeGamepad="clr-namespace:reWASDUI.ViewModels.InitializeGamepad" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://prismlibrary.com/" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Wpf"
+	mvvm:ViewModelLocator.AutoWireViewModel="True">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type gamepadSelector:InitializeGameSirG7}">
+			<Grid
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="*" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid
+					FrameworkElement.Margin="0,25,0,20">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="1*" />
+						<ColumnDefinition
+							ColumnDefinition.Width="6*" />
+						<ColumnDefinition
+							ColumnDefinition.Width="1*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="*" />
+					</Grid.RowDefinitions>
+					<TextBlock
+						Grid.Column="1"
+						FrameworkElement.Margin="0,0,0,30"
+						FrameworkElement.HorizontalAlignment="Center"
+						TextBlock.FontSize="22"
+						TextBlock.FontWeight="Bold"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_GAMESIR_G7_INIT_HEADER}}" />
+					<TextBlock
+						Grid.Row="1"
+						Grid.Column="1"
+						FrameworkElement.Width="640"
+						TextBlock.FontSize="14"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						utils:NavigationServiceHTML.Text="{l:Translate {x:Static s:StringConsts.STR_GAMESIR_G7_INITIALIZATION}}" />
+					<Grid
+						Row="2"
+						Column="1"
+						FrameworkElement.Margin="0,25,0,0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+						</Grid.ColumnDefinitions>
+						<recolorableImages:RecolorableSVG
+							FrameworkElement.Margin="0,0,10,0"
+							Drawing="{DynamicResource GamepadGameSirG7MenuView}"
+							IsColorShift="False" />
+						<recolorableImages:RecolorableSVG
+							Grid.Column="1"
+							FrameworkElement.Margin="10,0,0,0"
+							Drawing="{DynamicResource GamepadGameSirG7MenuViewZoom}"
+							IsColorShift="False" />
+					</Grid>
+				</Grid>
+				<checkBoxes:FillCheckBox
+					Grid.Row="1"
+					FrameworkElement.Margin="0,10,0,10"
+					FrameworkElement.HorizontalAlignment="Center"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_GOT_IT_DO_NOT_SHOW_MESSAGE_AGAIN}}"
+					IsChecked="{Binding IsDoNotRemind}" />
+				<StackPanel
+					Grid.Row="2"
+					FrameworkElement.Margin="0,0,0,20"
+					FrameworkElement.HorizontalAlignment="Center"
+					Orientation="Horizontal">
+					<buttons:ColoredButton
+						FrameworkElement.Height="38"
+						Control.Padding="41,0"
+						Control.Background="{DynamicResource CreamBrush}"
+						IsTriggered="True"
+						ButtonBase.Command="{Binding ChangeAndSubmitCommand}"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_ALWAYS_SWITCH_TO_G7}}" />
+					<buttons:ColoredButton
+						FrameworkElement.Height="38"
+						FrameworkElement.Margin="10,10,0,0"
+						Control.Padding="41,0"
+						IsTriggered="False"
+						ButtonBase.Command="{Binding SubmitCommand}"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SKIP}}" />
+				</StackPanel>
+			</Grid>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

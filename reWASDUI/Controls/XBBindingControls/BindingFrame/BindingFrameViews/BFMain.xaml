@@ -1,0 +1,156 @@
+<bindingFrameViews:BaseBFView
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews.BFMain" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base="clr-namespace:reWASDUI.ViewModels.Base" xmlns:bindingFrame="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame" xmlns:bindingFrameViews="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:licenseFeatureManaging="clr-namespace:reWASDUI.Controls.LicenseFeatureManaging" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:reWasdui="clr-namespace:reWASDUI" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:xbEliteWpf="clr-namespace:XBEliteWPF">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="../BindingFrameTemplates/BaseSingleButtonTemplate.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<bindingFrame:BindingFrameHeadTemplateSelector
+				x:Key="BindingFrameHeadTemplateSelector" />
+			<bindingFrame:BindingFrameTemplateSelector
+				x:Key="BindingFrameTemplateSelector" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<StackPanel>
+		<ContentControl
+			ContentControl.ContentTemplateSelector="{StaticResource BindingFrameHeadTemplateSelector}"
+			ContentControl.Content="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentControllerButton}" />
+		<Border
+			UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBoundGroup.IsButtonMappingVisible, FallbackValue=Visible, Converter={converters:BooleanToVisibilityConverter}}">
+			<ContentControl
+				ContentControl.ContentTemplate="{StaticResource BaseSingleButtonTemplate}"
+				ContentControl.Content="{Binding}"
+				UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentControllerButton.IsSingleSimpleButtonEdit, Converter={converters:BooleanToVisibilityConverter}}" />
+		</Border>
+		<StackPanel
+			UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsHideMappings, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+			<ContentControl
+				ContentControl.ContentTemplateSelector="{StaticResource BindingFrameTemplateSelector}"
+				ContentControl.Content="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentControllerButton}" />
+			<StackPanel>
+				<licenseFeatureManaging:LicenseFeatureManagingContainer
+					AssociatedFeatureGUID="{x:Static reWasdui:App.ADVANCED_MAPPING_FEATURE_GUID}">
+					<UIElement.Visibility>
+						<MultiBinding
+							ConverterParameter="({0} &amp;&amp; !({1} || {2}))"
+							Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+							<Binding
+								Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ActivatorType"
+								ConverterParameter="{x:Static enums:ActivatorType.Single}"
+								Converter="{converters:ValuesAreEqual}" />
+							<Binding
+								Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBoundGroup.IsTrackPad1Group" />
+							<Binding
+								Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBoundGroup.IsTrackPad2Group" />
+						</MultiBinding>
+					</UIElement.Visibility>
+					<licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+						<MultiBinding
+							Converter="{converters:MultiBooleanOrConverter}">
+							<Binding
+								Path="LicensingService.IsAdvancedMappingFeatureUnlocked" />
+							<Binding
+								Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBindingIsMouseDirectionOrZone"
+								Converter="{converters:InverseBooleanConverter}" />
+						</MultiBinding>
+					</licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+					<buttons:SVGButton
+						Name="btnBFShowAdvancedStick"
+						Drawing="{DynamicResource Advanced}"
+						FrameworkElement.Style="{DynamicResource BFNavigationButton}"
+						attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_SET_MAPPINGS_TO_STICK}}"
+						ButtonBase.Command="{Binding ShowAdvancedStickSettingsCommand}"
+						IsDotContent="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsAdvanceMappingSettingsChanged}"
+						Text="{localization:Translate {x:Static s:StringConsts.STR_ADVANCED}}"
+						UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsAdvanceMappingSettingsAvailiableForCurrentBinding, Converter={converters:BooleanToVisibilityConverter}}">
+						<UIElement.IsEnabled>
+							<MultiBinding
+								ConverterParameter="(!{0} || {1})"
+								Converter="{converters:MultiBooleanParametrizedConverter}">
+								<Binding
+									Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.ControllerButton.IsMouseButton" />
+								<Binding
+									Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.IsAnyActivatorVirtualMappingPresent" />
+							</MultiBinding>
+						</UIElement.IsEnabled>
+					</buttons:SVGButton>
+				</licenseFeatureManaging:LicenseFeatureManagingContainer>
+			</StackPanel>
+		</StackPanel>
+		<Border
+			Border.BorderBrush="{DynamicResource ContentBorderBrush}"
+			Border.BorderThickness="0,1,0,0">
+			<UIElement.Visibility>
+				<MultiBinding
+					ConverterParameter="({0} &amp;&amp; {1} &amp;&amp; (!{2} || ({2} &amp;&amp; {3})))"
+					Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+					<Binding
+						Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ActivatorType"
+						ConverterParameter="{x:Static enums:ActivatorType.Single}"
+						Converter="{converters:ValuesAreEqual}" />
+					<Binding
+						Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsZoneMappingSettingsAvailiableForCurrentBinding" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.CurrentController.HasGamepadControllers" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsAnalogTriggersPresent" />
+				</MultiBinding>
+			</UIElement.Visibility>
+			<buttons:SVGButton
+				Name="btnBFShowZones"
+				Drawing="{DynamicResource Zones}"
+				FrameworkElement.Style="{DynamicResource BFNavigationButton}"
+				ButtonBase.Command="{Binding ShowZonesCommand}"
+				IsDotContent="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsZoneMappingSettingsExistForCurrentBinding}"
+				Text="{localization:Translate {x:Static s:StringConsts.STR_ZONES}}" />
+		</Border>
+		<Border
+			Border.BorderBrush="{DynamicResource ContentBorderBrush}"
+			Border.BorderThickness="0,1,0,0">
+			<UIElement.Visibility>
+				<MultiBinding
+					ConverterParameter="({0} &amp;&amp; {1})"
+					Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+					<Binding
+						Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ActivatorType"
+						ConverterParameter="{x:Static enums:ActivatorType.Single}"
+						Converter="{converters:ValuesAreEqual}" />
+					<Binding
+						Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsPressureZonesMappingSettingsAvailiableForCurrentBinding" />
+				</MultiBinding>
+			</UIElement.Visibility>
+			<buttons:SVGButton
+				Name="btnBFShowPressureZones"
+				Drawing="{DynamicResource Zones}"
+				FrameworkElement.Style="{DynamicResource BFNavigationButton}"
+				ButtonBase.Command="{Binding ShowZonesCommand}"
+				IsDotContent="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsPressureZoneMappingSettingsExistForCurrentBinding}"
+				Text="{localization:Translate {x:Static s:StringConsts.STR_ZONES}}" />
+		</Border>
+		<buttons:SVGButton
+			Name="btnBFShowAdaptiveTriggerSettings"
+			Drawing="{DynamicResource AdaptiveTriggers}"
+			FrameworkElement.Style="{DynamicResource BFNavigationButton}"
+			ButtonBase.CommandParameter="{x:Type bindingFrameViews:BFAdaptiveTriggerSettings}"
+			IsDotContent="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsAdaptiveTriggerSettingsExistForCurrentBinding}"
+			Text="{localization:Translate {x:Static s:StringConsts.STRING_ADAPTIVE_TRIGGER_SETTINGS}}">
+			<UIElement.Visibility>
+				<MultiBinding
+					ConverterParameter="(!{0} &amp;&amp; {1} &amp;&amp; (!{2} || ({2} &amp;&amp; {3})))"
+					Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+					<Binding
+						Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ActivatorType"
+						ConverterParameter="{x:Static enums:ActivatorType.Single}"
+						Converter="{converters:ValuesAreNotEqual}" />
+					<Binding
+						Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsAdaptiveTriggerSettingsAvailiableForCurrentBinding" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.CurrentController.HasGamepadControllers" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsAnalogTriggersPresent" />
+				</MultiBinding>
+			</UIElement.Visibility>
+		</buttons:SVGButton>
+	</StackPanel>
+</bindingFrameViews:BaseBFView>

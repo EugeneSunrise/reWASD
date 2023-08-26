@@ -1,0 +1,37 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriGyroLeanRight" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriGyroLeanRight">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M11.057,9.923C10.117,11.224 8.602,12 7,12 4.243,12 2,9.757 2,7 2,5.116 3.072,3.426 4.694,2.577L3.617,5.682 4.562,6.009 6.267,1.092 1.073,0.766 1.011,1.764 3.802,1.939C2.1,3.02 1,4.911 1,7 1,10.309 3.691,13 7,13 8.922,13 10.741,12.068 11.867,10.509L11.057,9.923z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M9.344,5.869L9.344,8.507 7.887,8.507 7.887,1.633 9.89,1.633C10.824,1.633 11.515,1.803 11.963,2.143 12.411,2.483 12.635,2.999 12.635,3.692 12.635,4.096 12.524,4.456 12.302,4.771 12.079,5.086 11.764,5.333 11.357,5.511 12.391,7.056 13.065,8.055 13.378,8.506L11.761,8.506 10.12,5.869 9.344,5.869z M9.344,4.685L9.815,4.685C10.276,4.685 10.616,4.608 10.836,4.455 11.055,4.301 11.165,4.06 11.165,3.731 11.165,3.405 11.053,3.173 10.828,3.035 10.604,2.897 10.257,2.828 9.787,2.828L9.344,2.828 9.344,4.685z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

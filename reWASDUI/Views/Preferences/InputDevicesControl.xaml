@@ -1,0 +1,61 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.InputDevicesControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<Grid>
+		<StackPanel>
+			<TextBlock
+				FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+				TextBlock.Text="{Binding EmulateText}" />
+			<Grid
+				FrameworkElement.Width="245"
+				FrameworkElement.HorizontalAlignment="Left">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<comboBoxes:ColoredComboBox
+					Name="cmbDevices"
+					FrameworkElement.Width="220"
+					FrameworkElement.HorizontalAlignment="Left"
+					ItemsControl.ItemsSource="{Binding DevicesCollection}"
+					SelectedItem="{Binding CurrentInputDevice}">
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<TextBlock
+								TextBlock.TextTrimming="CharacterEllipsis"
+								TextBlock.Text="{Binding}" />
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</comboBoxes:ColoredComboBox>
+				<buttons:SVGButton
+					Name="btnRemoveDevice"
+					Grid.Column="1"
+					FrameworkElement.VerticalAlignment="Top"
+					Drawing="{DynamicResource Remove}"
+					Control.Foreground="{DynamicResource CreamBrush}"
+					HighlightedForeground="#FFFFFFFF"
+					PressedForeground="{DynamicResource CreamBrush}"
+					SVGMargin="3,6,3,3"
+					ButtonBase.Command="{Binding RemoveCurrentEntryCommand}"
+					ToolTip="{l:Translate {x:Static s:StringConsts.STR_REMOVE_DEVICE_FROM_LIST}}" />
+			</Grid>
+			<StackPanel
+				FrameworkElement.Margin="16,16,0,0"
+				UIElement.IsEnabled="{Binding CurrentInputDevice.IsVirtual, Converter={converters:InverseBooleanConverter}}">
+				<TextBlock
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_RAIDO_PHYS_DEVICE_NOT_CONNECTED}}" />
+				<RadioButton
+					Name="rbSwitchToVIC"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SWITCH_TO_VIRTUAL}}"
+					IsChecked="{Binding IsSwitchToVID}"
+					UIElement.IsEnabled="{Binding IsHideVID}" />
+				<RadioButton
+					Name="rbSwitchToPhysical"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SWITCH_TO_PHYSICAL}}"
+					IsChecked="{Binding IsSwitchPhysical}" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

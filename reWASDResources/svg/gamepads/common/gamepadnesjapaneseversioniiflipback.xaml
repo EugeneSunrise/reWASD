@@ -1,0 +1,393 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="GamepadNESJapaneseversionIIFlipBack" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="GamepadNESJapaneseversionIIFlipBack">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,36,36" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M34.269,25.871L1.731,25.871C1.051,25.871,0.5,25.32,0.5,24.64L0.5,11.888C0.5,11.208,1.051,10.657,1.731,10.657L34.269,10.657C34.949,10.657,35.5,11.208,35.5,11.888L35.5,24.639C35.5,25.319,34.949,25.871,34.269,25.871z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M9.734,18.44L7.975,18.44 7.975,16.681C7.975,16.584,7.896,16.505,7.799,16.505L5.688,16.505C5.591,16.505,5.512,16.584,5.512,16.681L5.512,18.44 3.754,18.44C3.657,18.44,3.578,18.519,3.578,18.616L3.578,20.727C3.578,20.824,3.657,20.903,3.754,20.903L5.513,20.903 5.513,22.662C5.513,22.759,5.592,22.838,5.689,22.838L7.8,22.838C7.897,22.838,7.976,22.759,7.976,22.662L7.976,20.903 9.735,20.903C9.832,20.903,9.911,20.824,9.911,20.727L9.911,18.616C9.91,18.518,9.831,18.44,9.734,18.44z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<EllipseGeometry
+										RadiusX="1.363"
+										RadiusY="1.363"
+										Center="25.167,21.386" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<EllipseGeometry
+										RadiusX="1.363"
+										RadiusY="1.363"
+										Center="29.74,21.386" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M12.196,10.481L12.196,10.305C12.196,10.208,12.117,10.129,12.02,10.129L10.613,10.129C10.516,10.129,10.437,10.208,10.437,10.305L10.437,10.481" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M24.288,10.481L24.288,10.305C24.288,10.208,24.209,10.129,24.112,10.129L22.705,10.129C22.608,10.129,22.529,10.208,22.529,10.305L22.529,10.481" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M29.74,10.657L29.74,10.481C29.74,10.335,29.622,10.217,29.476,10.217L24.8,10.217C24.753,10.217,24.709,10.236,24.676,10.269L24.515,10.43C24.482,10.463,24.437,10.482,24.391,10.482L22.426,10.482C22.379,10.482,22.335,10.463,22.302,10.43L22.141,10.269C22.108,10.236,22.063,10.217,22.017,10.217L12.709,10.217C12.662,10.217,12.618,10.236,12.585,10.269L12.424,10.43C12.391,10.463,12.346,10.482,12.3,10.482L10.335,10.482C10.288,10.482,10.244,10.463,10.211,10.43L10.05,10.269C10.017,10.236,9.972,10.217,9.926,10.217L7.008,10.217C6.862,10.217,6.744,10.335,6.744,10.481L6.744,10.657" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<DrawingGroup>
+								<DrawingGroup.Children>
+									<GeometryDrawing>
+										<GeometryDrawing.Pen>
+											<Pen
+												Brush="#FFFFFFFF"
+												Thickness="1"
+												StartLineCap="Flat"
+												EndLineCap="Flat"
+												LineJoin="Miter"
+												MiterLimit="10" />
+										</GeometryDrawing.Pen>
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M21.814,16.683L14.186,16.683C14.04,16.683,13.921,16.567,13.921,16.424L13.921,12.277C13.921,12.134,14.04,12.018,14.186,12.018L21.814,12.018C21.96,12.018,22.079,12.134,22.079,12.277L22.079,16.424C22.079,16.567,21.96,16.683,21.814,16.683z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="18,14.351" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="16.593,14.351" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="15.186,14.351" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="20.814,14.351" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="19.407,14.351" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="18,12.943" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="18,15.758" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="19.407,12.943" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="19.407,15.758" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="20.814,12.943" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="20.814,15.758" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="16.593,12.943" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="16.593,15.758" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="15.186,12.943" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="15.889,13.647" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="15.889,15.054" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="17.296,13.647" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="17.296,15.054" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="18.704,13.647" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="18.704,15.054" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="20.111,13.647" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="20.111,15.054" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="15.186,15.758" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="0.176"
+												RadiusY="0.176"
+												Center="18,14.351" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="5.151,12.522,5.736,0.759" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

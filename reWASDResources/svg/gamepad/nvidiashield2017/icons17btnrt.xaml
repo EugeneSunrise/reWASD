@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoNS17BtnRT" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoNS17BtnRT">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M12.241,1C12.453,1 12.579,1.12 12.635,1.192 12.691,1.264 12.777,1.415 12.726,1.621L9.962,12.675C9.62,14.044 8.396,15 6.985,15 5.368,15 4.023,13.736 3.922,12.122L3.26,1.531C3.248,1.343 3.339,1.217 3.394,1.158 3.449,1.099 3.57,1 3.759,1L12.241,1 M12.241,0L3.759,0C2.893,0,2.208,0.73,2.262,1.594L2.924,12.185C3.057,14.329,4.836,16,6.985,16L6.985,16C8.852,16,10.48,14.729,10.933,12.918L13.696,1.864C13.933,0.917,13.217,0,12.241,0L12.241,0z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M4.8,5.2C5.2,5.1 5.8,5.1 6.5,5.1 7.3,5.1 7.9,5.2 8.4,5.6 8.7,5.9 8.9,6.3 8.9,6.8 8.9,7.5 8.4,8 7.9,8.2L7.9,8.2C8.3,8.4 8.5,8.7 8.7,9.3 8.9,9.9 9,10.7 9.2,10.9L7.8,10.9C7.7,10.7 7.5,10.2 7.4,9.5 7.2,8.8 7,8.6 6.4,8.6L6,8.6 6,10.8 4.8,10.8 4.8,5.2z M6,7.7L6.5,7.7C7.1,7.7 7.5,7.4 7.5,6.9 7.5,6.4 7.1,6.1 6.5,6.1 6.2,6.1 6,6.1 5.9,6.1L5.9,7.7C5.9,7.7,6,7.7,6,7.7z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

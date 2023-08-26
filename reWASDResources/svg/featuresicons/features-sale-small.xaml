@@ -1,0 +1,49 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="FeatureSaleSmall" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Opacity="0"
+								Color="#FFFFFFFF" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,26,26" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								PathGeometry.Figures="M9.8,1.6L12.3,3.7 13,4.2 13.6,3.7 15.901,1.7 17.1,4.7 17.4,5.4 18.1,5.3 21.3,5 21,8 20.9,8.7 21.6,9 24.401,10.2 22.6,12.6 22.2,13.2 22.599,13.8 24.4,16.2 21.6,17.4 21,17.8 21.1,18.5 21.5,21.5 18.5,21.2 17.8,21.1 17.5,21.8 16.3,24.6 13.7,22.8 13,22.3 12.4,22.7 10,24.5 8.7,21.7 8.4,21 7.7,21.1 4.6,21.4 4.9,18.4 5,17.7 4.3,17.4 1.5,16.2 3.3,13.8 3.7,13.2 3.3,12.6 1.5,10.2 4.3,9 5,8.6 4.9,7.9 4.5,4.9 7.5,5.2 8.3,5.3 8.6,4.6 9.8,1.6 M16.4,0L13,2.9 9.4,0 7.7,4.2 3.4,3.8 3.9,8 0,9.7 2.6,13.2 0.1,16.6 4.1,18.3 3.7,22.5 8,22.1 9.7,26 13,23.5 16.6,26 18.3,22.1 22.6,22.6 22.1,18.4 26,16.7 23.4,13.2 25.9,9.8 21.9,8.1 22.3,3.9 18,4.3 16.4,0 16.4,0z"
+								FillRule="Nonzero" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										PathGeometry.Figures="M10.4,12.8C9.8,12.8 9.3,12.6 9,12.2 8.7,11.8 8.5,11.3 8.5,10.7 8.5,10 8.7,9.5 9.1,9.1 9.5,8.7 10,8.5 10.6,8.5 11.2,8.5 11.7,8.7 12,9.1 12.3,9.5 12.5,10 12.5,10.7 12.5,11.4 12.3,11.9 11.9,12.3 11.5,12.7 11.1,12.8 10.4,12.8z M10.5,9.3C10.2,9.3 9.9,9.4 9.7,9.7 9.5,10 9.4,10.3 9.4,10.7 9.4,11.1 9.5,11.5 9.7,11.7 9.9,11.9 10.1,12.1 10.4,12.1 10.7,12.1 11,12 11.1,11.7 11.2,11.4 11.4,11.1 11.4,10.7 11.4,10.3 11.3,9.9 11.1,9.7 10.9,9.5 10.8,9.3 10.5,9.3z M16.1,8.6L10.7,17.1 9.9,17.1 15.3,8.6 16.1,8.6z M15.4,17.1C14.8,17.1 14.3,16.9 14,16.5 13.7,16.1 13.5,15.6 13.5,15 13.5,14.3 13.7,13.8 14.1,13.4 14.5,13 15,12.8 15.6,12.8 16.202,12.8 16.702,13 17,13.4 17.298,13.8 17.5,14.3 17.5,15 17.5,15.7 17.3,16.2 16.9,16.6 16.5,17 16,17.1 15.4,17.1z M15.5,13.6C15.2,13.6 14.9,13.702 14.7,14 14.5,14.298 14.4,14.6 14.4,15 14.4,15.4 14.5,15.8 14.7,16 14.9,16.2 15.099,16.4 15.4,16.4 15.7,16.4 16,16.298 16.099,16 16.2,15.7 16.4,15.4 16.4,15 16.4,14.6 16.3,14.2 16.1,14 15.9,13.8 15.8,13.6 15.5,13.6z"
+										FillRule="Nonzero" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,26,26" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

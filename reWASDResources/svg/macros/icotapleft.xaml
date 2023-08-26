@@ -1,0 +1,83 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoTapLeft" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoTapLeft">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup
+						svr:SvgObject.Id="_x3C_Group_x3E_">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="Path_9_">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M8.8,3.2L8.8,7.6 14.9,7.6 14.9,3.2 8.8,3.2z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="Path_8_">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M8.8,8.4L8.8,12.8 13.2,12.8C14.2,12.8,14.9,12,14.9,11L14.9,8.4 11.3,8.4 8.8,8.4z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="Path_7_">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M6.7,7.6L7.1,7.6 7.1,3.2 1.1,3.2 1.1,5C1.7,4.6 2.4,4.3 3.2,4.3 5,4.4 6.5,5.8 6.7,7.6z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="Path_6_">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M3.2,11.6C2.4,11.6,1.7,11.4,1.1,10.9L1.1,10.9 1.1,10.9C1.1,10.9 1.1,10.9 1.1,11 1.1,12 1.9,12.7 2.9,12.7L7.3,12.7 7.3,8.4 6.7,8.4C6.5,10.2,5,11.6,3.2,11.6z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<DrawingGroup
+								Transform="1,0,0,1,-364.247,369.822"
+								svr:SvgObject.Id="Group">
+								<DrawingGroup.Children>
+									<GeometryDrawing
+										Brush="#FFFFFFFF"
+										svr:SvgObject.Id="Path_5_">
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M369.3,-361.8C369.3,-362.9 368.4,-363.7 367.4,-363.7 366.3,-363.7 365.5,-362.8 365.5,-361.8 365.5,-360.7 366.4,-359.9 367.4,-359.9L367.4,-358.9C365.8,-358.9 364.5,-360.2 364.5,-361.8 364.5,-363.4 365.8,-364.7 367.4,-364.7 369,-364.7 370.3,-363.4 370.3,-361.8L369.3,-361.8z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF"
+										svr:SvgObject.Id="Ellipse">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="1"
+												RadiusY="1"
+												Center="367.4,-361.8" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

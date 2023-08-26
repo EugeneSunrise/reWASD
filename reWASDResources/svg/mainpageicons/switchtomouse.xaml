@@ -1,0 +1,38 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="SwitchToMouse" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="SwitchToMouse">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,36,36" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M18,6C13.029,6,9,10.029,9,15L9,21C9,25.971 13.029,30 18,30 22.971,30 27,25.971 27,21L27,15C27,10.029,22.971,6,18,6z M18,13.5C18.827,13.5,19.5,14.173,19.5,15L19.5,17C19.5,17.827 18.827,18.5 18,18.5 17.173,18.5 16.5,17.827 16.5,17L16.5,15C16.5,14.173,17.173,13.5,18,13.5z M26,21C26,25.411 22.411,29 18,29 13.589,29 10,25.411 10,21L10,15C10,10.758,13.322,7.286,17.5,7.025L17.5,12.55C16.36,12.782,15.5,13.792,15.5,14.999L15.5,16.999C15.5,18.377 16.622,19.499 18,19.499 19.379,19.499 20.5,18.377 20.5,16.999L20.5,14.999C20.5,13.792,19.64,12.782,18.5,12.55L18.5,7.025C22.678,7.286,26,10.758,26,15L26,21z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

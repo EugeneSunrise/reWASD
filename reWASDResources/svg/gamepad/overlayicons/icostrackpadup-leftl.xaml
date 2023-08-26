@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoSTrackPadUp-LeftL" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoSTrackPadUp-LeftL">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M15.92,7L14.92,7C15.214,9.007,14.623,11.043,13.3,12.58L8.71,8 8.71,8 8.71,8 10.05,6.67 9.34,5.96 8,7.27 8,7.27 8,7.27 5.35,1.54C6.507,1.074,7.765,0.919,9,1.09L9,0.0900000000000001C7.624,-0.092,6.225,0.088,4.94,0.61L4.94,0.61 4.94,0.61 4.82,0.67 4.82,0.67C4.581,0.768,4.347,0.878,4.12,1L4.12,1C3.913,1.12,3.703,1.25,3.49,1.39L3.49,1.39C3.29,1.53,3.11,1.67,2.92,1.82L2.92,1.82 2.71,2 2.71,2 2.35,2.35 2.35,2.35 2,2.7 2,2.7C1.458,3.323,1.013,4.024,0.68,4.78L0.68,4.78 0.6,4.87 0.6,4.87 0.6,4.87C-0.595,7.712,-0.05,10.988,2,13.29L2,13.29 2.35,13.65 2.7,14 2.7,14C5.723,16.665,10.257,16.665,13.28,14L13.28,14 13.63,13.66 13.63,13.66 14,13.3 14,13.3C15.515,11.573,16.214,9.278,15.92,7z M2.71,12.58C0.994,10.585,0.542,7.795,1.54,5.36L7.22,8 7.22,8 7.22,8 2.71,12.58z M3.42,13.29L8,8.73 8,8.73 8,8.73 12.56,13.29C9.934,15.554,6.046,15.554,3.42,13.29z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M11,1L12.3,1 12.3,5.6 14.6,5.6 14.6,6.7 11,6.7 11,1z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

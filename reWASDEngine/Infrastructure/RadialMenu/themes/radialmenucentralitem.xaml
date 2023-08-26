@@ -1,0 +1,147 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:DTOverlay="clr-namespace:DTOverlay;assembly=reWASDCommon" xmlns:Converters1="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:Controls="clr-namespace:RadialMenu.Controls;assembly=reWASDCommon" xmlns:converters1="clr-namespace:reWASDEngine.Infrastructure.RadialMenu.Converters">
+	<converters1:RadialMenuCentralItemToArrowPosition
+		x:Key="RadialMenuCentralItemToArrowPosition" />
+	<Style
+		x:Key="EngineRoundedArrowPath"
+		TargetType="{x:Type Path}">
+		<Setter
+			Property="Path.Data"
+			Value="M5.427,222.938 C9.041,226.55499999999998 13.325,228.362 18.275,228.362 L274.08799999999997,228.362 C279.03999999999996,228.362 283.32099999999997,226.555 286.938,222.938 C290.555,219.31699999999998 292.36199999999997,215.036 292.36199999999997,210.087 C292.36199999999997,205.13899999999998 290.55499999999995,200.858 286.938,197.23999999999998 L159.031,69.333 C155.41,65.716 151.12900000000002,63.905 146.181,63.905 C141.233,63.905 136.948,65.71600000000001 133.334,69.333 L5.427,197.241 C1.814,200.858 0,205.139 0,210.088 C0,215.036 1.814,219.317 5.427,222.938 Z" />
+		<Setter
+			Property="FrameworkElement.Width"
+			Value="76" />
+		<Setter
+			Property="FrameworkElement.Height"
+			Value="42.75" />
+		<Setter
+			Property="Shape.Stretch"
+			Value="Fill" />
+		<Setter
+			Property="Canvas.Left"
+			Value="0" />
+		<Setter
+			Property="Canvas.Top"
+			Value="16.125" />
+	</Style>
+	<Style
+		x:Key="{x:Type Controls:RadialMenuCentralItem}"
+		TargetType="{x:Type Controls:RadialMenuCentralItem}">
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="Control.BorderBrush"
+					Value="#F3F3F3" />
+				<Setter
+					Property="Control.Foreground"
+					Value="#AFAFAF" />
+			</Trigger>
+		</Style.Triggers>
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Center" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.Foreground"
+			Value="#111" />
+		<Setter
+			Property="Control.Background"
+			Value="#662F2F2F" />
+		<Setter
+			Property="Control.BorderBrush"
+			Value="#66999999" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="1.5" />
+		<Setter
+			Property="FrameworkElement.Width"
+			Value="194" />
+		<Setter
+			Property="FrameworkElement.Height"
+			Value="194" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Controls:RadialMenuCentralItem}">
+					<Grid>
+						<Ellipse
+							Shape.Stroke="{TemplateBinding Control.BorderBrush}"
+							Shape.Fill="{TemplateBinding Control.Background}"
+							Shape.StrokeThickness="{Binding BorderThickness.Top, RelativeSource={RelativeSource AncestorType=Controls:RadialMenuCentralItem}}" />
+						<ContentPresenter
+							ContentPresenter.Content="{TemplateBinding ContentControl.Content}"
+							FrameworkElement.HorizontalAlignment="{TemplateBinding FrameworkElement.HorizontalAlignment}"
+							FrameworkElement.VerticalAlignment="{TemplateBinding FrameworkElement.VerticalAlignment}" />
+						<Canvas
+							UIElement.Visibility="{Binding IsNavigatorVisible, Converter={Converters1:BooleanToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=Controls:RadialMenuCentralItem}}">
+							<Controls:PieShape
+								FrameworkElement.Name="MainShape"
+								Controls:PieShape.CenterX="100"
+								Controls:PieShape.CenterY="100"
+								Controls:PieShape.OuterRadius="97"
+								Shape.Fill="#FFFFFFFF"
+								Controls:PieShape.InnerRadius="92"
+								Controls:PieShape.AngleDelta="{x:Static DTOverlay:OverlayConstants.NAVIGATOR_ANGLE}"
+								Controls:PieShape.StartAngle="{Binding StartAngle, ConverterParameter=-15, FallbackValue=-15, Converter={converters1:DoubleSumConverter}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Controls:RadialMenuCentralItem}}" />
+							<Canvas>
+								<UIElement.RenderTransform>
+									<RotateTransform
+										CenterX="100"
+										CenterY="100"
+										Angle="{Binding StartAngle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Controls:RadialMenuCentralItem}}" />
+								</UIElement.RenderTransform>
+								<Rectangle
+									FrameworkElement.Name="ArrowRectangle"
+									FrameworkElement.Width="9"
+									FrameworkElement.Height="9">
+									<Canvas.Left>
+										<MultiBinding
+											ConverterParameter="X"
+											Converter="{StaticResource RadialMenuCentralItemToArrowPosition}">
+											<Binding
+												Path="Width"
+												ElementName="ArrowRectangle" />
+											<Binding
+												Path="Height"
+												ElementName="ArrowRectangle" />
+										</MultiBinding>
+									</Canvas.Left>
+									<Canvas.Top>
+										<MultiBinding
+											ConverterParameter="Y"
+											Converter="{StaticResource RadialMenuCentralItemToArrowPosition}">
+											<Binding
+												Path="Width"
+												ElementName="ArrowRectangle" />
+											<Binding
+												Path="Height"
+												ElementName="ArrowRectangle" />
+										</MultiBinding>
+									</Canvas.Top>
+									<Shape.Fill>
+										<VisualBrush>
+											<VisualBrush.Visual>
+												<Canvas
+													FrameworkElement.Width="76"
+													FrameworkElement.Height="76"
+													Panel.Background="#00FFFFFF">
+													<Path
+														Shape.Fill="#FFFFFFFF"
+														FrameworkElement.Style="{StaticResource EngineRoundedArrowPath}" />
+												</Canvas>
+											</VisualBrush.Visual>
+										</VisualBrush>
+									</Shape.Fill>
+								</Rectangle>
+							</Canvas>
+						</Canvas>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

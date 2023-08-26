@@ -1,0 +1,167 @@
+<UserControl
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.ActivatorSwitcher" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:base1="clr-namespace:reWASDUI.ViewModels.Base" xmlns:bindingFrame="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters3="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:infrastructure="clr-namespace:reWASDUI.Infrastructure" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<Style
+				x:Key="ButtonActivatorSwitch"
+				BasedOn="{StaticResource {x:Type buttons:SVGButton}}"
+				TargetType="{x:Type buttons:SVGButton}">
+				<Setter
+					Property="FrameworkElement.Margin"
+					Value="0,9,0,0" />
+				<Setter
+					Property="buttons:SVGButton.Drawing"
+					Value="{Binding CommandParameter, Converter={converters3:ActivatorTypeToDrawingConverter}, RelativeSource={RelativeSource Self}}" />
+				<Setter
+					Property="ButtonBase.Command"
+					Value="{Binding XBBinding.SwitchCurrentActivatorCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingFrame:ActivatorSwitcher}}" />
+				<Setter
+					Property="buttons:SVGButton.IsDotContent"
+					Value="{Binding IsVirtualMappingPresent}" />
+				<Setter
+					Property="buttons:SVGButton.DotMargin"
+					Value="18,15,0,0" />
+				<Setter
+					Property="FrameworkElement.MinWidth"
+					Value="26" />
+				<Setter
+					Property="FrameworkElement.HorizontalAlignment"
+					Value="Center" />
+				<Setter
+					Property="Control.HorizontalContentAlignment"
+					Value="Center" />
+				<Setter
+					Property="buttons:SVGButton.SVGMargin"
+					Value="0,5" />
+				<Setter
+					Property="buttons:BaseColoredButton.HighlightedBackground"
+					Value="{DynamicResource ButtonBackgroundHover}" />
+				<Setter
+					Property="buttons:BaseColoredButton.HighlightedForeground"
+					Value="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingFrame:BindingFrameUC}}" />
+				<Setter
+					Property="buttons:SVGButton.ColorShiftBrush"
+					Value="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingFrame:BindingFrameUC}}" />
+				<Setter
+					Property="Control.Foreground"
+					Value="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingFrame:BindingFrameUC}}" />
+				<Setter
+					Property="buttons:BaseColoredButton.TriggeredHighlightedBackground"
+					Value="{DynamicResource CreamBrushHighlighted}" />
+				<Setter
+					Property="buttons:BaseColoredButton.TriggeredHighlightedForeground"
+					Value="{DynamicResource ForegroundForCreamBackground}" />
+				<Setter
+					Property="buttons:BaseColoredButton.TriggeredBackground"
+					Value="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingFrame:BindingFrameUC}}" />
+				<Setter
+					Property="buttons:BaseColoredButton.TriggeredForeground"
+					Value="{DynamicResource ForegroundForCreamBackground}" />
+				<Style.Triggers>
+					<DataTrigger
+						Value="True">
+						<DataTrigger.Binding>
+							<MultiBinding
+								Converter="{converters:ValuesAreEqual}">
+								<Binding
+									Path="XBBinding.CurrentActivatorXBBinding.ActivatorType"
+									RelativeSource="{RelativeSource FindAncestor, AncestorType=bindingFrame:ActivatorSwitcher}" />
+								<Binding
+									Path="CommandParameter"
+									RelativeSource="{RelativeSource Self}" />
+							</MultiBinding>
+						</DataTrigger.Binding>
+						<DataTrigger.Setters>
+							<Setter
+								Property="buttons:BaseColoredButton.IsTriggered"
+								Value="True" />
+						</DataTrigger.Setters>
+					</DataTrigger>
+					<Trigger
+						Property="buttons:BaseColoredButton.IsTriggered"
+						Value="True">
+						<Setter
+							Property="AutomationProperties.HelpText"
+							Value="On" />
+					</Trigger>
+					<Trigger
+						Property="buttons:BaseColoredButton.IsTriggered"
+						Value="False">
+						<Setter
+							Property="AutomationProperties.HelpText"
+							Value="Off" />
+					</Trigger>
+				</Style.Triggers>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingFrame:ActivatorSwitcher}">
+			<StackPanel
+				Orientation="Vertical">
+				<UIElement.Visibility>
+					<MultiBinding
+						Converter="{converters:MultiBooleanOrConverterToVisibilityConverter}">
+						<Binding
+							Path="XBBinding.IsDigital"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="XBBinding.IsTrigger"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+					</MultiBinding>
+				</UIElement.Visibility>
+				<UniformGrid
+					FrameworkElement.Margin="0,0,0,17"
+					Columns="6">
+					<buttons:SVGButton
+						Name="btnActivatorSwitcherSingle"
+						ButtonBase.CommandParameter="{x:Static enums:ActivatorType.Single}"
+						FrameworkElement.Style="{StaticResource ButtonActivatorSwitch}"
+						DataContext="{Binding XBBinding.ActivatorXBBindingDictionary, ConverterParameter='{x:Static enums:ActivatorType.Single}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BindToDictionaryWithKeyConverter}}" />
+					<buttons:SVGButton
+						Name="btnActivatorSwitcherLong"
+						ButtonBase.CommandParameter="{x:Static enums:ActivatorType.Long}"
+						FrameworkElement.Style="{StaticResource ButtonActivatorSwitch}"
+						DataContext="{Binding XBBinding.ActivatorXBBindingDictionary, ConverterParameter='{x:Static enums:ActivatorType.Long}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BindToDictionaryWithKeyConverter}}"
+						UIElement.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsCurrentButtonMappingDoNotInherit, Converter={converters:InverseBooleanConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=infrastructure:IBaseServicesContainer}}" />
+					<buttons:SVGButton
+						Name="btnActivatorSwitcherDouble"
+						ButtonBase.CommandParameter="{x:Static enums:ActivatorType.Double}"
+						FrameworkElement.Style="{StaticResource ButtonActivatorSwitch}"
+						DataContext="{Binding XBBinding.ActivatorXBBindingDictionary, ConverterParameter='{x:Static enums:ActivatorType.Double}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BindToDictionaryWithKeyConverter}}"
+						UIElement.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsCurrentButtonMappingDoNotInherit, Converter={converters:InverseBooleanConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=infrastructure:IBaseServicesContainer}}" />
+					<buttons:SVGButton
+						Name="btnActivatorSwitcherTriple"
+						ButtonBase.CommandParameter="{x:Static enums:ActivatorType.Triple}"
+						FrameworkElement.Style="{StaticResource ButtonActivatorSwitch}"
+						DataContext="{Binding XBBinding.ActivatorXBBindingDictionary, ConverterParameter='{x:Static enums:ActivatorType.Triple}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BindToDictionaryWithKeyConverter}}"
+						UIElement.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsCurrentButtonMappingDoNotInherit, Converter={converters:InverseBooleanConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=infrastructure:IBaseServicesContainer}}" />
+					<buttons:SVGButton
+						Name="btnActivatorSwitcherStart"
+						ButtonBase.CommandParameter="{x:Static enums:ActivatorType.Start}"
+						FrameworkElement.Style="{StaticResource ButtonActivatorSwitch}"
+						DataContext="{Binding XBBinding.ActivatorXBBindingDictionary, ConverterParameter='{x:Static enums:ActivatorType.Start}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BindToDictionaryWithKeyConverter}}"
+						UIElement.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsCurrentButtonMappingDoNotInherit, Converter={converters:InverseBooleanConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=infrastructure:IBaseServicesContainer}}" />
+					<buttons:SVGButton
+						Name="btnActivatorSwitcherRelease"
+						ButtonBase.CommandParameter="{x:Static enums:ActivatorType.Release}"
+						FrameworkElement.Style="{StaticResource ButtonActivatorSwitch}"
+						DataContext="{Binding XBBinding.ActivatorXBBindingDictionary, ConverterParameter='{x:Static enums:ActivatorType.Release}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BindToDictionaryWithKeyConverter}}"
+						UIElement.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsCurrentButtonMappingDoNotInherit, Converter={converters:InverseBooleanConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=infrastructure:IBaseServicesContainer}}" />
+				</UniformGrid>
+				<ContentControl
+					FrameworkElement.Margin="10,0,10,10">
+					<ContentControl.Content>
+						<MultiBinding
+							Converter="{converters3:ActivatorTypeToDescriptionConverter}">
+							<Binding
+								Path="XBBinding.CurrentActivatorXBBinding.ActivatorType"
+								RelativeSource="{RelativeSource TemplatedParent}" />
+						</MultiBinding>
+					</ContentControl.Content>
+				</ContentControl>
+			</StackPanel>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

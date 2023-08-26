@@ -1,0 +1,112 @@
+<UserControl
+	x:Class="reWASDUI.License.Views.LicenseEnterSerialPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:characterRestrictingTextBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CharacterRestrictingTextBoxes;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:pages="clr-namespace:reWASDUI.License.Pages"
+	attachedBehaviours:FocusBehavior.FocusFirst="true" xmlns:views="clr-namespace:reWASDUI.License.Views">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="40" />
+		</Grid.RowDefinitions>
+		<Border
+			Padding="0,58,40,0"
+			FrameworkElement.Style="{DynamicResource LicensePageContentBorderStyle}">
+			<Grid
+				FrameworkElement.VerticalAlignment="Top">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="171" />
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+				</Grid.ColumnDefinitions>
+				<Image
+					Grid.Column="0"
+					FrameworkElement.Width="81"
+					FrameworkElement.Margin="57,25,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.VerticalAlignment="Center"
+					Image.Source="{DynamicResource IcoLicense}" />
+				<StackPanel
+					Grid.Column="1"
+					FrameworkElement.Margin="0,20,20,0">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<TextBlock
+							FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+							TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_SERIAL_PARAM}}" />
+						<characterRestrictingTextBoxes:RestrictionModeTextBox
+							Name="editSerial"
+							Grid.Column="1"
+							FrameworkElement.Margin="14,0,0,0"
+							MaxLength="32"
+							RestrictionMode="Serial">
+							<Binding
+								Path="SerialNumber"
+								UpdateSourceTrigger="PropertyChanged"
+								ValidatesOnDataErrors="True" />
+						</characterRestrictingTextBoxes:RestrictionModeTextBox>
+						<buttons:ColoredButton
+							Name="btnActivate"
+							Grid.Column="2"
+							IsDefault="True"
+							FrameworkElement.Style="{DynamicResource ButtonSmall}"
+							ButtonBase.Command="{Binding ActivateLicenseCommand}"
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.IDS_LICENSE_BUTTON_ACTIVATE}}" />
+					</Grid>
+					<Grid
+						FrameworkElement.Margin="0,10,0,0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+						</Grid.ColumnDefinitions>
+						<TextBlock
+							FrameworkElement.Style="{DynamicResource LicenseNoteTextBlockStyle}"
+							TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_NOTE_INTERNET_CONNECTION}}" />
+					</Grid>
+					<TextBlock
+						FrameworkElement.Margin="0,25,0,0"
+						FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_DONT_HAVE_SERIAL_YET}}" />
+					<TextBlock
+						FrameworkElement.Style="{DynamicResource LicenseNoteTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_CLICK_BUY_NOW_TO_PURCHASE}}" />
+					<TextBlock
+						FrameworkElement.Margin="0,25,0,0"
+						FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_DIDNT_GET_SERIAL}}" />
+					<TextBlock
+						FrameworkElement.Style="{DynamicResource LicenseNoteTextBlockStyle}"
+						utils:NavigationServiceHTML.Text="{Binding CheckSpamDescription}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+		<Border
+			Grid.Row="1"
+			FrameworkElement.Style="{DynamicResource LicensePageFooterBorderStyle}">
+			<StackPanel
+				FrameworkElement.HorizontalAlignment="Right"
+				Orientation="Horizontal">
+				<buttons:ColoredButton
+					Name="btnBuy"
+					FrameworkElement.Style="{DynamicResource ButtonSmall}"
+					ButtonBase.Command="{Binding BuyNowCommand}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.IDS_BUY}}" />
+				<buttons:ColoredButton
+					Name="btnClose"
+					IsCancel="True"
+					FrameworkElement.Style="{DynamicResource ButtonSmall}"
+					ButtonBase.Command="{Binding CloseCommand}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_5003_CLOSE}}" />
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

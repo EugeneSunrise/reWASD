@@ -1,0 +1,45 @@
+<Window
+	x:Class="reWASDUI.Views.SecondaryWindows.PrintPreviewDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base="clr-namespace:DiscSoft.NET.Common.View.SecondaryWindows.Base;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	Title="reWASD Print Preview"
+	attachedBehaviours:FocusBehavior.FocusFirst="true"
+	Control.Foreground="{DynamicResource MainWindowBorderBrush}"
+	FrameworkElement.Style="{DynamicResource MainWindowStyle}" xmlns:secondarywindows="clr-namespace:reWASDUI.Views.SecondaryWindows">
+	<Grid
+		Panel.Background="{DynamicResource MainWindowBorderBrush}">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="Auto" />
+			<RowDefinition
+				RowDefinition.Height="*" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="1">
+			<DocumentViewer
+				Name="viewer" />
+		</Grid>
+		<controls:OverrideParentIsEnabledContainer
+			Grid.Row="0">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<controls:WindowTitle
+					Name="WindowTitle"
+					Control.Background="#00FFFFFF"
+					TrialInfoIsVisible="False"
+					VersionStringIsVisible="False" />
+				<Border
+					Grid.Column="1"
+					Border.Background="#00FFFFFF">
+					<controls:WindowHeaderButtons
+						UIElement.Focusable="False"
+						VisibilityMaximizeButton="Collapsed"
+						VisibilityMinimizeButton="Collapsed" />
+				</Border>
+			</Grid>
+		</controls:OverrideParentIsEnabledContainer>
+	</Grid>
+</Window>

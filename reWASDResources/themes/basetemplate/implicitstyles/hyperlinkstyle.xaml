@@ -1,0 +1,43 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		x:Key="{x:Type Hyperlink}"
+		TargetType="{x:Type Hyperlink}">
+		<Setter
+			Property="TextElement.Foreground"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="TextBlock.TextDecorations"
+			Value="Underline" />
+		<Style.Triggers>
+			<Trigger
+				Property="ContentElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="Inline.TextDecorations"
+					Value="{x:Null}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		x:Key="LicenseHyperlink"
+		TargetType="{x:Type Hyperlink}">
+		<Setter
+			Property="TextElement.Foreground"
+			Value="#FFC2ED2E" />
+		<Setter
+			Property="TextElement.FontSize"
+			Value="12" />
+		<Setter
+			Property="TextBlock.TextDecorations"
+			Value="{x:Null}" />
+		<Style.Triggers>
+			<Trigger
+				Property="ContentElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="Inline.TextDecorations"
+					Value="Underline" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

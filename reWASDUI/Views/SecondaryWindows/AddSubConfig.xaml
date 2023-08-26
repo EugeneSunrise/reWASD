@@ -1,0 +1,53 @@
+<base:BaseSecondaryWindow
+	x:Class="reWASDUI.Views.SecondaryWindows.AddSubConfig" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base="clr-namespace:DiscSoft.NET.Common.View.SecondaryWindows.Base;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:secondaryWindows="clr-namespace:reWASDUI.Views.SecondaryWindows"
+	Title="Add a new SubConfig"
+	FrameworkElement.Width="400"
+	FrameworkElement.MaxWidth="400"
+	attachedBehaviours:FocusBehavior.FocusFirst="true"
+	SizeToContent="Height"
+	FrameworkElement.Style="{DynamicResource SecondaryWindowStyle}">
+	<StackPanel>
+		<FrameworkElement.Resources>
+			<converters:EnumToBooleanConverter
+				x:Key="EnumToBooleanConverter" />
+		</FrameworkElement.Resources>
+		<StackPanel
+			FrameworkElement.Style="{DynamicResource SecondaryWindowContentGridStyle}">
+			<TextBlock
+				FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+				TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_CONFIG_NAME}}" />
+			<RadioButton
+				FrameworkElement.Name="rbtnGamepad"
+				ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_GAMEPAD}}"
+				IsChecked="{Binding ControllerFamily, Converter='{StaticResource EnumToBooleanConverter}', ConverterParameter='{x:Static enums:ControllerFamily.Gamepad}'}"
+				x:Name="rbtnGamepad" />
+			<RadioButton
+				FrameworkElement.Name="rbtnKeyboard"
+				ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_KEYBOARD}}"
+				IsChecked="{Binding ControllerFamily, Converter='{StaticResource EnumToBooleanConverter}', ConverterParameter='{x:Static enums:ControllerFamily.Keyboard}'}"
+				x:Name="rbtnKeyboard" />
+			<RadioButton
+				FrameworkElement.Name="rbtnMouse"
+				ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_MOUSE}}"
+				IsChecked="{Binding ControllerFamily, Converter='{StaticResource EnumToBooleanConverter}', ConverterParameter='{x:Static enums:ControllerFamily.Mouse}'}"
+				x:Name="rbtnMouse" />
+		</StackPanel>
+		<Border
+			FrameworkElement.Style="{DynamicResource SecondaryWindowFooterBorderStyle}">
+			<StackPanel
+				Orientation="Horizontal"
+				FrameworkElement.Style="{DynamicResource SecondaryWindowFooterContainerStyle}">
+				<!--Присоединяемое событие 'add_Click'.-->
+				<buttons:ColoredButton
+					FrameworkElement.Margin="10,0,0,0"
+					FrameworkElement.Style="{DynamicResource Button}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_5004_OK}}" />
+				<!--Присоединяемое событие 'add_Click'.-->
+				<buttons:ColoredButton
+					FrameworkElement.Margin="10,0,0,0"
+					FrameworkElement.Style="{DynamicResource Button}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_5005_CANCEL}}" />
+			</StackPanel>
+		</Border>
+	</StackPanel>
+</base:BaseSecondaryWindow>

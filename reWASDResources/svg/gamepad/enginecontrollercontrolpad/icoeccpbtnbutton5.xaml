@@ -1,0 +1,41 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoECCPBtnButton5" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoECCPBtnButton5">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M13.921,15.5L2.079,15.5C1.207,15.5,0.5,14.793,0.5,13.921L0.5,2.079C0.5,1.207,1.207,0.5,2.079,0.5L13.921,0.5C14.793,0.5,15.5,1.207,15.5,2.079L15.5,13.921C15.5,14.793,14.793,15.5,13.921,15.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.008,6.938C8.728,6.938 9.297,7.128 9.717,7.509 10.137,7.89 10.347,8.409 10.347,9.066 10.347,9.828 10.109,10.423 9.631,10.851 9.154,11.279 8.477,11.494 7.598,11.494 6.8,11.494 6.174,11.365 5.718,11.107L5.718,10.068C5.982,10.217 6.284,10.333 6.626,10.414 6.968,10.496 7.285,10.537 7.578,10.537 8.096,10.537 8.489,10.421 8.76,10.189 9.03,9.959 9.165,9.62 9.165,9.174 9.165,8.321 8.621,7.895 7.534,7.895 7.381,7.895 7.192,7.911 6.968,7.941 6.744,7.971 6.546,8.007 6.377,8.046L5.864,7.744 6.137,4.258 9.848,4.258 9.848,5.279 7.148,5.279 6.987,7.045C7.101,7.025 7.24,7.003 7.404,6.977 7.569,6.951 7.771,6.938 8.008,6.938z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

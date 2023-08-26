@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="LogoDrawing" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFF"
+						svr:SvgObject.Id="Path">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="EvenOdd"
+								PathGeometry.Figures="M8,16C3.6,16 0,12.4 0,8 0,3.8 3.2,0.3 7.4,0 7.5,0 7.5,0.1 7.4,0.4 6.8,2.2 5.1,7.8 4.7,9.2 4.6,9.4 4.6,9.5 4.9,9.5L7.7,9.2C8,9.2 8,9.2 7.9,9.5 7.6,10.6 6.7,13.8 6.4,14.9 6.4,15 6.4,15.1 6.5,14.9L12.3,6.4C12.4,6.2,12.4,6.1,12.2,6.1L9.1,6.4C8.8,6.4,8.8,6.3,8.9,6.1L11.2,1.2C11.4,0.8 11.4,0.7 11.7,0.9 15.6,3 17.1,7.8 15,11.7 13.7,14.3 11,16 8,16z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

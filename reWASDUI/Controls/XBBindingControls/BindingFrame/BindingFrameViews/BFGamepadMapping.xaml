@@ -1,0 +1,30 @@
+<bindingFrameViews:BaseBFView
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews.BFGamepadMapping" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:infrastructure1="clr-namespace:reWASDUI.Infrastructure" xmlns:interfaces1="clr-namespace:reWASDUI.Services.Interfaces" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:bindingFrameViews="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews" xmlns:buttonBinding="clr-namespace:reWASDUI.Controls.XBBindingControls.ButtonBinding">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingFrameViews:BFGamepadMapping}">
+			<StackPanel>
+				<Border
+					FrameworkElement.Style="{DynamicResource BindingFrameBackBorderStyle}">
+					<buttons:SVGButton
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.Style="{DynamicResource ButtonBackBindingFrame}"
+						ColorShiftBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}"
+						ButtonBase.Command="{Binding GamepadMappingBackCommand, RelativeSource={RelativeSource TemplatedParent}}"
+						HighlightedForeground="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+				</Border>
+				<Border
+					Border.BorderBrush="{DynamicResource ContentBorderBrush}"
+					UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+					<StackPanel
+						FrameworkElement.Margin="10,0,10,13">
+						<buttonBinding:GamepadButtonBinding
+							Title="{localization:Translate {x:Static s:StringConsts.STR_NATIVE_MAPPING}}"
+							ControlsBorderBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}"
+							XBBinding="{Binding XBBinding, RelativeSource={RelativeSource TemplatedParent}}" />
+					</StackPanel>
+				</Border>
+			</StackPanel>
+		</ControlTemplate>
+	</Control.Template>
+</bindingFrameViews:BaseBFView>

@@ -1,0 +1,63 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="GamepadWiiNunchukFlip" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="GamepadWiiNunchukFlip">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#00FFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,36,36" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup
+						svr:SvgObject.Id="GamepadWiiNunchuk">
+						<DrawingGroup.Children>
+							<DrawingGroup>
+								<DrawingGroup.Children>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M18,36C16.931,36 15.987,35.355 15.596,34.358 15.299,33.73 14.603,31.568 13.96,27.636 13.748,26.336 12.004,14.625 11.74,10.814 11.511,7.519 12.007,5.42 12.164,4.855 12.653,2.062 15.112,0 18,0 20.88,0 23.333,2.05 23.843,4.879 24.007,5.476 24.487,7.56 24.261,10.815 23.999,14.582 22.244,26.393 22.04,27.637 21.397,31.567 20.702,33.73 20.392,34.389 20.013,35.355 19.068,36 18,36z M18,1C15.599,1 13.553,2.714 13.137,5.077 12.98,5.65 12.519,7.61 12.737,10.746 12.999,14.526 14.735,26.181 14.946,27.475 15.572,31.306 16.244,33.394 16.512,33.963 16.767,34.604 17.345,35 18,35 18.655,35 19.233,34.604 19.475,33.993 19.755,33.393 20.428,31.304 21.054,27.474 21.256,26.236 23.004,14.481 23.263,10.745 23.481,7.605 23.02,5.648 22.873,5.123L22.862,5.07600000000001C22.446,2.714,20.401,1,18,1z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+							<DrawingGroup>
+								<DrawingGroup.Children>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M20.529,9.382L19.944,9.224C18.871,8.934,17.131,8.934,16.055,9.224L15.471,9.381 15.259,6.461C15.256,4.407,20.744,4.443,20.744,6.425L20.529,9.382z M18,5.916C16.896,5.916,16.297,6.291,16.256,6.433L16.381,8.132C17.375,7.961,18.627,7.961,19.617,8.132L19.744,6.39C19.703,6.291,19.104,5.916,18,5.916z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M17.944,1.836C17.201,1.836,16.598,2.162,16.598,2.565L16.598,3.35C16.598,3.753 17.201,4.079 17.944,4.079 18.687,4.079 19.29,3.753 19.29,3.35L19.29,2.565C19.29,2.163,18.687,1.836,17.944,1.836z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

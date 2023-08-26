@@ -1,0 +1,60 @@
+<base:BaseSecondaryWindow
+	x:Class="reWASDUI.Views.SecondaryWindows.ShareWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base="clr-namespace:DiscSoft.NET.Common.View.SecondaryWindows.Base;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters"
+	FrameworkElement.Height="300"
+	FrameworkElement.MinWidth="450"
+	FrameworkElement.MaxWidth="450"
+	attachedBehaviours:FocusBehavior.FocusFirst="true"
+	AutomationProperties.AutomationId="ShareWindow"
+	FrameworkElement.Style="{DynamicResource SecondaryWindowStyle}" xmlns:secondarywindows="clr-namespace:reWASDUI.Views.SecondaryWindows"
+	Title="{l:Translate {x:Static s:StringConsts.STR_SHARE_WINDOW_TITLE}}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters1:XBControllerBitOfFlagConverter
+				x:Key="XbConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<StackPanel>
+			<StackPanel
+				FrameworkElement.Margin="15"
+				Orientation="Vertical">
+				<TextBlock
+					Name="Header"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.Style="{DynamicResource DTHeaderTextBlockStyle}"
+					TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_SHARE_COMMUNITY}}" />
+				<StackPanel
+					FrameworkElement.Margin="0,20,0,10">
+					<TextBlock
+						Name="ShareComunnityTextBlock"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_CONFIG_DESCRIPTION}}" />
+					<controls:WaterMarkTextBox
+						Name="ShareComunnityTextBox"
+						MaxLength="65"
+						TextBox.Text="{Binding ConfigDescription}" />
+				</StackPanel>
+			</StackPanel>
+			<Border
+				FrameworkElement.Margin="0,0,5,0"
+				FrameworkElement.Style="{DynamicResource SecondaryWindowFooterBorderStyle}">
+				<StackPanel
+					Orientation="Horizontal"
+					FrameworkElement.Style="{DynamicResource SecondaryWindowFooterContainerStyle}">
+					<buttons:ColoredButton
+						Name="ShareButton"
+						FrameworkElement.Margin="0"
+						IsDefault="True"
+						FrameworkElement.Style="{DynamicResource Button}"
+						ButtonBase.Command="{Binding ShareCommand}"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STRING_SHARE_TO}}" />
+					<buttons:ColoredButton
+						Name="CancelButton"
+						FrameworkElement.Margin="10,0,0,0"
+						IsCancel="True"
+						FrameworkElement.Style="{DynamicResource Button}"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_5005_CANCEL}}" />
+				</StackPanel>
+			</Border>
+		</StackPanel>
+	</Grid>
+</base:BaseSecondaryWindow>

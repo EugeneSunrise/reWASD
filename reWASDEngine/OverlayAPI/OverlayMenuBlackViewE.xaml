@@ -1,0 +1,18 @@
+<Window
+	x:Class="reWASDEngine.OverlayAPI.OverlayMenuBlackViewE" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:DTOverlay="clr-namespace:DTOverlay;assembly=reWASDCommon" xmlns:controls="clr-namespace:RadialMenu.Controls;assembly=reWASDCommon" xmlns:converters1="clr-namespace:reWASDEngine.Infrastructure.RadialMenu.Converters" xmlns:overlayMenuNamespace="clr-namespace:DTOverlay" xmlns:wpf="clr-namespace:Overlay.NET.Wpf" xmlns:local="reWASDEngine.OverlayAPI" xmlns:overlayApi="clr-namespace:reWASDEngine.OverlayAPI"
+	Title="reWASDMenuBlack"
+	AllowsTransparency="True"
+	AutomationProperties.AutomationId="OverlayMenuBlack"
+	RenderOptions.ClearTypeHint="Enabled"
+	ShowInTaskbar="False"
+	TextOptions.TextFormattingMode="Ideal"
+	Topmost="True"
+	Control.Background="#FF000000"
+	UseLayoutRounding="True"
+	WindowStartupLocation="Manual"
+	WindowStyle="None"
+	FrameworkElement.Height="800"
+	Left="0"
+	FrameworkElement.Width="800"
+	Opacity="{Binding TintBackground}"
+	SizeChanged="UpdateSize" />

@@ -1,0 +1,108 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.GamepadSelector.InitializeElite2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:gamepadSelector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector" xmlns:initializeGamepad="clr-namespace:reWASDUI.ViewModels.InitializeGamepad" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://prismlibrary.com/" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Wpf"
+	mvvm:ViewModelLocator.AutoWireViewModel="True">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type gamepadSelector:InitializeElite2}">
+			<Grid
+				FrameworkElement.Margin="0,30,0,70"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="1*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="7*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="1*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="*" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					Grid.Row="0"
+					Grid.Column="1"
+					FrameworkElement.Margin="0,0,0,25"
+					FrameworkElement.HorizontalAlignment="Center"
+					TextBlock.FontSize="22"
+					TextBlock.FontWeight="Bold"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_ADJUST_XBA_SETTINGS}}" />
+				<StackPanel
+					Grid.Row="1"
+					Grid.Column="1"
+					FrameworkElement.HorizontalAlignment="Left">
+					<TextBlock
+						Name="bluetoothConnectionText"
+						FrameworkElement.Margin="0,10,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						TextBlock.FontSize="14"
+						TextBlock.FontWeight="Bold"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						UIElement.Visibility="Collapsed"
+						TextBlock.Text="{Binding BTItemStr}" />
+					<TextBlock
+						FrameworkElement.Margin="0,10,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						TextBlock.FontSize="14"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						utils:NavigationServiceHTML.Text="{Binding FirstItemStr}"
+						UIElement.Visibility="{Binding IsModernFirmware}" />
+					<TextBlock
+						FrameworkElement.Margin="0,10,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						TextBlock.FontSize="14"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{Binding EmptyProfileStr}" />
+					<TextBlock
+						FrameworkElement.Margin="0,10,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						TextBlock.FontSize="14"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{Binding CloneProfileStr}" />
+				</StackPanel>
+				<Image
+					Grid.Row="2"
+					Grid.Column="1"
+					FrameworkElement.MaxWidth="840"
+					FrameworkElement.Margin="0,20"
+					Image.Source="{DynamicResource Elite2Warning}" />
+				<buttons:ColoredButton
+					Grid.Row="3"
+					Grid.Column="1"
+					FrameworkElement.Height="38"
+					Control.Padding="41,0"
+					FrameworkElement.HorizontalAlignment="Center"
+					Control.Background="{DynamicResource CreamBrush}"
+					IsTriggered="True"
+					ButtonBase.Command="{Binding SubmitCommand}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_DONE}}" />
+			</Grid>
+			<ControlTemplate.Triggers>
+				<DataTrigger
+					Value="False"
+					Binding="{Binding GamepadService.CurrentGamepad.IsBluetoothConnectionFlagPresent}">
+					<Setter
+						TargetName="bluetoothConnectionText"
+						Property="UIElement.Visibility"
+						Value="Collapsed" />
+				</DataTrigger>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding GamepadService.CurrentGamepad.IsBluetoothConnectionFlagPresent}">
+					<Setter
+						TargetName="bluetoothConnectionText"
+						Property="UIElement.Visibility"
+						Value="Visible" />
+				</DataTrigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

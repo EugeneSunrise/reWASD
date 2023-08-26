@@ -1,0 +1,37 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriKeyScanCodeSleep" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriKeyScanCodeSleep">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<DrawingGroup>
+								<DrawingGroup.Children>
+									<DrawingGroup>
+										<DrawingGroup.Children>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<PathGeometry
+														FillRule="Nonzero"
+														PathGeometry.Figures="M3.468,1.776C3.18,3.238 3.325,4.768 3.908,6.165 5.102,9.027 7.89,10.876 11.013,10.876 11.394,10.876 11.771,10.85 12.146,10.793 11.499,11.548 10.674,12.145 9.732,12.527 8.961,12.841 8.152,13 7.328,13 4.75,13 2.453,11.475 1.475,9.114 0.838,7.577 0.84,5.884 1.481,4.349 1.912,3.317 2.595,2.438 3.468,1.776 M4.665,0C4.624,0 4.582,0.008 4.543,0.024 0.801,1.548 -0.986,5.789 0.551,9.497 1.714,12.303 4.447,14 7.328,14 8.256,14 9.197,13.824 10.107,13.453 11.814,12.76 13.193,11.451 13.968,9.793 14.042,9.637 13.976,9.451 13.82,9.377 13.777,9.357 13.732,9.348 13.685,9.348 13.644,9.348 13.601,9.356 13.562,9.371L13.566,9.371C12.73,9.714 11.865,9.876 11.013,9.876 8.386,9.876 5.895,8.334 4.829,5.78 4.115,4.063 4.158,2.128 4.949,0.446 5.023,0.29 4.956,0.104 4.799,0.03 4.757,0.01 4.711,0 4.665,0L4.665,0z" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+										</DrawingGroup.Children>
+									</DrawingGroup>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

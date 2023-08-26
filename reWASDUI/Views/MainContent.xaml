@@ -1,0 +1,256 @@
+<UserControl
+	x:Class="reWASDUI.Views.MainContent" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:gamepadSelector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector" xmlns:infrastructure="clr-namespace:reWASDUI.Infrastructure" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mvvm="http://prismlibrary.com/" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:views="clr-namespace:reWASDUI.Views" xmlns:b="http://schemas.microsoft.com/xaml/behaviors" xmlns:mvvm1="clr-namespace:Prism.Mvvm;assembly=Prism.Wpf"
+	mvvm1:ViewModelLocator.AutoWireViewModel="True">
+	<Grid
+		Panel.Background="#FF000000"
+		MouseDown="MainContent_OnMouseDown"
+		PreviewMouseDown="MainContent_OnPreviewMouseDown">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="Auto" />
+			<RowDefinition
+				RowDefinition.Height="*" />
+		</Grid.RowDefinitions>
+		<Grid
+			Name="contentGrid"
+			RowSpan="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+			</Grid.ColumnDefinitions>
+			<Image
+				Name="img"
+				Grid.ColumnSpan="2"
+				Image.Stretch="UniformToFill"
+				Image.Source="{Binding GameProfilesService.CurrentGame.GameImageSource}" />
+			<Border
+				Grid.ColumnSpan="2"
+				Border.Background="{DynamicResource WindowBackground}"
+				Opacity="0.93" />
+			<Border
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				FrameworkElement.Height="87"
+				FrameworkElement.Margin="0,34,0,18"
+				FrameworkElement.VerticalAlignment="Top"
+				UIElement.ClipToBounds="True">
+				<Grid
+					FrameworkElement.HorizontalAlignment="Stretch"
+					UIElement.Visibility="{Binding GameProfilesService.CurrentGame, Converter={converters:ValueIsNotNullToVisibilityConverter}, FallbackValue={x:Null}}">
+					<Rectangle
+						UIElement.ClipToBounds="True">
+						<behaviors:Interaction.Behaviors xmlns:behaviors="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors">
+							<controls:BlurBackgroundBehavior
+								BlurContainer="{Binding ElementName=img}" />
+						</behaviors:Interaction.Behaviors>
+					</Rectangle>
+					<Border
+						Border.Background="{DynamicResource WindowBackground}"
+						Opacity="0.93" />
+					<Border
+						Border.Background="#FFFFFFFF"
+						Opacity="0.05" />
+					<views:GameConfigSelector
+						FrameworkElement.Margin="18,6,18,0"
+						UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsInitializedController, FallbackValue=Visible, Converter={converters:BooleanToVisibilityConverter}}" />
+				</Grid>
+			</Border>
+			<TextBlock
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="0,0,12,110"
+				FrameworkElement.HorizontalAlignment="Right"
+				FrameworkElement.VerticalAlignment="Bottom"
+				TextBlock.FontSize="10"
+				TextBlock.Foreground="#AAAAAA"
+				FrameworkElement.Style="{DynamicResource WindowTitleTextBlockStyle}"
+				TextBlock.Text="{x:Static s:DTVersion.VERSION_STRING}" />
+			<Border
+				Grid.ColumnSpan="2"
+				FrameworkElement.Height="104"
+				FrameworkElement.Margin="0,55,0,0"
+				FrameworkElement.VerticalAlignment="Bottom"
+				UIElement.ClipToBounds="True"
+				UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsInitializedController, Converter={converters:BooleanToVisibilityConverter}}">
+				<Grid>
+					<UIElement.Visibility>
+						<MultiBinding
+							Converter="{converters:MultiBooleanOrConverterToVisibilityConverter}">
+							<Binding
+								Path="GameProfilesService.CurrentGame"
+								Converter="{converters:ValueIsNotNull}" />
+							<Binding
+								Path="GamepadService.IsCurrentGamepadHasProfiles" />
+						</MultiBinding>
+					</UIElement.Visibility>
+					<Rectangle
+						UIElement.ClipToBounds="True">
+						<Interaction.Behaviors xmlns="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors">
+							<controls:BlurBackgroundBehavior
+								BlurContainer="{Binding ElementName=img}" />
+						</Interaction.Behaviors>
+					</Rectangle>
+					<Border
+						Border.Background="{DynamicResource WindowBackground}"
+						Opacity="0.93" />
+					<Border
+						Border.Background="#FFFFFFFF"
+						Opacity="0.05" />
+					<gamepadSelector:GamepadSelector
+						x:Name="GamepadSelector" />
+				</Grid>
+			</Border>
+			<Border
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="0,56,0,0"
+				UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsInitializedController, Converter={converters:BooleanToVisibilityConverter}}">
+				<Grid>
+					<UIElement.Visibility>
+						<MultiBinding
+							Converter="{converters:MultiBooleanOrConverterToVisibilityConverter}">
+							<Binding
+								Path="GameProfilesService.CurrentGame"
+								Converter="{converters:ValueIsNotNull}" />
+							<Binding
+								Path="GamepadService.IsCurrentGamepadHasProfiles" />
+						</MultiBinding>
+					</UIElement.Visibility>
+					<Grid
+						FrameworkElement.Margin="0,0,0,56"
+						RegionManager.RegionName="{x:Static infrastructure:RegionNames.Gamepad}"
+						UIElement.Focusable="False"
+						p23:RegionManager.RegionManager="{Binding RegionManager}"
+						DataContext="{Binding GamepadSelectorVM}"
+						IsHitTestVisible="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection, FallbackValue=False, Converter={converters:ValueIsNotNull}}" xmlns:p23="clr-namespace:Prism.Regions;assembly=Prism.Wpf" />
+				</Grid>
+			</Border>
+			<Border
+				Grid.ColumnSpan="2"
+				UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsInitializedController, Converter={converters:BooleanToVisibilityConverter}}">
+				<gamepadSelector:GamepadSelectorEmptyGame
+					x:Name="gamepadSelectorEmptyGame">
+					<UIElement.Visibility>
+						<MultiBinding
+							Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+							<Binding
+								Path="GameProfilesService.CurrentGame"
+								Converter="{converters:ValueIsNullConverter}" />
+							<Binding
+								Path="GamepadService.IsCurrentGamepadHasProfiles"
+								Converter="{converters:InverseBooleanConverter}" />
+						</MultiBinding>
+					</UIElement.Visibility>
+				</gamepadSelector:GamepadSelectorEmptyGame>
+			</Border>
+			<Grid
+				ColumnSpan="2"
+				Panel.Background="{DynamicResource WindowBackground}">
+				<UIElement.Visibility>
+					<MultiBinding
+						Converter="{converters:MultiBooleanOrConverterToVisibilityConverter}">
+						<Binding
+							Path="GamepadService.CurrentGamepad.IsInitializedController"
+							Converter="{converters:InverseBooleanConverter}" />
+						<Binding
+							Path="IsLicenseLockEngineController" />
+					</MultiBinding>
+				</UIElement.Visibility>
+				<gamepadSelector:GamepadList
+					FrameworkElement.Margin="0,0,0,5"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Bottom"
+					IsBigIcons="True"
+					DataContext="{Binding GamepadSelectorVM}" />
+				<gamepadSelector:InitializePeripheral
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedPeripheralController, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:InitializeElite2
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedElite2, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:InitializeLogitech
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedLogitech, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:InitializeBluetoothPairing
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedBluetoothPairing, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:InitializeChatpad
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedChatpad, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:InitializeExclusiveDevice
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedExclusiveDevice, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:InitializeFlydigiXbox360Device
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedFlydigiXbox360, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:Initialize8BitDo
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitialized8BitDo, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:InitializeGameCube
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedGameCube, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:InitializeSegaGenesis
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedSegaGenesis, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:InitializeGameSirG7
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedGameSirG7, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:DummyEngineController
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsNonInitializedEngineController, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<gamepadSelector:LicenseEngineController
+					UIElement.Visibility="{Binding DataContext.IsLicenseLockEngineController, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={converters:BooleanToVisibilityConverter}}" />
+			</Grid>
+			<Grid
+				ColumnSpan="2"
+				Panel.Background="{DynamicResource WindowBackground}"
+				UIElement.Visibility="{Binding HttpClientService.InitializationIsFailed, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}">
+				<gamepadSelector:InitializationHTTPError />
+			</Grid>
+			<FrameworkElement.Style>
+				<Style>
+					<Style.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True">
+									<Condition.Binding>
+										<MultiBinding
+											Converter="{converters:MultiBooleanOrConverter}">
+											<Binding
+												Path="GameProfilesService.CurrentGame"
+												Converter="{converters:ValueIsNotNull}" />
+											<Binding
+												Path="GamepadService.IsCurrentGamepadHasProfiles" />
+										</MultiBinding>
+									</Condition.Binding>
+								</Condition>
+								<Condition
+									Value="True"
+									Binding="{Binding GamesSelectorVM.IsGameListShown, ElementName=Header}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="UIElement.IsEnabled"
+								Value="False" />
+							<Setter
+								Property="UIElement.Opacity"
+								Value="0.6" />
+							<Setter
+								Property="UIElement.Effect">
+								<Setter.Value>
+									<BlurEffect
+										Radius="5" />
+								</Setter.Value>
+							</Setter>
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</FrameworkElement.Style>
+		</Grid>
+		<controls:OverrideParentIsEnabledContainer
+			Grid.RowSpan="2"
+			FrameworkElement.VerticalAlignment="Stretch">
+			<views:HeaderZoneView
+				x:Name="Header">
+				<views:HeaderZoneView.GamesSelectorVisibility>
+					<MultiBinding
+						Converter="{converters:MultiBooleanOrConverterToVisibilityConverter}">
+						<Binding
+							Path="GameProfilesService.CurrentGame"
+							Converter="{converters:ValueIsNotNull}" />
+						<Binding
+							Path="GamepadService.IsCurrentGamepadHasProfiles" />
+					</MultiBinding>
+				</views:HeaderZoneView.GamesSelectorVisibility>
+			</views:HeaderZoneView>
+		</controls:OverrideParentIsEnabledContainer>
+	</Grid>
+</UserControl>

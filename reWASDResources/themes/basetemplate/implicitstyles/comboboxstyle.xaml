@@ -1,0 +1,116 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dsConverters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="BaseControlStyle.xaml" />
+		<ResourceDictionary
+			Source="../Colors.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		x:Key="{x:Type ComboBox}"
+		BasedOn="{StaticResource BaseControlStyle}"
+		TargetType="{x:Type ComboBox}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0,0,0,0" />
+	</Style>
+	<Style
+		x:Key="{x:Type comboBoxes:ColoredComboBox}"
+		BasedOn="{StaticResource BaseControlStyle}"
+		TargetType="{x:Type comboBoxes:ColoredComboBox}">
+		<Setter
+			Property="Control.Background"
+			Value="{DynamicResource ButtonBackground}" />
+		<Setter
+			Property="Control.BorderBrush"
+			Value="{DynamicResource ButtonBorderBrush}" />
+		<Setter
+			Property="Control.Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.PopupBackground"
+			Value="{DynamicResource ContentBackground}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.PopupBorderBrush"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.DisabledForeground"
+			Value="{DynamicResource DisabledForeground}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.DisabledBorderBrush"
+			Value="{DynamicResource DisabledButtonBorderBrush}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.DisabledBackground"
+			Value="{DynamicResource DisabledContentBackground}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.HighlightedBackground"
+			Value="{DynamicResource ItemControlHighlightedBackground}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.HighlightedBorderBrush"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.HighlightedForeground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemHighlightedBackground"
+			Value="{DynamicResource ItemControlHighlightedBackground}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemHighlightedBorderBrush"
+			Value="{DynamicResource ContentBorderBrush}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemHighlightedForeground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemBorderThickness"
+			Value="0,0,0,1" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemBorderBrush"
+			Value="{DynamicResource ContentBorderBrush}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemContainerBorderThickness"
+			Value="0,1,0,0" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemContainerBorderBrush"
+			Value="{DynamicResource ContentBorderBrush}" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="1" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ScrollThumbBackground"
+			Value="{DynamicResource ThumbBackground}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.HighlightedScrollThumbBackground"
+			Value="{DynamicResource ThumbBackgroundHover}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ScrollBarBackground"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.HighlightedScrollBarBackground"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemSelectedForeground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemSelectedBackground"
+			Value="{Binding BorderBrush, ConverterParameter=0.3, RelativeSource={RelativeSource Self}, Converter={dsConverters:SolidColorBrushSetOpacityViaParamConvertor}}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemSelectedHighlightedForeground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.ItemSelectedHighlightedBackground"
+			Value="{Binding BorderBrush, ConverterParameter=0.5, RelativeSource={RelativeSource Self}, Converter={dsConverters:SolidColorBrushSetOpacityViaParamConvertor}}" />
+		<Setter
+			Property="comboBoxes:BaseColoredComboBox.UWPModePopupMargin"
+			Value="0,5" />
+		<Setter
+			Property="FrameworkElement.MinHeight"
+			Value="29" />
+		<Setter
+			Property="ItemsControl.ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<VirtualizingStackPanel />
+				</ItemsPanelTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

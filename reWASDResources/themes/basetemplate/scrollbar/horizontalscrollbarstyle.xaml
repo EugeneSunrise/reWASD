@@ -1,0 +1,115 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		x:Key="HorizontalScrollBarThumbStyle"
+		TargetType="{x:Type Thumb}">
+		<Setter
+			Property="Control.IsTabStop"
+			Value="False" />
+		<Setter
+			Property="UIElement.Focusable"
+			Value="False" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.Background"
+			Value="{DynamicResource ScrollBarThumbBackground}" />
+		<Setter
+			Property="Control.BorderBrush"
+			Value="{DynamicResource ScrollBarThumbBorderBrush}" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="0" />
+		<Setter
+			Property="FrameworkElement.Height"
+			Value="8" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Thumb}">
+					<Rectangle
+						FrameworkElement.Name="ellipse"
+						FrameworkElement.Height="{TemplateBinding FrameworkElement.Height}"
+						Shape.Fill="{TemplateBinding Control.Background}"
+						Shape.Stroke="{TemplateBinding Control.BorderBrush}"
+						Shape.StrokeThickness="{TemplateBinding Control.BorderThickness}" />
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="true">
+							<Setter
+								Value="{DynamicResource ScrollBarThumbBackgroundHover}"
+								Property="Control.Background" />
+						</Trigger>
+						<Trigger
+							Property="Thumb.IsDragging"
+							Value="True">
+							<Setter
+								Property="UIElement.Opacity"
+								Value="1" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<ControlTemplate
+		x:Key="NewScrollHorizontalTemplate"
+		TargetType="{x:Type ScrollBar}">
+		<Border
+			Name="HorizontalScrollBarHolder"
+			FrameworkElement.Height="{TemplateBinding FrameworkElement.Height}"
+			Border.Background="#00FFFFFF">
+			<Grid>
+				<Border
+					Name="BackgroundBorder"
+					Border.Background="{TemplateBinding Control.Background}"
+					Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+					Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+					Opacity="0.1" />
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Track
+						Name="PART_Track"
+						Grid.Column="1"
+						Track.Orientation="Horizontal">
+						<Track.Thumb>
+							<Thumb
+								FrameworkElement.Style="{DynamicResource HorizontalScrollBarThumbStyle}" />
+						</Track.Thumb>
+						<Track.DecreaseRepeatButton>
+							<RepeatButton
+								Name="PageLeft"
+								ButtonBase.Command="ScrollBar.PageLeftCommand"
+								FrameworkElement.Style="{DynamicResource InvisibleScrollBarRepeatButton}" />
+						</Track.DecreaseRepeatButton>
+						<Track.IncreaseRepeatButton>
+							<RepeatButton
+								Name="PageRight"
+								ButtonBase.Command="ScrollBar.PageRightCommand"
+								FrameworkElement.Style="{DynamicResource InvisibleScrollBarRepeatButton}" />
+						</Track.IncreaseRepeatButton>
+					</Track>
+				</Grid>
+			</Grid>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="true">
+				<Setter
+					TargetName="BackgroundBorder"
+					Property="UIElement.Opacity"
+					Value="0.3" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+</ResourceDictionary>

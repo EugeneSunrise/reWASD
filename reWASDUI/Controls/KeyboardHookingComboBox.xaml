@@ -1,0 +1,22 @@
+<controls:BaseServicesResolvingControl
+	x:Class="reWASDUI.Controls.KeyboardHookingComboBox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type controls:KeyboardHookingComboBox}">
+			<Grid>
+				<comboBoxes:ColoredComboBox
+					Name="cmbKeys"
+					BlockKeyboardEvents="True"
+					Control.BorderBrush="{TemplateBinding Control.BorderBrush}"
+					DisabledBorderBrush="{TemplateBinding controls:KeyboardHookingComboBox.HighlightedBorderBrush}"
+					Control.Foreground="{TemplateBinding Control.Foreground}"
+					HighlightedBorderBrush="{TemplateBinding controls:KeyboardHookingComboBox.HighlightedBorderBrush}"
+					HighlightedScrollThumbBackground="{TemplateBinding controls:KeyboardHookingComboBox.HighlightedScrollThumbBackground}"
+					PopupBorderBrush="{TemplateBinding controls:KeyboardHookingComboBox.HighlightedBorderBrush}"
+					attachedBehaviours:FocusBehavior.InitialyFocused="{Binding Path=(attachedBehaviours:FocusBehavior.InitialyFocused), RelativeSource={RelativeSource TemplatedParent}}"
+					ItemsControl.ItemsSource="{Binding ItemsSource, RelativeSource={RelativeSource TemplatedParent}}"
+					SelectedItem="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}" />
+			</Grid>
+		</ControlTemplate>
+	</Control.Template>
+</controls:BaseServicesResolvingControl>

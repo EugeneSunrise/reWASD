@@ -1,0 +1,68 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.LedSettingsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:contentzonegamepad="clr-namespace:reWASDUI.Views.ContentZoneGamepad">
+	<Grid
+		FrameworkElement.Width="600">
+		<buttons:SVGButton
+			FrameworkElement.Margin="30,0,20,0"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Style="{DynamicResource ButtonBackFrame}"
+			ButtonBase.Command="{Binding GuiHelperService.SwitchLEDSettingsViewModeCommand}" />
+		<buttons:ColoredButton
+			Name="btnResetLED"
+			FrameworkElement.Margin="20,4,30,0"
+			FrameworkElement.HorizontalAlignment="Right"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Style="{DynamicResource Button}"
+			ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.ResetLedSettingsCommand}"
+			ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_RESET_TO_DEFAULT}}"
+			UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}" />
+		<TextBlock
+			FrameworkElement.Margin="0,6"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Style="{DynamicResource DTBFHeaderTextBlockStyle}"
+			TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_LED_SETTINGS}}" />
+		<Grid
+			FrameworkElement.Margin="0,100,0,90"
+			FrameworkElement.VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					RowDefinition.Height="*" />
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+			</Grid.RowDefinitions>
+			<ScrollViewer
+				Grid.Column="1"
+				FrameworkElement.HorizontalAlignment="Center"
+				ScrollViewer.VerticalScrollBarVisibility="Auto"
+				UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+				<ItemsControl
+					ItemsControl.ItemsSource="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.AdditionalData}">
+					<ItemsControl.ItemTemplate>
+						<ItemContainerTemplate>
+							<ContentControl
+								FrameworkElement.Margin="0,0,30,31"
+								ContentControl.Content="{Binding LEDSettings}" />
+						</ItemContainerTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</ScrollViewer>
+			<TextBlock
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				FrameworkElement.Margin="0,36,0,0"
+				FrameworkElement.Style="{DynamicResource VSSDescriptionTextBlockStyle}"
+				UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+				TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_LED_PAGE_DESCRIPTION}}" />
+		</Grid>
+	</Grid>
+</UserControl>

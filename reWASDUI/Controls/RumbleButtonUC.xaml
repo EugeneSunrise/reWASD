@@ -1,0 +1,58 @@
+<UserControl
+	x:Class="reWASDUI.Controls.RumbleButtonUC" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:infrastructure="clr-namespace:reWASDUI.Infrastructure" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:controls="clr-namespace:reWASDUI.Controls">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type controls:RumbleButtonUC}">
+			<buttons:ColoredButton
+				Name="btnBFShowRumble"
+				FrameworkElement.Margin="0,0,0,0"
+				FrameworkElement.Style="{DynamicResource ButtonSmallXBBindingShiftRecolored}"
+				ButtonBase.Command="{Binding ShowRumbleSettingsCommand, RelativeSource={RelativeSource TemplatedParent}}"
+				ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RUMBLE_NAV}}"
+				IsTriggered="{Binding XBBinding.CurrentActivatorXBBinding.IsRumble, RelativeSource={RelativeSource TemplatedParent}}">
+				<UIElement.Visibility>
+					<MultiBinding
+						ConverterParameter="({0} &amp;&amp; ({1} || {8})  &amp;&amp; !{2} &amp;&amp; !{3} &amp;&amp; !{4} &amp;&amp; !{5} &amp;&amp; !{6} &amp;&amp; !{7} &amp;&amp; {9})"
+						Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+						<Binding
+							Path="XBBinding.CurrentActivatorXBBinding.ActivatorType"
+							ConverterParameter="{x:Static enums:ActivatorType.Single}"
+							Converter="{converters:ValuesAreEqual}"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="XBBinding.ControllerButton.IsGamepad"
+							FallbackValue="True"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="XBBinding.ControllerButton.IsControllerWizard"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="XBBinding.ControllerButton.IsMouseDirectionsOrScrolls"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="XBBinding.IsStickDirection"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="XBBinding.IsGyroTiltDirection"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="XBBinding.IsGyroLean"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="XBBinding.HostCollection.CurrentTouchpadDirectionalGroup.TouchpadAnalogMode"
+							FallbackValue="False"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="XBBinding.HostMaskItem"
+							Converter="{converters:ValueIsNotNull}"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="GamepadService.CurrentGamepad.CurrentController.IsRumbleAvailable"
+							FallbackValue="True"
+							RelativeSource="{RelativeSource FindAncestor, AncestorType=infrastructure:IBaseServicesContainer}" />
+					</MultiBinding>
+				</UIElement.Visibility>
+			</buttons:ColoredButton>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

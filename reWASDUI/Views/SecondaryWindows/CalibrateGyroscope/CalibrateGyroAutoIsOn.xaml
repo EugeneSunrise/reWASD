@@ -1,0 +1,68 @@
+<UserControl
+	x:Class="reWASDUI.Views.SecondaryWindows.CalibrateGyroscope.CalibrateGyroAutoIsOn" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	FrameworkElement.Height="346" xmlns:calibrategyroscope="clr-namespace:reWASDUI.Views.SecondaryWindows.CalibrateGyroscope">
+	<Grid>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					RowDefinition.Height="*" />
+				<RowDefinition
+					RowDefinition.Height="70" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="197" />
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+			</Grid.ColumnDefinitions>
+			<recolorableImages:RecolorableSVG
+				Drawing="{DynamicResource Calibrate}"
+				FrameworkElement.Style="{DynamicResource WizardImage}"
+				UIElement.Visibility="{Binding IsGyroscopeAutoCalibrationOn, ConverterParameter=invert, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+			<recolorableImages:RecolorableSVG
+				Drawing="{DynamicResource Auto_calibrate}"
+				FrameworkElement.Style="{DynamicResource WizardImage}"
+				UIElement.Visibility="{Binding IsGyroscopeAutoCalibrationOn, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+			<Grid
+				Column="1">
+				<StackPanel
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.VerticalAlignment="Center">
+					<StackPanel
+						Orientation="Horizontal">
+						<checkBoxes:FillCheckBox
+							Name="AutoCalibrationChkBx"
+							FrameworkElement.Margin="0,0,0,10"
+							FrameworkElement.HorizontalAlignment="Left"
+							FrameworkElement.VerticalAlignment="Top"
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_AUTOCALIBRATION}}"
+							IsChecked="{Binding IsGyroscopeAutoCalibrationOn}" />
+					</StackPanel>
+					<TextBlock
+						FrameworkElement.Margin="0,0,60,0"
+						TextAlignment="Left"
+						TextBlock.TextWrapping="Wrap"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_REWASD_AUTOCALIBRATE}}" />
+				</StackPanel>
+			</Grid>
+			<Border
+				Grid.Row="1"
+				Grid.ColumnSpan="2"
+				FrameworkElement.Style="{DynamicResource WizardFooterBorderStyle}">
+				<Grid>
+					<buttons:ColoredButton
+						FrameworkElement.HorizontalAlignment="Right"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding NextCommand}"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_5017_NEXT}}"
+						UIElement.IsEnabled="{Binding IsChecked, ElementName=AutoCalibrationChkBx, Converter={converters:InverseBooleanConverter}}" />
+					<buttons:ColoredButton
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding CancelCommand}"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_5003_CLOSE}}" />
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
+</UserControl>

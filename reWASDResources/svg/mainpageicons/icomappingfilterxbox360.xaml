@@ -1,0 +1,67 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoMappingFilterXBOX360" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoMappingFilterXBOX360">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M7,2C9.757,2 12,4.243 12,7 12,9.757 9.757,12 7,12 4.243,12 2,9.757 2,7 2,4.243 4.243,2 7,2 M7,1C3.686,1 1,3.686 1,7 1,10.314 3.686,13 7,13 10.314,13 13,10.314 13,7 13,3.686 10.314,1 7,1L7,1z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup
+						Transform="1,0,0,1,984.5,320.5"
+						svr:SvgObject.Id="Group">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="Path_653">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M-980.3,-316.3L-980.3,-316.3C-981.02,-315.58 -981.5,-314.54 -981.5,-313.5 -981.5,-312.62 -981.18,-311.82 -980.7,-311.1L-980.7,-311.1C-981.02,-312.06,-979.5,-314.3,-978.7,-315.26L-978.7,-315.26C-979.98,-316.62,-980.3,-316.3,-980.3,-316.3" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="Path_654">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M-974.7,-316.3L-974.7,-316.3C-973.98,-315.58 -973.5,-314.54 -973.5,-313.5 -973.5,-312.62 -973.82,-311.82 -974.3,-311.1L-974.3,-311.1C-973.98,-312.06,-975.5,-314.3,-976.3,-315.26L-976.3,-315.26C-975.02,-316.62,-974.7,-316.3,-974.7,-316.3" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="Path_655">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M-977.5,-317.5C-976.78,-317.5,-976.06,-317.26,-975.42,-316.86L-975.42,-316.86C-976.14,-316.86,-976.86,-316.7,-977.5,-316.3L-977.5,-316.3C-978.14,-316.7,-978.86,-316.86,-979.58,-316.86L-979.58,-316.86C-978.94,-317.26,-978.22,-317.5,-977.5,-317.5" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="Path_656">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M-977.5,-314.3L-977.5,-314.3C-976.3,-313.34,-974.22,-311.18,-974.86,-310.46L-974.86,-310.46C-976.38,-309.18,-978.62,-309.18,-980.14,-310.46L-980.14,-310.46C-980.78,-311.1,-978.7,-313.34,-977.5,-314.3L-977.5,-314.3" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

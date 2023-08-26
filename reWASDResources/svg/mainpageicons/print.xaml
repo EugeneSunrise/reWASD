@@ -1,0 +1,39 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Print" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Print">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup
+						svr:SvgObject.Id="Print">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<EllipseGeometry
+										RadiusX="0.5"
+										RadiusY="0.5"
+										Center="13.5,6.5" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M14.5,4L14,4 14,1.5C14,1.224,13.776,1,13.5,1L2.5,1C2.224,1,2,1.224,2,1.5L2,4 1.5,4C0.672,4,0,4.672,0,5.5L0,10.5C0,11.328,0.672,12,1.5,12L4,12 4,14.5C4,14.776,4.224,15,4.5,15L11.5,15C11.776,15,12,14.776,12,14.5L12,12 14.5,12C15.328,12,16,11.328,16,10.5L16,5.5C16,4.672,15.328,4,14.5,4z M3,2L13,2 13,4 3,4 3,2z M11,14L5,14 5,8 11,8 11,14z M15,10.5C15,10.776,14.776,11,14.5,11L12,11 12,7.5C12,7.224,11.776,7,11.5,7L4.5,7C4.224,7,4,7.224,4,7.5L4,11 1.5,11C1.224,11,1,10.776,1,10.5L1,5.5C1,5.224,1.224,5,1.5,5L14.5,5C14.776,5,15,5.224,15,5.5L15,10.5z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

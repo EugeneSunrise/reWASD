@@ -1,0 +1,48 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="SlotIncluded" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="SlotIncluded">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup
+						Transform="1,0,0,1,-548,-380"
+						svr:SvgObject.Id="SlotIncluded">
+						<DrawingGroup.Children>
+							<DrawingGroup
+								Transform="1,0,0,1,37,0"
+								svr:SvgObject.Id="_x3C_Group_x3E_">
+								<DrawingGroup.Children>
+									<GeometryDrawing
+										Brush="#FF000000"
+										svr:SvgObject.Id="_x3C_Path_x3E_">
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M525,407C521.55,407.011 518.239,405.639 515.808,403.19 513.362,400.758 511.991,397.449 512,394 511.991,390.55 513.362,387.239 515.81,384.808 518.242,382.361 521.551,380.99 525,381 528.45,380.991 531.761,382.362 534.192,384.81 536.637,387.242 538.008,390.551 538,394 538.002,395.33 537.8,396.651 537.4,397.92 536.945,397.429 536.411,397.017 535.82,396.701 536.041,395.818 536.152,394.911 536.151,394.001 536.132,389.706 533.667,385.799 529.798,383.934L529.753,383.934C529.574,383.934,529.506,384.083,529.369,384.382L529.321,384.482C528.949,385.282 528.362,386.546 527.781,387.799 527.115,389.231 526.457,390.65 526.133,391.349 526.041,391.507 526.016,391.622 526.056,391.692 526.098,391.748 526.167,391.776 526.237,391.766 526.284,391.765 526.33,391.76 526.376,391.751L530.761,391.291C530.791,391.287 530.821,391.285 530.851,391.284 530.934,391.284 530.991,391.306 531.013,391.349 531.048,391.415 531.013,391.531 530.901,391.693 529.435,393.845 524.122,401.642 522.793,403.593 522.713,403.708 522.67,403.733 522.647,403.733 522.637,403.734 522.627,403.729 522.623,403.72 522.602,403.666 522.602,403.606 522.623,403.552 522.823,402.845 523.212,401.46 523.611,400.036L523.677,399.8C524.104,398.281 524.531,396.758 524.746,396 524.806,395.792 524.81,395.681 524.764,395.619 524.718,395.557 524.664,395.551 524.553,395.551 524.502,395.551 524.451,395.555 524.402,395.561L520.539,396.009C520.47,396.022 520.398,396.029 520.328,396.03 520.239,396.03 520.185,396.012 520.157,395.975 520.108,395.911 520.138,395.79 520.19,395.615L523.95,383.356C524.022,383.21 524.064,383.051 524.073,382.888 518.305,383.397 513.874,388.213 513.845,394.003 513.853,400.158 518.842,405.146 524.997,405.151 525.907,405.151 526.814,405.04 527.697,404.82 528.012000000001,405.411 528.426000000001,405.946 528.917,406.401 527.648,406.8 526.328,407.001 525,407z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FF000000"
+										svr:SvgObject.Id="_x3C_Ellipse_x3E_">
+										<GeometryDrawing.Geometry>
+											<EllipseGeometry
+												RadiusX="4"
+												RadiusY="4"
+												Center="533,402" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,28,28" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

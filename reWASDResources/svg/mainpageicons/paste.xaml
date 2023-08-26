@@ -1,0 +1,41 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Paste" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Paste">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<DrawingGroup>
+								<DrawingGroup.Children>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M6,1C5.448,1,5,1.448,5,2L3,2C2.448,2,2,2.448,2,3L2,14C2,14.552,2.448,15,3,15L8,15 8,14 3,14 3,3 4,3 4,4C4,5.105,4.895,6,6,6L10,6C11.105,6,12,5.105,12,4L12,3 13,3 13,8 14,8 14,3C14,2.448,13.552,2,13,2L11,2C11,1.448,10.552,1,10,1L6,1z M6,5C5.449,5,5,4.551,5,4L5,3 5.5,3C5.776,3,6,2.776,6,2.5L6,2 10,2 10,2.5C10,2.776,10.224,3,10.5,3L11,3 11,4C11,4.551,10.551,5,10,5L6,5 6,5z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M13,10L13,14 10,14 10,10 13,10 M13,9L10,9C9.448,9,9,9.448,9,10L9,14C9,14.552,9.448,15,10,15L13,15C13.552,15,14,14.552,14,14L14,10C14,9.448,13.552,9,13,9L13,9z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

@@ -1,0 +1,44 @@
+<controls:BaseServicesResolvingControl
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingAnnotation.ZoneAnnotation" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:bindingAnnotation="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingAnnotation" xmlns:base="clr-namespace:reWASDUI.ViewModels.Base"
+	AutomationProperties.AutomationId="{Binding Direction, RelativeSource={RelativeSource Self}}">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingAnnotation:ZoneAnnotation}">
+			<StackPanel
+				Orientation="Horizontal"
+				DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingAnnotation:GamepadBindingZonesAnnotation}}">
+				<Button
+					FrameworkElement.Style="{StaticResource ButtonStripped}"
+					Click="SetCurrentDirectionButton_Click">
+					<Border
+						Name="ZoneDirectionBorder"
+						FrameworkElement.Style="{DynamicResource ActivatorAnnotionBorderStyle}"
+						UIElement.Visibility="{Binding DirectionalGroup.IsZonesDirectionAllowed, Converter={converters:BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+						<recolorableImages:RecolorableSVG
+							Name="ZoneDirectionDrawing"
+							IsColorShift="True"
+							Stretch="None"
+							ColorShiftBrush="{Binding BorderBrush, ElementName=ZoneDirectionBorder}"
+							Drawing="{Binding Direction, RelativeSource={RelativeSource TemplatedParent}, Converter={converters2:DirectionToDrawingConverter}}">
+							<FrameworkElement.ToolTip>
+								<bindingAnnotation:ActivatorVirtualMappingAnnotation
+									ActivatorXBBinding="{TemplateBinding bindingAnnotation:ZoneAnnotation.ActivatorXBBinding}"
+									Control.Foreground="{TemplateBinding Control.Foreground}"
+									IsLabelMode="{TemplateBinding bindingAnnotation:ZoneAnnotation.IsLabelMode}"
+									ShiftActivatorXBBinding="{Binding ActivatorXBBinding.ShiftActivatorXBBinding, RelativeSource={RelativeSource TemplatedParent}}" />
+							</FrameworkElement.ToolTip>
+						</recolorableImages:RecolorableSVG>
+					</Border>
+				</Button>
+				<bindingAnnotation:ActivatorVirtualMappingAnnotation
+					x:Name="mainAnnotation"
+					FrameworkElement.Margin="0,0,4,0"
+					ActivatorXBBinding="{TemplateBinding bindingAnnotation:ZoneAnnotation.ActivatorXBBinding}"
+					Control.Foreground="{TemplateBinding Control.Foreground}"
+					IsLabelMode="{TemplateBinding bindingAnnotation:ZoneAnnotation.IsLabelMode}"
+					ShiftActivatorXBBinding="{Binding ActivatorXBBinding.ShiftActivatorXBBinding, RelativeSource={RelativeSource TemplatedParent}}"
+					UIElement.Visibility="{TemplateBinding IsShowZoneContent, Converter={converters:BooleanToVisibilityConverter}}" />
+			</StackPanel>
+		</ControlTemplate>
+	</Control.Template>
+</controls:BaseServicesResolvingControl>

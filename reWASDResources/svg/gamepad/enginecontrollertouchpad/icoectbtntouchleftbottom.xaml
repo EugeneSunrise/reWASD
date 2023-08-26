@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoECTBtnTouchLeftBottom" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoECTBtnTouchLeftBottom">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M16,11L16,5C16,4.173,15.327,3.5,14.5,3.5L1.5,3.5C0.673,3.5,0,4.173,0,5L0,11C0,11.827,0.673,12.5,1.5,12.5L14.5,12.5C15.327,12.5,16,11.827,16,11z M7.5,6.063C6.798,6.244,6.245,6.798,6.063,7.5L1,7.5 1,5C1,4.725,1.224,4.5,1.5,4.5L7.5,4.5 7.5,6.063z M8,7C8.551,7 9,7.449 9,8 9,8.551 8.551,9 8,9 7.449,9 7,8.551 7,8 7,7.449 7.449,7 8,7z M15,7.5L9.937,7.5C9.756,6.798,9.202,6.244,8.5,6.063L8.5,4.5 14.5,4.5C14.775,4.5,15,4.725,15,5L15,7.5z M15,8.5L15,11C15,11.276,14.775,11.5,14.5,11.5L8.5,11.5 8.5,9.937C9.202,9.755,9.756,9.202,9.937,8.5L15,8.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

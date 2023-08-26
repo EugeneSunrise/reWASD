@@ -1,0 +1,217 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="MiniEngineControllerMobileMouse+Keyboard" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="MiniEngineControllerMobileMouse+Keyboard">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<DrawingGroup>
+								<DrawingGroup.Children>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<RectangleGeometry
+												RadiusX="0"
+												RadiusY="0"
+												Rect="2.875,6.789,1.548,1.548" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<RectangleGeometry
+												RadiusX="0"
+												RadiusY="0"
+												Rect="5.351,6.789,1.548,1.548" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<RectangleGeometry
+												RadiusX="0"
+												RadiusY="0"
+												Rect="2.875,9.265,1.548,1.548" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<RectangleGeometry
+												RadiusX="0"
+												RadiusY="0"
+												Rect="2.875,11.741,1.548,1.548" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M4.778,14.167L2,14.167C1.449,14.167,1,13.718,1,13.167L1,7.056C1,6.505,1.449,6.056,2,6.056L18.222,6.056C18.773,6.056,19.222,6.505,19.222,7.056L19.222,9.834 20.222,9.834 20.222,7.056C20.222,5.951,19.327,5.056,18.222,5.056L2,5.056C0.895,5.056,0,5.951,0,7.056L0,13.167C0,14.272,0.895,15.167,2,15.167L4.778,15.167 4.778,14.167z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M10.136,9.833L10.136,8.361C10.136,8.085,10.36,7.861,10.636,7.861L16.086,7.861C16.362,7.861,16.586,8.085,16.586,8.361L16.586,9.833 17.586,9.833 17.586,8.361C17.586,7.533,16.914,6.861,16.086,6.861L10.636,6.861C9.808,6.861,9.136,7.533,9.136,8.361L9.136,9.833 10.136,9.833z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M6.899,9.979L6.899,9.265 5.351,9.265 5.351,10.813 5.573,10.813C5.929,10.425,6.384,10.138,6.899,9.979z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing
+										Brush="#FFFFFFFF">
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M24,11.833C24.551,11.833,25,12.282,25,12.833L25,18.944C25,19.495,24.551,19.944,24,19.944L7.778,19.944C7.227,19.944,6.778,19.495,6.778,18.944L6.778,12.833C6.778,12.282,7.227,11.833,7.778,11.833L24,11.833 M24,10.833L7.778,10.833C6.673,10.833,5.778,11.728,5.778,12.833L5.778,18.944C5.778,20.049,6.673,20.944,7.778,20.944L24,20.944C25.105,20.944,26,20.049,26,18.944L26,12.833C26,11.729,25.105,10.833,24,10.833L24,10.833z" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+							<DrawingGroup>
+								<DrawingGroup.Children>
+									<DrawingGroup>
+										<DrawingGroup.Children>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<PathGeometry
+														FillRule="Nonzero"
+														PathGeometry.Figures="M23.022,12.639L23.022,12.639 21.474,12.639 21.474,12.639 21.474,15.115 18.998,15.115 18.998,15.115 18.998,16.663 18.998,16.663 23.022,16.663 23.022,12.639z" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="21.474,17.591,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="18.998,12.639,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="14.045,12.639,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="14.045,15.115,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="9.093,12.639,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="11.569,12.639,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="9.093,15.115,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="11.569,15.115,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="9.093,17.591,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="16.522,12.639,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="16.522,15.115,1.548,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<GeometryDrawing
+												Brush="#FFFFFFFF">
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="11.569,17.591,8.976,1.548" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+										</DrawingGroup.Children>
+									</DrawingGroup>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,26,26" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

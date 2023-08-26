@@ -1,0 +1,202 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.GamepadSelector.GamesSelectorStartScreen" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dataModels1="clr-namespace:reWASDUI.DataModels" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://prismlibrary.com/" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels"
+	AutomationProperties.AutomationId="GamesSelectorStartScreen" xmlns:gamepadselector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector">
+	<Grid
+		FrameworkElement.Margin="0,0,0,0">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="Auto" />
+		</Grid.RowDefinitions>
+		<ScrollViewer
+			Name="ScrollViewer"
+			FrameworkElement.Margin="0,5,0,0"
+			FrameworkElement.VerticalAlignment="Top">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="*" />
+				</Grid.RowDefinitions>
+				<StackPanel>
+					<buttons:SVGButton
+						Name="btnAddGame"
+						FrameworkElement.Height="50"
+						FrameworkElement.Margin="20,2,2,0"
+						ColorShiftBrush="{DynamicResource CreamBrush}"
+						Drawing="{DynamicResource NewGameProfile}"
+						Control.FontSize="14"
+						Control.FontWeight="SemiBold"
+						Control.Foreground="{DynamicResource CreamBrush}"
+						HighlightedForeground="#FFFFFFFF"
+						IsColorShift="True"
+						PressedBackground="#00FFFFFF"
+						SVGMargin="10,2,10,0"
+						ButtonBase.Command="{Binding AddGameCommand}"
+						Text="{l:Translate {x:Static s:StringConsts.STR_ADD_GAME_PROFILE}}" />
+					<buttons:SVGButton
+						Name="btnCheckCommunity"
+						FrameworkElement.Height="50"
+						FrameworkElement.Margin="20,0,2,10"
+						ColorShiftBrush="{DynamicResource CreamBrush}"
+						Drawing="{DynamicResource Community}"
+						Control.FontSize="14"
+						Control.FontWeight="SemiBold"
+						Control.Foreground="{DynamicResource CreamBrush}"
+						HighlightedForeground="#FFFFFFFF"
+						IsColorShift="True"
+						PressedBackground="#00FFFFFF"
+						SVGMargin="10,2,10,0"
+						ButtonBase.Command="{Binding OpenCommunityCommand}"
+						Text="{l:Translate {x:Static s:StringConsts.STR_CHECK_COMMUNITY_CONFIGS}}" />
+				</StackPanel>
+				<ListBox
+					Name="list"
+					Grid.Row="1"
+					FrameworkElement.Margin="0,0,0,0"
+					Control.Padding="0"
+					Control.Background="#00FFFFFF"
+					Control.BorderBrush="{DynamicResource WizardBackgroundBrush}"
+					Control.BorderThickness="0,1,0,0"
+					UIElement.Focusable="True"
+					ScrollViewer.CanContentScroll="False"
+					ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+					SelectionMode="Single"
+					FrameworkElement.Style="{DynamicResource ListBoxWithoutScroll}"
+					ItemsControl.ItemsSource="{Binding GameProfilesService.GamesCollection}"
+					SelectedItem="{Binding GameProfilesService.CurrentGame, Delay=1}"
+					PreviewMouseRightButtonDown="List_OnPreviewMouseRightButtonDown">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								x:Key="{x:Type ListBoxItem}"
+								BasedOn="{StaticResource {x:Type ListBoxItem}}"
+								TargetType="{x:Type ListBoxItem}">
+								<Setter
+									Property="FrameworkElement.ContextMenu">
+									<Setter.Value>
+										<ContextMenu
+											Name="contextMenu1">
+											<MenuItem
+												Name="EditGame"
+												Command="{Binding EditGameCommand}">
+												<HeaderedItemsControl.Header>
+													<StackPanel
+														Orientation="Horizontal">
+														<recolorableImages:RecolorableSVG
+															FrameworkElement.Width="16"
+															FrameworkElement.MaxHeight="16"
+															DisabledOpacity="0.6"
+															Drawing="{DynamicResource Edit}" />
+														<TextBlock
+															FrameworkElement.Margin="12,0,0,0"
+															TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_EDIT}}" />
+													</StackPanel>
+												</HeaderedItemsControl.Header>
+											</MenuItem>
+											<MenuItem
+												Name="CloneGame"
+												Command="{Binding CloneGameCommand}">
+												<HeaderedItemsControl.Header>
+													<StackPanel
+														Orientation="Horizontal">
+														<recolorableImages:RecolorableSVG
+															FrameworkElement.Width="16"
+															FrameworkElement.MaxHeight="16"
+															DisabledOpacity="0.6"
+															Drawing="{DynamicResource Copy}" />
+														<TextBlock
+															FrameworkElement.Margin="12,0,0,0"
+															TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_CLONE}}" />
+													</StackPanel>
+												</HeaderedItemsControl.Header>
+											</MenuItem>
+											<MenuItem
+												Name="RemoveGame"
+												Command="{Binding RemoveGameCommand}">
+												<HeaderedItemsControl.Header>
+													<StackPanel
+														Orientation="Horizontal">
+														<recolorableImages:RecolorableSVG
+															FrameworkElement.Width="16"
+															FrameworkElement.MaxHeight="16"
+															DisabledOpacity="0.6"
+															Drawing="{DynamicResource Delete}" />
+														<TextBlock
+															FrameworkElement.Margin="12,0,0,0"
+															TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_5171}}" />
+													</StackPanel>
+												</HeaderedItemsControl.Header>
+											</MenuItem>
+										</ContextMenu>
+									</Setter.Value>
+								</Setter>
+								<Setter
+									Property="ContentControl.ContentTemplate"
+									Value="{StaticResource GameVmDataTemplate}" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="ContentControl.ContentTemplate"
+											Value="{StaticResource HighlightedGameVmDataTemplate}" />
+									</Trigger>
+									<Trigger
+										Property="ListBoxItem.IsSelected"
+										Value="True">
+										<Setter
+											Property="ContentControl.ContentTemplate"
+											Value="{StaticResource SelectedGameVmDataTemplate}" />
+									</Trigger>
+									<EventTrigger
+										RoutedEvent="Control.ContextMenuOpening">
+										<BeginStoryboard>
+											<Storyboard>
+												<ColorAnimation
+													Storyboard.TargetProperty="Background.Color"
+													To="#3d3d3d"
+													Duration="0" />
+											</Storyboard>
+										</BeginStoryboard>
+									</EventTrigger>
+									<EventTrigger
+										RoutedEvent="Control.ContextMenuClosing">
+										<BeginStoryboard>
+											<Storyboard>
+												<ColorAnimation
+													Storyboard.TargetProperty="Background.Color"
+													To="Transparent"
+													Duration="0" />
+											</Storyboard>
+										</BeginStoryboard>
+									</EventTrigger>
+								</Style.Triggers>
+								<EventSetter
+									Event="ContextMenuOpening"
+									Handler="ListBoxItem_ContextMenuOpening" />
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel
+								CanHorizontallyScroll="False"
+								CanVerticallyScroll="False"
+								Orientation="Vertical" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ListBox>
+			</Grid>
+		</ScrollViewer>
+		<Border
+			Grid.Row="1"
+			Border.BorderBrush="{DynamicResource SidePanelBorderBrush}"
+			Border.BorderThickness="0,1,0,0">
+			<controls:LicenseInfo
+				DataContext="{Binding LicensingService}" />
+		</Border>
+	</Grid>
+</UserControl>

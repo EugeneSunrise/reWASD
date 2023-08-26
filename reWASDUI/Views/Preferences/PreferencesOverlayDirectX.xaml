@@ -1,0 +1,56 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesOverlayDirectX" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences"
+	x:Name="ucPreferencesOverlayNotifications" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<StackPanel>
+		<checkBoxes:FillCheckBox
+			FrameworkElement.Name="ShowDirectXOverlayCB"
+			FrameworkElement.Margin="0,8,0,0"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			ContentControl.Content="{l:Translate {x:Static s:StringConsts.STRING_SHOW_SHOW_DIRECT_X_OVERLAY}}"
+			IsChecked="{Binding ShowDirectXOverlay}"
+			UIElement.IsEnabled="{Binding ParentVM.ShowOverlay}"
+			x:Name="ShowDirectXOverlayCB" />
+		<StackPanel
+			UIElement.IsEnabled="{Binding IsAddControllEnable}">
+			<StackPanel
+				Orientation="Horizontal">
+				<buttons:ColoredButton
+					FrameworkElement.Name="btnAddExe"
+					FrameworkElement.HorizontalAlignment="Left"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_ADD_EXE_FILE}}"
+					x:Name="btnAddExe"
+					Click="btnBrowseApplicationClick" />
+				<buttons:ColoredButton
+					FrameworkElement.Name="btnAddProcess"
+					FrameworkElement.Margin="10,10,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_ADD_ACTIVE_PROCESS}}"
+					x:Name="btnAddProcess"
+					Click="btnBrowseProcessClick" />
+			</StackPanel>
+			<ItemsControl
+				Name="icExeList"
+				FrameworkElement.MinHeight="150"
+				FrameworkElement.MaxHeight="150"
+				FrameworkElement.Margin="0,10,0,0"
+				FrameworkElement.Style="{DynamicResource BorderedItemsControl}"
+				ItemsControl.ItemsSource="{Binding ApplicationNamesCollection}">
+				<Control.Template>
+					<ControlTemplate
+						TargetType="{x:Type ItemsControl}">
+						<Border
+							Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+							Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+							<ScrollViewer
+								Name="ScrollViewer"
+								Control.Padding="{TemplateBinding Control.Padding}">
+								<ItemsPresenter />
+							</ScrollViewer>
+						</Border>
+					</ControlTemplate>
+				</Control.Template>
+			</ItemsControl>
+		</StackPanel>
+	</StackPanel>
+</UserControl>

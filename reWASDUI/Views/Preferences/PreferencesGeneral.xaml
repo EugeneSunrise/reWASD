@@ -1,0 +1,245 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesGeneral" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	x:Name="ucPreferencesGeneral" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<Border
+		Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+		Border.BorderThickness="1,0,0,0">
+		<ScrollViewer
+			FrameworkElement.Style="{DynamicResource PreferencesPageGridStyle}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="*" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+				</Grid.ColumnDefinitions>
+				<StackPanel
+					Grid.Row="0">
+					<checkBoxes:FillCheckBox
+						Name="chkHookControllerButtons"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_HOOK_CONTROLLER_BUTTON}}"
+						IsChecked="{Binding HookControllerButtons}" />
+					<checkBoxes:FillCheckBox
+						Name="chkRepressButtonForShift"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_REPRESS_BUTTON_FOR_SHIFT}}"
+						IsChecked="{Binding RepressButtonForShift}" />
+					<checkBoxes:FillCheckBox
+						Name="chkLeaveVirtualControllerForOfflineController"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_LEAVE_VIRTUAL_CONTROLLER_OPTION}}"
+						IsChecked="{Binding LeaveVirtualControllerForOfflineController}" />
+					<checkBoxes:FillCheckBox
+						Name="chkTurnOffRemapByAltCtrlDel"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_TURN_OFF_REMAPPING_OPTION}}"
+						IsChecked="{Binding TurnOffRemapByAltCtrlDel}" />
+					<checkBoxes:FillCheckBox
+						Name="chkAllowAnalytics"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STRING_ALLOW_ANALITYCS}}"
+						IsChecked="{Binding SendAnonymousStatistic}" />
+					<checkBoxes:FillCheckBox
+						Name="chkHideLockedFeatures"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_HIDE_LOCKED_FEATURE}}"
+						IsChecked="{Binding HideLockedFeatures}"
+						ToolTip="{l:Translate {x:Static s:StringConsts.STR_RESTART_TO_APPLY}}" />
+					<checkBoxes:FillCheckBox
+						Name="chkShowReleasePageOnStartup"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SHOW_RELEASE_PAGE_ON_STARTUP}}"
+						IsChecked="{Binding ShowReleasePageOnStartup}" />
+					<checkBoxes:FillCheckBox
+						Name="chkGetRecommendedConfigsWithUpdates"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_GET_RECOMMENDED_CONFIGS_WITH_UPDATES}}"
+						IsChecked="{Binding GetRecommendedConfigsWithUpdates}" />
+					<checkBoxes:FillCheckBox
+						Name="chkWakeOnCombo"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						BulletVerticalAlignment="Center"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_WAKE_ON_COMBO_ACTIONS}}"
+						IsChecked="{Binding PreventSleepIfComboIsBeingEmulated}" />
+					<TextBlock
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_DEVICE_THEME}}" />
+					<comboBoxes:ColoredComboBox
+						Name="cmbDeviceDisplayTheme"
+						FrameworkElement.Width="240"
+						FrameworkElement.HorizontalAlignment="Left">
+						<ComboBoxItem
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SEMI_TRANSPARENT}}"
+							IsSelected="{Binding IsFilledSVGTheme}" />
+						<ComboBoxItem
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_TRANSPARENT}}"
+							IsSelected="{Binding IsTransparentSVGTheme}" />
+					</comboBoxes:ColoredComboBox>
+					<TextBlock
+						FrameworkElement.Margin="0,16,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.IDS_LANGUAGE_C}}" />
+					<comboBoxes:ColoredComboBox
+						Name="cmbLanguage"
+						FrameworkElement.Width="240"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ItemsControl.ItemsSource="{Binding Languages}"
+						SelectedItem="{Binding ActiveLanguage}"
+						ToolTip="{l:Translate {x:Static s:StringConsts.STR_RESTART_TO_APPLY}}" />
+					<buttons:ColoredButton
+						Name="btnCheckForUpdate"
+						x:Uid="btnCheckForUpdate"
+						FrameworkElement.Margin="0,8,0,0"
+						Control.Padding="10,0,10,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Center"
+						FrameworkElement.Style="{DynamicResource Button}"
+						ContentControl.Content="{Binding CheckForUpdateText}"
+						UIElement.IsEnabled="{Binding IsUpdateChecking, Converter={converters:InverseBooleanConverter}}"
+						Click="btnCheckForUpdate_Click" />
+					<buttons:ColoredButton
+						Name="btnClearData"
+						x:Uid="btnClearData"
+						FrameworkElement.Margin="0,8,0,0"
+						Control.Padding="10,0,10,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Center"
+						FrameworkElement.Style="{DynamicResource Button}"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_CLEAR_DATA}}"
+						Click="BtnClearData_OnClick" />
+				</StackPanel>
+				<StackPanel
+					Grid.Row="1"
+					FrameworkElement.VerticalAlignment="Bottom"
+					UIElement.Visibility="{Binding IsLoggerShow, Converter={converters:BooleanToVisibilityConverter}}">
+					<TextBlock
+						FrameworkElement.Margin="0,16,0,0"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_LOGGING}}" />
+					<StackPanel
+						FrameworkElement.Margin="0,0,0,0">
+						<RadioButton
+							Name="StandardLogging"
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_STANDARD_LOGGING}}"
+							IsChecked="{Binding IsBootLoggingEnabled, Mode=OneWay, Converter={converters:InverseBooleanConverter}}"
+							UIElement.IsEnabled="{Binding IsBootLoggingEnabled, Converter={converters:InverseBooleanConverter}}" />
+						<StackPanel
+							FrameworkElement.Margin="20,0,0,0">
+							<UIElement.IsEnabled>
+								<MultiBinding
+									Converter="{converters:MultiBooleanAndConverter}">
+									<Binding
+										Path="IsStandartLoggingEnabled"
+										Converter="{converters:InverseBooleanConverter}" />
+									<Binding
+										Path="IsBootLogging"
+										Converter="{converters:InverseBooleanConverter}" />
+								</MultiBinding>
+							</UIElement.IsEnabled>
+							<checkBoxes:FillCheckBox
+								Name="ServiceAndDriverLogs"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SERVICE_DRIVER_LOGS}}"
+								IsChecked="{Binding IsServiceLogging}" />
+							<checkBoxes:FillCheckBox
+								Name="GUIAndAgentLogs"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_GUI_AGENT_LOGS}}"
+								IsChecked="{Binding IsGuiLogging}" />
+						</StackPanel>
+						<RadioButton
+							Name="BootLogging"
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_BOOT_LOGS}}"
+							IsChecked="{Binding IsBootLogging}"
+							UIElement.IsEnabled="{Binding IsStandartLoggingEnabled, Converter={converters:InverseBooleanConverter}}" />
+						<buttons:ColoredButton
+							Name="btnStartLogs"
+							FrameworkElement.Margin="0,8,0,0"
+							Control.Padding="10,0,10,0"
+							FrameworkElement.HorizontalAlignment="Left"
+							FrameworkElement.VerticalAlignment="Center"
+							ButtonBase.Command="{Binding StartStopCommand}">
+							<FrameworkElement.Style>
+								<Style
+									BasedOn="{StaticResource Button}"
+									TargetType="{x:Type buttons:ColoredButton}">
+									<Style.Triggers>
+										<DataTrigger
+											Value="True"
+											Binding="{Binding IsLoggerEnabled}">
+											<Setter
+												Property="ContentControl.Content"
+												Value="{l:Translate {x:Static s:StringConsts.STR_STOP_LOG}}" />
+										</DataTrigger>
+										<DataTrigger
+											Value="False"
+											Binding="{Binding IsLoggerEnabled}">
+											<Setter
+												Property="ContentControl.Content"
+												Value="{l:Translate {x:Static s:StringConsts.STR_START_LOG}}" />
+										</DataTrigger>
+									</Style.Triggers>
+								</Style>
+							</FrameworkElement.Style>
+						</buttons:ColoredButton>
+					</StackPanel>
+				</StackPanel>
+				<StackPanel
+					Grid.Row="2"
+					FrameworkElement.HorizontalAlignment="Right"
+					FrameworkElement.VerticalAlignment="Bottom"
+					Orientation="Vertical">
+					<TextBlock
+						FrameworkElement.Name="BuildVersionTextBlock"
+						FrameworkElement.HorizontalAlignment="Right"
+						TextBlock.FontWeight="DemiBold"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						x:Name="BuildVersionTextBlock">
+						<Run
+							Run.Text="{x:Static s:DTVersion.PRODUCT_NAME}" /> <Run
+							Run.Text="{x:Static s:DTVersion.VERSION_STRING}" /></TextBlock>
+					<TextBlock
+						FrameworkElement.Name="PrivacyPolicyTextBlock"
+						FrameworkElement.HorizontalAlignment="Right"
+						TextBlock.FontWeight="DemiBold"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						x:Name="PrivacyPolicyTextBlock">
+						<Hyperlink
+							Hyperlink.NavigateUri="{Binding PrivacyUrl}"
+							RequestNavigate="Hyperlink_RequestNavigate">
+							<TextBlock
+								TextBlock.Text="{Binding PrivacyPolicyString}" />
+						</Hyperlink>
+					</TextBlock>
+				</StackPanel>
+			</Grid>
+		</ScrollViewer>
+	</Border>
+</UserControl>

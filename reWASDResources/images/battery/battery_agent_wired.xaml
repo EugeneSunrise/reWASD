@@ -1,0 +1,46 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DrawingGroup x:Key="battery_agent_wired_n" svr:SvgObject.Id="battery_agent_wired_n"   xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common">
+        <DrawingGroup.Children>
+            <DrawingGroup svr:SvgLink.Key="DrawingLayer">
+                <DrawingGroup.Children>
+                    <GeometryDrawing>
+                        <GeometryDrawing.Brush>
+                            <SolidColorBrush Color="#FF000000"
+                                             Opacity="0" />
+                        </GeometryDrawing.Brush>
+                        <GeometryDrawing.Geometry>
+                            <RectangleGeometry RadiusX="0"
+                                               RadiusY="0"
+                                               Rect="0,0,16,16" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                    <DrawingGroup>
+                        <DrawingGroup.Children>
+                            <GeometryDrawing Brush="#FFFFFFFF">
+                                <GeometryDrawing.Geometry>
+                                    <PathGeometry FillRule="Nonzero"
+                                                  Figures="M4,4L4,2.5C4,2.2 3.8,2 3.5,2 3.2,2 3,2.2 3,2.5L3,4 2,4 2,2.5C2,2.2 1.8,2 1.5,2 1.2,2 1,2.2 1,2.5L1,4 0,4 0,6.3C0,6.8 0.2,7.2 0.5,7.5 0.8,7.8 1.3,8 1.7,8L2,8 2,12 3,12 3,8 3.3,8C3.8,8 4.2,7.8 4.5,7.5 4.8,7.2 5,6.7 5,6.3L5,4 4,4z M4,6.3C4,6.5 3.9,6.7 3.8,6.8 3.7,6.9 3.5,7 3.3,7L1.7,7C1.5,7 1.3,6.9 1.2,6.8 1.1,6.7 1,6.5 1,6.3L1,5 4,5 4,6.3z" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FFFFFFFF">
+                                <GeometryDrawing.Geometry>
+                                    <PathGeometry FillRule="Nonzero"
+                                                  Figures="M15,6L15,5C15,4.4,14.6,4,14,4L6,4 6,5 14,5 14,11 4,11 4,12 14,12C14.6,12,15,11.6,15,11L15,10C15.6,10,16,9.6,16,9L16,7C16,6.4,15.6,6,15,6z" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#FFFFFFFF">
+                                <GeometryDrawing.Geometry>
+                                    <PathGeometry FillRule="Nonzero"
+                                                  Figures="M6,6L6,7C6,8.1,5.1,9,4,9L4,9 4,10 13,10 13,6 6,6z" />
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup.Children>
+                    </DrawingGroup>
+                </DrawingGroup.Children>
+                <DrawingGroup.ClipGeometry>
+                    <RectangleGeometry Rect="0,0,16,16" />
+                </DrawingGroup.ClipGeometry>
+            </DrawingGroup>
+        </DrawingGroup.Children>
+</DrawingGroup>
+</ResourceDictionary>

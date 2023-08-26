@@ -1,0 +1,42 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoMXP5BtnRT" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoMXP5BtnRT">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M5.942,8.503L5.942,10.5 5.124,10.5 5.124,5.5 6.536,5.5C7.181,5.5 7.659,5.621 7.969,5.863 8.279,6.105 8.434,6.469 8.434,6.958 8.434,7.581 8.111,8.025 7.463,8.289L8.876,10.5 7.945,10.5 6.748,8.503 5.942,8.503z M5.942,7.826L6.509,7.826C6.891,7.826 7.166,7.755 7.336,7.614 7.507,7.473 7.593,7.263 7.593,6.984 7.593,6.701 7.501,6.498 7.316,6.375 7.132,6.253 6.854,6.191 6.482,6.191L5.942,6.191 5.942,7.826z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						svr:SvgObject.Id="LT">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.324,3.033C6.585,3.055 4.092,4.343 2.863,5.618 1.69,6.836 0.545,8.494 0.504,10.184 0.488,10.834 0.477,12.058 1.598,12.543 3.763,13.479 7.347,12.793 10.487,11.187 12.375,10.221 13.903,8.705 14.639,7.775 15.194,7.074 15.564,6.368 15.491,5.477 15.469,5.208 15.383,4.812 15.203,4.64 14.954,4.402 14.514,4.155 12.629,4.311 12.128,4.353 11.573,4.287 10.843,3.692 10.312,3.26 9.537,3.018 8.324,3.033z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

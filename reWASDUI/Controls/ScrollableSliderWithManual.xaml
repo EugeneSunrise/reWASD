@@ -1,0 +1,127 @@
+<UserControl
+	x:Class="reWASDUI.Controls.ScrollableSliderWithManual" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:base="clr-namespace:reWASDUI.ViewModels.Base" xmlns:base1="clr-namespace:reWASDUI.ViewModels.Base" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:characterRestrictingTextBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CharacterRestrictingTextBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:reWASDUI.Controls" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type local:ScrollableSliderWithManual}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<controls:ScrollableSlider
+					Name="ScrollableSlider"
+					InvertFill="{TemplateBinding local:ScrollableSliderWithManual.InvertFill}"
+					IsSnapToTickEnabled="{TemplateBinding local:ScrollableSliderWithManual.IsSnapToTickEnabled}"
+					LargeChange="{TemplateBinding local:ScrollableSliderWithManual.LargeChange}"
+					Maximum="{TemplateBinding local:ScrollableSliderWithManual.Maximum}"
+					Minimum="{TemplateBinding local:ScrollableSliderWithManual.Minimum}"
+					ScrollStep="{TemplateBinding local:ScrollableSliderWithManual.ScrollStep}"
+					SmallChange="{TemplateBinding local:ScrollableSliderWithManual.SmallChange}"
+					FrameworkElement.Style="{TemplateBinding local:ScrollableSliderWithManual.ScrollableSliderStyle}"
+					Value="{Binding Value, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+				<controls:OverrideParentIsEnabledContainer
+					Grid.Column="1"
+					FrameworkElement.Margin="7,0,0,0">
+					<buttons:SVGButton
+						Name="manualButton"
+						GroupName="manualButton"
+						FrameworkElement.Style="{DynamicResource ButtonRounded}"
+						ColorShiftBrush="{Binding Foreground, ElementName=ScrollableSlider}"
+						Control.Foreground="{Binding Foreground, ElementName=ScrollableSlider}"
+						HighlightedForeground="{Binding Foreground, ElementName=ScrollableSlider}"
+						PressedBackground="{Binding Foreground, ElementName=ScrollableSlider}"
+						TriggeredBackground="{Binding Foreground, ElementName=ScrollableSlider}" />
+				</controls:OverrideParentIsEnabledContainer>
+				<controls:ProperPopup
+					Name="popupManual"
+					AllowsTransparency="True"
+					Popup.Placement="Right"
+					VerticalOffset="-6"
+					PlacementTarget="{Binding ElementName=manualButton}">
+					<StackPanel
+						Orientation="Horizontal"
+						UIElement.IsEnabled="{Binding IsEnabled, ElementName=ScrollableSlider}">
+						<Border
+							Border.Background="#00FFFFFF">
+							<Border
+								FrameworkElement.Width="25"
+								FrameworkElement.Height="1"
+								FrameworkElement.Margin="5,16,0,0"
+								FrameworkElement.VerticalAlignment="Top"
+								Border.Background="{Binding Foreground, ElementName=ScrollableSlider}" />
+						</Border>
+						<Border
+							Padding="10,0,10,10"
+							Border.Background="{DynamicResource ContentBackground}"
+							Border.BorderBrush="{DynamicResource ContentBorderBrush}">
+							<StackPanel
+								Orientation="Vertical">
+								<TextBlock
+									TextBlock.FontSize="14"
+									FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+									TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_PRECISE_ADJUSTMENT}}" />
+								<StackPanel
+									FrameworkElement.Margin="0,10,0,0"
+									Orientation="Horizontal">
+									<TextBlock
+										FrameworkElement.Margin="0"
+										FrameworkElement.VerticalAlignment="Center"
+										FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+										TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_VALUE}}" />
+									<Border
+										FrameworkElement.Name="border"
+										FrameworkElement.Height="26"
+										FrameworkElement.Margin="10,0,0,0"
+										Border.BorderThickness="1"
+										Border.BorderBrush="{Binding Foreground, ElementName=ScrollableSlider}">
+										<characterRestrictingTextBoxes:DigitBoxUpDown
+											FrameworkElement.Name="upDown"
+											FrameworkElement.MinWidth="90"
+											FrameworkElement.MaxWidth="90"
+											Control.Background="{TemplateBinding Control.Background}"
+											CoerceOnMinMaxChanged="False"
+											IsSignAllowed="True"
+											TextAlignment="Right"
+											UpDownContainerMargin="0"
+											Control.BorderBrush="{Binding Foreground, ElementName=ScrollableSlider}"
+											ChangeStep="{Binding ScrollStep, RelativeSource={RelativeSource TemplatedParent}}"
+											Maximum="{Binding Maximum, RelativeSource={RelativeSource TemplatedParent}}"
+											Minimum="{Binding Minimum, RelativeSource={RelativeSource TemplatedParent}}"
+											Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource TemplatedParent}}" />
+										<FrameworkElement.Style>
+											<Style
+												TargetType="{x:Type Border}">
+												<Style.Triggers>
+													<Trigger
+														Property="UIElement.IsEnabled"
+														Value="false">
+														<Setter
+															Property="UIElement.Opacity"
+															Value="0.5" />
+													</Trigger>
+												</Style.Triggers>
+											</Style>
+										</FrameworkElement.Style>
+									</Border>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+					</StackPanel>
+				</controls:ProperPopup>
+			</Grid>
+			<ControlTemplate.Triggers>
+				<Trigger
+					SourceName="manualButton"
+					Property="buttons:BaseColoredButton.IsTriggered"
+					Value="True">
+					<Setter
+						TargetName="popupManual"
+						Property="Popup.IsOpen"
+						Value="True" />
+				</Trigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

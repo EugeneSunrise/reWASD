@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="DiscSoft.NET.Common">
+      <HintPath>..\..\..\..\reWASD\DiscSoft.NET.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

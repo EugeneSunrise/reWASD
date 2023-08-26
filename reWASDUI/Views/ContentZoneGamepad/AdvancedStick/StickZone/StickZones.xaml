@@ -1,0 +1,34 @@
+<advancedStick:BaseDirectionalAnalogGroupSquarePositioningControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.AdvancedStick.StickZone.StickZones" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:advancedStick="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick" xmlns:stickZone="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick.StickZone">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type stickZone:StickZones}">
+			<Grid xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common"
+				FrameworkElement.Width="{TemplateBinding controls:SquarePositioningControl.SquareHeightWidth}"
+				FrameworkElement.Height="{TemplateBinding controls:SquarePositioningControl.SquareHeightWidth}"
+				UseLayoutRounding="False"
+				SnapsToDevicePixels="False">
+				<Border
+					Border.BorderBrush="{DynamicResource ZoneHighBrushHighlighted}"
+					Border.BorderThickness="3"
+					CornerRadius="999" />
+				<Border
+					Name="borderHigh"
+					Border.BorderBrush="{DynamicResource ZoneMedBrushHighlighted}"
+					Border.BorderThickness="3"
+					CornerRadius="999" />
+				<Border
+					Name="borderMed"
+					Border.BorderBrush="{DynamicResource ZoneLowBrushHighlighted}"
+					Border.BorderThickness="3"
+					CornerRadius="999" />
+				<Border
+					Name="borderLow"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Center"
+					Border.Background="#FF808080"
+					CornerRadius="999" />
+			</Grid>
+		</ControlTemplate>
+	</Control.Template>
+</advancedStick:BaseDirectionalAnalogGroupSquarePositioningControl>

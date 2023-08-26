@@ -1,0 +1,75 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="features-mobilecontroller-big" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="features-mobilecontroller-big">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M49,14C50.654,14,52,15.346,52,17L52,37C52,38.654,50.654,40,49,40L5,40C3.346,40,2,38.654,2,37L2,17C2,15.346,3.346,14,5,14L49,14 M49,13L5,13C2.791,13,1,14.791,1,17L1,37C1,39.209,2.791,41,5,41L49,41C51.209,41,53,39.209,53,37L53,17C53,14.791,51.209,13,49,13L49,13z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M43,29C44.103,29 45,29.897 45,31 45,32.103 44.103,33 43,33 41.897,33 41,32.103 41,31 41,29.897 41.897,29 43,29 M43,27C40.791,27 39,28.791 39,31 39,33.209 40.791,35 43,35 45.209,35 47,33.209 47,31 47,28.791 45.209,27 43,27L43,27z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M34,21C35.103,21 36,21.897 36,23 36,24.103 35.103,25 34,25 32.897,25 32,24.103 32,23 32,21.897 32.897,21 34,21 M34,19C31.791,19 30,20.791 30,23 30,25.209 31.791,27 34,27 36.209,27 38,25.209 38,23 38,20.791 36.209,19 34,19L34,19z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M49.5,39L48.5,39 48.5,38 49.5,38 49.5,39z M46.49,39L45.49,39 45.49,38 46.49,38 46.49,39z M43.48,39L42.48,39 42.48,38 43.48,38 43.48,39z M40.47,39L39.47,39 39.47,38 40.47,38 40.47,39z M37.46,39L36.46,39 36.46,38 37.46,38 37.46,39z M34.45,39L33.45,39 33.45,38 34.45,38 34.45,39z M31.44,39L30.44,39 30.44,38 31.44,38 31.44,39z M28.43,39L27.43,39 27.43,38 28.43,38 28.43,39z M25.42,39L24.42,39 24.42,38 25.42,38 25.42,39z M22.41,39L21.41,39 21.41,38 22.41,38 22.41,39z M19.4,39L18.4,39 18.4,38 19.4,38 19.4,39z M16.39,39L15.39,39 15.39,38 16.39,38 16.39,39z M13.38,39L12.38,39 12.38,38 13.38,38 13.38,39z M10.37,39L9.37,39 9.37,38 10.37,38 10.37,39z M7.36,39L6.36,39 6.36,38 7.36,38 7.36,39z M4.277,38.982C3.77,38.907,3.341,38.583,3.131,38.114L4.043,37.704C4.112,37.858,4.258,37.969,4.424,37.994L4.277,38.982z M51,37.235L50,37.235 50,36.235 51,36.235 51,37.235z M4,35.911L3,35.911 3,34.911 4,34.911 4,35.911z M51,34.226L50,34.226 50,33.226 51,33.226 51,34.226z M4,32.901L3,32.901 3,31.901 4,31.901 4,32.901z M51,31.216L50,31.216 50,30.216 51,30.216 51,31.216z M4,29.892L3,29.892 3,28.892 4,28.892 4,29.892z M51,28.205L50,28.205 50,27.205 51,27.205 51,28.205z M4,26.882L3,26.882 3,25.882 4,25.882 4,26.882z M51,25.195L50,25.195 50,24.195 51,24.195 51,25.195z M4,23.872L3,23.872 3,22.872 4,22.872 4,23.872z M51,22.186L50,22.186 50,21.186 51,21.186 51,22.186z M4,20.862L3,20.862 3,19.862 4,19.862 4,20.862z M51,19.175L50,19.175 50,18.175 51,18.175 51,19.175z M4,17.852L3,17.852 3,16.852 4,16.852 4,17.852z M49.972,16.335C49.917,16.176,49.782,16.053,49.618,16.014L49.85,15.041C50.35,15.161,50.748,15.522,50.916,16.008L49.972,16.335z M47.727,16L46.727,16 46.727,15 47.727,15 47.727,16z M44.717,16L43.717,16 43.717,15 44.717,15 44.717,16z M41.707,16L40.707,16 40.707,15 41.707,15 41.707,16z M38.697,16L37.697,16 37.697,15 38.697,15 38.697,16z M35.687,16L34.687,16 34.687,15 35.687,15 35.687,16z M32.677,16L31.677,16 31.677,15 32.677,15 32.677,16z M29.667,16L28.667,16 28.667,15 29.667,15 29.667,16z M26.657,16L25.657,16 25.657,15 26.657,15 26.657,16z M23.647,16L22.647,16 22.647,15 23.647,15 23.647,16z M20.637,16L19.637,16 19.637,15 20.637,15 20.637,16z M17.627,16L16.627,16 16.627,15 17.627,15 17.627,16z M14.617,16L13.617,16 13.617,15 14.617,15 14.617,16z M11.607,16L10.607,16 10.607,15 11.607,15 11.607,16z M8.597,16L7.597,16 7.597,15 8.597,15 8.597,16z M5.587,16L4.587,16 4.587,15 5.587,15 5.587,16z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M21.5,25.5L16.5,25.5 16.5,20.5C16.5,19.672 15.828,19 15,19 14.172,19 13.5,19.672 13.5,20.5L13.5,25.5 8.5,25.5C7.672,25.5 7,26.172 7,27 7,27.828 7.672,28.5 8.5,28.5L13.5,28.5 13.5,33.5C13.5,34.328 14.172,35 15,35 15.828,35 16.5,34.328 16.5,33.5L16.5,28.5 21.5,28.5C22.328,28.5 23,27.828 23,27 23,26.172 22.328,25.5 21.5,25.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="24,32,2,2" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="28,32,2,2" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,54,54" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

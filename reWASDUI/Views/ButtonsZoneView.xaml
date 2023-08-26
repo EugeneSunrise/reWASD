@@ -1,0 +1,41 @@
+<UserControl
+	x:Class="reWASDUI.Views.ButtonsZoneView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:XBEliteWPF.Views" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common"
+	AutomationProperties.AutomationId="ButtonsZoneView" xmlns:views="clr-namespace:reWASDUI.Views">
+	<StackPanel
+		FrameworkElement.Height="26"
+		Orientation="Horizontal">
+		<buttons:SVGButton
+			Name="btnShowLicense"
+			FrameworkElement.Margin="16,0,0,0"
+			FrameworkElement.HorizontalAlignment="Center"
+			ColorShiftBrush="{DynamicResource CreamBrush}"
+			Drawing="{DynamicResource Info}"
+			HighlightedForeground="#FFFFFFFF"
+			SVGHeight="16"
+			SVGMargin="0"
+			SVGWidth="16"
+			ButtonBase.Command="{Binding ShowLicenseCommand}"
+			ToolTip="{localization:Translate {x:Static s:StringConsts.STR_LICENSE_TIP}}"
+			UIElement.Visibility="{Binding LicensingService.IsPaidUser, Converter={converters:BooleanToVisibilityConverter}}" />
+		<buttons:SVGButton
+			Name="btnShowHelp"
+			FrameworkElement.Margin="16,0,0,0"
+			FrameworkElement.HorizontalAlignment="Center"
+			Drawing="{DynamicResource Help}"
+			SVGHeight="16"
+			SVGMargin="0"
+			SVGWidth="16"
+			ButtonBase.Command="{Binding OpenOnlineHelpSupportCommand}"
+			ToolTip="{localization:Translate {x:Static s:StringConsts.STR_HELP}}" />
+		<buttons:SVGButton
+			Name="btnShowPreferences"
+			FrameworkElement.Margin="16,0,0,0"
+			FrameworkElement.HorizontalAlignment="Center"
+			Drawing="{DynamicResource Preferences}"
+			SVGHeight="16"
+			SVGMargin="0"
+			SVGWidth="16"
+			ButtonBase.Command="{Binding ShowSettingsCommand}"
+			ToolTip="{localization:Translate {x:Static s:StringConsts.STR_5011}}" />
+	</StackPanel>
+</UserControl>

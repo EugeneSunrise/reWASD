@@ -1,0 +1,192 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesConfigs" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences"
+	x:Name="ucPreferencesConfigs" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<Border
+		Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+		Border.BorderThickness="1,0,0,0">
+		<ScrollViewer
+			FrameworkElement.Style="{DynamicResource PreferencesPageGridStyle}">
+			<Grid
+				IsSharedSizeScope="True">
+				<StackPanel>
+					<TextBlock
+						FrameworkElement.VerticalAlignment="Center"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_CONFIGS_CC}}" />
+					<Grid
+						FrameworkElement.HorizontalAlignment="Stretch">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto"
+								SharedSizeGroup="open" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto"
+								SharedSizeGroup="change" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto"
+								SharedSizeGroup="restore" />
+						</Grid.ColumnDefinitions>
+						<controls:WaterMarkTextBox
+							Name="editConfigsFolderPath"
+							Grid.Column="0"
+							UIElement.IsEnabled="False"
+							TextBox.Text="{Binding ConfigsFolderPath, Mode=OneWay}" />
+						<buttons:SVGButton
+							Name="btnOpenConfigsFolder"
+							Grid.Column="1"
+							FrameworkElement.Margin="10,0,0,0"
+							Drawing="{DynamicResource Openlocation}"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							PressedForeground="{DynamicResource CreamBrush}"
+							SVGMargin="0"
+							ButtonBase.Command="{Binding OpenConfigsFolderCommand}"
+							ToolTip="{l:Translate {x:Static s:StringConsts.STR_TT_OPEN_FOLDER_LOCATION}}" />
+						<buttons:SVGButton
+							Name="btnEditConfigsFolder"
+							Grid.Column="2"
+							FrameworkElement.Margin="10,0,0,0"
+							Drawing="{DynamicResource Edit}"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							PressedForeground="{DynamicResource CreamBrush}"
+							SVGMargin="0"
+							ButtonBase.Command="{Binding ChangeConfigsFolderCommand}"
+							ToolTip="{l:Translate {x:Static s:StringConsts.STR_TT_CHANGE_STORAGE}}" />
+						<buttons:SVGButton
+							Name="btnRestoreConfigsFolder"
+							Grid.Column="3"
+							FrameworkElement.Margin="10,0,10,0"
+							Drawing="{DynamicResource RefreshFileLocation}"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							PressedForeground="{DynamicResource CreamBrush}"
+							SVGMargin="0"
+							ButtonBase.Command="{Binding RestoreConfigsFolderCommand}"
+							ToolTip="{l:Translate {x:Static s:StringConsts.STR_RESTORE_DEFAULT_PATH}}" />
+					</Grid>
+					<TextBlock
+						FrameworkElement.Margin="0,5,0,0"
+						FrameworkElement.VerticalAlignment="Center"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_SCREENSHOTS_CC}}" />
+					<Grid
+						FrameworkElement.HorizontalAlignment="Stretch">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto"
+								SharedSizeGroup="open" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto"
+								SharedSizeGroup="change" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto"
+								SharedSizeGroup="restore" />
+						</Grid.ColumnDefinitions>
+						<controls:WaterMarkTextBox
+							Name="editScreenshotsFolderPath"
+							Grid.Column="0"
+							UIElement.IsEnabled="False"
+							TextBox.Text="{Binding ScreenshotsFolderPath, Mode=OneWay}" />
+						<buttons:SVGButton
+							Name="btnOpenScreenshotsFolder"
+							Grid.Column="1"
+							FrameworkElement.Margin="10,0,0,0"
+							Drawing="{DynamicResource Openlocation}"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							PressedForeground="{DynamicResource CreamBrush}"
+							SVGMargin="0"
+							ButtonBase.Command="{Binding OpenScreenshotsFolderCommand}"
+							ToolTip="{l:Translate {x:Static s:StringConsts.STR_TT_OPEN_FOLDER_LOCATION}}" />
+						<buttons:SVGButton
+							Name="btnEditScreenshotsFolder"
+							Grid.Column="2"
+							FrameworkElement.Margin="10,0,0,0"
+							Drawing="{DynamicResource Edit}"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							PressedForeground="{DynamicResource CreamBrush}"
+							SVGMargin="0"
+							ButtonBase.Command="{Binding ChangeScreenshotsFolderCommand}"
+							ToolTip="{l:Translate {x:Static s:StringConsts.STR_TT_CHANGE_STORAGE}}" />
+						<buttons:SVGButton
+							Name="btnRestoreScreenshotsFolder"
+							Grid.Column="3"
+							FrameworkElement.Margin="10,0,10,0"
+							Drawing="{DynamicResource RefreshFileLocation}"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							PressedForeground="{DynamicResource CreamBrush}"
+							SVGMargin="0"
+							ButtonBase.Command="{Binding RestoreScreenshotsFolderCommand}"
+							ToolTip="{l:Translate {x:Static s:StringConsts.STR_RESTORE_DEFAULT_PATH}}" />
+					</Grid>
+					<TextBlock
+						FrameworkElement.Margin="0,5,0,0"
+						FrameworkElement.VerticalAlignment="Center"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PRESET_CC}}" />
+					<Grid
+						FrameworkElement.HorizontalAlignment="Stretch">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto"
+								SharedSizeGroup="open" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto"
+								SharedSizeGroup="change" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto"
+								SharedSizeGroup="restore" />
+						</Grid.ColumnDefinitions>
+						<controls:WaterMarkTextBox
+							Name="editPresetsFolderPath"
+							Grid.Column="0"
+							UIElement.IsEnabled="False"
+							TextBox.Text="{Binding PresetsFolderPath, Mode=OneWay}" />
+						<buttons:SVGButton
+							Name="btnOpenPresetsFolder"
+							Grid.Column="1"
+							FrameworkElement.Margin="10,0,0,0"
+							Drawing="{DynamicResource Openlocation}"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							PressedForeground="{DynamicResource CreamBrush}"
+							SVGMargin="0"
+							ButtonBase.Command="{Binding OpenPresetsFolderCommand}"
+							ToolTip="{l:Translate {x:Static s:StringConsts.STR_TT_OPEN_FOLDER_LOCATION}}" />
+						<buttons:SVGButton
+							Name="btnEditPresetsFolder"
+							Grid.Column="2"
+							FrameworkElement.Margin="10,0,0,0"
+							Drawing="{DynamicResource Edit}"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							PressedForeground="{DynamicResource CreamBrush}"
+							SVGMargin="0"
+							ButtonBase.Command="{Binding ChangePresetsFolderCommand}"
+							ToolTip="{l:Translate {x:Static s:StringConsts.STR_TT_CHANGE_STORAGE}}" />
+						<buttons:SVGButton
+							Name="btnRestorePresetsFolder"
+							Grid.Column="3"
+							FrameworkElement.Margin="10,0,10,0"
+							Drawing="{DynamicResource RefreshFileLocation}"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							PressedForeground="{DynamicResource CreamBrush}"
+							SVGMargin="0"
+							ButtonBase.Command="{Binding RestorePresetsFolderCommand}"
+							ToolTip="{l:Translate {x:Static s:StringConsts.STR_RESTORE_DEFAULT_PATH}}" />
+					</Grid>
+				</StackPanel>
+			</Grid>
+		</ScrollViewer>
+	</Border>
+</UserControl>

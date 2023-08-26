@@ -1,0 +1,302 @@
+<UserControl
+	x:Class="reWASDUI.Views.GamesSelector" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:controls1="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dataModels1="clr-namespace:reWASDUI.DataModels" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://prismlibrary.com/" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:views="clr-namespace:reWASDUI.Views" xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Wpf"
+	mvvm:ViewModelLocator.AutoWireViewModel="True">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type views:GamesSelector}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="*" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+				</Grid.RowDefinitions>
+				<buttons:SVGButton
+					Name="btnShowGamesList"
+					Grid.Row="0"
+					Grid.Column="0"
+					FrameworkElement.Height="32"
+					FrameworkElement.HorizontalAlignment="Left"
+					Control.Background="#00FFFFFF"
+					ColorShiftBrush="#FFFFFFFF"
+					Drawing="{DynamicResource Menu}"
+					SnapsToDevicePixels="True"
+					UseLayoutRounding="False"
+					ButtonBase.Command="{Binding ShowGamesListCommand}"
+					ToolTip="{l:Translate {x:Static s:StringConsts.STR_TT_CHOOSE_GAME}}"
+					UIElement.Visibility="{Binding IsGameListShown, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}">
+					<ContentControl.Content>
+						<Border
+							UIElement.Visibility="{Binding IsGameListShown, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}">
+							<StackPanel
+								Orientation="Horizontal"
+								UIElement.Visibility="{Binding GameProfilesService.CurrentGame, Converter={converters:NullVisibilityConverter}}">
+								<controls:TrimmableTextBlock
+									FrameworkElement.MaxWidth="250"
+									FrameworkElement.Margin="-5,0,0,1"
+									AutomationProperties.AutomationId="tbCurrentGameName"
+									IsShowTooltipOnIsTrimmed="True"
+									FrameworkElement.Style="{StaticResource HeaderTrimmableTextBlockStyle}"
+									Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentControl}}}"
+									Text="{Binding GameProfilesService.CurrentGame.Name}"
+									ToolTip="{Binding GameProfilesService.CurrentGame.Name}" />
+								<controls:TrimmableTextBlock
+									FrameworkElement.Margin="0,0,0,1"
+									FrameworkElement.Style="{StaticResource HeaderTrimmableTextBlockStyle}"
+									Text=":"
+									Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentControl}}}" />
+							</StackPanel>
+						</Border>
+					</ContentControl.Content>
+				</buttons:SVGButton>
+				<buttons:SVGButton
+					Name="btnHideGamesList"
+					Grid.Row="0"
+					Grid.Column="0"
+					FrameworkElement.Width="34"
+					FrameworkElement.Height="34"
+					FrameworkElement.HorizontalAlignment="Left"
+					Drawing="{DynamicResource MenuOpen}"
+					PressedBackground="#00FFFFFF"
+					SVGHeight="14"
+					SVGWidth="14"
+					ButtonBase.Command="{Binding HideGamesListCommand}"
+					ToolTip="{l:Translate {x:Static s:StringConsts.STR_TT_CHOOSE_GAME}}"
+					UIElement.Visibility="{Binding IsGameListShown, Converter={converters:BooleanToVisibilityConverter}}" />
+				<ContentPresenter
+					Grid.Column="1"
+					FrameworkElement.Margin="0,1,0,3"
+					SnapsToDevicePixels="True"
+					UseLayoutRounding="False"
+					UIElement.Visibility="{Binding IsGameListShown, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}" />
+				<ScrollViewer
+					FrameworkElement.Name="ScrollViewer"
+					Grid.Row="1"
+					Grid.Column="0"
+					Grid.ColumnSpan="2"
+					Control.Background="{DynamicResource SidePanelBackground}"
+					Control.BorderBrush="{DynamicResource SidePanelBorderBrush}"
+					Control.BorderThickness="0,0,1,0"
+					UIElement.Visibility="{Binding IsGameListShown, Converter={converters:BooleanToVisibilityConverter}}">
+					<UIElement.Effect>
+						<DropShadowEffect
+							BlurRadius="10"
+							Opacity="0.1"
+							RenderingBias="Quality"
+							ShadowDepth="2" />
+					</UIElement.Effect>
+					<Grid
+						FrameworkElement.Margin="-1"
+						FrameworkElement.HorizontalAlignment="Right"
+						UIElement.Visibility="{Binding IsGameListShown, Converter={converters:BooleanToVisibilityConverter}}">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+						</Grid.RowDefinitions>
+						<buttons:SVGButton
+							Name="btnAddGame"
+							FrameworkElement.Height="50"
+							FrameworkElement.Margin="4,4,4,0"
+							Control.Padding="19,0,0,0"
+							FrameworkElement.VerticalAlignment="Top"
+							Control.HorizontalContentAlignment="Left"
+							Control.Background="{DynamicResource SidePanelBackground}"
+							ColorShiftBrush="{DynamicResource CreamBrush}"
+							Drawing="{DynamicResource NewGameProfile}"
+							Control.FontSize="14"
+							Control.FontWeight="SemiBold"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							SVGHeight="16"
+							SVGMargin="7,0,7,0"
+							SVGWidth="16"
+							ButtonBase.Command="{Binding AddGameCommand}"
+							Text="{l:Translate {x:Static s:StringConsts.STR_ADD_GAME_PROFILE}}" />
+						<buttons:SVGButton
+							Name="btnCheckCommunity"
+							Grid.Row="1"
+							FrameworkElement.Height="50"
+							FrameworkElement.Margin="4,0,4,0"
+							Control.Padding="19,0,0,0"
+							Control.Background="{DynamicResource SidePanelBackground}"
+							ColorShiftBrush="{DynamicResource CreamBrush}"
+							Drawing="{DynamicResource Community}"
+							Control.FontSize="14"
+							Control.FontWeight="SemiBold"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							SVGMargin="7,0,7,0"
+							ButtonBase.Command="{Binding OpenCommunityCommand}"
+							Text="{l:Translate {x:Static s:StringConsts.STR_CHECK_COMMUNITY_CONFIGS}}" />
+						<ListBox
+							Name="list"
+							Uid="DevicesItemsControl"
+							Grid.Row="2"
+							FrameworkElement.Width="350"
+							FrameworkElement.Margin="0"
+							Control.Padding="0"
+							Control.BorderBrush="{DynamicResource WizardBackgroundBrush}"
+							Control.BorderThickness="0,1,0,0"
+							UIElement.Focusable="True"
+							ScrollViewer.CanContentScroll="False"
+							ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+							SelectionMode="Single"
+							FrameworkElement.Style="{DynamicResource ListBoxWithoutScroll}"
+							ItemsControl.ItemsSource="{Binding GameProfilesService.GamesCollection}"
+							SelectedItem="{Binding GameProfilesService.CurrentGame, Delay=1}"
+							PreviewMouseRightButtonDown="List_OnPreviewMouseRightButtonDown">
+							<FrameworkElement.Resources>
+								<ResourceDictionary>
+									<Style
+										x:Key="{x:Type ListBoxItem}"
+										BasedOn="{StaticResource {x:Type ListBoxItem}}"
+										TargetType="{x:Type ListBoxItem}">
+										<Setter
+											Property="FrameworkElement.ContextMenu">
+											<Setter.Value>
+												<ContextMenu
+													Name="contextMenu1">
+													<MenuItem
+														Name="EditGame"
+														Command="{Binding EditGameCommand}">
+														<HeaderedItemsControl.Header>
+															<StackPanel
+																Orientation="Horizontal">
+																<recolorableImages:RecolorableSVG
+																	FrameworkElement.Width="16"
+																	FrameworkElement.MaxHeight="16"
+																	DisabledOpacity="0.6"
+																	Drawing="{DynamicResource Edit}" />
+																<TextBlock
+																	FrameworkElement.Margin="12,0,0,0"
+																	TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_EDIT}}" />
+															</StackPanel>
+														</HeaderedItemsControl.Header>
+													</MenuItem>
+													<MenuItem
+														Name="CloneGame"
+														Command="{Binding CloneGameCommand}">
+														<HeaderedItemsControl.Header>
+															<StackPanel
+																Orientation="Horizontal">
+																<recolorableImages:RecolorableSVG
+																	FrameworkElement.Width="16"
+																	FrameworkElement.MaxHeight="16"
+																	DisabledOpacity="0.6"
+																	Drawing="{DynamicResource Copy}" />
+																<TextBlock
+																	FrameworkElement.Margin="12,0,0,0"
+																	TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_CLONE}}" />
+															</StackPanel>
+														</HeaderedItemsControl.Header>
+													</MenuItem>
+													<MenuItem
+														Name="RemoveGame"
+														Command="{Binding RemoveGameCommand}">
+														<HeaderedItemsControl.Header>
+															<StackPanel
+																Orientation="Horizontal">
+																<recolorableImages:RecolorableSVG
+																	FrameworkElement.Width="16"
+																	FrameworkElement.MaxHeight="16"
+																	DisabledOpacity="0.6"
+																	Drawing="{DynamicResource Delete}" />
+																<TextBlock
+																	FrameworkElement.Margin="12,0,0,0"
+																	TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_5171}}" />
+															</StackPanel>
+														</HeaderedItemsControl.Header>
+													</MenuItem>
+												</ContextMenu>
+											</Setter.Value>
+										</Setter>
+										<Setter
+											Property="ContentControl.ContentTemplate"
+											Value="{StaticResource GameVmDataTemplate}" />
+										<Style.Triggers>
+											<Trigger
+												Property="UIElement.IsMouseOver"
+												Value="True">
+												<Setter
+													Property="ContentControl.ContentTemplate"
+													Value="{StaticResource HighlightedGameVmDataTemplate}" />
+											</Trigger>
+											<Trigger
+												Property="ListBoxItem.IsSelected"
+												Value="True">
+												<Setter
+													Property="ContentControl.ContentTemplate"
+													Value="{StaticResource SelectedGameVmDataTemplate}" />
+											</Trigger>
+											<EventTrigger
+												RoutedEvent="Control.ContextMenuOpening">
+												<BeginStoryboard>
+													<Storyboard>
+														<ColorAnimation
+															Storyboard.TargetProperty="Background.Color"
+															To="#3d3d3d"
+															Duration="0" />
+													</Storyboard>
+												</BeginStoryboard>
+											</EventTrigger>
+											<EventTrigger
+												RoutedEvent="Control.ContextMenuClosing">
+												<BeginStoryboard>
+													<Storyboard>
+														<ColorAnimation
+															Storyboard.TargetProperty="Background.Color"
+															To="#363636"
+															Duration="0" />
+													</Storyboard>
+												</BeginStoryboard>
+											</EventTrigger>
+										</Style.Triggers>
+										<EventSetter
+											Event="ContextMenuOpening"
+											Handler="ListBoxItem_ContextMenuOpening" />
+									</Style>
+								</ResourceDictionary>
+							</FrameworkElement.Resources>
+							<ItemsControl.ItemsPanel>
+								<ItemsPanelTemplate>
+									<StackPanel
+										CanHorizontallyScroll="False"
+										CanVerticallyScroll="False"
+										Orientation="Vertical" />
+								</ItemsPanelTemplate>
+							</ItemsControl.ItemsPanel>
+						</ListBox>
+					</Grid>
+				</ScrollViewer>
+				<Border
+					Grid.Row="2"
+					Grid.ColumnSpan="2"
+					Border.Background="{DynamicResource SidePanelBackground}"
+					Border.BorderBrush="{DynamicResource SidePanelBorderBrush}"
+					Border.BorderThickness="0,0,1,0">
+					<Border
+						FrameworkElement.Width="350"
+						Border.Background="{DynamicResource SidePanelBackground}"
+						Border.BorderBrush="{DynamicResource SidePanelBorderBrush}"
+						Border.BorderThickness="0,1,0,0"
+						UIElement.Visibility="{Binding IsGameListShown, Converter={converters:BooleanToVisibilityConverter}}">
+						<controls1:LicenseInfo
+							DataContext="{Binding LicensingService}" />
+					</Border>
+				</Border>
+			</Grid>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

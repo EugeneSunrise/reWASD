@@ -1,0 +1,78 @@
+<UserControl
+	x:Class="reWASDUI.License.Views.LicensePaidUncheckedPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableimages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:views="clr-namespace:reWASDUI.License.Views">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="40" />
+		</Grid.RowDefinitions>
+		<Border
+			Padding="0,58,40,0"
+			FrameworkElement.Style="{DynamicResource LicensePageContentBorderStyle}">
+			<Grid>
+				<Grid
+					FrameworkElement.VerticalAlignment="Top">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="171" />
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+					</Grid.ColumnDefinitions>
+					<Image
+						Grid.Column="0"
+						FrameworkElement.Width="81"
+						FrameworkElement.Margin="57,25,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Center"
+						Image.Source="{DynamicResource IcoLicenseWarning}" />
+					<StackPanel
+						Grid.Column="1"
+						Orientation="Vertical">
+						<TextBlock
+							Grid.ColumnSpan="2"
+							FrameworkElement.Style="{DynamicResource LicenseHeaderTextBlockStyle}"
+							TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_VALIDATION_TIMEOUT}}" />
+						<TextBlock
+							Grid.Row="1"
+							FrameworkElement.Margin="0,20,0,0"
+							FrameworkElement.Style="{DynamicResource LicenseValueTextBlockStyle}"
+							TextBlock.TextWrapping="Wrap"
+							TextBlock.Text="{Binding Description}" />
+					</StackPanel>
+				</Grid>
+				<TextBlock
+					FrameworkElement.Margin="49,0,0,10"
+					FrameworkElement.VerticalAlignment="Bottom"
+					FrameworkElement.Style="{DynamicResource LicenseNoteTextBlockStyle}"
+					TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_NOTE_ACTIVATION}}" />
+			</Grid>
+		</Border>
+		<Border
+			Grid.Row="1"
+			FrameworkElement.Style="{DynamicResource LicensePageFooterBorderStyle}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<StackPanel
+					Grid.Column="1"
+					FrameworkElement.HorizontalAlignment="Right"
+					Orientation="Horizontal">
+					<buttons:ColoredButton
+						FrameworkElement.Style="{DynamicResource ButtonSmall}"
+						ButtonBase.Command="{Binding CheckActivationCommand}"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STRING_ACTIVATE}}" />
+					<buttons:ColoredButton
+						Name="CloseBtn"
+						FrameworkElement.Style="{DynamicResource ButtonSmall}"
+						ButtonBase.Command="{Binding CloseCommand}"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.MANAGE_DIALOG_CLOSE}}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

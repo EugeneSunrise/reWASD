@@ -1,0 +1,539 @@
+<UserControl
+	x:Class="reWASDUI.Views.GameConfigSelector" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:behaviors="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://prismlibrary.com/" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Wpf"
+	mvvm:ViewModelLocator.AutoWireViewModel="True" xmlns:views="clr-namespace:reWASDUI.Views">
+	<Grid
+		UIElement.Visibility="{Binding GameProfilesService.CurrentGame, Converter={converters:NullVisibilityConverter}}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				ColumnDefinition.Width="272" />
+			<ColumnDefinition
+				ColumnDefinition.Width="*" />
+			<ColumnDefinition
+				ColumnDefinition.Width="220" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="Auto" />
+			<RowDefinition
+				RowDefinition.Height="Auto" />
+			<RowDefinition
+				RowDefinition.Height="*" />
+		</Grid.RowDefinitions>
+		<Grid
+			RowSpan="99"
+			ColumnSpan="99"
+			FrameworkElement.Margin="0,0,0,0"
+			FrameworkElement.HorizontalAlignment="Stretch"
+			UIElement.Visibility="{Binding GameConfigSelectorShouldBeShown, Converter={converters:BooleanToVisibilityConverter}}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+				<RowDefinition
+					RowDefinition.Height="*" />
+			</Grid.RowDefinitions>
+			<StackPanel
+				Name="ShiftGroup"
+				Grid.Row="0"
+				FrameworkElement.Margin="48,0,48,0"
+				FrameworkElement.HorizontalAlignment="Center"
+				Orientation="Horizontal"
+				UIElement.Visibility="{Binding CurrentConfig, Converter={converters:NullVisibilityConverter}}">
+				<buttons:SVGButton
+					Name="btnViewMenu1"
+					FrameworkElement.Width="26"
+					FrameworkElement.Height="26"
+					FrameworkElement.Margin="0,0,6,0"
+					behaviors:LeftClickContextMenuBehavior.IsEnabled="True"
+					ColorShiftBrush="#FFFFFFFF"
+					Drawing="{DynamicResource ViewSettings}"
+					HighlightedBackground="#00FFFFFF"
+					HighlightedForeground="{DynamicResource CreamBrush}"
+					SVGMargin="6,0"
+					TriggeredBackground="#FFFFFFFF"
+					TriggeredHighlightedBackground="{DynamicResource ConfigItemHoverForeground}"
+					ToolTip="{localization:Translate {x:Static s:StringConsts.STRING_BTN_VIEW}}">
+					<FrameworkElement.Style>
+						<Style
+							BasedOn="{StaticResource ButtonShift}"
+							TargetType="{x:Type buttons:SVGButton}">
+							<Setter
+								Property="FrameworkElement.ContextMenu">
+								<Setter.Value>
+									<ContextMenu>
+										<MenuItem
+											AutomationProperties.AutomationId="SwitchReadOnlyMode"
+											Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.SwitchReadOnlyModeCommand}"
+											IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode, Delay=1, Converter={converters:InverseBooleanConverter}}">
+											<HeaderedItemsControl.Header>
+												<StackPanel
+													Orientation="Horizontal">
+													<recolorableImages:RecolorableSVG
+														FrameworkElement.Width="16"
+														FrameworkElement.MaxHeight="16"
+														AutomationProperties.AutomationId="svgSwitchReadOnlyMode"
+														DisabledOpacity="0.6"
+														Drawing="{DynamicResource ReadOnlyMode}"
+														IsColorShift="True"
+														SnapsToDevicePixels="True" />
+													<TextBlock
+														FrameworkElement.Margin="12,0,0,0"
+														TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_READ_ONLY_MODE}}" />
+												</StackPanel>
+											</HeaderedItemsControl.Header>
+											<FrameworkElement.ToolTip>
+												<Grid>
+													<TextBlock
+														TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STRING_READ_ONLY_DISABLED}}"
+														UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+													<TextBlock
+														TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STRING_READ_ONLY_ACTIVE}}"
+														UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode, Converter={converters:BooleanToVisibilityConverter}}" />
+												</Grid>
+											</FrameworkElement.ToolTip>
+										</MenuItem>
+										<Separator />
+										<MenuItem
+											AutomationProperties.AutomationId="ToggleShowDescription"
+											ToolTipService.ShowOnDisabled="True"
+											Command="{Binding GuiHelperService.SwitchBindingLabelModeCommand}">
+											<MenuItem.IsChecked>
+												<MultiBinding
+													Converter="{converters:MultiBooleanAndConverter}">
+													<Binding
+														Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsLabelModeView" />
+													<Binding
+														Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowAllView"
+														Converter="{converters:InverseBooleanConverter}" />
+												</MultiBinding>
+											</MenuItem.IsChecked>
+											<HeaderedItemsControl.Header>
+												<StackPanel
+													Orientation="Horizontal">
+													<recolorableImages:RecolorableSVG
+														FrameworkElement.Width="16"
+														FrameworkElement.MaxHeight="16"
+														AutomationProperties.AutomationId="svgToggleShowDescription"
+														DisabledOpacity="0.6"
+														Drawing="{DynamicResource ShowDescriptions}"
+														IsColorShift="True"
+														SnapsToDevicePixels="True" />
+													<TextBlock
+														FrameworkElement.Margin="12,0,0,0"
+														TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STRING_SHOW_DESCRIPTIONS}}" />
+												</StackPanel>
+											</HeaderedItemsControl.Header>
+										</MenuItem>
+										<MenuItem
+											AutomationProperties.AutomationId="ToggleShowMappings"
+											ToolTipService.ShowOnDisabled="True"
+											Command="{Binding GuiHelperService.SwitchShowMappingsModeCommand}">
+											<MenuItem.IsChecked>
+												<MultiBinding
+													Converter="{converters:MultiBooleanAndConverter}">
+													<Binding
+														Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowMappingsView" />
+													<Binding
+														Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowAllView"
+														Converter="{converters:InverseBooleanConverter}" />
+												</MultiBinding>
+											</MenuItem.IsChecked>
+											<HeaderedItemsControl.Header>
+												<StackPanel
+													Orientation="Horizontal">
+													<recolorableImages:RecolorableSVG
+														FrameworkElement.Width="16"
+														FrameworkElement.MaxHeight="16"
+														FrameworkElement.Margin="0,1,0,0"
+														AutomationProperties.AutomationId="svgToggleShowMappings"
+														DisabledOpacity="0.6"
+														Drawing="{DynamicResource ShowAssignedActions}"
+														IsColorShift="True"
+														SnapsToDevicePixels="True" />
+													<TextBlock
+														FrameworkElement.Margin="12,0,0,0"
+														TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STRING_SHOW_MAPPINGS}}" />
+												</StackPanel>
+											</HeaderedItemsControl.Header>
+										</MenuItem>
+										<MenuItem
+											AutomationProperties.AutomationId="ToggleShowMappingsAndDescriptions"
+											ToolTipService.ShowOnDisabled="True"
+											Command="{Binding GuiHelperService.SwitchShowAllModeCommand}"
+											IsChecked="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowAllView}">
+											<HeaderedItemsControl.Header>
+												<StackPanel
+													Orientation="Horizontal">
+													<recolorableImages:RecolorableSVG
+														FrameworkElement.Width="16"
+														FrameworkElement.MaxHeight="16"
+														AutomationProperties.AutomationId="ToggleShowMappingsAndDescriptions"
+														DisabledOpacity="0.6"
+														Drawing="{DynamicResource ShowMappingsDescriptions}"
+														IsColorShift="True"
+														SnapsToDevicePixels="True" />
+													<TextBlock
+														FrameworkElement.Margin="12,0,0,0"
+														TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_SHOW_MAPPINGS_AND_DESCRIPTIONS}}" />
+												</StackPanel>
+											</HeaderedItemsControl.Header>
+										</MenuItem>
+										<Separator />
+										<MenuItem
+											AutomationProperties.AutomationId="ToggleExpandActivators"
+											Command="{Binding GuiHelperService.SwitchExpandActivatorsModeCommand}"
+											IsChecked="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsExpandActivatorsView}">
+											<HeaderedItemsControl.Header>
+												<StackPanel
+													Orientation="Horizontal">
+													<recolorableImages:RecolorableSVG
+														FrameworkElement.Width="16"
+														FrameworkElement.MaxHeight="16"
+														AutomationProperties.AutomationId="svgToggleExpandActivators"
+														DisabledOpacity="0.6"
+														Drawing="{DynamicResource ExpandActivators}"
+														IsColorShift="True"
+														SnapsToDevicePixels="True" />
+													<TextBlock
+														FrameworkElement.Margin="12,0,0,0"
+														TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_EXPAND_ACTIVATORS}}" />
+												</StackPanel>
+											</HeaderedItemsControl.Header>
+											<FrameworkElement.ToolTip>
+												<Grid>
+													<TextBlock
+														TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_EXPAND_ACTIVATORS_ON}}"
+														UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsExpandActivatorsView, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+													<TextBlock
+														TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_EXPAND_ACTIVATORS_OFF}}"
+														UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsExpandActivatorsView, Converter={converters:BooleanToVisibilityConverter}}" />
+												</Grid>
+											</FrameworkElement.ToolTip>
+										</MenuItem>
+									</ContextMenu>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</FrameworkElement.Style>
+				</buttons:SVGButton>
+				<buttons:SVGButton
+					Name="btnToggleLEDSettings"
+					FrameworkElement.Width="26"
+					FrameworkElement.Height="26"
+					Control.HorizontalContentAlignment="Center"
+					Control.VerticalContentAlignment="Center"
+					Control.Background="#00FFFFFF"
+					Control.BorderBrush="#00FFFFFF"
+					Control.BorderThickness="1"
+					Drawing="{DynamicResource LedSettings}"
+					IsColorShift="False"
+					SVGMargin="0"
+					ToolTipService.ShowOnDisabled="True"
+					TriggeredBackground="#00FFFFFF"
+					TriggeredBorderBrush="{DynamicResource CreamBrush}"
+					TriggeredHighlightedBackground="#00FFFFFF"
+					TriggeredHighlightedBorderBrush="#00FFFFFF"
+					ButtonBase.Command="{Binding GuiHelperService.SwitchLEDSettingsViewModeCommand}"
+					UIElement.IsEnabled="{Binding UserSettingsService.IsLedSettingsEnabled}"
+					IsTriggered="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.IsLEDSettingsView}"
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.HasLED, Converter={converters:BooleanToVisibilityConverter}}">
+					<FrameworkElement.Style>
+						<Style
+							TargetType="{x:Type buttons:SVGButton}">
+							<Style.Triggers>
+								<Trigger
+									Property="UIElement.IsEnabled"
+									Value="False">
+									<Setter
+										Property="UIElement.Opacity"
+										Value="0.5" />
+									<Setter
+										Property="FrameworkElement.ToolTip"
+										Value="{localization:Translate {x:Static s:StringConsts.STR_LED_SETTINGS_TURN_OFF}}" />
+								</Trigger>
+								<Trigger
+									Property="UIElement.IsEnabled"
+									Value="True">
+									<Setter
+										Property="FrameworkElement.ToolTip"
+										Value="{localization:Translate {x:Static s:StringConsts.STR_LED_SETTINGS}}" />
+								</Trigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</buttons:SVGButton>
+				<controls:ShiftSelectorControl
+					FrameworkElement.Margin="30,0,0,0" />
+				<controls:AddShiftButton
+					FrameworkElement.Margin="0,0,30,0"
+					FrameworkElement.VerticalAlignment="Center"
+					behaviors:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_TOOLTIP_ERROR_CREATE_SHIFT}}"
+					UIElement.IsEnabled="{Binding CurrentConfig.ConfigData.AdditionalData.Count, ConverterParameter='< 11', Converter={converters:ValueSatisfiesRuleParameter}}" />
+				<Border
+					FrameworkElement.Width="34"
+					UIElement.Visibility="{Binding CurrentConfig.ConfigData, Converter={converters:ValueIsNullToVisibilityConverter}}" />
+				<Grid
+					FrameworkElement.Margin="-13"
+					UIElement.ClipToBounds="False">
+					<Border
+						FrameworkElement.Width="52"
+						FrameworkElement.Height="52">
+						<controls:IconAnimation
+							x:Name="iconAnimation"
+							UIElement.Visibility="Collapsed" />
+					</Border>
+					<buttons:SVGButton
+						Name="btnToggleVirtualGamepad"
+						FrameworkElement.Width="26"
+						FrameworkElement.Height="26"
+						FrameworkElement.HorizontalAlignment="Center"
+						FrameworkElement.VerticalAlignment="Center"
+						DotMargin="18,18,0,0"
+						SVGHeight="18"
+						SVGMargin="4"
+						SVGWidth="18"
+						FrameworkElement.Style="{DynamicResource ButtonShift}"
+						ColorShiftBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, FallbackValue='{StaticResource CreamBrush}'}"
+						ButtonBase.Command="{Binding GuiHelperService.SwitchVirtualStickSettingsViewModeCommand}"
+						Drawing="{Binding CurrentConfig.ConfigData.VirtualGamepadType, Converter={converters2:VirtualGamepadTypeToDrawingConverter}}"
+						IsDotContent="{Binding CurrentConfig.ConfigData.IsVirtualGamepad}"
+						IsTriggered="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsVirtualStickSettingsModeView}"
+						ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_VIRTUAL_CONTROLLER_SETTINGS}}"
+						TriggeredBackground="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, FallbackValue='{StaticResource CreamBrush}'}" />
+				</Grid>
+				<buttons:SVGButton
+					Name="btnToggleOverlayMenu"
+					FrameworkElement.Width="26"
+					FrameworkElement.Height="26"
+					FrameworkElement.Margin="6,0,0,0"
+					Drawing="{DynamicResource OverlayMenuMode}"
+					SVGHeight="16"
+					SVGMargin="5"
+					SVGWidth="16"
+					FrameworkElement.Style="{DynamicResource ButtonShift}"
+					ColorShiftBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, FallbackValue='{StaticResource CreamBrush}'}"
+					ButtonBase.Command="{Binding GuiHelperService.SwitchOverlayMenuViewModeCommand}"
+					IsTriggered="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsOverlayMenuModeView}"
+					ToolTip="{localization:Translate {x:Static s:StringConsts.STR_RADIAL_MENU_SETTINGS}}"
+					TriggeredBackground="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, FallbackValue='{StaticResource CreamBrush}'}"
+					UIElement.Visibility="{Binding IsOverlayVisible, Converter={converters:BooleanToVisibilityConverter}}" />
+				<buttons:SVGButton
+					Name="btnToggleMaskModeView"
+					FrameworkElement.Width="26"
+					FrameworkElement.Height="26"
+					FrameworkElement.Margin="6,0,0,0"
+					Drawing="{DynamicResource Mask}"
+					SVGHeight="16"
+					SVGMargin="5"
+					SVGWidth="16"
+					FrameworkElement.Style="{DynamicResource ButtonShift}"
+					ColorShiftBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, FallbackValue='{StaticResource CreamBrush}'}"
+					ButtonBase.Command="{Binding GuiHelperService.SwitchMaskViewModeCommand}"
+					IsTriggered="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsMaskModeView}"
+					ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_SHORTCUTS}}"
+					TriggeredBackground="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, FallbackValue='{StaticResource CreamBrush}'}" />
+			</StackPanel>
+			<Grid
+				Name="SubconfigGroup"
+				Row="1"
+				FrameworkElement.Height="40"
+				FrameworkElement.MaxWidth="468"
+				FrameworkElement.Margin="48,12,48,0"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Top">
+				<UIElement.Visibility>
+					<MultiBinding
+						Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+						<Binding
+							Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsOverlayMenuModeView"
+							Converter="{converters:InverseBooleanConverter}" />
+						<Binding
+							Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsMaskModeView"
+							Converter="{converters:InverseBooleanConverter}" />
+						<Binding
+							Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsVirtualStickSettingsModeView"
+							Converter="{converters:InverseBooleanConverter}" />
+						<Binding
+							Path="CurrentConfig"
+							Converter="{converters:ValueIsNotNull}" />
+						<Binding
+							Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowSubconfig"
+							Converter="{converters:InverseBooleanConverter}" />
+					</MultiBinding>
+				</UIElement.Visibility>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<buttons:SVGButton
+					Name="btnToggleHideIrrelevantConfigs"
+					Grid.Column="0"
+					FrameworkElement.Height="20"
+					FrameworkElement.Margin="0,2,0,0"
+					FrameworkElement.VerticalAlignment="Top"
+					FrameworkElement.Style="{DynamicResource ButtonToggleIrrelevantSubConfigs}"
+					ButtonBase.Command="{Binding GameProfilesService.ToggleHideIrrelevantSubConfigsCommand}"
+					UIElement.IsEnabled="{Binding GamepadService.CurrentGamepad, Converter={converters:ValueIsNotNull}}"
+					IsTriggered="{Binding GameProfilesService.IsHidingIrrelevantSubConfigs}" />
+				<ListBox
+					FrameworkElement.Name="subconfigsList"
+					Grid.Column="1"
+					FrameworkElement.Margin="6,2,6,0"
+					FrameworkElement.VerticalAlignment="Top"
+					UIElement.Focusable="False"
+					ScrollViewer.CanContentScroll="False"
+					ScrollViewer.HorizontalScrollBarVisibility="Auto"
+					ScrollViewer.VerticalScrollBarVisibility="Hidden"
+					SelectionMode="Single"
+					ItemsControl.ItemsSource="{Binding CurrentConfig.ConfigData}"
+					SelectedItem="{Binding CurrentConfig.CurrentSubConfigData, Delay=1}"
+					x:Name="subconfigsList"
+					PreviewMouseRightButtonDown="ConfigsList_OnPreviewMouseRightButtonDown"
+					PreviewMouseWheel="ConfigsList_OnPreviewMouseWheel">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								x:Key="{x:Type ListBoxItem}"
+								BasedOn="{StaticResource {x:Type ListBoxItem}}"
+								TargetType="{x:Type ListBoxItem}">
+								<Setter
+									Property="ContentControl.ContentTemplate"
+									Value="{StaticResource SubConfigDataDataTemplate}" />
+								<Style.Triggers>
+									<Trigger
+										Property="ListBoxItem.IsSelected"
+										Value="True">
+										<Setter
+											Property="ContentControl.ContentTemplate"
+											Value="{StaticResource SelectedSubConfigDataDataTemplate}" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+					<ItemsControl.ItemContainerStyle>
+						<Style
+							BasedOn="{StaticResource {x:Type ListBoxItem}}"
+							TargetType="{x:Type ListBoxItem}">
+							<Style.Triggers>
+								<DataTrigger
+									Value="True">
+									<DataTrigger.Binding>
+										<MultiBinding
+											ConverterParameter="({0} &amp;&amp; !{1})"
+											Converter="{converters:MultiBooleanParametrizedConverter}">
+											<Binding
+												Path="ConfigData.ConfigVM.GameProfilesService.IsHidingIrrelevantSubConfigs" />
+											<Binding
+												Path="IsCurrentSubConfigRelevantForCurrentDevice" />
+										</MultiBinding>
+									</DataTrigger.Binding>
+									<Setter
+										Property="UIElement.IsEnabled"
+										Value="False" />
+									<Setter
+										Property="ToolTipService.ShowOnDisabled"
+										Value="True" />
+									<Setter
+										Property="FrameworkElement.ToolTip"
+										Value="{localization:Translate {x:Static s:StringConsts.STR_TT_SUB_CONFIG_WONT_WORK}}" />
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</ItemsControl.ItemContainerStyle>
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel
+								CanHorizontallyScroll="True"
+								CanVerticallyScroll="False"
+								Orientation="Horizontal" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ListBox>
+				<buttons:SVGButton
+					Name="btnAddSubConfig"
+					Grid.Column="2"
+					FrameworkElement.Height="20"
+					FrameworkElement.Margin="0,2,0,0"
+					FrameworkElement.VerticalAlignment="Top"
+					Control.HorizontalContentAlignment="Center"
+					Control.VerticalContentAlignment="Center"
+					behaviors:LeftClickContextMenuBehavior.IsEnabled="True"
+					ColorShiftBrush="#FFFFFFFF"
+					Drawing="{DynamicResource AddConfig}"
+					Control.Foreground="#FFFFFFFF"
+					HighlightedBackground="#00FFFFFF"
+					HighlightedForeground="{DynamicResource CreamBrush}"
+					PressedBackground="#00FFFFFF"
+					PressedForeground="#FFFFFFFF"
+					SVGMargin="3"
+					ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_ADD_NEW_SUBCONFIG}}">
+					<UIElement.IsEnabled>
+						<MultiBinding
+							Converter="{converters:MultiBooleanAndConverter}">
+							<Binding
+								Path="GameProfilesService.CanAddAnySubConfig" />
+							<Binding
+								Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+						</MultiBinding>
+					</UIElement.IsEnabled>
+					<FrameworkElement.ContextMenu>
+						<ContextMenu>
+							<MenuItem
+								Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.CreateGamepadSubconfigCommand}">
+								<HeaderedItemsControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											FrameworkElement.Width="18"
+											FrameworkElement.MaxHeight="20"
+											DisabledOpacity="0.6"
+											Drawing="{DynamicResource GamepadDevices}" />
+										<TextBlock
+											FrameworkElement.Margin="12,0,0,0"
+											TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_GAMEPAD}}" />
+									</StackPanel>
+								</HeaderedItemsControl.Header>
+							</MenuItem>
+							<MenuItem
+								Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.CreateKeyboardSubconfigCommand}">
+								<HeaderedItemsControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											FrameworkElement.Width="18"
+											FrameworkElement.MaxHeight="20"
+											DisabledOpacity="0.6"
+											Drawing="{DynamicResource MicroKeyboard}" />
+										<TextBlock
+											FrameworkElement.Margin="12,0,0,0"
+											TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_KEYBOARD}}" />
+									</StackPanel>
+								</HeaderedItemsControl.Header>
+							</MenuItem>
+							<MenuItem
+								Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.CreateMouseSubconfigCommand}">
+								<HeaderedItemsControl.Header>
+									<StackPanel
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											FrameworkElement.Width="18"
+											FrameworkElement.MaxHeight="20"
+											DisabledOpacity="0.6"
+											Drawing="{DynamicResource MicroMouse}" />
+										<TextBlock
+											FrameworkElement.Margin="12,0,0,0"
+											TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_MOUSE}}" />
+									</StackPanel>
+								</HeaderedItemsControl.Header>
+							</MenuItem>
+						</ContextMenu>
+					</FrameworkElement.ContextMenu>
+				</buttons:SVGButton>
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>

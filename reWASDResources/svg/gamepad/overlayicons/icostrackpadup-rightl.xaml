@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoSTrackPadUp-RightL" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoSTrackPadUp-RightL">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M15.39,4.94L15.39,4.94 15.39,4.94 15.39,4.94 15.3,4.85 15.3,4.85C15.2,4.62,15.08,4.39,14.96,4.16L14.96,4.16C14.84,3.953,14.71,3.743,14.57,3.53L14.57,3.48C14.44,3.29,14.3,3.11,14.15,2.92L14.15,2.92 14,2.71 14,2.71 13.65,2.35 13.65,2.35 13.3,2 13.3,2C12.674,1.458,11.969,1.013,11.21,0.68L11.21,0.68 11.09,0.58 11.09,0.58 11.09,0.58C8.255,-0.592,5,-0.041,2.71,2L2.71,2 2.35,2.35 2,2.7 2,2.7C0.485,4.427,-0.214,6.722,0.08,9L1.08,9C0.789,6.992,1.384,4.956,2.71,3.42L7.27,8 7.27,8 7.27,8 5.92,9.37 6.63,10.08 8,8.71 8,8.71 8,8.71 12.54,13.26C11.017,14.582,8.998,15.184,7,14.91L7,15.91C7.331,15.96 7.665,15.99 8,16 9.948,16 11.829,15.288 13.29,14L13.29,14 13.64,13.66 13.64,13.66 14,13.3 14,13.3C16.023,11.008,16.562,7.763,15.39,4.94z M8,7.22L8,7.22 8,7.22 8,7.22 3.42,2.71C5.415,0.994,8.205,0.542,10.64,1.54L8,7.22z M13.29,12.58L8.73,8 8.73,8 8.73,8 14.41,5.38C15.414,7.8,14.981,10.579,13.29,12.58z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M1.38,9.26L2.68,9.26 2.68,13.86 5,13.86 5,15 1.38,15 1.38,9.26z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

@@ -1,0 +1,95 @@
+<controls:SquarePositioningControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.AdvancedStick.VirtualStickZones" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:advancedStick="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type advancedStick:VirtualStickZones}">
+			<Grid
+				FrameworkElement.Name="grid"
+				FrameworkElement.Width="{TemplateBinding controls:SquarePositioningControl.SquareHeightWidth}"
+				FrameworkElement.Height="{TemplateBinding controls:SquarePositioningControl.SquareHeightWidth}">
+				<Grid>
+					<Rectangle
+						attachedBehaviours:RectangleBehaveour.Rounding="{TemplateBinding advancedStick:VirtualStickZones.DeflectionSquarenessHigh}"
+						Shape.Fill="{DynamicResource DisabledControlBorderBrush01}"
+						Shape.Stroke="{DynamicResource DisabledControlBorderBrush}"
+						StrokeDashArray="2.0 3.0" />
+					<Rectangle
+						Name="borderMed"
+						attachedBehaviours:RectangleBehaveour.Rounding="{TemplateBinding advancedStick:VirtualStickZones.DeflectionSquarenessMed}"
+						Shape.Fill="{DynamicResource Shift2BrushPressed}"
+						Shape.Stroke="{DynamicResource Shift2Brush}"
+						Shape.StrokeThickness="3" />
+					<Rectangle
+						Name="borderLow"
+						FrameworkElement.HorizontalAlignment="Center"
+						FrameworkElement.VerticalAlignment="Center"
+						attachedBehaviours:RectangleBehaveour.Rounding="{TemplateBinding advancedStick:VirtualStickZones.DeflectionSquarenessLow}"
+						Shape.Fill="#FF808080" />
+					<FrameworkElement.Style>
+						<Style
+							TargetType="{x:Type Grid}">
+							<Style.Triggers>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding VirtualStickSettings.IsSquared, RelativeSource={RelativeSource TemplatedParent}}">
+									<Setter
+										Property="UIElement.OpacityMask">
+										<Setter.Value>
+											<LinearGradientBrush
+												StartPoint="0,0"
+												EndPoint="1,0">
+												<GradientStop
+													Offset="0.5"
+													Color="White" />
+												<GradientStop
+													Offset="0.5"
+													Color="Transparent" />
+											</LinearGradientBrush>
+										</Setter.Value>
+									</Setter>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</Grid>
+				<Grid
+					UIElement.Visibility="{Binding VirtualStickSettings.IsSquared, Converter={converters:BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+					<UIElement.OpacityMask>
+						<LinearGradientBrush
+							StartPoint="0,0"
+							EndPoint="1,0">
+							<GradientStop
+								Offset="0.5"
+								Color="Transparent" />
+							<GradientStop
+								Offset="0.5"
+								Color="White" />
+						</LinearGradientBrush>
+					</UIElement.OpacityMask>
+					<Rectangle
+						Name="squareRadius4"
+						attachedBehaviours:RectangleBehaveour.Rounding="{TemplateBinding advancedStick:VirtualStickZones.NormalizedY4}"
+						Shape.Stroke="{DynamicResource SquarenessRadius4Brush}"
+						Shape.StrokeThickness="3" />
+					<Rectangle
+						Name="squareRadius3"
+						attachedBehaviours:RectangleBehaveour.Rounding="{TemplateBinding advancedStick:VirtualStickZones.NormalizedY3}"
+						Shape.Stroke="{DynamicResource SquarenessRadius3Brush}"
+						Shape.StrokeThickness="3" />
+					<Rectangle
+						Name="squareRadius2"
+						attachedBehaviours:RectangleBehaveour.Rounding="{TemplateBinding advancedStick:VirtualStickZones.NormalizedY2}"
+						Shape.Stroke="{DynamicResource SquarenessRadius2Brush}"
+						Shape.StrokeThickness="3" />
+					<Rectangle
+						Name="squareRadius1"
+						FrameworkElement.HorizontalAlignment="Center"
+						FrameworkElement.VerticalAlignment="Center"
+						attachedBehaviours:RectangleBehaveour.Rounding="{TemplateBinding advancedStick:VirtualStickZones.NormalizedY1}"
+						Shape.Stroke="{DynamicResource SquarenessRadius1Brush}"
+						Shape.StrokeThickness="3" />
+				</Grid>
+			</Grid>
+		</ControlTemplate>
+	</Control.Template>
+</controls:SquarePositioningControl>

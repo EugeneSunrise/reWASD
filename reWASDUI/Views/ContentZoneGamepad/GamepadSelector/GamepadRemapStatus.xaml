@@ -1,0 +1,1256 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.GamepadSelector.GamepadRemapStatus" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:gamepadselector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector">
+	<StackPanel
+		Orientation="Horizontal">
+		<buttons:SVGButton
+			Name="btnToggleRemap"
+			FrameworkElement.Margin="0,0,0,0"
+			FrameworkElement.Style="{DynamicResource RemapButton}"
+			AutomationProperties.AutomationId="{Binding GamepadService.AutoIdRemapState}"
+			ButtonBase.Command="{Binding TriggerRemapCommand}"
+			IsTriggered="{Binding GamepadService.IsCurrentGamepadRemaped}">
+			<UIElement.Visibility>
+				<MultiBinding
+					ConverterParameter="({0} &amp;&amp; {1} &amp;&amp; {2})"
+					Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+					<Binding
+						Path="GamepadService.CurrentGamepad"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsUnknownControllerType"
+						Converter="{converters:InverseBooleanConverter}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsInitializedController" />
+				</MultiBinding>
+			</UIElement.Visibility>
+			<UIElement.IsEnabled>
+				<MultiBinding
+					ConverterParameter="({0} &amp;&amp; ( ({1} &amp;&amp; {2} &amp;&amp; {3}) || {4}) )"
+					Converter="{converters:MultiBooleanParametrizedConverter}">
+					<Binding
+						Path="GamepadService.IsAsyncRemapInProgress"
+						Converter="{converters:InverseBooleanConverter}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsUnknownControllerType"
+						Converter="{converters:InverseBooleanConverter}" />
+					<Binding
+						Path="GamepadService.CurrentGamepadActiveProfiles.SlotProfiles.Count"
+						ConverterParameter="&gt; 0"
+						Converter="{converters:ValueSatisfiesRuleParameter}" />
+					<Binding
+						Path="GamepadService.IsCurrentGamepadRemaped" />
+				</MultiBinding>
+			</UIElement.IsEnabled>
+		</buttons:SVGButton>
+		<StackPanel
+			Name="ApplyGroup"
+			Grid.Column="1"
+			FrameworkElement.Margin="10,0,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			Orientation="Horizontal">
+			<Grid
+				FrameworkElement.Margin="0,0,22,0">
+				<comboBoxes:ColoredComboBox
+					Name="cmbSelectSlotToApply"
+					FrameworkElement.Height="32"
+					FrameworkElement.Margin="0,0,-22,0"
+					FrameworkElement.HorizontalAlignment="Stretch"
+					FrameworkElement.VerticalAlignment="Center"
+					Control.VerticalContentAlignment="Center"
+					Control.BorderBrush="{DynamicResource CreamBrush}"
+					Control.FontSize="13"
+					UIElement.IsEnabled="{Binding IsEnabled, ElementName=btnApplyConfig}"
+					ItemsControl.ItemsSource="{Binding GamepadService.SlotsInfo}"
+					SelectedItem="{Binding GameProfilesService.CurrentSlotInfo}">
+					<ItemsControl.ItemContainerStyle>
+						<Style
+							TargetType="{x:Type ComboBoxItem}">
+							<Setter
+								Property="UIElement.IsEnabled"
+								Value="{Binding IsAvailable}" />
+							<Setter
+								Property="ContentControl.ContentTemplate"
+								Value="{DynamicResource SlotInfoDataTemplate}" />
+							<Setter
+								Property="Control.Template">
+								<Setter.Value>
+									<ControlTemplate
+										TargetType="{x:Type ComboBoxItem}">
+										<ContentPresenter />
+										<ControlTemplate.Triggers>
+											<Trigger
+												Property="ComboBoxItem.IsHighlighted"
+												Value="True">
+												<Setter
+													Value="{DynamicResource HighlightedSlotInfoDataTemplate}"
+													Property="ContentControl.ContentTemplate" />
+											</Trigger>
+											<Trigger
+												Property="UIElement.IsEnabled"
+												Value="False">
+												<Setter
+													Value="{DynamicResource DisabledSlotInfoDataTemplate}"
+													Property="ContentControl.ContentTemplate" />
+											</Trigger>
+										</ControlTemplate.Triggers>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</ItemsControl.ItemContainerStyle>
+				</comboBoxes:ColoredComboBox>
+				<buttons:ColoredButton
+					Name="btnApplyConfig"
+					FrameworkElement.Height="32"
+					FrameworkElement.Margin="0,0,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.VerticalAlignment="Center"
+					Control.Background="{DynamicResource CreamBrush}"
+					IsTriggered="True"
+					ToolTipService.ShowOnDisabled="True"
+					ButtonBase.Command="{Binding ApplyProfileCommand}"
+					ContentControl.Content="{Binding GameProfilesService.CurrentSlotInfo, Converter={converters1:ApplyToSlotConverter}}">
+					<FrameworkElement.Style>
+						<Style
+							BasedOn="{StaticResource {x:Type buttons:ColoredButton}}"
+							TargetType="{x:Type buttons:ColoredButton}">
+							<Style.Triggers>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding GameProfilesService.IsCurrentGamepadGameSlotAutodetect}">
+									<Setter
+										Property="FrameworkElement.ToolTip"
+										Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CONFIG_WILL_AUTO_APPLY}}" />
+								</DataTrigger>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding GamepadService.CurrentGamepad.IsApplyForbidden}">
+									<Setter
+										Property="FrameworkElement.ToolTip"
+										Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CONNECT_DEVICE_TO_REMAP}}" />
+								</DataTrigger>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEmpty}">
+									<Setter
+										Property="FrameworkElement.ToolTip"
+										Value="{localization:Translate {x:Static s:StringConsts.STR_TT_ADD_MAPPINGS}}" />
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</buttons:ColoredButton>
+			</Grid>
+			<buttons:SVGButton
+				Name="btnToggleAutoDetectForSlot"
+				FrameworkElement.Width="32"
+				FrameworkElement.Height="32"
+				FrameworkElement.Margin="10,0,0,0"
+				SVGMargin="8,0,0,0"
+				ToolTipService.ShowOnDisabled="True"
+				ButtonBase.Command="{Binding GameProfilesService.ToggleAutoDetectCommand}"
+				IsTriggered="{Binding GameProfilesService.IsCurrentGamepadGameSlotAutodetect}">
+				<FrameworkElement.Style>
+					<Style
+						BasedOn="{StaticResource ButtonAutodetect}"
+						TargetType="{x:Type buttons:SVGButton}">
+						<Style.Triggers>
+							<Trigger
+								Property="buttons:BaseColoredButton.IsTriggered"
+								Value="True">
+								<Setter
+									Property="FrameworkElement.ToolTip"
+									Value="{localization:Translate {x:Static s:StringConsts.STR_TT_SWITCH_IT_OFF}}" />
+							</Trigger>
+							<Trigger
+								Property="buttons:BaseColoredButton.IsTriggered"
+								Value="False">
+								<Setter
+									Property="FrameworkElement.ToolTip"
+									Value="{localization:Translate {x:Static s:StringConsts.STR_TT_SWITCH_IT_ON}}" />
+							</Trigger>
+							<MultiDataTrigger>
+								<MultiDataTrigger.Conditions>
+									<Condition
+										Value="False"
+										Binding="{Binding IsEnabled, ElementName=btnToggleAutoDetectForSlot}" />
+									<Condition
+										Value="False"
+										Binding="{Binding GameProfilesService.CurrentGame.IsAutodetect}" />
+								</MultiDataTrigger.Conditions>
+								<Setter
+									Property="FrameworkElement.ToolTip"
+									Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CONNECT_DEVICE_AND_SET}}" />
+							</MultiDataTrigger>
+							<MultiDataTrigger>
+								<MultiDataTrigger.Conditions>
+									<Condition
+										Value="False"
+										Binding="{Binding IsEnabled, ElementName=btnToggleAutoDetectForSlot}" />
+									<Condition
+										Value="True"
+										Binding="{Binding GameProfilesService.CurrentGame.IsAutodetect}" />
+								</MultiDataTrigger.Conditions>
+								<Setter
+									Property="FrameworkElement.ToolTip"
+									Value="{localization:Translate {x:Static s:StringConsts.STR_TT_ADD_MAPPINGS}}" />
+							</MultiDataTrigger>
+						</Style.Triggers>
+					</Style>
+				</FrameworkElement.Style>
+			</buttons:SVGButton>
+		</StackPanel>
+		<buttons:SVGButton
+			Name="btnVirtualGamepad"
+			Grid.Row="0"
+			Grid.Column="2"
+			ColorShiftBrush="{DynamicResource CreamBrush}"
+			IsTriggered="{Binding GamepadService.CurrentGamepad.RemapState, ConverterParameter='{x:Static enums:RemapState.RemapOn}', Converter={converters:ValuesAreEqual}}"
+			ToolTip="{Binding VirtualControllerStateHint}">
+			<UIElement.Visibility>
+				<MultiBinding
+					ConverterParameter="(({0} &amp;&amp; {1}) || (!{0} &amp;&amp; {2}))"
+					FallbackValue="Collapsed"
+					Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+					<Binding
+						Path="GamepadService.CurrentGamepad.RemapState"
+						ConverterParameter="{x:Static enums:RemapState.RemapOn}"
+						Converter="{converters:ValuesAreEqual}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.VirtualGamepadType"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsVirtualGamepad" />
+				</MultiBinding>
+			</UIElement.Visibility>
+			<FrameworkElement.Style>
+				<Style
+					BasedOn="{StaticResource DeviceFakeSVGButton}"
+					TargetType="{x:Type buttons:SVGButton}">
+					<Setter
+						Property="buttons:SVGButton.Drawing"
+						Value="{Binding GamepadService.CurrentGamepad.VirtualGamepadType, Converter={converters1:VirtualGamepadTypeToDrawingConverter}}" />
+					<Style.Triggers>
+						<DataTrigger
+							Value="False"
+							Binding="{Binding GamepadService.CurrentGamepad.RemapState, ConverterParameter='{x:Static enums:RemapState.RemapOn}', Converter={converters:ValuesAreEqual}}">
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, Converter={converters1:VirtualGamepadTypeToDrawingConverter}}" />
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</FrameworkElement.Style>
+		</buttons:SVGButton>
+		<buttons:SVGButton
+			Name="btnExternalDevice"
+			UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+			IsTriggered="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateActive}">
+			<UIElement.Visibility>
+				<MultiBinding
+					ConverterParameter="({0} &amp;&amp; {1} &amp;&amp; {2} &amp;&amp; {3} &amp;&amp; {4} &amp;&amp; {5} &amp;&amp; {6})"
+					Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+					<Binding
+						Path="GamepadService.CurrentGamepad"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsUnknownControllerType"
+						Converter="{converters:InverseBooleanConverter}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsInitializedController" />
+					<Binding
+						Path="GameProfilesService.CurrentGame"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsExternal" />
+				</MultiBinding>
+			</UIElement.Visibility>
+			<FrameworkElement.Style>
+				<Style
+					BasedOn="{StaticResource ExternalDeviceSVGButton}"
+					TargetType="{x:Type buttons:SVGButton}">
+					<Setter
+						Property="buttons:SVGButton.Drawing"
+						Value="{DynamicResource AdapterKeyQuestion}" />
+					<Setter
+						Property="ButtonBase.Command"
+						Value="{Binding ManageExternalDevicesCommand}" />
+					<Style.Triggers>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding GamepadService.ExternalDevices.Count, ConverterParameter='== 0', Converter={converters:ValueSatisfiesRuleParameter}}">
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_EXTERNAL_HINT_NO_EXTERNAL_DEVICE_ADDED}}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyQuestion}" />
+						</DataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyBT}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceBluetooth}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalDeviceState, ConverterParameter='{x:Static enums:ExternalDeviceState.Ok}', Converter={converters:ValuesAreEqual}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.Xbox360}', Converter={converters:ValuesAreNotEqual}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.SonyDualshock3}', Converter={converters:ValuesAreNotEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyESP32}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceESP32}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalDeviceState, ConverterParameter='{x:Static enums:ExternalDeviceState.Ok}', Converter={converters:ValuesAreEqual}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.Xbox360}', Converter={converters:ValuesAreNotEqual}}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.SonyDualshock3}', Converter={converters:ValuesAreNotEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyBTExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceBluetooth}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.Xbox360}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyESP32ExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceESP32}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.Xbox360}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyBTExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceBluetooth}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.SonyDualshock3}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyESP32ExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceESP32}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.SonyDualshock3}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyBTExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceBluetooth}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalDeviceState, ConverterParameter='{x:Static enums:ExternalDeviceState.Ok}', Converter={converters:ValuesAreNotEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyBTExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceBluetooth}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState, ConverterParameter='{x:Static enums:ExternalState.DeviceIsUsed}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyGIMX}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceGIMX}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalDeviceState, ConverterParameter='{x:Static enums:ExternalDeviceState.Ok}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyGIMXExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceGIMX}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState, ConverterParameter='{x:Static enums:ExternalState.DeviceIsUsed}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyGIMXExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceGIMX}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState, ConverterParameter='{x:Static enums:ExternalState.AuthorizationRequired}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyGIMXExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceGIMX}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState, ConverterParameter='{x:Static enums:ExternalState.DeviceIsNotWorkingProperly}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyGIMXExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceGIMX}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState, ConverterParameter='{x:Static enums:ExternalState.AuthorizationControllerIsOffline}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyESP32ExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceESP32}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalDeviceState, ConverterParameter='{x:Static enums:ExternalDeviceState.Ok}', Converter={converters:ValuesAreNotEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyESP32ExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceESP32}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState, ConverterParameter='{x:Static enums:ExternalState.DeviceIsUsed}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyESP32-S2}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceESP32S2}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalDeviceState, ConverterParameter='{x:Static enums:ExternalDeviceState.Ok}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyESP32-S2ExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceESP32S2}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState, ConverterParameter='{x:Static enums:ExternalState.DeviceIsUsed}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyESP32-S2ExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceESP32S2}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState, ConverterParameter='{x:Static enums:ExternalState.AuthorizationRequired}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyESP32-S2ExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceESP32S2}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState, ConverterParameter='{x:Static enums:ExternalState.DeviceIsNotWorkingProperly}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateTooltip}" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{DynamicResource AdapterKeyESP32-S2ExclamationMark}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding ManageExternalDevicesCommand}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceESP32S2}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState, ConverterParameter='{x:Static enums:ExternalState.AuthorizationControllerIsOffline}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</FrameworkElement.Style>
+		</buttons:SVGButton>
+		<buttons:SVGButton
+			Name="btnUploadAmiibo"
+			Grid.Row="0"
+			Grid.Column="3"
+			Drawing="{DynamicResource AmiiboCommand}"
+			SVGHeight="26"
+			SVGMargin="2"
+			SVGWidth="26"
+			ToolTipService.ShowOnDisabled="True"
+			ButtonBase.Command="{Binding ApplyAmiiboCommand}"
+			IsTriggered="{Binding GamepadService.CurrentGamepad.IsAmiiboApplied}">
+			<FrameworkElement.Style>
+				<Style
+					BasedOn="{StaticResource ExternalDeviceSVGButton}"
+					TargetType="{x:Type buttons:SVGButton}">
+					<Setter
+						Property="FrameworkElement.ToolTip"
+						Value="{localization:Translate {x:Static s:StringConsts.STR_TT_APPLY_AMIIBO}}" />
+					<Style.Triggers>
+						<Trigger
+							Property="UIElement.IsEnabled"
+							Value="False">
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_DTT_APPLY_AMIIBO}}" />
+						</Trigger>
+					</Style.Triggers>
+				</Style>
+			</FrameworkElement.Style>
+			<UIElement.IsEnabled>
+				<MultiBinding
+					Converter="{converters:MultiBooleanAndConverter}">
+					<Binding
+						Path="GamepadService.IsCurrentGamepadRemaped" />
+					<Binding
+						Path="GamepadService.ExternalDeviceRelationsHelper.CurrentExternalState"
+						ConverterParameter="{x:Static enums:ExternalState.ConnectedTo}"
+						Converter="{converters:ValuesAreEqual}" />
+					<Binding
+						Path="GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceBluetoothOrESP32" />
+				</MultiBinding>
+			</UIElement.IsEnabled>
+			<UIElement.Visibility>
+				<MultiBinding
+					Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+					<Binding
+						Path="GamepadService.CurrentGamepad"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsUnknownControllerType"
+						Converter="{converters:InverseBooleanConverter}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsInitializedController" />
+					<Binding
+						Path="GameProfilesService.CurrentGame"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsExternal" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType"
+						ConverterParameter="{x:Static enums:VirtualGamepadType.NintendoSwitchPro}"
+						Converter="{converters:ValuesAreEqual}" />
+					<Binding
+						Path="GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceBluetoothOrESP32" />
+				</MultiBinding>
+			</UIElement.Visibility>
+		</buttons:SVGButton>
+		<buttons:SVGButton
+			Name="btnExternalDeviceReconnect"
+			Grid.Row="0"
+			Grid.Column="3"
+			Drawing="{DynamicResource ReconnectToTargetBT}"
+			FrameworkElement.Style="{StaticResource ExternalDeviceSVGButton}"
+			ButtonBase.Command="{Binding ExternalDeviceBluetoothReconnectCommand}"
+			IsTriggered="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateActive}"
+			ToolTip="{localization:Translate {x:Static s:StringConsts.STR_COMMAND_RECONNECT_TO_EXTERNAL_TARGET}}">
+			<UIElement.Visibility>
+				<MultiBinding
+					ConverterParameter="({0} &amp;&amp; {1} &amp;&amp; {2} &amp;&amp; {3} &amp;&amp; {4} &amp;&amp; {5} &amp;&amp; {6} &amp;&amp; {7})"
+					Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+					<Binding
+						Path="GamepadService.CurrentGamepad"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsUnknownControllerType"
+						Converter="{converters:InverseBooleanConverter}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsInitializedController" />
+					<Binding
+						Path="GameProfilesService.CurrentGame"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsExternal" />
+					<Binding
+						Path="GamepadService.ExternalDeviceRelationsHelper.CurrentExternalStateReconnectVisible" />
+				</MultiBinding>
+			</UIElement.Visibility>
+		</buttons:SVGButton>
+		<TextBlock
+			FrameworkElement.Margin="10,0,0,0"
+			FrameworkElement.VerticalAlignment="Center"
+			TextBlock.Text="{Binding WillBeAppliedToSlotText}"
+			UIElement.Visibility="{Binding GameProfilesService.CurrentGame.IsAutodetect, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+		<TextBlock
+			Name="ExternalDeviceStatus"
+			FrameworkElement.Margin="7,0,0,0"
+			FrameworkElement.VerticalAlignment="Center">
+			<UIElement.Visibility>
+				<MultiBinding
+					ConverterParameter="({0} &amp;&amp; {1} &amp;&amp; {2} &amp;&amp; {3} &amp;&amp; {4} &amp;&amp; {5} &amp;&amp; {6})"
+					Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+					<Binding
+						Path="GamepadService.CurrentGamepad"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsUnknownControllerType"
+						Converter="{converters:InverseBooleanConverter}" />
+					<Binding
+						Path="GamepadService.CurrentGamepad.IsInitializedController" />
+					<Binding
+						Path="GameProfilesService.CurrentGame"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData"
+						Converter="{converters:ValueIsNotNull}" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsExternal" />
+				</MultiBinding>
+			</UIElement.Visibility>
+			<FrameworkElement.Style>
+				<Style
+					TargetType="{x:Type TextBlock}">
+					<Setter
+						Property="TextBlock.Text"
+						Value="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalText}" />
+					<Style.Triggers>
+						<MultiDataTrigger>
+							<Setter
+								Property="TextBlock.Text"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_EXTERNAL_CLIENT_STATUS_VIRTUAL_GAMEPAD_ERROR}}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalClient.IsSonyConsole}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.SonyDualshock4}', Converter={converters:ValuesAreNotEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="TextBlock.Text"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_EXTERNAL_CLIENT_STATUS_VIRTUAL_GAMEPAD_ERROR}}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentExternalClient.IsNintendoSwitchConsole}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.NintendoSwitchPro}', Converter={converters:ValuesAreNotEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="TextBlock.Text"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_EXTERNAL_DEVICE_STATUS_VIRTUAL_GAMEPAD_ERROR}}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="False"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceGIMXOrESP32S2}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.Xbox360}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<Setter
+								Property="TextBlock.Text"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_EXTERNAL_DEVICE_STATUS_VIRTUAL_GAMEPAD_ERROR}}" />
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="False"
+									Binding="{Binding GamepadService.ExternalDeviceRelationsHelper.IsCurrentExternalDeviceGIMXOrESP32S2}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, ConverterParameter='{x:Static enums:VirtualGamepadType.SonyDualshock3}', Converter={converters:ValuesAreEqual}}" />
+							</MultiDataTrigger.Conditions>
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</FrameworkElement.Style>
+		</TextBlock>
+		<buttons:SVGButton
+			Grid.Row="0"
+			Grid.Column="5">
+			<FrameworkElement.Style>
+				<Style
+					BasedOn="{StaticResource DeviceFakeSVGButton}"
+					TargetType="{x:Type buttons:SVGButton}">
+					<Style.Setters>
+						<Setter
+							Property="buttons:SVGButton.SVGHeight"
+							Value="20" />
+						<Setter
+							Property="buttons:SVGButton.SVGWidth"
+							Value="20" />
+						<Setter
+							Property="buttons:SVGButton.SVGMargin"
+							Value="5,0" />
+					</Style.Setters>
+					<Style.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpPresent}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpEnabledInPreferences}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpServerHasException}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpRunning}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="buttons:BaseColoredButton.PressedForeground"
+								Value="#FFFFFFFF" />
+							<Setter
+								Property="buttons:BaseColoredButton.HighlightedForeground"
+								Value="#FFFFFFFF" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{StaticResource AdapterKeyQuestion}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding OpenUdpPreferencesCommand}" />
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_UDP_SERVER_STARTING_PORT_ERROR}}" />
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsUdpPresent}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpEnabledInPreferences}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="buttons:BaseColoredButton.PressedForeground"
+								Value="#FFFFFFFF" />
+							<Setter
+								Property="buttons:BaseColoredButton.HighlightedForeground"
+								Value="#FFFFFFFF" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{StaticResource AdapterKeyQuestion}" />
+							<Setter
+								Property="ButtonBase.Command"
+								Value="{Binding OpenUdpPreferencesCommand}" />
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_UDP_SERVER_STARTING_PORT_ERROR_APPLY}}" />
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpEnabledInPreferences}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpServerHasException}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpRunning}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpPresent}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="buttons:BaseColoredButton.IsTriggered"
+								Value="True" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{StaticResource CemuUdp}" />
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{Binding UdpRunningText}" />
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="False"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsUdpPresent}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpPresent}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Collapsed" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsExternal}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Collapsed" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsUdpPresent}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpRunning}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpEnabledInPreferences}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpPresent}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="buttons:BaseColoredButton.IsTriggered"
+								Value="False" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{StaticResource CemuUdp}" />
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_UDP_IS_BUSY_TOOLTIP}}" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsUdpPresent}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpRunning}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpEnabledInPreferences}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpPresent}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="buttons:BaseColoredButton.IsTriggered"
+								Value="False" />
+							<Setter
+								Property="buttons:SVGButton.Drawing"
+								Value="{StaticResource CemuUdp}" />
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								Property="FrameworkElement.ToolTip"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_UDP_SERVER_RESERVED}}" />
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</FrameworkElement.Style>
+		</buttons:SVGButton>
+		<TextBlock
+			Grid.Row="0"
+			Grid.Column="6"
+			FrameworkElement.Margin="7,0,0,0"
+			FrameworkElement.VerticalAlignment="Center">
+			<FrameworkElement.Style>
+				<Style
+					TargetType="{x:Type TextBlock}">
+					<Style.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpPresent}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpEnabledInPreferences}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpServerHasException}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpRunning}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="TextBlock.Text"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_UDP_NOT_START}}" />
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsUdpPresent}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpPresent}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpEnabledInPreferences}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="TextBlock.Text"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_UDP_SERVER_OFF}}" />
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpPresent}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpEnabledInPreferences}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpServerHasException}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpRunning}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="TextBlock.Text"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_UDP_STARTED}}" />
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsUdpPresent}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpPresent}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpEnabledInPreferences}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="TextBlock.Text"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_UDP_OFF_IN_PREFERENCES}}" />
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsExternal}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Collapsed" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="False"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsUdpPresent}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpPresent}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Collapsed" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsUdpPresent}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpPresent}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpEnabledInPreferences}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpFull}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								Property="TextBlock.Text"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_UDP_IS_READY}}" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="True"
+									Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.IsUdpPresent}" />
+								<Condition
+									Value="False"
+									Binding="{Binding IsUdpPresent}" />
+								<Condition
+									Value="True"
+									Binding="{Binding IsUdpFull}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								Property="TextBlock.Text"
+								Value="{localization:Translate {x:Static s:StringConsts.STR_UDP_IS_BUSY}}" />
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</FrameworkElement.Style>
+		</TextBlock>
+	</StackPanel>
+</UserControl>

@@ -1,0 +1,661 @@
+<dsBaseWindow:PositionStateRememberingWindow
+	x:Class="reWASDUI.DebugHelper.DebugWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:dsBaseWindow="clr-namespace:DiscSoft.NET.Common.DSBaseWindow;assembly=DiscSoft.NET.Common" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:objecttreeview="clr-namespace:DiscSoft.NET.Common.View.Controls.ObjectTreeView;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:led1="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:debugVm="clr-namespace:reWASDUI.DebugHelper.DebugVM" xmlns:features="clr-namespace:reWASDUI.License.Features"
+	Title="DebugWindow"
+	FrameworkElement.MinWidth="1100"
+	FrameworkElement.MinHeight="815"
+	Control.Background="{DynamicResource WindowBackground}" xmlns:debughelper="clr-namespace:reWASDUI.DebugHelper">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<Style
+				x:Key="{x:Type TabItem}"
+				TargetType="{x:Type TabItem}">
+				<Setter
+					Property="Control.Background"
+					Value="{DynamicResource WindowBackground}" />
+				<Setter
+					Property="Control.Foreground"
+					Value="{DynamicResource CreamBrush}" />
+				<Setter
+					Property="Control.BorderThickness"
+					Value="0" />
+			</Style>
+			<Style
+				x:Key="{x:Type objecttreeview:ObjectInTreeView}"
+				TargetType="{x:Type objecttreeview:ObjectInTreeView}">
+				<Setter
+					Property="FrameworkElement.HorizontalAlignment"
+					Value="Stretch" />
+				<Setter
+					Property="FrameworkElement.VerticalAlignment"
+					Value="Stretch" />
+				<Setter
+					Property="Control.Background"
+					Value="{DynamicResource WindowBackground}" />
+				<Setter
+					Property="Control.Foreground"
+					Value="#FFFFFFFF" />
+				<Setter
+					Property="ScrollViewer.CanContentScroll"
+					Value="True" />
+				<Setter
+					Property="ScrollViewer.HorizontalScrollBarVisibility"
+					Value="Auto" />
+				<Setter
+					Property="ScrollViewer.VerticalScrollBarVisibility"
+					Value="Auto" />
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<ScrollViewer
+		FrameworkElement.FlowDirection="LeftToRight"
+		ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+		ScrollViewer.VerticalScrollBarVisibility="Visible">
+		<StackPanel>
+			<TabControl
+				FrameworkElement.Margin="5,5,15,0"
+				Control.Background="#00FFFFFF"
+				Control.Foreground="#FFFFFFFF">
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<Style
+							x:Key="{x:Type TabItem}"
+							TargetType="{x:Type TabItem}">
+							<Setter
+								Property="Control.Template">
+								<Setter.Value>
+									<ControlTemplate
+										TargetType="{x:Type TabItem}">
+										<Border
+											FrameworkElement.Name="Border">
+											<ContentPresenter
+												Name="ContentSite"
+												FrameworkElement.VerticalAlignment="Center"
+												FrameworkElement.HorizontalAlignment="Center"
+												ContentPresenter.ContentSource="Header"
+												FrameworkElement.Margin="10,2" />
+										</Border>
+										<ControlTemplate.Triggers>
+											<Trigger
+												Property="TabItem.IsSelected"
+												Value="True">
+												<Setter
+													TargetName="Border"
+													Value="{DynamicResource CreamBrush}"
+													Property="Border.Background" />
+											</Trigger>
+											<Trigger
+												Property="TabItem.IsSelected"
+												Value="False">
+												<Setter
+													TargetName="Border"
+													Value="{DynamicResource DisabledCreamBrush}"
+													Property="Border.Background" />
+											</Trigger>
+										</ControlTemplate.Triggers>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+				<TabItem
+					HeaderedContentControl.Header="Commands">
+					<StackPanel>
+						<buttons:ColoredButton
+							Name="btnClearAllDummyGamepads"
+							FrameworkElement.Margin="2"
+							FrameworkElement.HorizontalAlignment="Left"
+							IsTriggered="True"
+							TriggeredBackground="#8b0000"
+							TriggeredForeground="#FFFFFF"
+							Control.FontWeight="Bold"
+							FrameworkElement.VerticalAlignment="Top"
+							ContentControl.Content="Clear all dummy gamepads"
+							Click="BtnClearAllDummyGamepads_OnClick" />
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+							</Grid.RowDefinitions>
+							<TabControl
+								FrameworkElement.Name="TabControlCommands"
+								Grid.IsSharedSizeScope="True"
+								Control.Background="#00FFFFFF"
+								Control.Foreground="#FFFFFFFF"
+								x:Name="TabControlCommands" />
+							<ItemsControl
+								Grid.Row="1"
+								FrameworkElement.Margin="0,2"
+								Grid.IsSharedSizeScope="True"
+								ItemsControl.ItemsSource="{Binding LicensingService.StaticFeatures}">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate
+										DataType="features:Feature">
+										<Grid>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition
+													ColumnDefinition.Width="Auto"
+													SharedSizeGroup="dclWidth" />
+											</Grid.ColumnDefinitions>
+											<Grid.RowDefinitions>
+												<RowDefinition
+													RowDefinition.Height="Auto"
+													SharedSizeGroup="dclHeight" />
+											</Grid.RowDefinitions>
+											<Grid>
+												<CheckBox
+													ContentControl.Content="{Binding BigName}"
+													IsChecked="{Binding OverridedFeatureIsActivated}" />
+											</Grid>
+										</Grid>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<WrapPanel />
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
+							</ItemsControl>
+							<buttons:ColoredButton
+								Name="btnResetFeatures"
+								Grid.Row="2"
+								ContentControl.Content="Reset features"
+								Click="BtnResetFeatures_OnClick" />
+						</Grid>
+					</StackPanel>
+				</TabItem>
+				<TabItem
+					FrameworkElement.Name="DebugControllersMenu"
+					HeaderedContentControl.Header="DebugControllersMenu"
+					x:Name="DebugControllersMenu"
+					Selector.Selected="CreateDebugControllersMenu">
+					<StackPanel
+						FrameworkElement.Name="DebugControllersMenuTab"
+						Orientation="Vertical"
+						x:Name="DebugControllersMenuTab">
+						<StackPanel
+							FrameworkElement.Name="Controllers"
+							Orientation="Vertical"
+							x:Name="Controllers" />
+					</StackPanel>
+				</TabItem>
+				<TabItem
+					FrameworkElement.Name="FilteredControllersMenu"
+					HeaderedContentControl.Header="FilteredControllersMenu"
+					x:Name="FilteredControllersMenu"
+					Selector.Selected="CreateFilteredControllersMenu">
+					<StackPanel
+						FrameworkElement.Name="FilteredControllersMenuTab"
+						Orientation="Vertical"
+						x:Name="FilteredControllersMenuTab">
+						<StackPanel
+							FrameworkElement.Name="FilteredControllers"
+							Orientation="Vertical"
+							x:Name="FilteredControllers" />
+					</StackPanel>
+				</TabItem>
+				<TabItem
+					HeaderedContentControl.Header="GamepadProfileUserRelations">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								RowDefinition.Height="*" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+						</Grid.RowDefinitions>
+						<objecttreeview:ObjectInTreeView
+							ObjectToVisualize="{Binding GamepadService.GamepadProfileRelations}" />
+						<StackPanel
+							Grid.Row="1"
+							Orientation="Horizontal">
+							<buttons:ColoredButton
+								Name="btnLoadGamepadProfileRelations"
+								FrameworkElement.Margin="5"
+								ContentControl.Content="Load"
+								Click="loadGamepadProfileRelations" />
+							<buttons:ColoredButton
+								Name="btnLoadGamepadProfileRelationsWithNonExisting"
+								FrameworkElement.Margin="5"
+								ContentControl.Content="Load Non existing"
+								Click="loadGamepadProfileRelationsWithNonExisting" />
+						</StackPanel>
+					</Grid>
+				</TabItem>
+				<TabItem
+					HeaderedContentControl.Header="AutoGamesDetectionGamepadProfileRelations">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								RowDefinition.Height="*" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+						</Grid.RowDefinitions>
+						<objecttreeview:ObjectInTreeView
+							ObjectToVisualize="{Binding GamepadService.AutoGamesDetectionGamepadProfileRelations}" />
+						<StackPanel
+							Grid.Row="1"
+							Orientation="Horizontal">
+							<buttons:ColoredButton
+								Name="btnSaveAutoGamesDetectionGamepadProfileRelations"
+								FrameworkElement.Margin="5"
+								ContentControl.Content="Save"
+								Click="saveAutoGamesDetectionGamepadProfileRelations" />
+							<buttons:ColoredButton
+								Name="btnLoadAutoGamesDetectionGamepadProfileRelations"
+								FrameworkElement.Margin="5"
+								ContentControl.Content="Load"
+								Click="loadAutoGamesDetectionGamepadProfileRelations" />
+							<buttons:ColoredButton
+								Name="btnLoadAutoGamesDetectionGamepadProfileRelationsWithNonExisting"
+								FrameworkElement.Margin="5"
+								ContentControl.Content="Load Non existing"
+								Click="loadAutoGamesDetectionGamepadProfileRelationsWithNonExisting" />
+						</StackPanel>
+					</Grid>
+				</TabItem>
+				<TabItem
+					HeaderedContentControl.Header="3rdPartyDevicesColor">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+						</Grid.RowDefinitions>
+						<toolkit:ColorPicker xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit.NET5"
+							toolkit:ColorPicker.Name="colorPicker"
+							FrameworkElement.VerticalAlignment="Top"
+							toolkit:ColorPicker.SelectedColor="{Binding SelectedColor}"
+							x:Name="colorPicker" />
+						<StackPanel
+							Grid.Row="1">
+							<comboBoxes:ColoredComboBox
+								Name="cmbLEDColorMode"
+								FrameworkElement.Margin="0,0,0,0"
+								FrameworkElement.VerticalAlignment="Center"
+								attachedBehaviours:EnumHelper.Enum="{x:Type enums:LEDColorMode}"
+								SelectedItem="{Binding LEDColorMode}" />
+						</StackPanel>
+						<StackPanel
+							Grid.Row="2">
+							<comboBoxes:ColoredComboBox
+								Name="cmbPlayerLEDSlot"
+								FrameworkElement.Margin="0,0,0,0"
+								FrameworkElement.VerticalAlignment="Center"
+								attachedBehaviours:EnumHelper.Enum="{x:Type enums:Slot}"
+								SelectedItem="{Binding PlayerSlot}" />
+						</StackPanel>
+						<StackPanel
+							Grid.Row="3">
+							<comboBoxes:ColoredComboBox
+								Name="cmbLedSupportedDevice"
+								FrameworkElement.Margin="0,0,0,0"
+								FrameworkElement.VerticalAlignment="Center"
+								attachedBehaviours:EnumHelper.Enum="{x:Type enums:LEDSupportedDevice}"
+								SelectedItem="{Binding SelectedLEDSupportedDevice}" />
+						</StackPanel>
+						<StackPanel
+							Grid.Row="4"
+							Orientation="Horizontal">
+							<buttons:ColoredButton
+								Name="btnSendColorToOther"
+								FrameworkElement.Margin="5"
+								ContentControl.Content="Other Manufacturers"
+								ButtonBase.Command="{Binding SendOtherManufacturersCommand}" />
+							<buttons:ColoredButton
+								Name="btnStopOther"
+								FrameworkElement.Margin="5"
+								ContentControl.Content="Stop"
+								ButtonBase.Command="{Binding StopMaintainingColorCommand}" />
+							<buttons:ColoredButton
+								Name="btnSendColorToDualshock"
+								FrameworkElement.Margin="5"
+								ContentControl.Content="Send Gamepad"
+								ButtonBase.Command="{Binding SendGamepadColorCommand}" />
+							<buttons:ColoredButton
+								Name="btnSendPlayerLED"
+								FrameworkElement.Margin="5"
+								ContentControl.Content="Send Player LED"
+								ButtonBase.Command="{Binding SendPlayerLedCommand}" />
+						</StackPanel>
+						<StackPanel
+							Grid.Row="5"
+							Grid.IsSharedSizeScope="True">
+							<Grid
+								FrameworkElement.Margin="0,5,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDShimmerToSaturateMS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDShimmerToSaturateMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDShimmerBeatFullColorTimeMS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDShimmerBeatFullColorTimeMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDShimmerDelayMS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDShimmerDelayMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDBreathToSaturateMS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDBreathToSaturateMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDBreathBeatFullColorTimeMS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDBreathBeatFullColorTimeMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDBreathDelayMS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDBreathDelayMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDHeartBeatColorToSaturateMS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDHeartBeatColorToSaturateMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDHeartBeatFullColorTimeMS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDHeartBeatFullColorTimeMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDHeartBeatDelay1MS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDHeartBeatDelay1MS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDHeartBeatDelay2MS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDHeartBeatDelay2MS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDStroboscopeDelayBetweenFlashesMS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDStroboscopeDelayBetweenFlashesMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDRainbowTransitionTimeSec" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDRainbowTransitionTimeSec)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="LEDRainbowColorUpdateDelayMS" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.LEDRainbowColorUpdateDelayMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<CheckBox
+									FrameworkElement.Margin="0,0,10,0"
+									ContentControl.Content="UseFixedGradientUpdateTimimg"
+									IsChecked="{Binding Path=(infrastructure:Constants.UseFixedGradientUpdateTimimg)}" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Path=(infrastructure:Constants.FixedGradientUpdateTimimgMS)}" />
+							</Grid>
+							<Grid
+								FrameworkElement.Margin="0,10,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										SharedSizeGroup="lbl" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto"
+										ColumnDefinition.MinWidth="100"
+										SharedSizeGroup="val" />
+								</Grid.ColumnDefinitions>
+								<TextBlock
+									FrameworkElement.Margin="0,0,10,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="Effect Duration" />
+								<controls:WaterMarkTextBox
+									Grid.Column="1"
+									TextBox.Text="{Binding Duration}" />
+							</Grid>
+						</StackPanel>
+					</Grid>
+				</TabItem>
+			</TabControl>
+			<Border
+				Border.BorderThickness="1"
+				Border.BorderBrush="{DynamicResource DisabledForeground}"
+				FrameworkElement.Width="auto"
+				FrameworkElement.Margin="5,5,0,0"
+				FrameworkElement.HorizontalAlignment="Left">
+				<StackPanel
+					FrameworkElement.Name="batteryStackpanel"
+					FrameworkElement.Margin="10,3,10,0"
+					FrameworkElement.VerticalAlignment="Center"
+					Orientation="Horizontal"
+					x:Name="batteryStackpanel">
+					<TextBlock
+						FrameworkElement.Margin="0,0,10,0"
+						FrameworkElement.VerticalAlignment="Center"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="Send debug battery notification:" />
+				</StackPanel>
+			</Border>
+		</StackPanel>
+	</ScrollViewer>
+</dsBaseWindow:PositionStateRememberingWindow>

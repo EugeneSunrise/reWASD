@@ -1,0 +1,30 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:characterRestrictingTextBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CharacterRestrictingTextBoxes;assembly=DiscSoft.NET.Common">
+	<Style
+		x:Key="{x:Type controls:WaterMarkTextBox}"
+		BasedOn="{StaticResource {x:Type controls:WaterMarkTextBox}}"
+		TargetType="{x:Type controls:WaterMarkTextBox}">
+		<Setter
+			Property="TextBoxBase.SelectionBrush"
+			Value="{DynamicResource CreamBrush}" />
+	</Style>
+	<Style
+		x:Key="{x:Type characterRestrictingTextBoxes:DigitBox}"
+		BasedOn="{StaticResource {x:Type controls:WaterMarkTextBox}}"
+		TargetType="{x:Type characterRestrictingTextBoxes:DigitBox}" />
+	<Style
+		x:Key="{x:Type characterRestrictingTextBoxes:LimitedTextBox}"
+		BasedOn="{StaticResource {x:Type controls:WaterMarkTextBox}}"
+		TargetType="{x:Type characterRestrictingTextBoxes:LimitedTextBox}" />
+	<Style
+		x:Key="{x:Type characterRestrictingTextBoxes:BlackListCharactersTextBox}"
+		BasedOn="{StaticResource {x:Type controls:WaterMarkTextBox}}"
+		TargetType="{x:Type characterRestrictingTextBoxes:BlackListCharactersTextBox}" />
+	<Style
+		x:Key="{x:Type characterRestrictingTextBoxes:PathTextBox}"
+		BasedOn="{StaticResource {x:Type controls:WaterMarkTextBox}}"
+		TargetType="{x:Type characterRestrictingTextBoxes:PathTextBox}" />
+	<Style
+		x:Key="{x:Type characterRestrictingTextBoxes:IpTextBox}"
+		BasedOn="{StaticResource {x:Type controls:WaterMarkTextBox}}"
+		TargetType="{x:Type characterRestrictingTextBoxes:IpTextBox}" />
+</ResourceDictionary>

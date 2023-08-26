@@ -1,0 +1,132 @@
+<UserControl
+	x:Class="reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard.AddOtherBTClient" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:addExternalDeviceWizard="clr-namespace:reWASDUI.ViewModels.SecondaryWindows.AddExternalDeviceWizard"
+	FrameworkElement.Height="466" xmlns:addexternaldevicewizard="clr-namespace:reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="108" />
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="70" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			Name="AddTargetManuallyTB"
+			FrameworkElement.Style="{DynamicResource SecondaryWindowHeaderStyle}"
+			TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_ADD_TARGET_MANUALLY}}" />
+		<Grid
+			Row="1"
+			FrameworkElement.Style="{DynamicResource WizardContentGridStyle}">
+			<StackPanel
+				Name="AvaiableDevicesSP"
+				Grid.Row="1"
+				FrameworkElement.VerticalAlignment="Top"
+				Orientation="Vertical">
+				<StackPanel
+					Orientation="Horizontal">
+					<TextBlock
+						Name="AvaiableDevicesTB"
+						FrameworkElement.VerticalAlignment="Center"
+						TextAlignment="Left"
+						TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_AVAILABLE_DEVICES}}" />
+					<controls:RotatingContentControl
+						FrameworkElement.Margin="5,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Center"
+						RotationCycleMS="1500">
+						<controls:CircularProgressBar
+							Diameter="10"
+							DiameterWithMargin="12"
+							FrameworkElement.Style="{DynamicResource IndeterminateCircularProgressBar}" />
+					</controls:RotatingContentControl>
+				</StackPanel>
+				<ListBox
+					Name="ListExternalDevices"
+					FrameworkElement.Height="80"
+					FrameworkElement.Margin="0,4,0,0"
+					FrameworkElement.VerticalAlignment="Stretch"
+					Control.Background="#00FFFFFF"
+					Control.BorderBrush="{DynamicResource CreamBrush}"
+					Control.BorderThickness="1"
+					SelectionMode="Single"
+					ItemsControl.ItemsSource="{Binding ExternalClientsCollection}"
+					SelectedItem="{Binding ExternalClient}">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								x:Key="{x:Type ListBoxItem}"
+								BasedOn="{StaticResource ListBoxItemWithEvents}"
+								TargetType="{x:Type ListBoxItem}" />
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<Grid
+								FrameworkElement.Margin="3">
+								<TextBlock
+									FrameworkElement.Style="{DynamicResource DTBaseTextBlockStyle}"
+									AutomationProperties.AutomationId="{Binding ExternalClientFriendlyString}"
+									TextBlock.Text="{Binding Alias}" />
+								<TextBlock
+									FrameworkElement.HorizontalAlignment="Right"
+									FrameworkElement.Style="{DynamicResource DTBaseTextBlockStyle}"
+									TextBlock.Text="{Binding MacAddressText}" />
+							</Grid>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ListBox>
+				<TextBlock
+					Name="MacAddrTextBlock"
+					FrameworkElement.Margin="0,10,0,0"
+					TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_MAC_ADDRESS}}" />
+				<controls:WaterMarkTextBox
+					Name="MacAddrTextBox"
+					FrameworkElement.HorizontalAlignment="Stretch"
+					TextBox.Text="{Binding MacAddressText, UpdateSourceTrigger=PropertyChanged}" />
+				<TextBlock
+					Name="AliasTextBlock"
+					FrameworkElement.Margin="0,10,0,0"
+					TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_ALIAS}}" />
+				<controls:WaterMarkTextBox
+					Name="AliasTextBox"
+					FrameworkElement.HorizontalAlignment="Stretch"
+					MaxLength="20"
+					TextBox.Text="{Binding Alias}" />
+				<TextBlock
+					Name="OtherBluetoothDescriptionTB"
+					FrameworkElement.Margin="0,10,0,0"
+					TextBlock.TextWrapping="Wrap"
+					TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_OTHER_BLUETOOTH_DESCRIPTION}}" />
+			</StackPanel>
+		</Grid>
+		<Border
+			Grid.Row="2"
+			FrameworkElement.Style="{DynamicResource WizardFooterBorderStyle}">
+			<Grid>
+				<buttons:ColoredButton
+					Name="BackButton"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+					ButtonBase.Command="{Binding BackCommand}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.IDS_WIZARD_BACK}}" />
+				<StackPanel
+					FrameworkElement.HorizontalAlignment="Right"
+					Orientation="Horizontal">
+					<buttons:ColoredButton
+						Name="OkButton"
+						FrameworkElement.Margin="0,5"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding OkCommand}"
+						ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_5004_OK}}"
+						UIElement.IsEnabled="{Binding IsSaveEnabled}" />
+					<buttons:ColoredButton
+						Name="CancelButton"
+						FrameworkElement.Margin="10,5,40,5"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding CancelCommand}"
+						ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_5005_CANCEL}}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

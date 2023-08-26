@@ -1,0 +1,1371 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDEngine.Utils.Converters" xmlns:converters2="clr-namespace:XBEliteWPF.Utils.Converters" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:keyBindings="clr-namespace:XBEliteWPF.Infrastructure.KeyBindingsModel;assembly=reWASDCommon" xmlns:keyScanCodes="clr-namespace:XBEliteWPF.Infrastructure.reWASDMapping.KeyScanCodes;assembly=reWASDCommon" xmlns:local="clr-namespace:reWASDEngine.Services.OverlayAPI" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:recolorableimages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="SVG/GamepadXBOne.xaml" />
+		<ResourceDictionary
+			Source="SVG/GamepadXB360.xaml" />
+		<ResourceDictionary
+			Source="SVG/GamepadDS4.xaml" />
+		<ResourceDictionary
+			Source="SVG/GamepadDS3.xaml" />
+		<ResourceDictionary
+			Source="SVG/GamepadNSPro.xaml" />
+		<ResourceDictionary
+			Source="SVG/battery_overlay_critical.xaml" />
+		<ResourceDictionary
+			Source="SVG/battery_overlay_low.xaml" />
+		<ResourceDictionary
+			Source="SVG/Shift0White.xaml" />
+		<ResourceDictionary
+			Source="SVG/Shift1White.xaml" />
+		<ResourceDictionary
+			Source="SVG/Shift2White.xaml" />
+		<ResourceDictionary
+			Source="SVG/Shift3White.xaml" />
+		<ResourceDictionary
+			Source="SVG/Shift4White.xaml" />
+		<ResourceDictionary
+			Source="SVG/SlotEmpty.xaml" />
+		<ResourceDictionary
+			Source="SVG/SlotIncluded.xaml" />
+		<ResourceDictionary
+			Source="SVG/DpadOverlay.xaml" />
+		<ResourceDictionary
+			Source="SVG/DeviceOff.xaml" />
+		<ResourceDictionary
+			Source="RemapWindow/XBBindingDataTemplate.xaml" />
+		<ResourceDictionary
+			Source="SVG/MiniGamepadDisconnect.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<ResourceDictionary
+		x:Key="RemapWindowResourcesForDisplay">
+		<SolidColorBrush
+			x:Key="PageBackground"
+			Color="#FF000000" />
+		<SolidColorBrush
+			x:Key="AnnotationRecolorBrush"
+			Color="#FFF8DF" />
+		<SolidColorBrush
+			x:Key="OverlayForeground"
+			Color="White" />
+		<SolidColorBrush
+			x:Key="ShiftTextBrush"
+			Color="White" />
+		<SolidColorBrush
+			x:Key="TableRowGrayBrush"
+			Color="#556c6c6c" />
+		<SolidColorBrush
+			x:Key="SingleActivatorBrush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="ForegroundBrush"
+			Color="White" />
+		<Style
+			x:Key="FirstHeaderStyle"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="UIElement.Visibility"
+				Value="Visible" />
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource CreamBrush}" />
+			<Setter
+				Property="FrameworkElement.Height"
+				Value="32" />
+		</Style>
+		<Style
+			x:Key="MainShiftHeaderStyle"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="UIElement.Visibility"
+				Value="Visible" />
+			<Setter
+				Property="Border.Background"
+				Value="#556c6c6c" />
+			<Setter
+				Property="Border.BorderThickness"
+				Value="1,0,0,0" />
+			<Setter
+				Property="Border.BorderBrush"
+				Value="#3c3c3c" />
+			<Setter
+				Property="FrameworkElement.Height"
+				Value="32" />
+			<Setter
+				Property="FrameworkElement.Margin"
+				Value="0" />
+			<Setter
+				Property="Border.Padding"
+				Value="0" />
+		</Style>
+		<Style
+			x:Key="Shift1HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift2HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift3HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift4HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift5HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift6HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift7HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift8HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift9HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift10HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift11HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift12HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayFirstCellBorderBrush"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayMainCellBorderStyle"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.BorderBrush"
+				Value="#3c3c3c" />
+			<Setter
+				Property="Border.BorderThickness"
+				Value="1,0,0,0" />
+		</Style>
+		<Style
+			x:Key="OverlayShift1CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift2CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift3CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift4CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift5CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift6CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift7CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift8CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift9CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift10CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift11CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift12CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="ShiftModificatorStyle"
+			TargetType="{x:Type StackPanel}">
+			<Setter
+				Property="FrameworkElement.HorizontalAlignment"
+				Value="Center" />
+		</Style>
+		<Style
+			x:Key="ShiftModificatorAssociatedViewStyle"
+			TargetType="{x:Type local:AssociatedControllerButtonView}">
+			<Setter
+				Property="Control.Foreground"
+				Value="#FFFFFFFF" />
+		</Style>
+		<Style
+			x:Key="HeaderFirstShiftStyle"
+			TargetType="{x:Type recolorableimages:RecolorableSVG}">
+			<Setter
+				Property="FrameworkElement.HorizontalAlignment"
+				Value="Center" />
+		</Style>
+	</ResourceDictionary>
+	<ResourceDictionary
+		x:Key="RemapWindowResourcesForPrint">
+		<SolidColorBrush
+			x:Key="AnnotationRecolorBrush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="PageBackground"
+			Color="Transparent" />
+		<SolidColorBrush
+			x:Key="Shift1Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift2Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift3Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift4Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift5Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift6Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift7Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift8Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift9Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift10Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift11Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift12Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift13Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift14Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift15Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="CreamBrush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="OverlayForeground"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="ShiftTextBrush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="TableRowGrayBrush"
+			Color="Transparent" />
+		<SolidColorBrush
+			x:Key="SingleActivatorBrush"
+			Color="White" />
+		<SolidColorBrush
+			x:Key="ForegroundBrush"
+			Color="Black" />
+		<Style
+			x:Key="FirstHeaderStyle"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="FrameworkElement.Height"
+				Value="32" />
+			<Setter
+				Property="Border.BorderThickness"
+				Value="1,1,1,1" />
+			<Setter
+				Property="Border.BorderBrush"
+				Value="#FF000000" />
+		</Style>
+		<Style
+			x:Key="MainShiftHeaderStyle"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="UIElement.Visibility"
+				Value="Visible" />
+			<Setter
+				Property="Border.BorderThickness"
+				Value="0,1,1,1" />
+			<Setter
+				Property="Border.BorderBrush"
+				Value="#FF000000" />
+			<Setter
+				Property="FrameworkElement.Height"
+				Value="32" />
+		</Style>
+		<Style
+			x:Key="Shift1HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift2HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift3HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift4HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift5HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift6HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift7HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift8HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift9HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift10HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift11HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="Shift12HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayFirstCellBorderBrush"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.BorderBrush"
+				Value="#FF000000" />
+			<Setter
+				Property="Border.BorderThickness"
+				Value="1,0,1,1" />
+		</Style>
+		<Style
+			x:Key="OverlayMainCellBorderStyle"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.BorderBrush"
+				Value="#FF000000" />
+			<Setter
+				Property="Border.BorderThickness"
+				Value="0,0,1,1" />
+		</Style>
+		<Style
+			x:Key="OverlayShift1CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift2CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift3CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift4CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift5CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift6CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift7CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift8CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift9CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift10CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift11CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="OverlayShift12CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}" />
+		<Style
+			x:Key="ShiftModificatorStyle"
+			TargetType="{x:Type StackPanel}">
+			<Setter
+				Property="FrameworkElement.HorizontalAlignment"
+				Value="Left" />
+		</Style>
+		<Style
+			x:Key="ShiftModificatorAssociatedViewStyle"
+			TargetType="{x:Type local:AssociatedControllerButtonView}">
+			<Setter
+				Property="Control.Foreground"
+				Value="#FF000000" />
+		</Style>
+		<Style
+			x:Key="HeaderFirstShiftStyle"
+			TargetType="{x:Type recolorableimages:RecolorableSVG}">
+			<Setter
+				Property="FrameworkElement.HorizontalAlignment"
+				Value="Left" />
+			<Setter
+				Property="FrameworkElement.Margin"
+				Value="10,0,0,0" />
+		</Style>
+	</ResourceDictionary>
+	<ResourceDictionary
+		x:Key="RemapWindowResourcesForColorPrint">
+		<SolidColorBrush
+			x:Key="AnnotationRecolorBrush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="PageBackground"
+			Color="Transparent" />
+		<SolidColorBrush
+			x:Key="Shift1Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift2Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift3Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift4Brush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="CreamBrush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="OverlayForeground"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="ShiftTextBrush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="TableRowGrayBrush"
+			Color="Transparent" />
+		<SolidColorBrush
+			x:Key="SingleActivatorBrush"
+			Color="White" />
+		<SolidColorBrush
+			x:Key="ForegroundBrush"
+			Color="Black" />
+		<SolidColorBrush
+			x:Key="Shift0BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource CreamColor}" />
+		<SolidColorBrush
+			x:Key="Shift1BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift1Color}" />
+		<SolidColorBrush
+			x:Key="Shift2BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift2Color}" />
+		<SolidColorBrush
+			x:Key="Shift3BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift3Color}" />
+		<SolidColorBrush
+			x:Key="Shift4BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift4Color}" />
+		<SolidColorBrush
+			x:Key="Shift5BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift5Color}" />
+		<SolidColorBrush
+			x:Key="Shift6BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift6Color}" />
+		<SolidColorBrush
+			x:Key="Shift7BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift7Color}" />
+		<SolidColorBrush
+			x:Key="Shift8BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift8Color}" />
+		<SolidColorBrush
+			x:Key="Shift9BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift9Color}" />
+		<SolidColorBrush
+			x:Key="Shift10BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift10Color}" />
+		<SolidColorBrush
+			x:Key="Shift11BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift11Color}" />
+		<SolidColorBrush
+			x:Key="Shift12BrushBackground"
+			Opacity="0.1"
+			Color="{DynamicResource Shift12Color}" />
+		<Style
+			x:Key="FirstHeaderStyle"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="FrameworkElement.Height"
+				Value="32" />
+			<Setter
+				Property="Border.BorderThickness"
+				Value="1,1,1,1" />
+			<Setter
+				Property="Border.BorderBrush"
+				Value="#FF000000" />
+		</Style>
+		<Style
+			x:Key="MainShiftHeaderStyle"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="UIElement.Visibility"
+				Value="Visible" />
+			<Setter
+				Property="Border.BorderThickness"
+				Value="0,1,1,1" />
+			<Setter
+				Property="Border.BorderBrush"
+				Value="#FF000000" />
+			<Setter
+				Property="FrameworkElement.Height"
+				Value="32" />
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift0BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift1HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift1BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift2HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift2BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift3HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift3BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift4HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift4BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift5HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift5BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift6HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift6BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift7HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift7BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift8HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift8BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift9HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift9BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift10HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift10BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift11HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift11BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="Shift12HeaderStyle"
+			BasedOn="{StaticResource MainShiftHeaderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift12BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayFirstCellBorderBrush"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.BorderBrush"
+				Value="#FF000000" />
+			<Setter
+				Property="Border.BorderThickness"
+				Value="1,0,1,1" />
+		</Style>
+		<Style
+			x:Key="OverlayMainCellBorderStyle"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.BorderBrush"
+				Value="#FF000000" />
+			<Setter
+				Property="Border.BorderThickness"
+				Value="0,0,1,1" />
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift0BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift1CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift1BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift2CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift2BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift3CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift3BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift4CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift4BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift5CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift5BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift6CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift6BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift7CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift7BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift8CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift8BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift9CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift9BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift10CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift10BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift11CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift11BrushBackground}" />
+		</Style>
+		<Style
+			x:Key="OverlayShift12CellBorderStyle"
+			BasedOn="{StaticResource OverlayMainCellBorderStyle}"
+			TargetType="{x:Type Border}">
+			<Setter
+				Property="Border.Background"
+				Value="{DynamicResource Shift12BrushBackground}" />
+		</Style>
+	</ResourceDictionary>
+	<DataTemplate
+		x:Key="HotkeysMessageInfo">
+		<WrapPanel
+			Orientation="Horizontal"
+			FrameworkElement.Margin="{Binding Margin}">
+			<ItemsControl
+				ItemsControl.ItemsSource="{Binding ButtonsGroups}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel
+							Orientation="Vertical" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<WrapPanel
+							Orientation="Horizontal">
+							<TextBlock
+								Name="txtOr"
+								FrameworkElement.Margin="1,2,5,0"
+								TextBlock.FontWeight="SemiBold"
+								TextBlock.Foreground="#99000000"
+								TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_OVERLAY_HOTKEYS_OR}}" />
+							<ItemsControl
+								ItemsControl.ItemsSource="{Binding Buttons}">
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<WrapPanel
+											Orientation="Horizontal" />
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<StackPanel
+											Orientation="Horizontal">
+											<TextBlock
+												Name="txtPlus"
+												FrameworkElement.Margin="5,2,5,0"
+												TextBlock.FontWeight="SemiBold"
+												TextBlock.Foreground="#99000000"
+												TextBlock.Text="+"
+												UIElement.Visibility="{Binding Button.PlusVisibility, Converter={converters:BooleanToVisibilityConverter}}" />
+											<recolorableimages:RecolorableSVG
+												FrameworkElement.Margin="0,2,0,0"
+												ColorShiftBrush="#99000000"
+												IsColorShift="True"
+												UIElement.Visibility="{Binding Button.Button.IsGamepad, Converter={converters:BooleanToVisibilityConverter}}">
+												<recolorableimages:RecolorableSVG.Drawing>
+													<MultiBinding
+														ConverterParameter="Extended"
+														Converter="{converters2:GamepadButtonAnnotationIconConverter}">
+														<Binding
+															Path="Button.Button.GamepadButton" />
+														<Binding
+															Path="CurrentGamepadType" />
+													</MultiBinding>
+												</recolorableimages:RecolorableSVG.Drawing>
+											</recolorableimages:RecolorableSVG>
+											<ContentControl
+												ContentControl.ContentTemplate="{DynamicResource KeyScanCodeDataTemplateRoot}"
+												Control.Foreground="#99000000"
+												ContentControl.Content="{Binding Button.Button.KeyScanCode}"
+												UIElement.Visibility="{Binding Button.Button.IsKeyScanCode, Converter={converters:BooleanToVisibilityConverter}}" />
+										</StackPanel>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</WrapPanel>
+						<DataTemplate.Triggers>
+							<DataTrigger
+								Value="0"
+								Binding="{Binding Index}">
+								<Setter
+									TargetName="txtOr"
+									Property="UIElement.Visibility"
+									Value="Collapsed" />
+							</DataTrigger>
+						</DataTemplate.Triggers>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</WrapPanel>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="HotkeysMappings">
+		<WrapPanel
+			Orientation="Horizontal"
+			FrameworkElement.Margin="{Binding Margin}">
+			<ItemsControl
+				ItemsControl.ItemsSource="{Binding ButtonsGroups}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel
+							Orientation="Vertical" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<WrapPanel
+							Orientation="Horizontal">
+							<TextBlock
+								Name="txtOr"
+								FrameworkElement.Margin="1,2,5,0"
+								TextBlock.FontWeight="SemiBold"
+								TextBlock.Foreground="{DynamicResource CreamBrush}"
+								TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_OVERLAY_HOTKEYS_OR}}" />
+							<ItemsControl
+								ItemsControl.ItemsSource="{Binding Buttons}">
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<WrapPanel
+											Orientation="Horizontal" />
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
+								<ItemsControl.ItemTemplate>
+									<DataTemplate
+										x:Key="{DataTemplateKey {x:Type local:ButtonsInMessage}}"
+										DataType="{x:Type local:ButtonsInMessage}">
+										<StackPanel
+											Orientation="Horizontal">
+											<TextBlock
+												Name="txtPlus"
+												FrameworkElement.Margin="5,2,5,0"
+												TextBlock.FontWeight="SemiBold"
+												TextBlock.Foreground="{DynamicResource CreamBrush}"
+												TextBlock.Text="+"
+												UIElement.Visibility="{Binding Button.PlusVisibility, Converter={converters:BooleanToVisibilityConverter}}" />
+											<recolorableimages:RecolorableSVG
+												FrameworkElement.Margin="0,2,0,0"
+												ColorShiftBrush="{DynamicResource CreamBrush}"
+												IsColorShift="True"
+												UIElement.Visibility="{Binding Button.Button.IsGamepad, Converter={converters:BooleanToVisibilityConverter}}">
+												<recolorableimages:RecolorableSVG.Drawing>
+													<MultiBinding
+														ConverterParameter="Extended"
+														Converter="{converters2:GamepadButtonAnnotationIconConverter}">
+														<Binding
+															Path="Button.Button.GamepadButton" />
+														<Binding
+															Path="CurrentGamepadType" />
+													</MultiBinding>
+												</recolorableimages:RecolorableSVG.Drawing>
+											</recolorableimages:RecolorableSVG>
+											<ContentControl
+												ContentControl.ContentTemplate="{DynamicResource KeyScanCodeDataTemplateRoot}"
+												Control.Foreground="{DynamicResource CreamBrush}"
+												ContentControl.Content="{Binding Button.Button.KeyScanCode}"
+												UIElement.Visibility="{Binding Button.Button.IsKeyScanCode, Converter={converters:BooleanToVisibilityConverter}}" />
+										</StackPanel>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</WrapPanel>
+						<DataTemplate.Triggers>
+							<DataTrigger
+								Value="0"
+								Binding="{Binding Index}">
+								<Setter
+									TargetName="txtOr"
+									Property="UIElement.Visibility"
+									Value="Collapsed" />
+							</DataTrigger>
+						</DataTemplate.Triggers>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</WrapPanel>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="{DataTemplateKey {x:Type local:LeftButtonsInfo}}"
+		DataType="{x:Type local:LeftButtonsInfo}">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="0.25*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="0.6*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="0.25*" />
+			</Grid.ColumnDefinitions>
+			<recolorableimages:RecolorableSVG
+				FrameworkElement.Margin="2,2,0,2"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center"
+				IsColorShift="True"
+				Stretch="None"
+				AutomationProperties.AutomationId="{Binding AutoName, ConverterParameter=_icon, Converter={converters1:StringsConcatConverter}}"
+				ColorShiftBrush="{Binding PressedBrush}"
+				Drawing="{Binding Image}" />
+			<TextBlock
+				Grid.Column="1"
+				FrameworkElement.Margin="0,0,5,0"
+				FrameworkElement.VerticalAlignment="Center"
+				TextBlock.FontSize="14"
+				TextAlignment="Left"
+				AutomationProperties.AutomationId="{Binding AutoName, ConverterParameter=_text, Converter={converters1:StringsConcatConverter}}"
+				TextBlock.Foreground="{Binding PressedBrush}"
+				TextBlock.Text="{Binding Name}" />
+			<TextBlock
+				Grid.Column="2"
+				FrameworkElement.Margin="5,0,0,0"
+				FrameworkElement.VerticalAlignment="Center"
+				TextBlock.FontSize="14"
+				TextAlignment="Left"
+				AutomationProperties.AutomationId="{Binding AutoName, ConverterParameter=_value, Converter={converters1:StringsConcatConverter}}"
+				TextBlock.Foreground="{Binding PressedBrush}"
+				TextBlock.Text="{Binding StringValue}" />
+		</Grid>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="{DataTemplateKey {x:Type local:RightButtonsInfo}}"
+		DataType="{x:Type local:RightButtonsInfo}">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="0.25*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="0.6*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="0.25*" />
+			</Grid.ColumnDefinitions>
+			<recolorableimages:RecolorableSVG
+				FrameworkElement.Margin="2,2,0,2"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center"
+				IsColorShift="True"
+				Stretch="None"
+				AutomationProperties.AutomationId="{Binding AutoName, ConverterParameter=_icon, Converter={converters1:StringsConcatConverter}}"
+				ColorShiftBrush="{Binding PressedBrush}"
+				Drawing="{Binding Image}" />
+			<TextBlock
+				Grid.Column="1"
+				FrameworkElement.Margin="0,0,0,0"
+				FrameworkElement.VerticalAlignment="Center"
+				TextBlock.FontSize="14"
+				TextAlignment="Left"
+				AutomationProperties.AutomationId="{Binding AutoName, ConverterParameter=_text, Converter={converters1:StringsConcatConverter}}"
+				TextBlock.Foreground="{Binding PressedBrush}"
+				TextBlock.Text="{Binding Name}" />
+			<TextBlock
+				Grid.Column="2"
+				FrameworkElement.Margin="0,0,0,0"
+				FrameworkElement.VerticalAlignment="Center"
+				TextBlock.FontSize="14"
+				TextAlignment="Left"
+				AutomationProperties.AutomationId="{Binding AutoName, ConverterParameter=_value, Converter={converters1:StringsConcatConverter}}"
+				TextBlock.Foreground="{Binding PressedBrush}"
+				TextBlock.Text="{Binding StringValue}" />
+		</Grid>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="KeyScanCodeIconOnly"
+		DataType="{x:Type keyScanCodes:KeyScanCodeV2}">
+		<recolorableimages:RecolorableSVG
+			IsColorShift="True"
+			ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+			Drawing="{Binding ConverterParameter=combo, Converter={converters2:BaseRewasdMappingAnnotationIconConverter}}" />
+	</DataTemplate>
+	<DataTemplate
+		x:Key="KeyScanCodeDataTemplate"
+		DataType="{x:Type keyScanCodes:KeyScanCodeV2}">
+		<Grid
+			ToolTip="{Binding ToolTip}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+			</Grid.ColumnDefinitions>
+			<ContentControl
+				FrameworkElement.Margin="0,2,0,0"
+				ContentControl.ContentTemplate="{StaticResource KeyScanCodeIconOnly}"
+				ContentControl.Content="{Binding}"
+				Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}" />
+			<TextBlock
+				Grid.Column="1"
+				FrameworkElement.MinHeight="0"
+				FrameworkElement.Margin="2,0,0,0"
+				FrameworkElement.VerticalAlignment="Center"
+				FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+				TextBlock.TextWrapping="NoWrap"
+				AutomationProperties.AutomationId="{Binding Description}"
+				TextBlock.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+				TextBlock.Text="{Binding FriendlyName}" />
+		</Grid>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="KeyScanCodeDataTemplateRoot"
+		DataType="{x:Type keyScanCodes:KeyScanCodeV2}">
+		<ContentControl
+			Name="kscContent"
+			FrameworkElement.Margin="0,2,0,0"
+			ContentControl.ContentTemplate="{StaticResource KeyScanCodeDataTemplate}"
+			ContentControl.Content="{Binding}"
+			Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}" />
+	</DataTemplate>
+	<DataTemplate
+		x:Key="{DataTemplateKey {x:Type local:MessageInfo}}"
+		DataType="{x:Type local:MessageInfo}">
+		<Grid
+			FrameworkElement.Width="auto"
+			FrameworkElement.MinHeight="8"
+			FrameworkElement.Margin="0,0,0,14"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.HorizontalAlignment="{Binding AlignmentSettings}"
+			Panel.Background="{Binding ShiftModificatorBrush}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="{Binding SmallWidthLength}" />
+				<ColumnDefinition
+					ColumnDefinition.Width="{Binding BigWidthLength}" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+			</Grid.RowDefinitions>
+			<TextBlock
+				Name="TitleOverlayMessage"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="14,14,0,0"
+				Padding="0"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Top"
+				TextBlock.FontSize="14"
+				TextBlock.FontWeight="SemiBold"
+				TextBlock.Foreground="#FF000000"
+				FrameworkElement.Style="{DynamicResource DTCreamTextBlockStyle}"
+				TextAlignment="Center"
+				TextBlock.TextWrapping="Wrap"
+				utils:NavigationServiceHTML.Text="{Binding DeviceName}"
+				UIElement.Visibility="{Binding IsDeviceNameShow, Converter={converters:BooleanToVisibilityConverter}}" />
+			<TextBlock
+				Name="OverlayMessage"
+				Grid.Row="1"
+				Grid.Column="1"
+				FrameworkElement.MaxWidth="290"
+				FrameworkElement.Margin="0,0,0,0"
+				Padding="0,14,14,14"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Center"
+				TextBlock.FontSize="14"
+				TextBlock.Foreground="#FF000000"
+				TextBlock.TextTrimming="{Binding TrimmingConfigName}"
+				TextBlock.TextWrapping="{Binding WrapConfigName}"
+				UIElement.Visibility="{Binding IsTextShow, Converter={converters:BooleanToVisibilityConverter}}">
+				<Run
+					Run.Text="{Binding MessageText}" />
+			</TextBlock>
+			<Grid
+				Row="1"
+				FrameworkElement.Margin="14,0,14,0">
+				<StackPanel
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Center"
+					Orientation="Horizontal">
+					<recolorableimages:RecolorableSVG
+						Name="ToggleShowSVG"
+						FrameworkElement.Width="18"
+						FrameworkElement.Height="18"
+						FrameworkElement.Margin="0,14,7,14"
+						ColorShiftBrush="#FF000000"
+						IsColorShift="True"
+						Stretch="None"
+						Drawing="{Binding DrawingToggle}"
+						UIElement.Visibility="{Binding IsToggleShow, Converter={converters:BooleanToVisibilityConverter}}" />
+					<recolorableimages:RecolorableSVG
+						Name="BatteryGamepadShowSVG"
+						FrameworkElement.Width="24"
+						FrameworkElement.Height="24"
+						FrameworkElement.Margin="0,14,7,14"
+						ColorShiftBrush="#FF000000"
+						IsColorShift="True"
+						Stretch="None"
+						Drawing="{Binding DrawingGamepadForBattery}"
+						UIElement.Visibility="{Binding IsBatteryGamepadShow, Converter={converters:BooleanToVisibilityConverter}}" />
+					<recolorableimages:RecolorableSVG
+						Name="MessageSVG"
+						FrameworkElement.Width="24"
+						FrameworkElement.Height="24"
+						FrameworkElement.Margin="0,14,0,14"
+						ColorShiftBrush="#FF000000"
+						IsColorShift="True"
+						Stretch="None"
+						Drawing="{Binding Drawing}" />
+				</StackPanel>
+				<recolorableimages:RecolorableSVG
+					Name="DisconnectedLineSVG"
+					FrameworkElement.Width="24"
+					FrameworkElement.Height="24"
+					FrameworkElement.Margin="0,14,0,14"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Center"
+					ColorShiftBrush="#FF000000"
+					IsColorShift="True"
+					Stretch="None"
+					Drawing="{Binding DrawingDisconnectedLine}" />
+			</Grid>
+			<TextBlock
+				Name="tbNeedAnyFeature"
+				Grid.Row="2"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="24,0,40,20"
+				Padding="0"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Top"
+				TextBlock.FontSize="13"
+				TextBlock.Foreground="#99000000"
+				TextBlock.TextWrapping="Wrap"
+				UIElement.Visibility="{Binding IsNeedAnyFeature, Converter={converters:BooleanToVisibilityConverter}}">
+				<Run
+					Run.Text="{Binding TextFeature}" />
+			</TextBlock>
+			<TextBlock
+				Name="tbHotkeyGamepad"
+				Grid.Row="2"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="24,0,40,20"
+				Padding="0"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Top"
+				TextBlock.FontSize="13"
+				TextBlock.Foreground="#99000000"
+				TextBlock.TextWrapping="Wrap"
+				UIElement.Visibility="{Binding IsHotkeyGamepad, Converter={converters:BooleanToVisibilityConverter}}">
+				<Run
+					Run.Text="{Binding SmallTextGamepad}" /> <Run><FrameworkContentElement.Style><Style
+							TargetType="{x:Type Run}"><Setter
+								Property="Run.Text"
+								Value="" /><Style.Triggers><DataTrigger
+									Value="false"
+									Binding="{Binding SmallTextGamepadNewLine}"><Setter
+										Property="Run.Text"
+										Value="&#xA;" /></DataTrigger><DataTrigger
+									Value="true"
+									Binding="{Binding SmallTextGamepadNewLine}"><Setter
+										Property="Run.Text"
+										Value="" /></DataTrigger></Style.Triggers></Style></FrameworkContentElement.Style></Run> <ContentControl
+					ContentControl.ContentTemplate="{StaticResource HotkeysMessageInfo}"
+					ContentControl.Content="{Binding GamepadHotkeysInfo}" /></TextBlock>
+			<TextBlock
+				Name="tbHotkeyMappings"
+				Grid.Row="3"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="24,0,40,20"
+				Padding="0"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Top"
+				TextBlock.FontSize="13"
+				TextBlock.Foreground="#99000000"
+				TextBlock.TextWrapping="Wrap"
+				UIElement.Visibility="{Binding IsHotkeyMappings, Converter={converters:BooleanToVisibilityConverter}}">
+				<Run
+					Run.Text="{Binding SmallTextMapping}" /> <Run><FrameworkContentElement.Style><Style
+							TargetType="{x:Type Run}"><Setter
+								Property="Run.Text"
+								Value="" /><Style.Triggers><DataTrigger
+									Value="false"
+									Binding="{Binding SmallTextMappingNewLine}"><Setter
+										Property="Run.Text"
+										Value="&#xA;" /></DataTrigger><DataTrigger
+									Value="true"
+									Binding="{Binding SmallTextMappingNewLine}"><Setter
+										Property="Run.Text"
+										Value="" /></DataTrigger></Style.Triggers></Style></FrameworkContentElement.Style></Run> <ContentControl
+					ContentControl.ContentTemplate="{StaticResource HotkeysMessageInfo}"
+					ContentControl.Content="{Binding MappingsHotkeysInfo}" /></TextBlock>
+			<TextBlock
+				Name="tbHotkeyMappingsDescriptions"
+				Grid.Row="4"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="24,0,40,20"
+				Padding="0"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Top"
+				TextBlock.FontSize="13"
+				TextBlock.Foreground="#99000000"
+				TextBlock.TextWrapping="Wrap"
+				UIElement.Visibility="{Binding IsHotkeyMappingsDescriptions, Converter={converters:BooleanToVisibilityConverter}}">
+				<Run
+					Run.Text="{Binding SmallTextMappingDescriptions}" /> <Run><FrameworkContentElement.Style><Style
+							TargetType="{x:Type Run}"><Setter
+								Property="Run.Text"
+								Value="" /><Style.Triggers><DataTrigger
+									Value="false"
+									Binding="{Binding SmallTextMappingDescriptionsNewLine}"><Setter
+										Property="Run.Text"
+										Value="&#xA;" /></DataTrigger><DataTrigger
+									Value="true"
+									Binding="{Binding SmallTextMappingDescriptionsNewLine}"><Setter
+										Property="Run.Text"
+										Value="" /></DataTrigger></Style.Triggers></Style></FrameworkContentElement.Style></Run> <ContentControl
+					ContentControl.ContentTemplate="{StaticResource HotkeysMessageInfo}"
+					ContentControl.Content="{Binding MappingsHotkeysInfoDescriptions}" /></TextBlock>
+		</Grid>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="SectorsTemplate">
+		<Canvas>
+			<Path
+				Canvas.Left="0"
+				Canvas.Top="0"
+				Panel.ZIndex="1"
+				Shape.Stroke="#80000000"
+				Shape.StrokeThickness="0"
+				Shape.Fill="{Binding si.FillColor}">
+				<Path.Data>
+					<CombinedGeometry
+						GeometryCombineMode="Intersect">
+						<CombinedGeometry.Geometry1>
+							<GeometryGroup
+								FillRule="EvenOdd">
+								<EllipseGeometry
+									RadiusX="{Binding si.RadiusBig}"
+									RadiusY="{Binding si.RadiusBig}" />
+								<EllipseGeometry
+									RadiusX="{Binding si.SmallRadius}"
+									RadiusY="{Binding si.SmallRadius}" />
+							</GeometryGroup>
+						</CombinedGeometry.Geometry1>
+						<CombinedGeometry.Geometry2>
+							<GeometryGroup
+								FillRule="Nonzero">
+								<PathGeometry>
+									<PathFigure
+										IsClosed="True"
+										IsFilled="True"
+										StartPoint="{Binding si.P1}">
+										<PathFigure.Segments>
+											<LineSegment
+												Point="{Binding si.PC}" />
+											<LineSegment
+												Point="{Binding si.P2}" />
+										</PathFigure.Segments>
+									</PathFigure>
+								</PathGeometry>
+							</GeometryGroup>
+						</CombinedGeometry.Geometry2>
+					</CombinedGeometry>
+				</Path.Data>
+				<UIElement.RenderTransform>
+					<TranslateTransform
+						X="{Binding si.CenterPosX}"
+						Y="{Binding si.CenterPosY}" />
+				</UIElement.RenderTransform>
+			</Path>
+		</Canvas>
+	</DataTemplate>
+</ResourceDictionary>

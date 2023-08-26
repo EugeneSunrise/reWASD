@@ -1,0 +1,143 @@
+<UserControl
+	x:Class="reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard.SelectAuthGamepadControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:addExternalDeviceWizard="clr-namespace:reWASDUI.ViewModels.SecondaryWindows.AddExternalDeviceWizard" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dtEngine="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:infrastructure="clr-namespace:XBEliteWPF.Infrastructure;assembly=reWASDCommon" xmlns:local="clr-namespace:reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<DataTemplate
+				x:Key="AuthDeviceCollectionDataTemplate"
+				DataType="{x:Type infrastructure:GamepadAuth}">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+					</Grid.ColumnDefinitions>
+					<recolorableImages:RecolorableSVG
+						Name="ControllerTypeImg"
+						FrameworkElement.Width="20"
+						FrameworkElement.Height="20"
+						FrameworkElement.Margin="0,0,10,0"
+						ColorShiftBrush="{DynamicResource CreamBrush}"
+						IsColorShift="True"
+						Drawing="{Binding ControllerType, Converter={converters1:ControllerTypeEnumToDrawingConverter}}"
+						UIElement.IsEnabled="{Binding IsOffline, Converter={converters:InverseBooleanConverter}}" />
+					<TextBlock
+						Name="DisplayNameComboBoxTB"
+						Grid.Column="1"
+						FrameworkElement.VerticalAlignment="Center"
+						TextBlock.TextTrimming="CharacterEllipsis"
+						TextBlock.Text="{Binding DisplayNameComboBox}" />
+				</Grid>
+				<DataTemplate.Triggers>
+					<DataTrigger
+						Value="True"
+						Binding="{Binding IsOffline}">
+						<Setter
+							TargetName="DisplayNameComboBoxTB"
+							Value="{DynamicResource DisabledButtonForeground}"
+							Property="TextBlock.Foreground" />
+						<Setter
+							TargetName="ControllerTypeImg"
+							Value="{DynamicResource DisabledCreamBrush}"
+							Property="recolorableImages:RecolorableSVG.ColorShiftBrush" />
+					</DataTrigger>
+				</DataTemplate.Triggers>
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<StackPanel>
+		<checkBoxes:FillCheckBox
+			Name="chkBxAuth"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			Control.FontSize="14"
+			ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STR_AUTHORIZE_WITH_GAMEPAD}}"
+			IsChecked="{Binding UseAuthGamepad}"
+			UIElement.IsEnabled="{Binding IsUseAuthGamepadAlways, Converter={converters:InverseBooleanConverter}}"
+			UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadCanUseAuth, Converter={converters:BooleanToVisibilityConverter}}" />
+		<comboBoxes:ColoredComboBox
+			Name="cbxAuth"
+			FrameworkElement.Height="30"
+			Control.FontSize="14"
+			ItemsControl.ItemTemplate="{StaticResource AuthDeviceCollectionDataTemplate}"
+			UIElement.IsEnabled="{Binding UseAuthGamepad}"
+			ItemsControl.ItemsSource="{Binding GamepadService.ExternalDeviceRelationsHelper.CurrentGamepadsAuthCollection}"
+			SelectedIndex="{Binding GamepadAuthSelectedIndex}">
+			<UIElement.Visibility>
+				<MultiBinding
+					Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+					<Binding
+						Path="AnyGamepadAuthPresent" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadCanUseAuth" />
+				</MultiBinding>
+			</UIElement.Visibility>
+		</comboBoxes:ColoredComboBox>
+		<TextBlock
+			Name="txbAuthStatus"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Center"
+			FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+			TextBlock.Text="{Binding AuthText}">
+			<UIElement.Visibility>
+				<MultiBinding
+					Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+					<Binding
+						Path="AnyGamepadAuthPresent"
+						Converter="{converters:InverseBooleanConverter}" />
+					<Binding
+						Path="IsChecked"
+						ElementName="chkBxAuth" />
+					<Binding
+						Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType"
+						ConverterParameter="{x:Static enums:VirtualGamepadType.SonyDualshock4}"
+						Converter="{converters:ValuesAreEqual}" />
+				</MultiBinding>
+			</UIElement.Visibility>
+		</TextBlock>
+		<StackPanel
+			FrameworkElement.Margin="0,4,0,0"
+			Orientation="Horizontal">
+			<TextBlock
+				FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+				TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_STATUS}}">
+				<UIElement.Visibility>
+					<MultiBinding
+						Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+						<Binding
+							Path="AnyGamepadAuthPresent" />
+						<Binding
+							Path="IsChecked"
+							ElementName="chkBxAuth" />
+						<Binding
+							Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType"
+							ConverterParameter="{x:Static enums:VirtualGamepadType.SonyDualshock4}"
+							Converter="{converters:ValuesAreEqual}" />
+					</MultiBinding>
+				</UIElement.Visibility>
+			</TextBlock>
+			<TextBlock
+				Name="txbAuthStatus2"
+				FrameworkElement.Margin="5,0,0,0"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Center"
+				FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+				TextBlock.Text="{Binding ElementName=cbxAuth, Path=SelectedItem.GamepadAuthStatus}">
+				<UIElement.Visibility>
+					<MultiBinding
+						Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+						<Binding
+							Path="AnyGamepadAuthPresent" />
+						<Binding
+							Path="IsChecked"
+							ElementName="chkBxAuth" />
+						<Binding
+							Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType"
+							ConverterParameter="{x:Static enums:VirtualGamepadType.SonyDualshock4}"
+							Converter="{converters:ValuesAreEqual}" />
+					</MultiBinding>
+				</UIElement.Visibility>
+			</TextBlock>
+		</StackPanel>
+	</StackPanel>
+</UserControl>

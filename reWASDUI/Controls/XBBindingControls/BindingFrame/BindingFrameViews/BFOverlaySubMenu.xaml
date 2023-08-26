@@ -1,0 +1,33 @@
+<bindingFrameViews:BaseBFView
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews.BFOverlaySubMenu" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base="clr-namespace:reWASDUI.ViewModels.Base" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:controls1="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:infrastructure1="clr-namespace:reWASDUI.Infrastructure" xmlns:interfaces1="clr-namespace:reWASDUI.Services.Interfaces" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:markupExtensions="clr-namespace:DiscSoft.NET.Common.Utils.Markup_Extensions;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:xbEliteWpf="clr-namespace:XBEliteWPF" xmlns:bindingFrameViews="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews" xmlns:licenseFeatureManaging="clr-namespace:reWASDUI.Controls.LicenseFeatureManaging" xmlns:reWasdui="clr-namespace:reWASDUI" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:buttonBinding="clr-namespace:reWASDUI.Controls.XBBindingControls.ButtonBinding" xmlns:bindingFrame="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingFrameViews:BFOverlaySubMenu}"
+			Triggers="">
+			<ScrollViewer
+				FrameworkElement.FlowDirection="LeftToRight"
+				ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+				ScrollViewer.VerticalScrollBarVisibility="Auto">
+				<StackPanel
+					Orientation="Vertical">
+					<Border
+						FrameworkElement.Style="{DynamicResource BindingFrameBackBorderStyle}">
+						<buttons:SVGButton
+							FrameworkElement.HorizontalAlignment="Left"
+							FrameworkElement.Style="{DynamicResource ButtonBackBindingFrame}"
+							HighlightedForeground="{DynamicResource CreamBrush}"
+							ColorShiftBrush="{DynamicResource CreamBrush}"
+							ButtonBase.Command="{Binding ShiftBackCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+					</Border>
+					<Border
+						Padding="0"
+						FrameworkElement.Style="{DynamicResource SidebarBorderWithThicknessStyle}">
+						<StackPanel
+							FrameworkElement.Margin="10,5,10,13"
+							UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}" />
+					</Border>
+				</StackPanel>
+			</ScrollViewer>
+		</ControlTemplate>
+	</Control.Template>
+</bindingFrameViews:BaseBFView>

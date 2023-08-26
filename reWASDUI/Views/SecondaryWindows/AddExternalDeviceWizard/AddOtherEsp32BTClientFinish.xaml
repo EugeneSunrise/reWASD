@@ -1,0 +1,64 @@
+<UserControl
+	x:Class="reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard.AddOtherEsp32BTClientFinish" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:addExternalDeviceWizard="clr-namespace:reWASDUI.ViewModels.SecondaryWindows.AddExternalDeviceWizard" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common"
+	FrameworkElement.Height="466" xmlns:addexternaldevicewizard="clr-namespace:reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="108" />
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="70" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			Name="AddTargetManuallyTB"
+			FrameworkElement.Style="{DynamicResource SecondaryWindowHeaderStyle}"
+			TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_YOU_ARE_ALL_SET}}" />
+		<Grid
+			Row="1"
+			FrameworkElement.Style="{DynamicResource ESP32WizardContentGridStyle}">
+			<Grid
+				FrameworkElement.Margin="0,0,0,50"
+				FrameworkElement.HorizontalAlignment="Stretch"
+				FrameworkElement.VerticalAlignment="Stretch">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="0.6*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="0.4*" />
+				</Grid.ColumnDefinitions>
+				<StackPanel
+					FrameworkElement.VerticalAlignment="Center">
+					<TextBlock
+						Name="MacAddrTextBlock"
+						FrameworkElement.Margin="0,10,0,10"
+						FrameworkElement.Style="{DynamicResource WizardTextBlockStyle}"
+						utils:NavigationServiceHTML.Text="{localization:Translate {x:Static s:StringConsts.STR_YOU_WILL_SEE_CONTROLLER}}" />
+				</StackPanel>
+				<recolorableImages:RecolorableSVG
+					Name="Image"
+					Grid.Column="1"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Center"
+					Stretch="Fill"
+					Drawing="{Binding ControllerImage}" />
+			</Grid>
+		</Grid>
+		<Border
+			Grid.Row="2"
+			FrameworkElement.Style="{DynamicResource WizardFooterBorderStyle}">
+			<Grid>
+				<StackPanel
+					FrameworkElement.HorizontalAlignment="Right"
+					Orientation="Horizontal">
+					<buttons:ColoredButton
+						Name="FinishButton"
+						FrameworkElement.Margin="10,5,40,5"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding NextCommand}"
+						ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_5019_FINISH}}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

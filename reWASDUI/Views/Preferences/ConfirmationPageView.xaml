@@ -1,0 +1,280 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.ConfirmationPageView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	x:Name="ucPreferencesConfirmations" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<Border
+		Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+		Border.BorderThickness="1,0,0,0">
+		<ScrollViewer
+			FrameworkElement.Style="{DynamicResource PreferencesPageGridStyle}">
+			<StackPanel>
+				<TabControl
+					Name="ConfirmationsTabControl"
+					Control.Background="#00FFFFFF"
+					Control.BorderThickness="0"
+					FrameworkElement.Style="{DynamicResource TabControlHorizontalStyle}"
+					TabStripPlacement="Top">
+					<TabItem
+						Name="GeneralTab"
+						FrameworkElement.Style="{DynamicResource HorizontalTabItem}">
+						<HeaderedContentControl.Header>
+							<StackPanel
+								Orientation="Horizontal">
+								<TextBlock
+									FrameworkElement.VerticalAlignment="Center"
+									TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PREF_CONFIRMATION_GENERAL}}" />
+							</StackPanel>
+						</HeaderedContentControl.Header>
+						<StackPanel>
+							<checkBoxes:FillCheckBox
+								Name="chkRemoveGameOrConfig"
+								FrameworkElement.Margin="0,16,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_REMOVE_A_GAME_OR_CONFIG}}"
+								IsChecked="{Binding ConfirmRemoveGameOrConfig}" />
+							<checkBoxes:FillCheckBox
+								Name="chkClearShiftLayer"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_CLEAR_SHIFT_CONFIG_OPTION}}"
+								IsChecked="{Binding ConfirmClearShiftConfig}" />
+							<checkBoxes:FillCheckBox
+								Name="chkAddShiftLayer"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_INFORM_ADD_NEW_SHIFT}}"
+								IsChecked="{Binding ConfirmAddOrDeleteShift}" />
+							<checkBoxes:FillCheckBox
+								Name="chkSavePresetShiftLayer"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_INFORM_SAVE_PRESET_SHIFT}}"
+								IsChecked="{Binding ConfirmSavePresetShift}" />
+							<checkBoxes:FillCheckBox
+								Name="chkClearConfig"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_CLEAR_CONFIG_OPTION}}"
+								IsChecked="{Binding ConfirmClearConfig}" />
+							<checkBoxes:FillCheckBox
+								Name="chkExitTray"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_EXIT_TRAY_AGENT}}"
+								IsChecked="{Binding ExitTrayAgent}" />
+							<checkBoxes:FillCheckBox
+								Name="chkResetToDefault"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_RESET_STICK_SETTINGS_TO_DEFAULTS}}"
+								IsChecked="{Binding ConfirmResetSticksDefault}" />
+							<checkBoxes:FillCheckBox
+								Name="chkApplyLockedTrialAvailable"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_TRY_TO_APPLY_LOCKED_TRIAL_FUNC}}"
+								IsChecked="{Binding ConfirmTryApplyLockedTrial}" />
+							<checkBoxes:FillCheckBox
+								Name="chkApplyLockedTrialNonAvailable"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_TRY_TO_APPLY_LOCKED_NO_TRIAL_FUNC}}"
+								IsChecked="{Binding ConfirmTryApplyLockedNoTrial}" />
+							<checkBoxes:FillCheckBox
+								Name="chkSyncMappings"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SYNCH_MAPPNGS_IN_SHIFTS_OPTION}}"
+								IsChecked="{Binding ConfirmSyncMappings}" />
+						</StackPanel>
+					</TabItem>
+					<TabItem
+						Name="ComboTab"
+						FrameworkElement.Style="{DynamicResource HorizontalTabItem}">
+						<HeaderedContentControl.Header>
+							<TextBlock
+								FrameworkElement.VerticalAlignment="Center"
+								TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PREF_CONFIRMATION_COMBO}}" />
+						</HeaderedContentControl.Header>
+						<StackPanel>
+							<checkBoxes:FillCheckBox
+								Name="chkClearCombo"
+								FrameworkElement.Margin="0,16,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_CLEAR_COMBO}}"
+								IsChecked="{Binding ConfirmClearCombo}" />
+							<checkBoxes:FillCheckBox
+								Name="chkDuplicateMappings"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_DUPLICATE_OR_DISMISS_MAPPINGS}}"
+								IsChecked="{Binding ConfirmDuplicateMappings}" />
+							<checkBoxes:FillCheckBox
+								Name="chkWorkWithCombo"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_WORK_WITH_KEY_COMBO}}"
+								IsChecked="{Binding WorkWithMacroEditor}" />
+							<checkBoxes:FillCheckBox
+								Name="chkZeroDelayInCombo"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_ZERO_DELAY}}"
+								IsChecked="{Binding ConfirmZeroDelayBetweenKeys}" />
+							<checkBoxes:FillCheckBox
+								Name="chkCorrectStickDeflection"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_AUTOCORRECT_STICK_DEFLECTIONS}}"
+								IsChecked="{Binding ConfirmAutoCorrectStickDeflections}" />
+						</StackPanel>
+					</TabItem>
+					<TabItem
+						Name="RemindersTab"
+						FrameworkElement.Style="{DynamicResource HorizontalTabItem}">
+						<HeaderedContentControl.Header>
+							<TextBlock
+								FrameworkElement.VerticalAlignment="Center"
+								TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PREF_CONFIRMATION_REMINDERS}}" />
+						</HeaderedContentControl.Header>
+						<StackPanel>
+							<checkBoxes:FillCheckBox
+								Name="chkApplyWithCheat"
+								FrameworkElement.Margin="0,16,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_APPLY_WITH_CHEAT}}"
+								IsChecked="{Binding ConfirmCheatWarning}" />
+							<checkBoxes:FillCheckBox
+								Name="chkUnmapKeyboard"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_RECOMMEND_UNMAP_KEYBOARD}}"
+								IsChecked="{Binding ConfirmUnmapForKeyboardMapping}" />
+							<checkBoxes:FillCheckBox
+								Name="chkRemindKeyboardAndMouseConfigToSameDevice"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_REMIND_KEYBOARD_APPLY}}"
+								IsChecked="{Binding ConfirmMergeKeyboardAndMouse}" />
+							<checkBoxes:FillCheckBox
+								Name="chkRemindUnmapedMouse"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_REMIND_UNMAPPED_MOUSE}}"
+								IsChecked="{Binding RemindAboutUnmappedMouse}" />
+							<checkBoxes:FillCheckBox
+								Name="chkFixConfigForUnmapedMouse"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_ASK_FIX_MOUSE}}"
+								IsChecked="{Binding AskwhetherToFixConfigWithUnmappedMouse}" />
+							<checkBoxes:FillCheckBox
+								Name="chkInformDetectionMode"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_INFORM_DIRECTION_MODE}}"
+								IsChecked="{Binding ConfirmDetectActiveDevice}" />
+							<checkBoxes:FillCheckBox
+								Name="chkInformUnplugPhysController"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_INFORM_UNPLUG_PHYS_CONTROLLER}}"
+								IsChecked="{Binding ConfirmUnplugPhysController}" />
+							<checkBoxes:FillCheckBox
+								Name="chkInformSteamExclusiveMode"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{Binding InformSteamExclusiveMode}"
+								IsChecked="{Binding ConfirmSteamExclusiveMode}" />
+							<checkBoxes:FillCheckBox
+								Name="chkInformAzeronExclusiveMode"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{Binding InformAzeronExclusiveMode}"
+								IsChecked="{Binding ConfirmAzeronExclusiveMode}" />
+							<checkBoxes:FillCheckBox
+								Name="chkInformFlydigiExclusiveMode"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{Binding InformFlydigiExclusiveMode}"
+								IsChecked="{Binding ConfirmFlydigiExclusiveMode}" />
+							<checkBoxes:FillCheckBox
+								Name="chkInformSwitchToGameSirG7Mode"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_INFORM_SWITCH_TO_GAMESIR_G7}}"
+								IsChecked="{Binding ConfirmSwitchToGameSirG7}" />
+							<checkBoxes:FillCheckBox
+								Name="chkInformEngineController"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{Binding InformEngineController}"
+								IsChecked="{Binding ConfirmEngineController}" />
+							<checkBoxes:FillCheckBox
+								Name="chkInformPossibleLagsWithExternal"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_INFORM_REMIND_ABOUT_POSSIBLE_LAGS_EXTERNAL}}"
+								IsChecked="{Binding RemindAboutPossibleLagsWithExternalController}" />
+							<checkBoxes:FillCheckBox
+								Name="chkRemindSteamLimitation"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_REMIND_STEAM_LIMITAION_OPTION}}"
+								IsChecked="{Binding RemindSteamLimitation}" />
+							<checkBoxes:FillCheckBox
+								Name="chkUnmapTouchpad"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_RECOMMEND_UNMAP_TOUCHPAD}}"
+								IsChecked="{Binding ConfirmUnmapTouchpad}" />
+							<checkBoxes:FillCheckBox
+								Name="chkSwitchToXBoxOne"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_INFORM_SWITCH_TO_XBOXONE}}"
+								IsChecked="{Binding ConfirmSwitchToXBoxOne}" />
+							<checkBoxes:FillCheckBox
+								Name="chkInformVirtualUsbHub"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_INFORM_VIRTUAL_USB_HUB}}"
+								IsChecked="{Binding ConfirmVirtualUsbHub}" />
+						</StackPanel>
+					</TabItem>
+				</TabControl>
+			</StackPanel>
+		</ScrollViewer>
+	</Border>
+</UserControl>

@@ -1,0 +1,54 @@
+<advancedStick:BaseDirectionalAnalogGroupUserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.AdvancedStick.StickZone.StickZonesView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:advancedStick="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick" xmlns:bindingAnnotation="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingAnnotation" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dsConverters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:stickZone="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick.StickZone" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type stickZone:StickZonesView}">
+			<Grid
+				FrameworkElement.Margin="0,0,26,0"
+				FrameworkElement.HorizontalAlignment="Right">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<StackPanel
+					FrameworkElement.Margin="0,0,15,0"
+					FrameworkElement.VerticalAlignment="Center"
+					Orientation="Vertical">
+					<bindingAnnotation:GamepadBindingZonesAnnotation
+						x:Name="AnnotationHigh"
+						FrameworkElement.MinHeight="24"
+						FrameworkElement.HorizontalAlignment="Right"
+						AnnotatedZone="{x:Static enums:Zone.High}"
+						AnnotationRecolorBrush="{DynamicResource ZoneHighBrushHighlighted}"
+						DirectionalGroup="{TemplateBinding advancedStick:BaseDirectionalAnalogGroupUserControl.DirectionalGroup}"
+						UIElement.Visibility="{Binding DirectionalGroup.IsZoneHighAllowed, RelativeSource={RelativeSource TemplatedParent}, Converter={dsConverters:BooleanToVisibilityConverter}}" />
+					<bindingAnnotation:GamepadBindingZonesAnnotation
+						x:Name="AnnotationMed"
+						FrameworkElement.MinHeight="24"
+						FrameworkElement.Margin="0,10,0,0"
+						FrameworkElement.HorizontalAlignment="Right"
+						AnnotatedZone="{x:Static enums:Zone.Med}"
+						AnnotationRecolorBrush="{DynamicResource ZoneMedBrushHighlighted}"
+						DirectionalGroup="{TemplateBinding advancedStick:BaseDirectionalAnalogGroupUserControl.DirectionalGroup}"
+						UIElement.Visibility="{Binding DirectionalGroup.IsZoneMedAllowed, RelativeSource={RelativeSource TemplatedParent}, Converter={dsConverters:BooleanToVisibilityConverter}}" />
+					<bindingAnnotation:GamepadBindingZonesAnnotation
+						x:Name="AnnotationLow"
+						FrameworkElement.MinHeight="24"
+						FrameworkElement.Margin="0,10,0,0"
+						FrameworkElement.HorizontalAlignment="Right"
+						AnnotatedZone="{x:Static enums:Zone.Low}"
+						AnnotationRecolorBrush="{DynamicResource ZoneLowBrushHighlighted}"
+						DirectionalGroup="{TemplateBinding advancedStick:BaseDirectionalAnalogGroupUserControl.DirectionalGroup}"
+						UIElement.Visibility="{Binding DirectionalGroup.IsZoneLowAllowed, RelativeSource={RelativeSource TemplatedParent}, Converter={dsConverters:BooleanToVisibilityConverter}}" />
+				</StackPanel>
+				<stickZone:StickZones
+					Grid.Column="1"
+					FrameworkElement.MinHeight="120"
+					FrameworkElement.MaxHeight="180"
+					DirectionalGroup="{Binding DirectionalGroup, RelativeSource={RelativeSource TemplatedParent}}" />
+			</Grid>
+		</ControlTemplate>
+	</Control.Template>
+</advancedStick:BaseDirectionalAnalogGroupUserControl>

@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriControlPadRHigh" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriControlPadRHigh">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M9.742,7.66L9.742,10.125 8.38,10.125 8.38,3.7 10.252,3.7C11.125,3.7 11.771,3.859 12.19,4.177 12.608,4.495 12.818,4.978 12.818,5.625 12.818,6.003 12.714,6.339 12.506,6.634 12.297,6.928 12.003,7.158 11.622,7.326 12.589,8.77 13.219,9.703 13.512,10.125L12,10.125 10.468,7.66 9.742,7.66z M9.742,6.553L10.181,6.553C10.612,6.553 10.929,6.481 11.135,6.337 11.339,6.193 11.442,5.968 11.442,5.66 11.442,5.355 11.338,5.139 11.129,5.01 10.919,4.881 10.595,4.817 10.155,4.817L9.742,4.817 9.742,6.553z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M4.5,0L2.5,0C1.122,0,0,1.002,0,2.233L0,11.766C0,12.998,1.122,14,2.5,14L4.5,14C5.878,14,7,12.998,7,11.767L7,2.233C7,1.002,5.878,0,4.5,0z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

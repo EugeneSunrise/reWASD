@@ -1,0 +1,621 @@
+<UserControl
+	x:Class="reWASDUI.Views.LicenseMain" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:characterRestrictingTextBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CharacterRestrictingTextBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:features="clr-namespace:reWASDUI.License.Features" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:license="clr-namespace:reWASDUI.License" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:viewModels1="clr-namespace:reWASDUI.ViewModels"
+	Control.Background="{DynamicResource WindowBackground}" xmlns:views="clr-namespace:reWASDUI.Views">
+	<Grid>
+		<controls:WindowTitle
+			Name="WindowTitle"
+			FrameworkElement.VerticalAlignment="Top"
+			Control.Background="#00FFFFFF"
+			IcoVisibility="Hidden"
+			TrialInfoIsVisible="False"
+			VersionStringIsVisible="False"
+			UIElement.Visibility="Visible">
+			<Border />
+		</controls:WindowTitle>
+		<Grid
+			FrameworkElement.HorizontalAlignment="Right"
+			FrameworkElement.VerticalAlignment="Top">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<buttons:SVGButton
+				Name="btnShowHelp"
+				FrameworkElement.Margin="0,0,27,0"
+				FrameworkElement.HorizontalAlignment="Center"
+				Drawing="{DynamicResource Help}"
+				SVGHeight="16"
+				SVGMargin="0"
+				SVGWidth="16"
+				ButtonBase.Command="{Binding MainContentVM.OpenOnlineHelpSupportCommand}"
+				ToolTip="{l:Translate {x:Static s:StringConsts.STR_HELP}}" />
+			<buttons:SVGButton
+				Name="btnUpdateLicense"
+				Grid.Column="1"
+				FrameworkElement.Margin="5,5,4,0"
+				FrameworkElement.HorizontalAlignment="Right"
+				FrameworkElement.VerticalAlignment="Top"
+				ColorShiftBrush="#FFC2ED2E"
+				Drawing="{DynamicResource Update}"
+				SVGMargin="3"
+				ButtonBase.Command="{Binding LicensingService.CheckForUpdateCommand}"
+				ToolTip="{l:Translate {x:Static s:StringConsts.STR_NEW_VERSION_IS_HERE}}"
+				UIElement.Visibility="{Binding LicensingService.NewVersionAvailable, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+			<controls:WindowHeaderButtons
+				Grid.Column="2"
+				FrameworkElement.Height="32"
+				UIElement.Focusable="False" />
+		</Grid>
+		<Grid
+			FrameworkElement.Margin="24,49,29,0">
+			<Grid
+				FrameworkElement.Margin="0,0,0,0"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Stretch">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="*" />
+					<RowDefinition
+						RowDefinition.Height="95" />
+				</Grid.RowDefinitions>
+				<buttons:SVGButton
+					FrameworkElement.Margin="0,27,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					AutomationProperties.AutomationId="btnLicenseBackTop"
+					FrameworkElement.Style="{DynamicResource ButtonBackLicense}" />
+				<buttons:ColoredButton
+					FrameworkElement.Height="28"
+					FrameworkElement.Margin="0,30,0,0"
+					FrameworkElement.HorizontalAlignment="Right"
+					FrameworkElement.VerticalAlignment="Top"
+					AutomationProperties.AutomationId="btnRefreshLicense"
+					ButtonBase.Command="{Binding RefreshLicenseCommand}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_REFRESH_ACTIVATION}}" />
+				<TextBlock
+					Grid.Row="0"
+					FrameworkElement.Style="{DynamicResource LicenseMainHeaderTextBlockStyle}"
+					TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_LICENSE_TIP}}" />
+				<Grid
+					Row="1"
+					FrameworkElement.MinHeight="320"
+					FrameworkElement.Margin="0,0,0,0"
+					FrameworkElement.VerticalAlignment="Center">
+					<Grid.RowDefinitions>
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="*" />
+					</Grid.RowDefinitions>
+					<Border
+						Name="FeaturesMenuBorder"
+						Grid.Row="0"
+						FrameworkElement.MinWidth="706"
+						Border.Background="{x:Null}">
+						<TabControl
+							Name="FeaturesList"
+							FrameworkElement.HorizontalAlignment="Center"
+							Control.HorizontalContentAlignment="Center"
+							ItemsControl.ItemsSource="{Binding Features}"
+							SelectedIndex="{Binding ItemSelectedIndex, Mode=TwoWay}">
+							<ItemsControl.ItemsPanel>
+								<ItemsPanelTemplate>
+									<WrapPanel
+										FrameworkElement.Margin="0,0,0,0"
+										IsItemsHost="True"
+										Orientation="Horizontal" />
+								</ItemsPanelTemplate>
+							</ItemsControl.ItemsPanel>
+							<FrameworkElement.Style>
+								<Style
+									TargetType="{x:Type TabControl}">
+									<Setter
+										Property="FrameworkElement.OverridesDefaultStyle"
+										Value="True" />
+									<Setter
+										Property="UIElement.SnapsToDevicePixels"
+										Value="True" />
+									<Setter
+										Property="Control.Template">
+										<Setter.Value>
+											<ControlTemplate
+												TargetType="{x:Type TabControl}">
+												<Grid
+													KeyboardNavigation.TabNavigation="Local">
+													<TabPanel
+														Name="HeaderPanel"
+														Grid.Row="0"
+														FrameworkElement.Margin="0,0,0,0"
+														ZIndex="1"
+														IsItemsHost="True"
+														KeyboardNavigation.TabIndex="1"
+														Panel.Background="{x:Null}" />
+												</Grid>
+											</ControlTemplate>
+										</Setter.Value>
+									</Setter>
+								</Style>
+							</FrameworkElement.Style>
+							<ItemsControl.ItemContainerStyle>
+								<Style
+									TargetType="{x:Type TabItem}">
+									<Setter
+										Property="AutomationProperties.AutomationId"
+										Value="{Binding FeatureId}" />
+									<Setter
+										Property="TabItem.IsSelected"
+										Value="{Binding IsItemSelected, RelativeSource={RelativeSource AncestorType=features:Feature}}" />
+									<Setter
+										Property="Control.Background"
+										Value="{DynamicResource ContentBackground}" />
+									<Setter
+										Property="FrameworkElement.FocusVisualStyle"
+										Value="{x:Null}" />
+									<Setter
+										Property="Control.Template">
+										<Setter.Value>
+											<ControlTemplate
+												TargetType="{x:Type TabItem}">
+												<Border
+													FrameworkElement.Name="SelectionControl"
+													FrameworkElement.Height="54"
+													Padding="18,0"
+													Border.Background="{DynamicResource ContentBackground}">
+													<StackPanel
+														FrameworkElement.HorizontalAlignment="Center"
+														FrameworkElement.VerticalAlignment="Center"
+														Orientation="Horizontal">
+														<recolorableImages:RecolorableSVG
+															FrameworkElement.HorizontalAlignment="Center"
+															FrameworkElement.VerticalAlignment="Center"
+															ColorShiftBrush="{DynamicResource CreamBrush}"
+															UIElement.Focusable="False"
+															IsColorShift="True"
+															UseLayoutRounding="True"
+															Drawing="{Binding IconUri}" />
+														<TextBlock
+															FrameworkElement.Name="TabText"
+															FrameworkElement.Margin="7,0,0,0"
+															FrameworkElement.VerticalAlignment="Center"
+															TextBlock.FontSize="14"
+															TextBlock.FontWeight="Light"
+															FrameworkElement.MaxWidth="107"
+															TextBlock.TextWrapping="Wrap"
+															TextBlock.Foreground="#FFFFFFFF"
+															TextAlignment="Left"
+															TextBlock.Text="{Binding BigName}" />
+													</StackPanel>
+												</Border>
+												<ControlTemplate.Triggers>
+													<Trigger
+														Property="UIElement.IsMouseOver"
+														Value="True">
+														<Setter
+															TargetName="SelectionControl"
+															Value="{DynamicResource LicenseTabContentBackground}"
+															Property="Border.Background" />
+													</Trigger>
+													<Trigger
+														Property="TabItem.IsSelected"
+														Value="True">
+														<Setter
+															TargetName="TabText"
+															Value="{DynamicResource CreamBrush}"
+															Property="TextBlock.Foreground" />
+													</Trigger>
+												</ControlTemplate.Triggers>
+											</ControlTemplate>
+										</Setter.Value>
+									</Setter>
+								</Style>
+							</ItemsControl.ItemContainerStyle>
+						</TabControl>
+					</Border>
+					<Border
+						Grid.Row="1"
+						FrameworkElement.MaxWidth="700"
+						Border.Background="#00FFFFFF"
+						UIElement.Visibility="{Binding ElementName=FeaturesList, Path=SelectedItem, Converter={converters:InvertedTypeVisibilityConverter}, ConverterParameter={x:Type features:LicenseFeature}}">
+						<StackPanel
+							FrameworkElement.Margin="30,36,30,0"
+							FrameworkElement.VerticalAlignment="Top"
+							DataContext="{Binding ElementName=FeaturesList, Path=SelectedItem}">
+							<StackPanel
+								FrameworkElement.HorizontalAlignment="Center"
+								Orientation="Horizontal">
+								<recolorableImages:RecolorableSVG
+									FrameworkElement.Margin="5,15,0,0"
+									FrameworkElement.VerticalAlignment="Top"
+									ColorShiftBrush="{DynamicResource CreamBrush}"
+									IsColorShift="True"
+									UseLayoutRounding="True"
+									Drawing="{Binding PictureUri}" />
+								<TextBlock
+									FrameworkElement.Margin="13,12,0,0"
+									AutomationProperties.AutomationId="labelFeatureName"
+									FrameworkElement.Style="{DynamicResource FeatureHeaderTextBlockStyle}"
+									TextAlignment="Center"
+									TextBlock.Text="{Binding BigName}" />
+								<TextBlock
+									FrameworkElement.Margin="10,16,0,0"
+									AutomationProperties.AutomationId="labelTrialDaysLeft"
+									FrameworkElement.Style="{DynamicResource FeatureHeaderTrialTextBlockStyle}"
+									TextAlignment="Center"
+									TextBlock.Text="{Binding FeatureTrialDaysLeft}"
+									UIElement.Visibility="{Binding IsTrialFeatureVisibility, Converter={converters:BooleanToVisibilityConverter}}" />
+							</StackPanel>
+							<StackPanel
+								Orientation="Vertical">
+								<TextBlock
+									FrameworkElement.MaxWidth="600"
+									FrameworkElement.Margin="0,15,0,0"
+									AutomationProperties.AutomationId="labelFeatureDescription"
+									FrameworkElement.Style="{DynamicResource FeatureDescriptionTextBlockStyle}"
+									TextBlock.TextWrapping="Wrap"
+									utils:NavigationServiceHTML.Text="{Binding Description}" />
+								<Grid
+									FrameworkElement.Margin="0,20"
+									FrameworkElement.HorizontalAlignment="Center"
+									FrameworkElement.VerticalAlignment="Top"
+									UIElement.Visibility="{Binding IsShowMobleControllerButtons, Converter={converters:BooleanToVisibilityConverter}}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											ColumnDefinition.Width="Auto" />
+										<ColumnDefinition
+											ColumnDefinition.Width="Auto" />
+									</Grid.ColumnDefinitions>
+									<StackPanel
+										FrameworkElement.HorizontalAlignment="Center"
+										Orientation="Vertical">
+										<buttons:SVGButton
+											Control.BorderBrush="#00FFFFFF"
+											Cursor="Hand"
+											Drawing="{DynamicResource google-play-badge}"
+											IsColorShift="False"
+											SVGMargin="0"
+											ToolTip="Google Play"
+											TriggeredBackground="#00FFFFFF"
+											TriggeredBorderBrush="{DynamicResource CreamBrush}"
+											TriggeredHighlightedBackground="#00FFFFFF"
+											TriggeredHighlightedBorderBrush="#FFFFFFFF"
+											Click="GooglePlay_OnClick" />
+									</StackPanel>
+									<StackPanel
+										Grid.Column="1"
+										FrameworkElement.Margin="20,0,0,0"
+										FrameworkElement.HorizontalAlignment="Center"
+										Orientation="Vertical">
+										<buttons:SVGButton
+											FrameworkElement.HorizontalAlignment="Center"
+											Control.BorderBrush="#00FFFFFF"
+											Cursor="Hand"
+											Drawing="{DynamicResource app-store-badge}"
+											IsColorShift="False"
+											SVGMargin="0"
+											ToolTip="App Store"
+											TriggeredBackground="#00FFFFFF"
+											TriggeredBorderBrush="{DynamicResource CreamBrush}"
+											TriggeredHighlightedBackground="#00FFFFFF"
+											TriggeredHighlightedBorderBrush="#FFFFFFFF"
+											ButtonBase.Command="{Binding OpenMobileConnectionGuideCommand}"
+											Click="AppStore_OnClick" />
+									</StackPanel>
+								</Grid>
+								<Grid
+									FrameworkElement.Margin="0,32,0,0"
+									FrameworkElement.HorizontalAlignment="Center">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											ColumnDefinition.Width="Auto" />
+										<ColumnDefinition
+											ColumnDefinition.Width="Auto" />
+										<ColumnDefinition
+											ColumnDefinition.Width="Auto" />
+										<ColumnDefinition
+											ColumnDefinition.Width="Auto" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition
+											RowDefinition.Height="Auto" />
+										<RowDefinition
+											RowDefinition.Height="*" />
+									</Grid.RowDefinitions>
+									<buttons:ColoredButton
+										Grid.Row="0"
+										Grid.Column="1"
+										FrameworkElement.Height="28"
+										FrameworkElement.Margin="0,0,0,0"
+										AutomationProperties.AutomationId="btnFeatureBuy"
+										ButtonBase.Command="{Binding BuyFeatureLicenseCommand}"
+										ContentControl.Content="{l:Translate {x:Static s:StringConsts.IDS_LICENSE_FEATURE_BUTTON_BUY}}"
+										ToolTip="{l:Translate {x:Static s:StringConsts.IDS_LICENSE_FEATURE_BUTTON_BUY_HINT}}"
+										UIElement.Visibility="{Binding BuyBtnFeatureVisibility, Converter={converters:BooleanToVisibilityConverter}}" />
+									<StackPanel
+										Grid.Row="1"
+										Grid.Column="1"
+										FrameworkElement.Margin="0,5,0,0"
+										FrameworkElement.HorizontalAlignment="Center"
+										Orientation="Horizontal">
+										<TextBlock
+											FrameworkElement.Margin="0,0,5,0"
+											AutomationProperties.AutomationId="labelTotalPrice"
+											FrameworkElement.Style="{DynamicResource LicenseOldPriceTextBlockStyle}"
+											DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+											TextBlock.Text="{Binding TotalPriceOfAllFeatures}"
+											UIElement.Visibility="{Binding IsFullPackSelected, Converter={converters:BooleanToVisibilityConverter}}" />
+										<TextBlock
+											FrameworkElement.Margin="0,0,0,0"
+											AutomationProperties.AutomationId="labelPrice"
+											FrameworkElement.Style="{DynamicResource LicenseTextBlockStyle}"
+											TextBlock.Text="{Binding Price}"
+											UIElement.Visibility="{Binding BuyBtnFeatureVisibility, Converter={converters:BooleanToVisibilityConverter}}" />
+									</StackPanel>
+									<buttons:ColoredButton
+										Grid.Row="0"
+										Grid.Column="2"
+										FrameworkElement.Height="28"
+										FrameworkElement.Margin="10,0,10,0"
+										AutomationProperties.AutomationId="btnFeatureTry"
+										ButtonBase.Command="{Binding TryFeatureLicenseCommand}"
+										ContentControl.Content="{l:Translate {x:Static s:StringConsts.IDS_LICENSE_FEATURE_BUTTON_TRY}}"
+										UIElement.Visibility="{Binding TryBtnFeatureVisibility, Converter={converters:BooleanToVisibilityConverter}}" />
+									<buttons:ColoredButton
+										Grid.Row="0"
+										Grid.Column="2"
+										FrameworkElement.Height="28"
+										FrameworkElement.Margin="10,0,10,0"
+										AutomationProperties.AutomationId="btnFeatureActivate"
+										ButtonBase.Command="{Binding ActivateFeatureLicenseCommand}"
+										ContentControl.Content="{l:Translate {x:Static s:StringConsts.IDS_LICENSE_BUTTON_ACTIVATE}}"
+										UIElement.Visibility="{Binding ActivateBtnFeatureVisibility, Converter={converters:BooleanToVisibilityConverter}}" />
+								</Grid>
+							</StackPanel>
+						</StackPanel>
+					</Border>
+					<Grid
+						Row="1"
+						FrameworkElement.Margin="0,36,0,0"
+						UIElement.Visibility="{Binding ElementName=FeaturesList, Path=SelectedItem, Converter={converters:TypeVisibilityConverter}, ConverterParameter={x:Type features:LicenseFeature}}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									RowDefinition.Height="Auto" />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<StackPanel
+								Grid.Row="0"
+								FrameworkElement.Margin="10,10"
+								FrameworkElement.HorizontalAlignment="Center"
+								Orientation="Horizontal">
+								<recolorableImages:RecolorableSVG
+									FrameworkElement.HorizontalAlignment="Center"
+									ColorShiftBrush="{DynamicResource CreamBrush}"
+									IsColorShift="True"
+									UseLayoutRounding="True"
+									Drawing="{Binding LicenseIconUri}" />
+								<TextBlock
+									FrameworkElement.Margin="13,0,0,0"
+									FrameworkElement.HorizontalAlignment="Center"
+									AutomationProperties.AutomationId="labelLicenseHeader"
+									FrameworkElement.Style="{StaticResource FeatureHeaderTextBlockStyle}"
+									TextBlock.Text="{Binding LicenseText}" />
+							</StackPanel>
+							<StackPanel
+								Grid.Row="1"
+								FrameworkElement.Margin="0,16,0,0"
+								FrameworkElement.HorizontalAlignment="Center"
+								UIElement.Visibility="{Binding ChangeLicenseIsInProgress, Converter={converters:BooleanToVisibilityConverter}}">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											ColumnDefinition.Width="Auto" />
+										<ColumnDefinition
+											ColumnDefinition.Width="Auto" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition
+											RowDefinition.Height="Auto" />
+										<RowDefinition
+											RowDefinition.Height="Auto" />
+									</Grid.RowDefinitions>
+									<TextBlock
+										Grid.Row="0"
+										Grid.Column="0"
+										FrameworkElement.Margin="0,0,5,0"
+										FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+										TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_SERIAL}}" />
+									<characterRestrictingTextBoxes:RestrictionModeTextBox
+										Name="SerialNumberTextBox"
+										Grid.Row="0"
+										Grid.Column="1"
+										FrameworkElement.Width="345"
+										FrameworkElement.Height="24"
+										CaretBrush="#FFFFFFFF"
+										MaxLength="32"
+										RestrictionMode="Serial"
+										FrameworkElement.Style="{DynamicResource LicenseEditableValueTextBoxStyle}"
+										IsVisibleChanged="ChangedVisiblity">
+										<Binding
+											Path="SerialNumberInputText"
+											UpdateSourceTrigger="PropertyChanged"
+											ValidatesOnDataErrors="True" />
+									</characterRestrictingTextBoxes:RestrictionModeTextBox>
+									<TextBlock
+										Grid.Row="1"
+										Grid.Column="0"
+										Grid.ColumnSpan="2"
+										FrameworkElement.Width="450"
+										FrameworkElement.Style="{DynamicResource LicenseNoteTextBlockStyle}"
+										utils:NavigationServiceHTML.Command="{Binding GoToSupportCommand}"
+										utils:NavigationServiceHTML.Text="{l:Translate {x:Static s:StringConsts.STR_INTERNET_CONNECTION_REQUIRED}}" />
+								</Grid>
+								<StackPanel
+									FrameworkElement.Margin="0,32,0,0"
+									FrameworkElement.HorizontalAlignment="Center"
+									Orientation="Horizontal">
+									<buttons:ColoredButton
+										FrameworkElement.Height="28"
+										FrameworkElement.Margin="0"
+										AutomationProperties.AutomationId="btnLicenseBack"
+										ButtonBase.Command="{Binding CloseChangeLicenseCommand}"
+										ContentControl.Content="{l:Translate {x:Static s:StringConsts.IDS_WIZARD_BACK}}" />
+									<buttons:ColoredButton
+										FrameworkElement.Height="28"
+										FrameworkElement.Margin="10,0,0,0"
+										AutomationProperties.AutomationId="btnActivateLicense"
+										IsDefault="True"
+										ButtonBase.Command="{Binding ActivateLicenseCommand}"
+										ContentControl.Content="{l:Translate {x:Static s:StringConsts.IDS_LICENSE_BUTTON_ACTIVATE}}" />
+								</StackPanel>
+							</StackPanel>
+							<StackPanel
+								Grid.Row="1"
+								FrameworkElement.Margin="0,16,0,0"
+								FrameworkElement.HorizontalAlignment="Center"
+								UIElement.Visibility="{Binding ChangeLicenseIsInProgress, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+								<StackPanel
+									UIElement.Visibility="{Binding BuyBtnLicenseVisibility, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}">
+									<Grid
+										FrameworkElement.HorizontalAlignment="Center">
+										<Grid.RowDefinitions>
+											<RowDefinition
+												RowDefinition.Height="Auto" />
+											<RowDefinition
+												RowDefinition.Height="Auto" />
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<TextBlock
+											Grid.Row="0"
+											Grid.Column="0"
+											FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_SERIAL}}" />
+										<TextBox
+											Grid.Row="0"
+											Grid.Column="1"
+											FrameworkElement.Margin="6,0,0,0"
+											AutomationProperties.AutomationId="tbSerial"
+											FrameworkElement.Style="{DynamicResource LicenseValueTextBoxStyle}"
+											TextBox.Text="{Binding Serial, Mode=OneWay}" />
+										<TextBlock
+											Grid.Row="1"
+											Grid.Column="0"
+											FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+											TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_5173}}" />
+										<TextBox
+											Grid.Row="1"
+											Grid.Column="1"
+											FrameworkElement.Margin="5,0,0,0"
+											AutomationProperties.AutomationId="tbHardwareID"
+											FrameworkElement.Style="{DynamicResource LicenseValueTextBoxStyle}"
+											TextBox.Text="{Binding HardWareID, Mode=OneWay}" />
+									</Grid>
+									<StackPanel
+										FrameworkElement.Margin="0,32,30,0"
+										FrameworkElement.HorizontalAlignment="Center"
+										FrameworkElement.VerticalAlignment="Top"
+										Orientation="Horizontal">
+										<buttons:ColoredButton
+											FrameworkElement.Height="28"
+											FrameworkElement.Margin="15,0,0,0"
+											AutomationProperties.AutomationId="btnChange"
+											ButtonBase.Command="{Binding ChangeLicenseCommand}"
+											ContentControl.Content="{l:Translate {x:Static s:StringConsts.IDS_CHANGE}}" />
+									</StackPanel>
+								</StackPanel>
+								<StackPanel
+									UIElement.Visibility="{Binding BuyBtnLicenseVisibility, Converter={converters:BooleanToVisibilityConverter}}">
+									<StackPanel
+										UIElement.Visibility="{Binding ChangeLicenseIsInProgress, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}">
+										<Grid
+											FrameworkElement.HorizontalAlignment="Center">
+											<Grid.RowDefinitions>
+												<RowDefinition
+													RowDefinition.Height="Auto" />
+												<RowDefinition
+													RowDefinition.Height="Auto" />
+											</Grid.RowDefinitions>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition
+													ColumnDefinition.Width="Auto" />
+												<ColumnDefinition
+													ColumnDefinition.Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<TextBlock
+												Grid.Row="0"
+												Grid.Column="0"
+												FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+												TextBlock.Text="{l:Translate {x:Static s:StringConsts.IDS_LICENSE_FEATURE_EXPIRES}}" />
+											<TextBox
+												Grid.Row="0"
+												Grid.Column="1"
+												FrameworkElement.Margin="5,0,0,0"
+												AutomationProperties.AutomationId="tbTrialExpireDate"
+												FrameworkElement.Style="{DynamicResource LicenseValueTextBoxStyle}"
+												TextBox.Text="{Binding TrialExpiresDate, Mode=OneWay}" />
+											<TextBlock
+												Grid.Row="1"
+												Grid.Column="0"
+												FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+												TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_5173}}" />
+											<TextBox
+												Grid.Row="1"
+												Grid.Column="1"
+												FrameworkElement.Margin="3,0,0,0"
+												AutomationProperties.AutomationId="tbHardwareID"
+												FrameworkElement.Style="{DynamicResource LicenseValueTextBoxStyle}"
+												TextBox.Text="{Binding HardWareID, Mode=OneWay}" />
+										</Grid>
+										<StackPanel
+											FrameworkElement.Margin="0,32,30,0"
+											FrameworkElement.HorizontalAlignment="Center"
+											FrameworkElement.VerticalAlignment="Top"
+											Orientation="Horizontal">
+											<buttons:ColoredButton
+												FrameworkElement.Height="28"
+												FrameworkElement.Margin="15,0,0,0"
+												AutomationProperties.AutomationId="btnBuy"
+												ButtonBase.Command="{Binding BuyLicenseCommand}"
+												ContentControl.Content="{l:Translate {x:Static s:StringConsts.IDS_BUY}}" />
+											<buttons:ColoredButton
+												FrameworkElement.Height="28"
+												FrameworkElement.Margin="15,0,0,0"
+												AutomationProperties.AutomationId="btnActivate"
+												ButtonBase.Command="{Binding ChangeLicenseCommand}"
+												ContentControl.Content="{l:Translate {x:Static s:StringConsts.STRING_ACTIVATE}}" />
+										</StackPanel>
+									</StackPanel>
+								</StackPanel>
+							</StackPanel>
+						</Grid>
+					</Grid>
+				</Grid>
+				<Grid
+					Row="2"
+					FrameworkElement.MaxWidth="800"
+					UIElement.Visibility="{Binding ShowLicenseHelp, Converter={converters:BooleanToVisibilityConverter}}">
+					<StackPanel>
+						<Separator
+							FrameworkElement.Margin="0,20,0,0"
+							Control.Background="{DynamicResource MenuBackground}" />
+						<TextBlock
+							FrameworkElement.MaxWidth="700"
+							FrameworkElement.Margin="0,18,0,0"
+							FrameworkElement.VerticalAlignment="Center"
+							FrameworkElement.Style="{DynamicResource LicenseNoteTextBlockStyle}"
+							utils:NavigationServiceHTML.Text="{Binding LicenseHelpString}" />
+					</StackPanel>
+				</Grid>
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>

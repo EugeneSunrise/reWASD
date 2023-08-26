@@ -1,0 +1,100 @@
+<UserControl
+	x:Class="reWASDEngine.OverlayAPI.RemapWindow.MaskConditionView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:overlayApi="clr-namespace:reWASDEngine.Services.OverlayAPI" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:remapWindow="clr-namespace:reWASDEngine.OverlayAPI.RemapWindow">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type remapWindow:MaskConditionView}">
+			<StackPanel
+				FrameworkElement.Margin="6,0,6,0"
+				FrameworkElement.HorizontalAlignment="Center"
+				Orientation="Horizontal">
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<Style
+							x:Key="{x:Type ContentControl}"
+							TargetType="{x:Type ContentControl}">
+							<Setter
+								Property="UIElement.Visibility"
+								Value="{Binding Content.ControllerButton.IsSet, RelativeSource={RelativeSource Self}, Converter={converters:BooleanToVisibilityConverter}}" />
+						</Style>
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+				<ContentControl
+					Name="ccg0"
+					Control.Foreground="{DynamicResource OverlayResource}"
+					ContentControl.Content="{Binding MaskCondition[0], RelativeSource={RelativeSource TemplatedParent}}" />
+				<recolorableImages:RecolorableSVG
+					FrameworkElement.Style="{DynamicResource SVGPlusOverlay}">
+					<UIElement.Visibility>
+						<MultiBinding
+							ConverterParameter="({0} &amp;&amp; ({1} || {2} || {3}))"
+							Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+							<Binding
+								ElementName="ccg0"
+								Path="Visibility"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+							<Binding
+								ElementName="ccg1"
+								Path="Visibility"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+							<Binding
+								ElementName="ccg2"
+								Path="Visibility"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+							<Binding
+								ElementName="ccg3"
+								Path="Visibility"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+						</MultiBinding>
+					</UIElement.Visibility>
+				</recolorableImages:RecolorableSVG>
+				<ContentControl
+					Name="ccg1"
+					Control.Foreground="{DynamicResource OverlayResource}"
+					ContentControl.Content="{Binding MaskCondition[1], RelativeSource={RelativeSource TemplatedParent}}" />
+				<recolorableImages:RecolorableSVG
+					FrameworkElement.Style="{DynamicResource SVGPlusOverlay}">
+					<UIElement.Visibility>
+						<MultiBinding
+							ConverterParameter="({0} &amp;&amp; ({1} || {2}))"
+							Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+							<Binding
+								ElementName="ccg1"
+								Path="Visibility"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+							<Binding
+								ElementName="ccg2"
+								Path="Visibility"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+							<Binding
+								ElementName="ccg3"
+								Path="Visibility"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+						</MultiBinding>
+					</UIElement.Visibility>
+				</recolorableImages:RecolorableSVG>
+				<ContentControl
+					Name="ccg2"
+					Control.Foreground="{DynamicResource OverlayResource}"
+					ContentControl.Content="{Binding MaskCondition[2], RelativeSource={RelativeSource TemplatedParent}}" />
+				<recolorableImages:RecolorableSVG
+					FrameworkElement.Style="{DynamicResource SVGPlusOverlay}">
+					<UIElement.Visibility>
+						<MultiBinding
+							Converter="{converters:MultiVisibilityAndConverter}">
+							<Binding
+								ElementName="ccg2"
+								Path="Visibility" />
+							<Binding
+								ElementName="ccg3"
+								Path="Visibility" />
+						</MultiBinding>
+					</UIElement.Visibility>
+				</recolorableImages:RecolorableSVG>
+				<ContentControl
+					Name="ccg3"
+					Control.Foreground="{DynamicResource OverlayResource}"
+					ContentControl.Content="{Binding MaskCondition[3], RelativeSource={RelativeSource TemplatedParent}}" />
+			</StackPanel>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

@@ -1,0 +1,57 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriZoneMedDPADLeft" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriZoneMedDPADLeft">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M5.5,7L2.5,7 2.5,13 5.5,13 5.5,7z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M9.5,5L6.5,5 6.5,13 9.5,13 9.5,5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M12.5,4L12.5,12 11.5,12 11.5,4 12.5,4 M13.5,3L10.5,3 10.5,13 13.5,13 13.5,3z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M20.57,5L17.14,5 17.14,5.72 16,5.72 16,10.29 17.14,10.29 17.14,11 20.57,11 20.57,10.23C21.49,9.91 23.2,9.17 23.2,8 23.2,6.83 21.49,6.09 20.57,5.78L20.57,5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M26,0L22,0C21.448,0,21,0.448,21,1L21,5 17,5C16.448,5,16,5.448,16,6L16,10C16,10.552,16.448,11,17,11L21,11 21,15C21,15.552,21.448,16,22,16L26,16C26.552,16,27,15.552,27,15L27,11 31,11C31.552,11,32,10.552,32,10L32,6C32,5.448,31.552,5,31,5L27,5 27,1C27,0.448,26.552,0,26,0z M26,1L26,5C26,5.552,26.448,6,27,6L31,6 31,10 27,10C26.448,10,26,10.448,26,11L26,15 22,15 22,11C22,10.448,21.552,10,21,10L17,10 17,6 21,6C21.552,6,22,5.552,22,5L22,1 26,1z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,32,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

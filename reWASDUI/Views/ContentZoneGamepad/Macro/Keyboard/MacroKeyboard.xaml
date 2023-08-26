@@ -1,0 +1,319 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.Macro.Keyboard.MacroKeyboard" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:keyScanCodes="clr-namespace:XBEliteWPF.Infrastructure.reWASDMapping.KeyScanCodes;assembly=reWASDCommon" xmlns:markupExtensions="clr-namespace:DiscSoft.NET.Common.Utils.Markup_Extensions;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:view="clr-namespace:DiscSoft.NET.Common.View;assembly=DiscSoft.NET.Common" xmlns:views="clr-namespace:XBEliteWPF.Views" xmlns:views1="clr-namespace:reWASDUI.Views" xmlns:keyboard="clr-namespace:reWASDUI.Views.ContentZoneGamepad.Macro.Keyboard"
+	Control.HorizontalContentAlignment="Left"
+	Control.VerticalContentAlignment="Top">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type keyboard:MacroKeyboard}">
+			<FrameworkTemplate.Resources>
+				<ResourceDictionary>
+					<Style
+						x:Key="{x:Type keyboard:MacroKeyboardAttachedButton}"
+						BasedOn="{StaticResource {x:Type view:SVGElementAttachedButton}}"
+						TargetType="{x:Type keyboard:MacroKeyboardAttachedButton}">
+						<Setter
+							Property="Grid.Row"
+							Value="1" />
+						<Setter
+							Property="AutomationProperties.AutomationId"
+							Value="{Binding SVGElementName, RelativeSource={RelativeSource Self}}" />
+						<Setter
+							Property="Grid.Column"
+							Value="1" />
+						<Setter
+							Property="FrameworkElement.HorizontalAlignment"
+							Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource TemplatedParent}}" />
+						<Setter
+							Property="FrameworkElement.VerticalAlignment"
+							Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource TemplatedParent}}" />
+						<Setter
+							Property="ButtonBase.Command"
+							Value="{Binding KeyboardButtonClickCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+						<Setter
+							Property="view:SVGElementAttachedButton.HighlightBrush"
+							Value="{DynamicResource CreamBrush}" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkTemplate.Resources>
+			<views1:SVGContainerGrid>
+				<recolorableImages:RecolorableSVG
+					Name="svgContainer"
+					Grid.Row="1"
+					Grid.Column="1"
+					FrameworkElement.Margin="0,0,0,1"
+					FrameworkElement.HorizontalAlignment="Stretch"
+					FrameworkElement.VerticalAlignment="Top"
+					Control.HorizontalContentAlignment="Center"
+					Control.VerticalContentAlignment="Center"
+					Drawing="{DynamicResource SVGKeyboardMacroControlDrawing}"
+					Stretch="Uniform" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.MediaPreviousTrack}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.MediaStop}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.MediaPlayPause}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.MediaNextTrack}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.VolumeMute}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.VolumeDown}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.VolumeUp}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Pause}" />
+				<keyboard:MacroKeyboardAttachedButton
+					KeyScanCode="{x:Static keyScanCodes:KeyScanCodeV2.Break}" xmlns:svgpositioningcontrols="clr-namespace:DiscSoft.NET.Common.View.SVGPositioningControls;assembly=DiscSoft.NET.Common"
+					SVGElementName="Break" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Snapshot}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.BrowserSearch}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.BrowserStop}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.BrowserFavorites}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.BrowserRefresh}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.BrowserBack}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.BrowserForward}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Escape}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F1}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F2}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F3}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F4}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F5}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F6}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F7}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F8}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F9}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F9}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F10}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F11}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F12}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F13}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F14}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F15}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F16}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F17}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F18}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F19}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F20}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F21}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F22}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F23}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F24}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Scroll}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.OemTilde}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D1}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D2}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D3}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D4}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D5}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D6}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D7}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D8}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D9}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D0}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.OemMinus}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.OemPlus}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Back}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Insert}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Home}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.PageUp}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Tab}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Q}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.W}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.E}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.R}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.T}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Y}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.U}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.I}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.O}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.P}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.OemOpenBrackets}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.OemCloseBrackets}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Oem5}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Delete}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.End}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.PageDown}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.CapsLock}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.A}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.S}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.D}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.F}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.G}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.H}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.J}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.K}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.L}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.OemSemicolon}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.OemQuotes}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Enter}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.LeftShift}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Z}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.X}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.C}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.V}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.B}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.N}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.M}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.OemComma}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.OemPeriod}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.OemQuestion}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.RightShift}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.LeftCtrl}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.LWin}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.LeftAlt}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Space}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.RightAlt}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.RWin}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Apps}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.RightCtrl}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Left}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Up}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Right}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Down}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumLock}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Divide}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Multiply}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Subtract}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad7}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad8}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad9}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Add}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad4}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad5}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad6}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad6}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad1}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad2}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad3}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.NumPad0}" />
+				<keyboard:MacroKeyboardAttachedButton
+					Key="{x:Static Key.Decimal}" />
+				<keyboard:MacroKeyboardAttachedButton
+					KeyScanCode="{x:Static keyScanCodes:KeyScanCodeV2.NumpadEnter}"
+					SVGElementName="NumEnter" />
+			</views1:SVGContainerGrid>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

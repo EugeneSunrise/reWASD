@@ -1,0 +1,529 @@
+<bindingFrameViews:BaseBFView
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews.BFOverlayMenu" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:bindingFrame="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame" xmlns:bindingFrameViews="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews" xmlns:buttonBinding="clr-namespace:reWASDUI.Controls.XBBindingControls.ButtonBinding" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:controls1="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:textBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.TextBoxes;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:reWASDCommon.Utils.Converters;assembly=reWASDCommon">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingFrameViews:BFOverlayMenu}">
+			<StackPanel>
+				<Border
+					FrameworkElement.Height="34"
+					Border.BorderBrush="{DynamicResource ContentBorderBrush}"
+					Border.BorderThickness="0,1,0,1">
+					<textBoxes:BorderlessBtnActivatedTextBox
+						FrameworkElement.Margin="10,0,0,0"
+						ButtonHeight="14"
+						ButtonWidth="14"
+						Control.Foreground="{DynamicResource ForegroundBrush}"
+						MaxLength="21"
+						WaterMarkForeground="{DynamicResource DisabledControlForegroundColor}"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						SVGHighlightBrush="{Binding GameProfilesService.OverlayCircleBindingCollection.CollectionBrushHighlighted}"
+						SVGRecolorBrush="{Binding GameProfilesService.OverlayCircleBindingCollection.CollectionBrush}"
+						Text="{Binding XBBinding.CurrentActivatorXBBinding.Description, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+						WaterMarkText="{localization:Translate {x:Static s:StringConsts.STR_ADD_DESCRIPTION}}" />
+				</Border>
+				<StackPanel
+					FrameworkElement.Margin="10,0,10,0"
+					UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.IsSubmenuOn, Converter={converters1:InvertedBooleanToVisibilityConverter}}">
+					<buttonBinding:SingleButtonBinding
+						FrameworkElement.Margin="0,0,0,10"
+						attachedBehaviours:FocusBehavior.InitialyFocused="True"
+						attachedBehaviours:FocusBehavior.VisibleFocused="True"
+						XBBinding="{TemplateBinding bindingFrameViews:BFOverlayMenu.XBBinding}"
+						AllowKeyboardHooks="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						ControlsBorderBrush="{Binding GameProfilesService.OverlayCircleBindingCollection.CollectionBrush}"
+						CurrentVirtualGamepad="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType}"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						TitleKeyMap="{localization:Translate {x:Static s:StringConsts.STR_REWASD_MAPPING}}" />
+					<Grid
+						FrameworkElement.Margin="0,0,0,10">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="0.5*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="0.5*" />
+						</Grid.ColumnDefinitions>
+						<controls:KeyComboButtonUC
+							FrameworkElement.Margin="0,0,5,0"
+							XBBinding="{TemplateBinding bindingFrameViews:BFOverlayMenu.XBBinding}" />
+						<controls:RumbleButtonUC
+							Grid.Column="1"
+							FrameworkElement.Margin="5,0,0,0" />
+					</Grid>
+					<bindingFrame:TurboToggle
+						FrameworkElement.Margin="0,0,0,10"
+						XBBinding="{TemplateBinding bindingFrameViews:BFOverlayMenu.XBBinding}"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}" />
+				</StackPanel>
+				<Border
+					Border.BorderBrush="{DynamicResource ContentBorderBrush}"
+					Border.BorderThickness="0,1,0,0"
+					UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+					<StackPanel
+						FrameworkElement.Margin="0,10,10,10">
+						<TextBlock
+							FrameworkElement.Margin="10,0,0,0"
+							FrameworkElement.VerticalAlignment="Center"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text="Sector settings" />
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									ColumnDefinition.Width="auto" />
+								<ColumnDefinition
+									ColumnDefinition.Width="*" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition
+									RowDefinition.Height="*" />
+								<RowDefinition
+									RowDefinition.Height="*" />
+							</Grid.RowDefinitions>
+							<Border
+								FrameworkElement.Name="SectorPreview"
+								FrameworkElement.Width="64"
+								Grid.Row="0"
+								Grid.Column="0"
+								Grid.RowSpan="2"
+								FrameworkElement.Height="64"
+								FrameworkElement.Margin="10,0,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Center"
+								Border.BorderBrush="{DynamicResource CheckBoxDefaultDrawingBrush}"
+								Border.BorderThickness="1">
+								<Border
+									FrameworkElement.Width="44"
+									FrameworkElement.Height="44"
+									CornerRadius="99"
+									FrameworkElement.HorizontalAlignment="Stretch"
+									FrameworkElement.VerticalAlignment="Stretch">
+									<Border.Background>
+										<MultiBinding
+											Converter="{converters:ColorToSolidBrushConverter}">
+											<Binding
+												Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.SectorColor.A" />
+											<Binding
+												Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.SectorColor.R" />
+											<Binding
+												Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.SectorColor.G" />
+											<Binding
+												Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.SectorColor.B" />
+										</MultiBinding>
+									</Border.Background>
+									<recolorableImages:RecolorableSVG
+										FrameworkElement.HorizontalAlignment="Center"
+										FrameworkElement.VerticalAlignment="Center"
+										FrameworkElement.Width="28"
+										FrameworkElement.Height="28"
+										IsColorShift="True"
+										Drawing="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.SelectedIcon.Drawing}">
+										<recolorableImages:RecolorableSVG.ColorShiftBrush>
+											<MultiBinding>
+												<MultiBinding.Converter>
+													<converters2:BrightnessColorConverter />
+												</MultiBinding.Converter>
+												<Binding
+													Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.SectorColor.A" />
+												<Binding
+													Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.SectorColor.R" />
+												<Binding
+													Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.SectorColor.G" />
+												<Binding
+													Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.SectorColor.B" />
+											</MultiBinding>
+										</recolorableImages:RecolorableSVG.ColorShiftBrush>
+									</recolorableImages:RecolorableSVG>
+								</Border>
+							</Border>
+							<buttons:ColoredButton
+								Grid.Row="0"
+								Grid.Column="1"
+								FrameworkElement.Height="28"
+								FrameworkElement.Margin="15,-2,0,2"
+								FrameworkElement.VerticalAlignment="Stretch"
+								FrameworkElement.HorizontalAlignment="Stretch"
+								ContentControl.Content="Set Icon &gt;"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+								ButtonBase.Command="{Binding GameProfilesService.RadialMenuIconSelectorCommand}" />
+							<buttons:ColoredButton
+								Name="btnChangeColor"
+								Grid.Row="1"
+								Grid.Column="1"
+								FrameworkElement.Height="28"
+								FrameworkElement.Margin="15,2,0,-2"
+								FrameworkElement.VerticalAlignment="Stretch"
+								FrameworkElement.HorizontalAlignment="Stretch"
+								ContentControl.Content="Set Color &gt;"
+								GroupName="color"
+								IsTriggerSelfOnClick="True"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								UntriggerSelfOnUnload="True">
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+							<StackPanel
+								Grid.Row="1"
+								Grid.Column="1"
+								Orientation="Horizontal"
+								UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.owner.IsSubmenu, Converter={converters:InverseBooleanConverter}}">
+								<controls1:ProperPopup
+									Name="popupColorPicker"
+									AllowsTransparency="True"
+									Popup.Placement="Left"
+									StaysOpen="False"
+									VerticalOffset="-113"
+									PlacementTarget="{Binding ElementName=SectorPreview}">
+									<Popup.IsOpen>
+										<MultiBinding
+											Converter="{converters:MultiBooleanAndConverter}">
+											<Binding
+												Path="IsTriggered"
+												ElementName="btnChangeColor" />
+											<Binding
+												Path="IsVisible"
+												Mode="OneWay"
+												RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=bindingFrameViews:BFOverlayMenu}" />
+										</MultiBinding>
+									</Popup.IsOpen>
+									<StackPanel
+										Orientation="Horizontal">
+										<controls1:zColorPicker
+											Control.Background="{DynamicResource ContentBackground}"
+											Control.BorderBrush="{DynamicResource ContentBorderBrush}"
+											IsAlphaSelectionAvailable="False"
+											IsMonochromeMode="False"
+											PredefinedColors="{x:Static infrastructure:Constants.SectorsColorCollection}"
+											Control.Foreground="{Binding GameProfilesService.OverlayCircleBindingCollection.CollectionBrush}"
+											Color="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.SectorColor, Mode=TwoWay, IsAsync=True}" />
+										<Border
+											Border.Background="#00FFFFFF">
+											<Border
+												FrameworkElement.Width="57"
+												FrameworkElement.Height="1"
+												Border.Background="{Binding GameProfilesService.OverlayCircleBindingCollection.CollectionBrush}" />
+										</Border>
+									</StackPanel>
+								</controls1:ProperPopup>
+							</StackPanel>
+						</Grid>
+						<Border>
+							<checkBoxes:FillCheckBox
+								FrameworkElement.Margin="10,12,0,5"
+								FrameworkElement.Style="{DynamicResource OverlayShiftColoredCheckBox}"
+								ContentControl.Content="Close menu on Apply"
+								IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.IsCloseOnApply}" />
+						</Border>
+					</StackPanel>
+				</Border>
+				<Border
+					Border.BorderBrush="{DynamicResource ContentBorderBrush}"
+					Border.BorderThickness="0,1,0,0"
+					UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+					UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.IsSubmenu, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+					<StackPanel
+						FrameworkElement.Margin="10,0,10,10">
+						<TextBlock
+							FrameworkElement.Margin="0,8,0,2"
+							FrameworkElement.VerticalAlignment="Center"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text="Sector control" />
+						<UniformGrid
+							FrameworkElement.Margin="-5"
+							Columns="3"
+							DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type bindingFrame:BindingFrameUC}}}">
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.AddSectorCommandPrev}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource AddPrevSector}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0} &amp;&amp; {1})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.IsPlusButtonEnabled" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.AddSectorCommandNext}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource AddNextSector}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0} &amp;&amp; {1})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.IsPlusButtonEnabled" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.IsSubmenuOn, Converter={converters:InvertedBooleanToVisibilityConverter}}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.AddSubmenuCommand}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}"
+								UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource AddSubMenu}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.IsSubmenuOn, Converter={converters:BooleanToVisibilityConverter}}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.SubmenuRemoveCommand}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}"
+								UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource DeleteSubMenu}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.MovePrevCommand}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource MovePrevSector}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.MoveNextCommand}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource MoveNextSector}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.RemoveSectorCommand}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource DeleteSector}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0} &amp;&amp; {1})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.IsMinusButtonEnabled" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+						</UniformGrid>
+					</StackPanel>
+				</Border>
+				<Border
+					Border.BorderBrush="{DynamicResource ContentBorderBrush}"
+					Border.BorderThickness="0,1,0,0"
+					UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+					UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.IsSubmenu, Converter={converters:BooleanToVisibilityConverter}}">
+					<StackPanel
+						FrameworkElement.Margin="10,0,10,10">
+						<TextBlock
+							FrameworkElement.Margin="0,8,0,2"
+							FrameworkElement.VerticalAlignment="Center"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text="Subsector control" />
+						<UniformGrid
+							FrameworkElement.Margin="-5"
+							Columns="3"
+							DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type bindingFrame:BindingFrameUC}}}">
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.AddSectorCommandPrev}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource AddPrevSubSector}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0} &amp;&amp; {1})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.IsPlusButtonEnabled" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.AddSectorCommandNext}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource AddNextSubSector}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0} &amp;&amp; {1})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.IsPlusButtonEnabled" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.RemoveSectorCommand}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource DeleteSubSector}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0} &amp;&amp; {1})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.IsMinusButtonEnabled" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.MovePrevCommandWithCanExecute}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource MovePrevSubSector}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="5"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Height="30"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.MoveNextCommandWithCanExecute}"
+								ButtonBase.CommandParameter="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.MainOrSubmenu.CurrentSector.NumberSector}">
+								<ContentControl.Content>
+									<recolorableImages:RecolorableSVG
+										Drawing="{StaticResource MoveNextSubSector}"
+										FrameworkElement.Height="16"
+										FrameworkElement.Width="16" />
+								</ContentControl.Content>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										ConverterParameter="({0})"
+										Converter="{converters:MultiBooleanParametrizedConverter}">
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+						</UniformGrid>
+					</StackPanel>
+				</Border>
+			</StackPanel>
+		</ControlTemplate>
+	</Control.Template>
+</bindingFrameViews:BaseBFView>

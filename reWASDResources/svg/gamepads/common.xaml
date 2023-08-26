@@ -1,0 +1,234 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="Common/GamepadAzeronCyborgFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronCyborgFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronCyborgLeftyFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronCyborgLeftyFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronCyroFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronCyroFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronCyroLeftyFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronCyroLeftyFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronLeftyFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadAzeronLeftyFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadDS3Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadDS3FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadDS4Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadDS4FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadDualSenseFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadDualSenseFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadDualSenseEdgeFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadDualSenseEdgeFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadGameCubeFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadGameCubeFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadGameSirG7Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadGameSirG7FlipBack.xaml " />
+		<ResourceDictionary
+			Source="Common/GamepadGoogleStadiaFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadGoogleStadiaFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadLogitechFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadLogitechFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNavFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNavFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNJConFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNJConFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNSProFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNSProFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadSNES_NSOFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadSNESFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadValveSteamDeckFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadValveSteamDeckFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadWiiRemoteFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadWiiRemoteFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadWiiProFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadWiiProFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadWiiNunchukFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadWiiNunchukFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadControllerTypeGeneric12bFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadControllerTypeGeneric12bFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadControllerTypeGeneric13bFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadControllerTypeGeneric13bFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadControllerTypeGeneric14bFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadControllerTypeGeneric14bFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadWiiClassicFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNESFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNESJapaneseversionIFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNESJapaneseversionIIFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNvidiaShield2015Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNvidiaShield2015FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNvidiaShield2017Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadNvidiaShield2017FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadPowerAMOGAXP5-XPlusFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadPowerAMOGAXP5-XPlusFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadRazerWolverineV2Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadRazerWolverineV2FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadSegaGenesisFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadSegaGenesisJapaneseEditionFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadSteamFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadSteamFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/EngineControllerControlPadFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/EngineControllerControlPadFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/EngineControllerTouchpadFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/EngineControllerGamepadFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadSwitchOnlineN64Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadSwitchOnlineN64FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadThrustmasterDualTriggerFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadThrustmasterDualTriggerFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXB360Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXB360FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXBEliteFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXBEliteFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXBElite2Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXBElite2FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXBOneFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXBOneFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXBOneSeriesXFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXBOneSeriesXFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXimNexusFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadXimNexusFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadHoriWiredMiniFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadHoriWiredMiniFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadHoriFightingCommanderOctaPSFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadHoriFightingCommanderOctaPSFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadHoriFightingCommanderOctaPSPCFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadHoriFightingCommanderOctaPSPCFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadHoriFightingCommanderOctaXboxFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadHoriFightingCommanderOctaXboxFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadiPegaPG-9023Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadiPegaPG-9023FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/Keyboard.xaml" />
+		<ResourceDictionary
+			Source="Common/MouseSettings.xaml" />
+		<ResourceDictionary
+			Source="Common/Pointer.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadRazerRaijuMobileFlip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadRazerRaijuMobileFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadThrustmasterDualAnalog4Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadThrustmasterDualAnalog4FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadFlydigiApex1Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadFlydigiApex1FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadFlydigiApex2Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadFlydigiApex2FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadFlydigiApex3Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadFlydigiApex3FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadFlydigiVader2Flip.xaml" />
+		<ResourceDictionary
+			Source="Common/GamepadFlydigiVader2FlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/EngineControllerMobileMouse+KeyboardFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/EngineControllerMobileKeyboardFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/EngineControllerMobileMouseFlipBack.xaml" />
+		<ResourceDictionary
+			Source="Common/EngineControllerMouseTouchpadFlipBack.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

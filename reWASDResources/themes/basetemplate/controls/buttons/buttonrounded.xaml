@@ -1,0 +1,65 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="../../ImplicitStyles/SVGButtonStyle.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		x:Key="ButtonRounded"
+		BasedOn="{StaticResource {x:Type buttons:SVGButton}}"
+		TargetType="{x:Type buttons:SVGButton}">
+		<Setter
+			Property="Control.Foreground"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="Control.Background"
+			Value="#5c5c5b" />
+		<Setter
+			Property="buttons:BaseColoredButton.HighlightedForeground"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="buttons:BaseColoredButton.HighlightedBackground"
+			Value="#FF000000" />
+		<Setter
+			Property="buttons:BaseColoredButton.PressedForeground"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="buttons:BaseColoredButton.PressedBackground"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="buttons:BaseColoredButton.TriggeredForeground"
+			Value="#FF000000" />
+		<Setter
+			Property="buttons:BaseColoredButton.TriggeredBackground"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="buttons:SVGButton.SVGMargin"
+			Value="3" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="2,0,0,0" />
+		<Setter
+			Property="buttons:BaseColoredButton.CornerRadius"
+			Value="10" />
+		<Setter
+			Property="buttons:SVGButton.SVGWidth"
+			Value="13" />
+		<Setter
+			Property="buttons:SVGButton.SVGHeight"
+			Value="13" />
+		<Setter
+			Property="FrameworkElement.Width"
+			Value="20" />
+		<Setter
+			Property="FrameworkElement.Height"
+			Value="20" />
+		<Setter
+			Property="buttons:SVGButton.Drawing"
+			Value="{DynamicResource ManualSetting}" />
+		<Setter
+			Property="buttons:BaseColoredButton.IsTriggerSelfOnClick"
+			Value="True" />
+		<Setter
+			Property="buttons:BaseColoredButton.UntriggerSelfOnUnload"
+			Value="True" />
+	</Style>
+</ResourceDictionary>

@@ -1,0 +1,194 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesOverlayOverlaySettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:multiRangeSlider="clr-namespace:DiscSoft.NET.Common.View.Controls.MultiRangeSlider;assembly=DiscSoft.NET.Common" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	x:Name="ucPreferencesOverlayNotifications" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<StackPanel>
+		<checkBoxes:FillCheckBox
+			FrameworkElement.Name="ShowOverlayMappings"
+			FrameworkElement.Margin="0,18,0,0"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_OVERLAY_STR_SHOW_OVERLAY_MAPPINGS}}"
+			IsChecked="{Binding ShowOverlayMappings}"
+			x:Name="ShowOverlayMappings" />
+		<checkBoxes:FillCheckBox
+			FrameworkElement.Name="ShowOverlayDescriptions"
+			FrameworkElement.Margin="0,8,0,0"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_OVERLAY_STR_SHOW_OVERLAY_DESCRIPTIONS}}"
+			IsChecked="{Binding ShowOverlayDescriptions}"
+			x:Name="ShowOverlayDescriptions" />
+		<Expander
+			FrameworkElement.Name="OverlayPosition"
+			FrameworkElement.Margin="0,14,0,0"
+			HeaderedContentControl.Header="{l:Translate {x:Static s:StringConsts.STR_OVERLAY_POSITION}}"
+			UIElement.IsEnabled="{Binding ShowMessagesAndOverlay}"
+			IsExpanded="{Binding ExpandPosition}"
+			x:Name="OverlayPosition">
+			<StackPanel
+				FrameworkElement.Margin="17,0,0,0">
+				<comboBoxes:ColoredComboBox
+					FrameworkElement.Name="MonitorsCB"
+					FrameworkElement.Width="220"
+					FrameworkElement.Margin="0,8,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					ItemsControl.ItemsSource="{Binding ParentVM.Monitors}"
+					SelectedItem="{Binding SelectedMonitor}"
+					UIElement.Visibility="{Binding ParentVM.IsManyMonitors, Converter={converters:BooleanToVisibilityConverter}}"
+					x:Name="MonitorsCB" />
+				<Grid
+					FrameworkElement.HorizontalAlignment="Left">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+					</Grid.RowDefinitions>
+					<RadioButton
+						FrameworkElement.Name="OverlayAlignTopLeft"
+						FrameworkElement.Margin="0,0,8,0"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_OVERLAY_STR_OVERLAY_UPPER_LEFT}}"
+						IsChecked="{Binding OverlayAlignTopLeft}"
+						x:Name="OverlayAlignTopLeft" />
+					<RadioButton
+						FrameworkElement.Name="OverlayAlignTopRight"
+						Grid.Column="1"
+						FrameworkElement.Margin="0,0,8,0"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_OVERLAY_STR_OVERLAY_UPPER_RIGHT}}"
+						IsChecked="{Binding OverlayAlignTopRight}"
+						x:Name="OverlayAlignTopRight" />
+					<RadioButton
+						FrameworkElement.Name="OverlayAlignCenter"
+						Grid.Column="2"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_OVERLAY_STR_OVERLAY_CENTER}}"
+						IsChecked="{Binding OverlayAlignCenter}"
+						x:Name="OverlayAlignCenter" />
+					<RadioButton
+						FrameworkElement.Name="OverlayAlignBottomLeft"
+						Grid.Row="1"
+						FrameworkElement.Margin="0,0,8,0"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_OVERLAY_STR_OVERLAY_BOTTOM_LEFT}}"
+						IsChecked="{Binding OverlayAlignBottomLeft}"
+						x:Name="OverlayAlignBottomLeft" />
+					<RadioButton
+						FrameworkElement.Name="OverlayAlignBottomRight"
+						Grid.Row="1"
+						Grid.Column="1"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_OVERLAY_STR_OVERLAY_BOTTOM_RIGHT}}"
+						IsChecked="{Binding OverlayAlignBottomRight}"
+						x:Name="OverlayAlignBottomRight" />
+				</Grid>
+			</StackPanel>
+		</Expander>
+		<Expander
+			FrameworkElement.Name="OverlayAdjustment"
+			FrameworkElement.Margin="0,8,0,0"
+			HeaderedContentControl.Header="{l:Translate {x:Static s:StringConsts.STR_ADJUSTMENTS}}"
+			IsExpanded="{Binding ExpandAdjustment}"
+			x:Name="OverlayAdjustment">
+			<StackPanel
+				FrameworkElement.Margin="17,0,0,0">
+				<TextBlock
+					FrameworkElement.Margin="0,10,0,0"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_OVERLAY_STR_OVERLAY_CIRCLE_SIZE}}" />
+				<multiRangeSlider:MultiRangeSlider
+					Control.Background="#00FFFFFF"
+					Maximum="300"
+					Minimum="90"
+					ThumbWidth="5"
+					Units="">
+					<multiRangeSlider:MultiRangeSlider.Items>
+						<multiRangeSlider:MultiRangeSliderItem
+							IsThumbHitTestVisible="False"
+							LeftValue="90"
+							RightBackground="{DynamicResource Shift2Brush}"
+							ThumbBackground="{DynamicResource Shift2Brush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}" />
+						<multiRangeSlider:MultiRangeSliderItem
+							IsShowValueInTooltip="True"
+							RightBackground="#FF808080"
+							ThumbBackground="{DynamicResource Shift2Brush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							Header="{l:Translate {x:Static s:StringConsts.STR_VALUE}}"
+							LeftValue="{Binding Scale, Mode=TwoWay}"
+							RightValue="{Binding Scale, Mode=TwoWay}" />
+						<multiRangeSlider:MultiRangeSliderItem
+							IsThumbHitTestVisible="False"
+							LeftValue="300"
+							RightBackground="#FF808080"
+							RightValue="300"
+							ThumbBackground="#FF808080"
+							ThumbStyle="{StaticResource {x:Type Thumb}}" />
+					</multiRangeSlider:MultiRangeSlider.Items>
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								x:Key="DoubleUpDownMultiRangeItem"
+								BasedOn="{StaticResource {x:Type toolkit:DoubleUpDown}}"
+								TargetType="{x:Type DoubleUpDown}">
+								<Setter
+									Property="FrameworkElement.MinWidth"
+									Value="70" />
+								<Setter
+									Property="FrameworkElement.MaxWidth"
+									Value="70" />
+								<Setter xmlns:primitives="clr-namespace:Xceed.Wpf.Toolkit.Primitives;assembly=Xceed.Wpf.Toolkit.NET5"
+									Property="primitives:UpDownBase_x0060_1.ClipValueToMinMax"
+									Value="True" />
+								<Setter
+									Property="UpDownBase_x0060_1.DisplayDefaultValueOnEmptyText"
+									Value="True" />
+								<Setter xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit.NET5"
+									Property="toolkit:NumericUpDown_x0060_1.FormatString"
+									Value="F0" />
+								<Setter xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit.NET5"
+									Property="toolkit:CommonNumericUpDown_x0060_1.ParsingNumberStyle"
+									Value="Integer" />
+								<Setter xmlns:primitives="clr-namespace:Xceed.Wpf.Toolkit.Primitives;assembly=Xceed.Wpf.Toolkit.NET5"
+									Property="primitives:InputBase.TextAlignment"
+									Value="Right" />
+								<Setter
+									Property="NumericUpDown_x0060_1.Increment"
+									Value="10" />
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+				</multiRangeSlider:MultiRangeSlider>
+			</StackPanel>
+		</Expander>
+		<Border
+			FrameworkElement.Margin="0,18,0,0"
+			FrameworkElement.HorizontalAlignment="Left"
+			Border.BorderBrush="{DynamicResource CreamBrush}"
+			Border.BorderThickness="1"
+			FrameworkElement.Width="{Binding ScreenWidth}"
+			FrameworkElement.Height="{Binding ScreenHeight}">
+			<Grid>
+				<Image
+					SnapsToDevicePixels="True"
+					UseLayoutRounding="True"
+					FrameworkElement.Height="{Binding OverlaySize}"
+					FrameworkElement.HorizontalAlignment="{Binding OverlayHorizontalAlign}"
+					FrameworkElement.VerticalAlignment="{Binding OverlayVerticalAlign}"
+					Image.Source="{Binding PngPreview}" />
+				<TextBlock
+					FrameworkElement.Margin="4,2"
+					TextBlock.FontSize="15"
+					TextBlock.Foreground="#FF808080"
+					Opacity="0.8"
+					FrameworkElement.HorizontalAlignment="{Binding ScreenResolutionHorizontalAlign}"
+					FrameworkElement.VerticalAlignment="{Binding ScreenResolutionVerticalAlign}"
+					TextBlock.Text="{Binding ScreenResolutionText}" />
+			</Grid>
+		</Border>
+	</StackPanel>
+</UserControl>

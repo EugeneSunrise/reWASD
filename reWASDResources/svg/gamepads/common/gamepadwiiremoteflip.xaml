@@ -1,0 +1,47 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="GamepadWiiRemoteFlip" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="GamepadWiiRemoteFlip">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#00FFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,36,36" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup
+						svr:SvgObject.Id="GamepadWiiRemoteFlip">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M21.197,0L14.802,0C13.908,0,13.18,0.728,13.18,1.622L13.18,34.378C13.18,35.273,13.908,36,14.802,36L21.197,36C22.092,36,22.819,35.272,22.819,34.378L22.819,1.622C22.819,0.728,22.092,0,21.197,0z M14.803,1L21.198,1C21.541,1,21.82,1.279,21.82,1.622L21.82,12.291 14.182,12.291 14.182,1.622C14.181,1.279,14.46,1,14.803,1z M20.391,33.582L20.391,31.582 15.61,31.582 15.61,33.582 14.182,33.582 14.182,13.291 21.82,13.291 21.82,33.583 20.391,33.583z M19.391,33.582L16.61,33.582 16.61,32.582 19.391,32.582 19.391,33.582z M21.197,35L14.802,35C14.532,35,14.307,34.824,14.222,34.582L15.609,34.582 20.39,34.582 21.777,34.582C21.693,34.824,21.468,35,21.197,35z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M16.99,10.767L19.01,10.767C19.409,10.767,19.735,10.442,19.735,10.042L19.735,6.564C19.735,6.165,19.41,5.84,19.01,5.84L16.99,5.84C16.591,5.84,16.266,6.165,16.266,6.564L16.266,10.042C16.266,10.441,16.591,10.767,16.99,10.767z M17.266,6.84L18.734,6.84 18.734,9.766 17.266,9.766 17.266,6.84z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

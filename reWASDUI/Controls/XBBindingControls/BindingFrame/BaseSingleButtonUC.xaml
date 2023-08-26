@@ -1,0 +1,139 @@
+<UserControl
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.BaseSingleButtonUC" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base1="clr-namespace:reWASDUI.ViewModels.Base" xmlns:bindingFrame="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame" xmlns:buttonBinding="clr-namespace:reWASDUI.Controls.XBBindingControls.ButtonBinding" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:me="clr-namespace:DiscSoft.NET.Common.Utils.Markup_Extensions;assembly=DiscSoft.NET.Common" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:textBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.TextBoxes;assembly=DiscSoft.NET.Common">
+	<FrameworkElement.Style>
+		<Style
+			TargetType="{x:Type bindingFrame:BaseSingleButtonUC}">
+			<Setter
+				Property="Control.Template">
+				<Setter.Value>
+					<ControlTemplate
+						TargetType="{x:Type bindingFrame:BaseSingleButtonUC}">
+						<StackPanel>
+							<bindingFrame:ActivatorSwitcher
+								UIElement.Visibility="{TemplateBinding bindingFrame:BaseSingleButtonUC.ActivatorSwitcherVisibility}"
+								XBBinding="{TemplateBinding bindingFrame:BaseSingleButtonUC.XBBinding}" />
+							<controls:ShiftButtonUC
+								x:Name="ShiftButton"
+								UIElement.Visibility="{TemplateBinding bindingFrame:BaseSingleButtonUC.ShowFullXBBinding}" />
+							<Border
+								FrameworkElement.Height="34"
+								Border.BorderBrush="{DynamicResource ContentBorderBrush}"
+								Border.BorderThickness="0,1,0,1"
+								UIElement.Visibility="{TemplateBinding bindingFrame:BaseSingleButtonUC.ShowFullXBBinding}">
+								<textBoxes:BorderlessBtnActivatedTextBox
+									FrameworkElement.Margin="10,0,0,0"
+									ButtonHeight="14"
+									ButtonWidth="14"
+									Control.Foreground="{DynamicResource ForegroundBrush}"
+									MaxLength="21"
+									SVGHighlightBrush="{DynamicResource CreamBrushHighlighted}"
+									WaterMarkForeground="{DynamicResource DisabledControlForegroundColor}"
+									UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+									SVGRecolorBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}"
+									Text="{Binding XBBinding.CurrentActivatorXBBinding.Description, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+									WaterMarkText="{localization:Translate {x:Static s:StringConsts.STR_ADD_DESCRIPTION}}" />
+							</Border>
+							<Grid
+								UIElement.Visibility="{Binding XBBinding.CurrentActivatorXBBinding.IsHideMappings, Converter={converters:BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+								<TextBlock
+									FrameworkElement.Margin="10,6,6,10"
+									TextBlock.TextWrapping="Wrap"
+									TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_SET_MAPPING_FOR_SHIFT_MAIN_DESCRIPTION}}"
+									UIElement.Visibility="{Binding XBBinding.CurrentActivatorXBBinding.IsJumpToShift, Converter={converters:BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
+								<TextBlock
+									FrameworkElement.Margin="10,6,6,10"
+									TextBlock.TextWrapping="Wrap">
+									<UIElement.Visibility>
+										<MultiBinding
+											Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+											<Binding
+												Path="XBBinding.CurrentActivatorXBBinding.JumpToCurrentLayerExistFromSameActivator"
+												RelativeSource="{RelativeSource TemplatedParent}" />
+											<Binding
+												Path="XBBinding.CurrentActivatorXBBinding.IsJumpToShift"
+												Converter="{converters:InverseBooleanConverter}"
+												RelativeSource="{RelativeSource TemplatedParent}" />
+										</MultiBinding>
+									</UIElement.Visibility>
+									<Run
+										Run.Text="{localization:Translate {x:Static s:StringConsts.STR_SET_MAPPING_FOR_SHIFT_DESCRIPTION}, StringFormatRule=div1, Mode=OneWay}" /> <InlineUIContainer><recolorableImages:RecolorableSVG
+											Name="shiftIcon"
+											FrameworkElement.Margin="0,0,2,0"
+											IsColorShift="True"
+											ColorShiftBrush="{Binding XBBinding.CurrentActivatorXBBinding.ShiftOfJumpToCurrentLayer, Mode=OneWay, Converter={converters2:ShiftModificatorNumToBrushConverter}, RelativeSource={RelativeSource TemplatedParent}}"
+											Drawing="{Binding XBBinding.CurrentActivatorXBBinding.ShiftOfJumpToCurrentLayer, Mode=OneWay, Converter={converters2:ShiftNumToDrawingConverter}, RelativeSource={RelativeSource TemplatedParent}}" /></InlineUIContainer> <Run
+										Run.Text="{Binding XBBinding.CurrentActivatorXBBinding.ShiftOfJumpToCurrentLayer, Mode=OneWay, Converter={converters2:ShiftNumToTextConverter}, RelativeSource={RelativeSource TemplatedParent}}" /> <Run
+										Run.Text="{localization:Translate {x:Static s:StringConsts.STR_SET_MAPPING_FOR_SHIFT_DESCRIPTION}, StringFormatRule=div2, Mode=OneWay}" /></TextBlock>
+							</Grid>
+							<StackPanel
+								UIElement.Visibility="{Binding XBBinding.CurrentActivatorXBBinding.IsHideMappings, Converter={converters:InvertedBooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+								<StackPanel
+									FrameworkElement.Margin="10,0,10,0"
+									UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+									UIElement.Visibility="{Binding XBBinding.IsMouseScrollDeltaShouldBeShown, Converter={converters:BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+									<TextBlock
+										Name="tbMouseScrollDelta"
+										FrameworkElement.Margin="0"
+										FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+										TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_NOUSE_SCROLL_DELTA}}" />
+									<controls:ScrollableSliderWithManual
+										x:Name="sliderMouseScrollDelta"
+										IsSnapToTickEnabled="True"
+										ScrollStep="1"
+										ScrollableSliderStyle="{DynamicResource ShiftColoredSliderStyle}"
+										Maximum="{me:CastObjectToDouble {x:Static infrastructure:Constants.MouseScrollDefaultDeltaMaxValue}}"
+										Minimum="{me:CastObjectToDouble {x:Static infrastructure:Constants.MouseScrollDefaultDeltaMinValue}}"
+										ToolTip="{localization:Translate {x:Static s:StringConsts.STR_MOUSE_SCROLL_DELTA_DESCRIPTION}}"
+										Value="{Binding XBBinding.MouseScrollDelta, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+									<checkBoxes:FillCheckBox
+										FrameworkElement.Name="checkboxScrollSameDirections"
+										ButtonBase.CommandParameter="{TemplateBinding bindingFrame:BaseSingleButtonUC.XBBinding}"
+										FrameworkElement.Style="{DynamicResource ShiftColoredCheckBox}"
+										ButtonBase.Command="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.SetSameScrollDeltaCommand}"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_USE_SAME_DIRECTIONS}}"
+										IsChecked="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsSameScrollDelta}" />
+								</StackPanel>
+								<StackPanel
+									FrameworkElement.Margin="10,0,10,0">
+									<buttonBinding:SingleButtonBinding
+										FrameworkElement.Margin="0,0,0,10"
+										IsChangeCurrentBinding="False"
+										attachedBehaviours:FocusBehavior.InitialyFocused="{Binding Path=(attachedBehaviours:FocusBehavior.InitialyFocused), RelativeSource={RelativeSource TemplatedParent}}"
+										AllowKeyboardHooks="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+										ControlsBorderBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}"
+										CurrentVirtualGamepad="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType, Mode=TwoWay}"
+										UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+										TitleKeyMap="{localization:Translate {x:Static s:StringConsts.STR_REWASD_MAPPING}}"
+										XBBinding="{Binding XBBinding, IsAsync=True, RelativeSource={RelativeSource TemplatedParent}}" />
+									<Grid
+										FrameworkElement.Margin="0,0,0,10"
+										UIElement.Visibility="{TemplateBinding bindingFrame:BaseSingleButtonUC.ShowFullXBBinding}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												ColumnDefinition.Width="0.5*" />
+											<ColumnDefinition
+												ColumnDefinition.Width="0.5*" />
+										</Grid.ColumnDefinitions>
+										<controls:KeyComboButtonUC
+											FrameworkElement.Margin="0,0,5,0"
+											XBBinding="{Binding XBBinding, IsAsync=True, RelativeSource={RelativeSource TemplatedParent}}" />
+										<controls:RumbleButtonUC
+											Grid.Column="1"
+											FrameworkElement.Margin="5,0,0,0" />
+									</Grid>
+									<Border
+										UIElement.Visibility="{TemplateBinding bindingFrame:BaseSingleButtonUC.ShowFullXBBinding}">
+										<bindingFrame:TurboToggle
+											FrameworkElement.Margin="0,0,0,10"
+											UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+											XBBinding="{Binding XBBinding, RelativeSource={RelativeSource TemplatedParent}}" />
+									</Border>
+								</StackPanel>
+							</StackPanel>
+						</StackPanel>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</FrameworkElement.Style>
+</UserControl>

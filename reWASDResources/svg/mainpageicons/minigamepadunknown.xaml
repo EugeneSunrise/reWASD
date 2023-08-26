@@ -1,0 +1,86 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="MiniGamepadUnknown" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="MiniGamepadUnknown">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF"
+						svr:SvgObject.Id="_x3F_">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M11.686,18.159L11.651,17.709C11.547,16.775 11.859,15.755 12.724,14.721 13.5,13.807 13.932,13.131 13.932,12.356 13.932,11.473 13.379,10.884 12.291,10.87 11.667,10.87 10.976,11.078 10.544,11.403L10.129,10.319C10.699,9.901 11.685,9.626 12.602,9.626 14.588,9.626 15.487,10.855 15.487,12.167 15.487,13.343 14.831,14.188 14.002,15.172 13.243,16.069 12.964,16.832 13.015,17.715L13.035,18.166 11.688,18.166 11.688,18.159z M11.307,20.578C11.307,19.937 11.739,19.488 12.343,19.488 12.948,19.488 13.364,19.937 13.364,20.578 13.364,21.182 12.966,21.646 12.325,21.646 11.719,21.646 11.307,21.184 11.307,20.578z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						svr:SvgObject.Id="body1">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M19.085,18.41C20.062,19.523 21.474,21.952 22.4,22.129 22.4,22.129 25.008,21.775 25.008,18.416 25.008,15.053 23.248,10.889 22.074,7.814 21.29,6.133 18.052,5.73 18.052,5.73 18.052,5.73 18.011,5.711 17.945,5.711L17.945,5.711C17.799,5.711,17.537,5.771,17.258,6.113" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						svr:SvgObject.Id="body3">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.742,6.124C8.463,5.775 8.2,5.719 8.058,5.719 7.99,5.719 7.948,5.733 7.948,5.733 7.948,5.733 4.706,6.133 3.926,7.821 2.754,10.895 1.042,15.044 1.042,18.409 1.042,21.772 3.608,22.127 3.608,22.127 4.527,21.953 5.94,19.526 6.916,18.414" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						svr:SvgObject.Id="body2">
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M4.748,6.877C4.744,6.861 4.662,6.506 5.211,6.1 5.733,5.713 7.336,4.363 8.405,4.363 8.662,4.363 8.878,4.502 9.109,4.641 9.401,4.824 9.734,4.854 10.241,4.854L15.762,4.854C16.272,4.854 16.605,4.825 16.9,4.641 17.128,4.497 17.345,4.363 17.602,4.363 18.631,4.363 20.249,5.692 20.787,6.093 21.335,6.498 21.265,6.864 21.265,6.877" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#00FFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,26,26" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,26,26" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

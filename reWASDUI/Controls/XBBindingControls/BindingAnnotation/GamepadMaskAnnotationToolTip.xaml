@@ -1,0 +1,13 @@
+<bindingAnnotation:BaseXBBindingAnnotation
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingAnnotation.GamepadMaskAnnotationToolTip" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:bindingAnnotation="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingAnnotation"
+	UIElement.Focusable="False">
+	<StackPanel>
+		<TextBlock
+			FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+			TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_USED_IN_SHORTCUTS}}" />
+		<ItemsControl
+			FrameworkElement.Margin="3"
+			ItemsControl.ItemTemplate="{DynamicResource MaskItemTooltipTemplate}"
+			ItemsControl.ItemsSource="{Binding FilteredMasksForAnnotations, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingAnnotation:BaseXBBindingAnnotation}}" />
+	</StackPanel>
+</bindingAnnotation:BaseXBBindingAnnotation>

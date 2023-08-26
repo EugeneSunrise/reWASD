@@ -1,0 +1,16 @@
+<UserControl
+	x:Class="reWASDUI.Controls.ShiftTooltip" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:controls="clr-namespace:reWASDUI.Controls">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type controls:ShiftTooltip}">
+			<StackPanel>
+				<TextBlock
+					TextBlock.Foreground="{Binding Shift, RelativeSource={RelativeSource TemplatedParent}, Converter={converters2:ShiftModificatorNumToBrushConverter}}"
+					TextBlock.Text="{Binding ShiftHint, RelativeSource={RelativeSource TemplatedParent}}" />
+				<ItemsControl
+					ItemsControl.ItemTemplate="{DynamicResource ActivatorInShiftTooltipTemplate}"
+					ItemsControl.ItemsSource="{Binding Activators, RelativeSource={RelativeSource TemplatedParent}}" />
+			</StackPanel>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

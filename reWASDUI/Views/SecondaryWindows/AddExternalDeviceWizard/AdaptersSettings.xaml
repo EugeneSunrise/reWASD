@@ -1,0 +1,339 @@
+<UserControl
+	x:Class="reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard.AdaptersSettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:addExternalDeviceWizard="clr-namespace:reWASDUI.ViewModels.SecondaryWindows.AddExternalDeviceWizard" xmlns:addExternalDeviceWizard1="clr-namespace:reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dtEngine="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:externalDevices="clr-namespace:XBEliteWPF.Infrastructure.ExternalDevices;assembly=reWASDCommon" xmlns:infrastructure1="clr-namespace:XBEliteWPF.Infrastructure;assembly=reWASDCommon" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common"
+	FrameworkElement.Height="466">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<DataTemplate
+				x:Key="ExternalDeviceNameCollectionDataTemplate"
+				DataType="externalDevices:ExternalDevice">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+					</Grid.ColumnDefinitions>
+					<recolorableImages:RecolorableSVG
+						Name="DeviceTypeImg"
+						FrameworkElement.Width="22"
+						FrameworkElement.Height="22"
+						FrameworkElement.Margin="0,0,10,0"
+						ColorShiftBrush="{DynamicResource CreamBrush}"
+						IsColorShift="True"
+						Drawing="{Binding DeviceType, Converter={converters2:ExternalDeviceTypeToDrawingConverter}}" />
+					<TextBlock
+						Grid.Column="1"
+						FrameworkElement.VerticalAlignment="Center"
+						TextBlock.TextTrimming="CharacterEllipsis"
+						AutomationProperties.AutomationId="{Binding ExternalDeviceFriendlyString}"
+						TextBlock.Text="{Binding Alias}" />
+				</Grid>
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					RowDefinition.Height="108" />
+				<RowDefinition
+					RowDefinition.Height="*" />
+				<RowDefinition
+					RowDefinition.Height="70" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<TextBlock
+				Name="ChooseAdapterForExternalControllerTB"
+				FrameworkElement.Style="{DynamicResource SecondaryWindowHeaderStyle}"
+				TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_CHOOSE_ADAPTER_FOR_EXTERNAL_CONTROLLER}}" />
+			<Grid
+				Row="1"
+				FrameworkElement.Style="{DynamicResource WizardContentGridStyle}">
+				<StackPanel
+					FrameworkElement.VerticalAlignment="Top"
+					Orientation="Vertical">
+					<StackPanel
+						FrameworkElement.HorizontalAlignment="Stretch"
+						FrameworkElement.VerticalAlignment="Top"
+						Orientation="Vertical">
+						<TextBlock
+							Name="AdapterTB"
+							FrameworkElement.VerticalAlignment="Center"
+							FrameworkElement.Style="{DynamicResource WizardTextBlockStyle}"
+							TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_ADAPTER}}" />
+						<comboBoxes:ColoredComboBox
+							Name="comboExternalDevices"
+							FrameworkElement.Height="30"
+							FrameworkElement.Margin="0,4,0,0"
+							Control.FontSize="14"
+							ItemsControl.ItemTemplate="{StaticResource ExternalDeviceNameCollectionDataTemplate}"
+							ItemsControl.ItemsSource="{Binding ExternalDeviceCollection, UpdateSourceTrigger=PropertyChanged}"
+							SelectedIndex="{Binding ExternalDeviceSelectedIndex}"
+							SelectionChanged="OnDeviceSelectionChanged" />
+						<Grid
+							FrameworkElement.Margin="0,4,0,0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto" />
+								<ColumnDefinition
+									ColumnDefinition.Width="*" />
+							</Grid.ColumnDefinitions>
+							<TextBlock
+								Name="tbStatus"
+								FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+								TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_STATUS}}"
+								UIElement.Visibility="{Binding ExternalDeviceStateVisibility, Converter={converters:BooleanToVisibilityConverter}}" />
+							<TextBlock
+								Name="txbBxStatus"
+								Grid.Column="1"
+								FrameworkElement.Margin="5,0,0,0"
+								FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+								TextBlock.TextWrapping="Wrap"
+								TextBlock.Text="{Binding ExternalDeviceState, Converter={converters:EnumLocalizedDescriptionConverter}}"
+								UIElement.Visibility="{Binding ExternalDeviceStateVisibility, Converter={converters:BooleanToVisibilityConverter}}" />
+						</Grid>
+						<checkBoxes:FillCheckBox
+							Name="chkBxOverwrite"
+							FrameworkElement.Margin="20,4,0,0"
+							BulletVerticalAlignment="Center"
+							Control.FontSize="14"
+							ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STR_EXTERNAL_DEVICE_OVERWRITE_PREV_CONFIG}}"
+							IsChecked="{Binding ExternalDeviceOverwritePrevConfig}"
+							UIElement.Visibility="{Binding ExternalDeviceState, ConverterParameter='{x:Static enums:ExternalDeviceState.DeviceIsUsed}', Converter={converters:ValuesAreEqualToVisibilityConverter}}" />
+					</StackPanel>
+					<StackPanel>
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type StackPanel}">
+								<Style.Triggers>
+									<DataTrigger
+										Value="True"
+										Binding="{Binding IsHideClientsAndGamepadAuth}">
+										<Setter
+											Property="UIElement.Visibility"
+											Value="Hidden" />
+									</DataTrigger>
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition
+												Value="True"
+												Binding="{Binding IsBluetoothSelected}" />
+											<Condition
+												Value="{x:Static enums:ExternalDeviceState.DeviceIsOffline}"
+												Binding="{Binding ExternalDeviceState}" />
+										</MultiDataTrigger.Conditions>
+										<Setter
+											Property="UIElement.Visibility"
+											Value="Hidden" />
+									</MultiDataTrigger>
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition
+												Value="True"
+												Binding="{Binding IsEsp32Selected}" />
+											<Condition
+												Value="{x:Static enums:ExternalDeviceState.DeviceIsOffline}"
+												Binding="{Binding ExternalDeviceState}" />
+										</MultiDataTrigger.Conditions>
+										<Setter
+											Property="UIElement.Visibility"
+											Value="Hidden" />
+									</MultiDataTrigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+						<StackPanel
+							Name="spClients"
+							FrameworkElement.Margin="0,10,0,0"
+							FrameworkElement.HorizontalAlignment="Stretch"
+							FrameworkElement.VerticalAlignment="Top"
+							Orientation="Vertical">
+							<TextBlock
+								Name="TargetDeviceTB"
+								FrameworkElement.Style="{DynamicResource WizardTextBlockStyle}"
+								TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_TARGET_DEVICE}}" />
+							<comboBoxes:ColoredComboBox
+								Name="cbxClients"
+								FrameworkElement.Height="30"
+								FrameworkElement.Margin="0,4,0,0"
+								Control.FontSize="14"
+								ItemsControl.ItemsSource="{Binding ExternalClientsCollection}"
+								SelectedIndex="{Binding ExternalClientSelectedIndex}"
+								UIElement.Visibility="{Binding CurrentExternalDevice.HasBluetoothTransport, Converter={converters:BooleanToVisibilityConverter}}"
+								SelectionChanged="OnClientSelectionChanged">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<TextBlock
+											AutomationProperties.AutomationId="{Binding ExternalClientFriendlyString}"
+											TextBlock.Text="{Binding Alias}" />
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</comboBoxes:ColoredComboBox>
+							<TextBlock
+								Name="tblGIMXMessageBlock"
+								FrameworkElement.Margin="0,4,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+								TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_CONNECT_GIMX_TO_TARGET}}"
+								UIElement.Visibility="{Binding CurrentExternalDevice.DeviceType, ConverterParameter='{x:Static enums:ExternalDeviceType.GIMX}', Converter={converters:ValuesAreEqualToVisibilityConverter}}" />
+							<TextBlock
+								Name="tblESP32S2MessageBlock"
+								FrameworkElement.Margin="0,4,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+								TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_ESP32S2_CONNECT_TO}}"
+								UIElement.Visibility="{Binding CurrentExternalDevice.DeviceType, ConverterParameter='{x:Static enums:ExternalDeviceType.ESP32S2}', Converter={converters:ValuesAreEqualToVisibilityConverter}}" />
+						</StackPanel>
+						<StackPanel
+							UIElement.Visibility="{Binding CurrentExternalDevice.DeviceType, ConverterParameter='{x:Static enums:ExternalDeviceType.ESP32S2}', Converter={converters:ValuesAreEqualToVisibilityConverter}}">
+							<comboBoxes:ColoredComboBox
+								Name="ConsoleType"
+								FrameworkElement.Height="30"
+								FrameworkElement.Margin="0,4,0,0"
+								Control.FontSize="14"
+								SelectedIndex="{Binding USBTargetConsoleTypeIndex}">
+								<ComboBoxItem
+									ContentControl.Content="PlayStation 4" />
+								<ComboBoxItem
+									ContentControl.Content="Xbox One, X|S" />
+								<ComboBoxItem
+									ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STR_ANOTHER_USB_TARGET}}" />
+							</comboBoxes:ColoredComboBox>
+						</StackPanel>
+						<StackPanel
+							FrameworkElement.Margin="0,4,0,0"
+							Orientation="Horizontal">
+							<TextBlock
+								Name="StatusDS4TB"
+								FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+								TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_STATUS}}">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+										<Binding
+											Path="IsSonyConsoleClientSelected" />
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType"
+											ConverterParameter="{x:Static enums:VirtualGamepadType.SonyDualshock4}"
+											Converter="{converters:ValuesAreNotEqual}" />
+									</MultiBinding>
+								</UIElement.Visibility>
+							</TextBlock>
+							<TextBlock
+								Name="StatusNintendoTB"
+								FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+								TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_STATUS}}">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+										<Binding
+											Path="IsNintendoSwitchConsoleClientSelected" />
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType"
+											ConverterParameter="{x:Static enums:VirtualGamepadType.NintendoSwitchPro}"
+											Converter="{converters:ValuesAreNotEqual}" />
+									</MultiBinding>
+								</UIElement.Visibility>
+							</TextBlock>
+							<TextBlock
+								Name="txbClientStatus"
+								FrameworkElement.Margin="5,0,0,0"
+								FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+								TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_EXTERNAL_CLIENT_STATUS_VIRTUAL_GAMEPAD_ERROR}}">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+										<Binding
+											Path="IsSonyConsoleClientSelected" />
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType"
+											ConverterParameter="{x:Static enums:VirtualGamepadType.SonyDualshock4}"
+											Converter="{converters:ValuesAreNotEqual}" />
+									</MultiBinding>
+								</UIElement.Visibility>
+							</TextBlock>
+							<TextBlock
+								Name="txbClientStatusNintendo"
+								FrameworkElement.Margin="5,0,0,0"
+								FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+								TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_EXTERNAL_CLIENT_STATUS_VIRTUAL_GAMEPAD_ERROR}}">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+										<Binding
+											Path="IsNintendoSwitchConsoleClientSelected" />
+										<Binding
+											Path="GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType"
+											ConverterParameter="{x:Static enums:VirtualGamepadType.NintendoSwitchPro}"
+											Converter="{converters:ValuesAreNotEqual}" />
+									</MultiBinding>
+								</UIElement.Visibility>
+							</TextBlock>
+						</StackPanel>
+						<StackPanel
+							UIElement.Visibility="{Binding IsHideGamepadAuth, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+							<addExternalDeviceWizard1:SelectAuthGamepadControl
+								x:Name="spAuth"
+								FrameworkElement.Margin="0,10,0,0"
+								FrameworkElement.HorizontalAlignment="Stretch"
+								FrameworkElement.VerticalAlignment="Top" />
+						</StackPanel>
+					</StackPanel>
+				</StackPanel>
+				<TextBlock
+					Name="tbEsp32lToolTip"
+					FrameworkElement.Margin="0,0,0,25"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.VerticalAlignment="Bottom"
+					FrameworkElement.Style="{DynamicResource WizardNoteTextBlockStyle}"
+					TextBlock.TextWrapping="Wrap"
+					TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_SELECT_EXTERNAL_TARGET_TT}}" />
+			</Grid>
+			<Border
+				Grid.Row="2"
+				FrameworkElement.Style="{DynamicResource WizardFooterBorderStyle}">
+				<StackPanel
+					FrameworkElement.HorizontalAlignment="Right"
+					Orientation="Horizontal">
+					<buttons:ColoredButton
+						Name="NextButton"
+						FrameworkElement.Margin="5,0"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding NextCommand}"
+						ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STR_5017_NEXT}}">
+						<UIElement.IsEnabled>
+							<MultiBinding
+								Converter="{converters:MultiBooleanOrConverter}">
+								<Binding
+									Path="CurrentExternalDevice.IsOnlineAndCorrect" />
+								<Binding
+									Path="CurrentExternalDevice.IsDummy" />
+							</MultiBinding>
+						</UIElement.IsEnabled>
+					</buttons:ColoredButton>
+					<buttons:ColoredButton
+						Name="SaveButton"
+						FrameworkElement.Margin="5,0"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static dtEngine:StringConsts.STR_EXTERNAL_DEVICE_STATUS_NOT_READY}}"
+						ButtonBase.Command="{Binding OkCommand}"
+						ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STRING_SAVE}}"
+						UIElement.IsEnabled="{Binding IsSaveEnabled}" />
+					<buttons:ColoredButton
+						Name="CancelButton"
+						FrameworkElement.Margin="5,0,40,0"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding CancelCommand}"
+						ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STR_5005_CANCEL}}" />
+				</StackPanel>
+			</Border>
+		</Grid>
+	</Grid>
+</UserControl>

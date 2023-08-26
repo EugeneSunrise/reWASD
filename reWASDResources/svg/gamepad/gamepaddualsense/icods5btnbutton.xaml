@@ -1,0 +1,41 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoDS5BtnButton" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoDS5BtnButton">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.467,13.411L6.2,12.614 6.2,2.589 10.008,3.573C10.008,3.573 11.969,3.981 11.969,6.762 11.969,9.541 9.911,8.885 9.401,8.584L9.401,5.061C9.401,5.061 9.43,4.528 9.005,4.387 8.579,4.244 8.468,4.705 8.468,4.941 8.468,5.177 8.467,13.411 8.467,13.411z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M5.775,8.672L2.106,9.968C2.106,9.968 0.157,10.62 1.433,11.523 2.708,12.426 5.35,12.131 5.774,11.995L5.774,10.812 4.691,11.227C4.691,11.227 3.823,11.567 3.204,11.298 2.583,11.026 3.504,10.802 3.504,10.802L5.774,9.981 5.774,8.672 5.775,8.672z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.936,13.242L13.445,11.63C13.445,11.63 15,11.156 15,10.531 15,9.906 13.209,9.26 11.566,9.26 9.92,9.26 8.937,9.724 8.937,9.724L8.937,11.065 11.297,10.258C11.297,10.258 12.13,9.929 12.768,10.156 13.405,10.385 12.507,10.65 12.507,10.65L8.936,11.925 8.936,13.242 8.936,13.242z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

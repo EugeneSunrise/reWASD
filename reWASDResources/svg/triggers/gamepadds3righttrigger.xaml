@@ -1,0 +1,276 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="GamepadDS3RightTrigger" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="GamepadDS3RightTrigger">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,468,398.5" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF"
+						svr:SvgObject.Id="trigger">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M265.353,269.403C265.913,269.591 266.48,269.681 267.048,269.681 268.931,269.681 270.87,268.686 272.853,266.707 297.605,237.959 298.583,186.812 298.591,186.305L298.591,186.133 296.546,187.765C296.182,196.335 293.268,239.932 271.389,265.347 269.436,267.296 267.6,268.037 265.983,267.504 260.879,265.811 257.871,252.483 257.136,247.493L257.02,246.691 256.215,246.634C256.104,246.633,245.189,245.791,233.494,237.943L231.855,239.248C242.5,246.561 252.424,248.22 255.277,248.558 255.92,252.477 258.751,267.213 265.353,269.403z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#80FFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M296.546,187.765L298.591,186.133 301.243,184.024 304.503,165.299 298.435,156.591 312.538,154.341 312.78,154.017C313.118,153.568,320.978,142.663,316.134,111.762L316.043,111.184 305.872,107.388C306.934,106.662 307.603,105.322 307.476,102.395 307.15,94.875 306.823,93.706 306.786,93.591L306.702,93.337 306.441,93.267 261.241,81.015C260.931,79.595 259.431,73.973 254.82,72.982 250.583,72.07 243.704,70.686 241.976,70.34L241.976,64.07 206.041,57.523 201.534,65.707 199.932,65.478 198.768,53.345 198.417,53.264C198.309,53.239,187.396,50.796,163.972,51.73L163.972,49.636 118.62,44.728 115.315,48.038 85.8,41.07 85.683,41.1C85.439,41.163,79.788,42.719,79.645,54.548L79.186,54.504 79.09,55.499 241.4,71.246C241.706,71.307 249.83,72.934 254.607,73.961 259.12,74.932 260.302,81.438 260.316,81.503L260.371,81.816 305.883,94.152C305.983,94.764 306.229,96.747 306.477,102.438 306.61,105.5 305.93,106.421 304.617,106.919L304.245,107.044C303.895,107.148 303.516,107.233 303.099,107.335 301.404,107.73 299.291,108.221 297.23,110.401 292.425,115.499 293.592,154.61 293.644,156.273L294.144,156.257 294.302,157.244 297.334,156.76 303.449,165.531 300.325,183.47C300.325,183.47,296.591,186.347,296.589,186.45L224.665,243.685C224.302,244.036 216.468,251.325 206.276,243.676 205.374,242.999 204.25,242.061 202.826,240.873 195.111,234.435 180.751,222.453 158.915,216.038 132.094,208.165 102.661,211.39 71.4399999999999,225.628L71.8539999999999,226.538C144.418,193.438 187.9,229.725 202.188,241.642 203.624,242.839 204.757,243.788 205.68,244.478 209.313,247.207 212.701,248.118 215.606,248.118 221.4,248.118 225.269,244.499 225.327,244.438L231.855,239.248 233.494,237.943 296.546,187.765z M80.656,54.645C80.76,44.46,85.107,42.377,85.835,42.103L115.636,49.135 118.997,45.774 162.979,50.538 162.979,52.772 163.5,52.751C184.802,51.858,195.808,53.765,197.85,54.167L198.997,66.126 80.656,54.645z M240.98,70.194L202.272,66.439 206.573,58.635 240.98,64.908 240.98,70.194z M294.615,155.176C294.219,140.952 294.427,114.834 297.959,111.094 299.814,109.128 301.682,108.693 303.328,108.31 303.492,108.272 303.654,108.234 303.814,108.195L303.626,108.688 314.243,112.65C318.323,139.32,312.571,150.531,311.383,152.5L294.615,155.176z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup
+						svr:SvgObject.Id="Mappings">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FF000000"
+								svr:SvgObject.Id="RtriggerCenterAnchor">
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="239.5,172.5,1,1" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FF000000"
+								svr:SvgObject.Id="RtriggerLowAnchor">
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="416.5,234.5,2,1" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FF000000"
+								svr:SvgObject.Id="RtriggerMedAnchor">
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="355.5,322.5,2,1" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FF000000"
+								svr:SvgObject.Id="RtriggerHighAnchor">
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="243.5,360.5,2,1" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								svr:SvgObject.Id="BindingFrameAnchor">
+								<GeometryDrawing.Brush>
+									<SolidColorBrush
+										Color="#FF000000"
+										Opacity="0" />
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="93,173.5,2,1" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								svr:SvgObject.Id="BindingFrameAnnotation">
+								<GeometryDrawing.Brush>
+									<SolidColorBrush
+										Color="#FF000000"
+										Opacity="0" />
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="95,173.5,2,1" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								svr:SvgObject.Id="RtriggerLowAnnotation">
+								<GeometryDrawing.Brush>
+									<SolidColorBrush
+										Color="#FF000000"
+										Opacity="0" />
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="414.5,234.5,2,1" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								svr:SvgObject.Id="RtriggerMedAnnotation">
+								<GeometryDrawing.Brush>
+									<SolidColorBrush
+										Color="#FF000000"
+										Opacity="0" />
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="353.5,322.5,2,1" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								svr:SvgObject.Id="RtriggerHighAnnotation">
+								<GeometryDrawing.Brush>
+									<SolidColorBrush
+										Color="#FF000000"
+										Opacity="0" />
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="241.5,360.5,2,1" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<DrawingGroup
+						svr:SvgObject.Id="RtriggerZoneHigh">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M291.311,317.877C275.395,323.456 258.297,326.5 240.5,326.5 225.977,326.5 211.926,324.457 198.598,320.676L196.971,326.453C210.817,330.379 225.413,332.5 240.5,332.5 258.894,332.5 276.566,329.37 293.028,323.632L291.311,317.877z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M196.107,332.236C195.931,332.888,195.358,333.302,194.824,333.158L194.824,333.158C194.291,333.015,194,332.372,194.176,331.718L198.727,314.766C198.901,314.114,199.475,313.7,200.009,313.844L200.009,313.844C200.543,313.987,200.833,314.631,200.657,315.284L196.107,332.236z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M295.48,328.786C295.672,329.433,295.403,330.088,294.873,330.246L294.873,330.246C294.343,330.404,293.758,330.009,293.562,329.361L288.522,312.547C288.329,311.901,288.599,311.247,289.13,311.088L289.13,311.088C289.659,310.93,290.244,311.326,290.439,311.973L295.48,328.786z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="H">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M246.387,302.5L244.981,302.5 244.981,298.639 241.033,298.639 241.033,302.5 239.634,302.5 239.634,293.934 241.033,293.934 241.033,297.438 244.981,297.438 244.981,293.934 246.387,293.934 246.387,302.5z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<DrawingGroup
+						svr:SvgObject.Id="RtriggerZoneMed">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M364.819,263.273C346.548,288.226,320.959,307.501,291.236,317.903L292.732,323.735C323.84,312.961,350.619,292.839,369.704,266.753L364.819,263.273z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M295.48,328.786C295.672,329.433,295.403,330.088,294.873,330.246L294.873,330.246C294.343,330.404,293.758,330.009,293.562,329.361L288.522,312.547C288.329,311.901,288.599,311.247,289.13,311.088L289.13,311.088C289.659,310.93,290.244,311.326,290.439,311.973L295.48,328.786z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M374.824,269.229C375.372,269.625,375.555,270.309,375.229,270.756L375.229,270.756C374.906,271.204,374.201,271.246,373.652,270.851L359.423,260.573C358.875,260.177,358.694,259.494,359.018,259.045L359.018,259.045C359.341,258.598,360.047,258.556,360.595,258.951L374.824,269.229z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="M">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M312.334,275.5L309.85,268.346 309.803,268.346C309.869,269.409,309.903,270.405,309.903,271.334L309.903,275.5 308.632,275.5 308.632,266.934 310.608,266.934 312.989,273.748 313.022,273.748 315.471,266.934 317.45,266.934 317.45,275.5 316.101,275.5 316.101,271.264C316.101,270.838 316.112,270.285 316.128,269.6 316.149,268.916 316.168,268.502 316.189,268.358L316.142,268.358 313.57,275.504 312.334,275.5 312.334,275.5z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<DrawingGroup
+						svr:SvgObject.Id="RtriggerZoneLow">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M369.64,266.855C388.228,241.482,399.532,210.455,400.438,176.877L394.442,176.686C393.575,209.028,382.685,238.915,364.775,263.35L369.64,266.855z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M374.824,269.229C375.372,269.625,375.555,270.309,375.229,270.756L375.229,270.756C374.906,271.204,374.201,271.246,373.652,270.851L359.423,260.573C358.875,260.177,358.694,259.494,359.018,259.045L359.018,259.045C359.341,258.598,360.047,258.556,360.595,258.951L374.824,269.229z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M405.785,175.27C406.462,175.278,407.005,175.732,406.998,176.286L406.998,176.286C406.992,176.838,406.439,177.278,405.763,177.271L388.212,177.067C387.535,177.059,386.992,176.606,387.001,176.051L387.001,176.051C387.006,175.499,387.559,175.058,388.235,175.066L405.785,175.27z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF"
+								svr:SvgObject.Id="L">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M356.631,216.5L356.631,207.934 358.03,207.934 358.03,215.299 361.657,215.299 361.657,216.5 356.631,216.5 356.631,216.5z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,468,398.5" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

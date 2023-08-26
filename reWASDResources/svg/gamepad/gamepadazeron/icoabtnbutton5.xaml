@@ -1,0 +1,41 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoABtnButton5" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoABtnButton5">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8,15.5L8,15.5C4.962,15.5,2.5,13.038,2.5,10L2.5,6C2.5,2.962,4.962,0.5,8,0.5L8,0.5C11.038,0.5,13.5,2.962,13.5,6L13.5,10C13.5,13.038,11.038,15.5,8,15.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M7.977,7.093C8.673,7.093 9.224,7.278 9.63,7.646 10.036,8.014 10.239,8.516 10.239,9.152 10.239,9.889 10.008,10.464 9.547,10.878 9.087,11.293 8.431,11.5 7.581,11.5 6.81,11.5 6.204,11.376 5.763,11.127L5.763,10.121C6.018,10.266 6.311,10.377 6.642,10.456 6.972,10.535 7.28,10.574 7.563,10.574 8.064,10.574 8.445,10.462 8.706,10.239 8.967,10.016 9.098,9.688 9.098,9.257 9.098,8.432 8.572,8.02 7.521,8.02 7.373,8.02 7.191,8.035 6.973,8.065 6.755,8.095 6.563,8.127 6.4,8.165L5.903,7.873 6.167,4.501 9.756,4.501 9.756,5.488 7.145,5.488 6.989,7.197C7.1,7.178 7.235,7.156 7.393,7.131 7.551,7.106 7.747,7.093 7.977,7.093z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

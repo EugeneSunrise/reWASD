@@ -1,0 +1,31 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common">
+	<Style
+		x:Key="{x:Type Image}"
+		TargetType="{x:Type Image}" />
+	<Style
+		x:Key="WizardImage"
+		TargetType="{x:Type recolorableImages:RecolorableSVG}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="60,0,20,0" />
+		<Setter
+			Property="recolorableImages:BaseRecolorableImage.IsColorShift"
+			Value="False" />
+		<Setter
+			Property="recolorableImages:BaseRecolorableImage.Stretch"
+			Value="None" />
+	</Style>
+	<Style
+		x:Key="DarkOnDisabledRecolorableImage"
+		TargetType="{x:Type recolorableImages:RecolorableSVG}">
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="UIElement.Opacity"
+					Value="0.4" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

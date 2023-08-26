@@ -1,0 +1,2258 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=System">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="AnalogButtonsZones/GamepadDS3LeftButtons.xaml" />
+		<ResourceDictionary
+			Source="AnalogButtonsZones/GamepadDS3RightButtons.xaml" />
+		<ResourceDictionary
+			Source="ExternalWizard/esptoolsvg.xaml" />
+		<ResourceDictionary
+			Source="ExternalWizard/BTProController.xaml" />
+		<ResourceDictionary
+			Source="ExternalWizard/BTProControllerPaired.xaml" />
+		<ResourceDictionary
+			Source="ExternalWizard/BTWirelessController.xaml" />
+		<ResourceDictionary
+			Source="ExternalWizard/BTWirelessControllerPaired.xaml" />
+		<ResourceDictionary
+			Source="ExternalWizard/BTXboxWirelessController.xaml" />
+		<ResourceDictionary
+			Source="ExternalWizard/BTXboxWirelessControllerPaired.xaml" />
+		<ResourceDictionary
+			Source="Macros/DS4TouchPadDown.xaml" />
+		<ResourceDictionary
+			Source="Macros/DS4TouchPadLeft.xaml" />
+		<ResourceDictionary
+			Source="Macros/DS4TouchPadRight.xaml" />
+		<ResourceDictionary
+			Source="Macros/DS4TouchPadUp.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoAbsolute.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoRelative.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoSwipe.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoSwipeDown.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoSwipeLeft.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoSwipeRight.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoSwipeUp.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoTapCenter.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoTapDouble.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoTapLeft.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoTapRight.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoTwoSwipeDown.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoTwoSwipeLeft.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoTwoSwipeRight.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoTwoSwipeUp.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoZoom.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoZoomIn.xaml" />
+		<ResourceDictionary
+			Source="Macros/IcoZoomOut.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosBreak.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosClean.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosDelay.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosIterations.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosKeyDown.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosKeyUp.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosMouseScrollDown.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosMouseScrollUp.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosPause.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosRecord.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosRemovePauses.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosStop.xaml" />
+		<ResourceDictionary
+			Source="Macros/MacrosTimer.xaml" />
+		<ResourceDictionary
+			Source="Macros/SVGGamepadDS3MacroControlDrawing.xaml" />
+		<ResourceDictionary
+			Source="Macros/SVGGamepadDS4MacroControlDrawing.xaml" />
+		<ResourceDictionary
+			Source="Macros/SVGGamepadXBOX360MacroControlDrawing.xaml" />
+		<ResourceDictionary
+			Source="Macros/SVGGamepadXBOXOneMacroControlDrawing.xaml" />
+		<ResourceDictionary
+			Source="Macros/SVGGamepadNSProMacroControlDrawing.xaml" />
+		<ResourceDictionary
+			Source="Macros/SVGKeyboardMacroControlDrawing.xaml" />
+		<ResourceDictionary
+			Source="Macros/SVGMouseMacroControlDrawing.xaml" />
+		<ResourceDictionary
+			Source="Message/Confirm.xaml" />
+		<ResourceDictionary
+			Source="Message/Warning.xaml" />
+		<ResourceDictionary
+			Source="Message/WarningBlacklist.xaml" />
+		<ResourceDictionary
+			Source="Message/Error.xaml" />
+		<ResourceDictionary
+			Source="Message/Information.xaml" />
+		<ResourceDictionary
+			Source="Message/Question.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_critical.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_low.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_medium.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_high.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_unknown.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_wired.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_my_choice.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_charging_critical.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_charging_low.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_charging_medium.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_charging_high.xaml" />
+		<ResourceDictionary
+			Source="Battery/Battery_charging_unknown.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyboard.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCalculator.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeBack.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeBackspace.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeCapsLock.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeComma.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeDecimal.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeDivide.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeDoNotInherit.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeDown.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeEmpty.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeFavorites.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeForward.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeLeft.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeMail.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeMediaSelect.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeMenu.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeMute.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeMyPC.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeNext.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeNumLock.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeNumPad.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodePause.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodePlay.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodePower.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodePrevious.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeRefresh.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeRight.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeScrollLock.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeSleep.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeStop.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeUp.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeVolumeDown.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeVolumeUp.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeWake.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeWeb.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeWebHome.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeWebStop.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeWinLeft.xaml" />
+		<ResourceDictionary
+			Source="Keyboard/UriKeyScanCodeWinRight.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeFlickLeft.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeFlickRight.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeMouseLeft.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeMouseRight.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeMouseUp.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeMouseDown.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeLMB.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeRMB.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeMMB.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeX1Mouse.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeX2Mouse.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeMouseScrollUp.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeMouseScrollDown.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeMouseScrollLeft.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriKeyScanCodeMouseScrollRight.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriMouseScrollDown.xaml" />
+		<ResourceDictionary
+			Source="Mouse/UriMouseScrollUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriBtnUnknown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriBtnUnmapped.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriControlPadLHigh.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriControlPadLMed.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriControlPadLLow.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriControlPadRHigh.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriControlPadRMed.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriControlPadRLow.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriGyroGamepadDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriGyroGamepadLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriGyroGamepadRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriGyroGamepadUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriGyroLeanLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriGyroLeanRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriRumble.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriZoneAll.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriZoneDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriZoneHigh.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriZoneLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriZoneLow.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriZoneMed.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriZoneRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriZoneUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriTriggerFullL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriTriggerFullR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriTriggerFullL2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/UriTriggerFullR2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VGyroPitchDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VGyroPitchUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VGyroRollLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VGyroRollRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VGyroYawLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VGyroYawRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VGyroReset.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VTiltPitchDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VTiltPitchUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VTiltRollLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/VTiltRollRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnA.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnX.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnY.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnSelect.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnRThumb.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnLThumb.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerGamepad/IcoECGBtnHome.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerTouchpad/IcoECTBtnTouchClick.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerTouchpad/IcoECTBtnTouchLeftBottom.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerTouchpad/IcoECTBtnTouchLeftTop.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerTouchpad/IcoECTBtnTouchRightBottom.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerTouchpad/IcoECTBtnTouchRightTop.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerTouchpad/IcoECTBtnTouchTap.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton10.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton11.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton12.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton13.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton14.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton15.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton16.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton17.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton18.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton19.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton20.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton21.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton22.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton23.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton24.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton25.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton26.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton27.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton28.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton29.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton30.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton4.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton5.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton6.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton7.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton8.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnButton9.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnSliderL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/EngineControllerControlPad/IcoECCPBtnSliderR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLStickDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLStickLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLStickRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLStickUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLStickXaxis.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLStickXaxisZero.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLStickYaxis.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLStickYaxisZero.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRStickDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRStickLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRStickRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRStickUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRStickXaxis.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRStickXaxisZero.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRStickYaxis.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRStickYaxisZero.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXb360BtnBack.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXb360BtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbButton.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbBtnA.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbBtnB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbBtnX.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbBtnY.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbBtnMenu.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbBtnView.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbBtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbBtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbBtnLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXbBtnRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLThumb.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRThumb.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBDPADUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBDPADDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBDPADLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBDPADRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLBPaddle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBLTPaddle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRBPaddle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/XBOX/IcoXBRTPaddle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXimNexus/IcoXNBtnButton.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXimNexus/IcoXNBtnL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXimNexus/IcoXNBtnMenu.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXimNexus/IcoXNBtnMinus.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXimNexus/IcoXNBtnPlus.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXimNexus/IcoXNBtnR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXimNexus/IcoXNLP.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXimNexus/IcoXNLQ.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXimNexus/IcoXNRP.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXimNexus/IcoXNRQ.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadGameSirG7/IcoGSG7BtnM.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadGameSirG7/IcoGSG7BtnM1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadGameSirG7/IcoGSG7BtnM2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadGameSirG7/IcoGSG7BtnMute.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoPSButton.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnCross.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnCircle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnSquare.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnTriangle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnOptions.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnSelect.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnShare.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnL1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnL2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnL3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnR1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnR2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSBtnR3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSDPADUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSDPADDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSDPADLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSDPADRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSTouchClick.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSTouchLeftBottom.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSTouchLeftTop.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSTouchRightBottom.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Dualshock/IcoDSTouchRightTop.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDBtnL1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDBtnL2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDBtnL4.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDBtnL5.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDBtnR1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDBtnR2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDBtnR4.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDBtnR5.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDButton.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDMenu.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDMore.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDLStickTouch.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDRStickTouch.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadValveSteamDeck/IcoVSDView.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaXbox/IcoHFCOXBBtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaXbox/IcoHFCOXBBtnLSB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaXbox/IcoHFCOXBBtnLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaXbox/IcoHFCOXBBtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaXbox/IcoHFCOXBBtnRSB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaXbox/IcoHFCOXBBtnRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaPS/IcoHFCOPSBtnL1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaPS/IcoHFCOPSBtnL2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaPS/IcoHFCOPSBtnL3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaPS/IcoHFCOPSBtnR1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaPS/IcoHFCOPSBtnR2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriFightingCommanderOctaPS/IcoHFCOPSBtnR3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4Btn1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4Btn2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4Btn3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4Btn4.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4LB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4LT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4RB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4RT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4Btn1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4Btn2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4Btn3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4Btn4.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4LB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4LT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualAnalog4/IcoTDA4RB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualTrigger/IcoGTDTBtnCircle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualTrigger/IcoGTDTBtnCross.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualTrigger/IcoGTDTBtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualTrigger/IcoGTDTBtnLeftPaddleTop.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualTrigger/IcoGTDTBtnLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualTrigger/IcoGTDTBtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualTrigger/IcoGTDTBtnRightPaddleTop.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualTrigger/IcoGTDTBtnRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualTrigger/IcoGTDTBtnSquare.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadThrustmasterDualTrigger/IcoGTDTBtnTriangle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GameCube/IcoGCBtnLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GameCube/IcoGCBtnRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GameCube/IcoGCBtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GameCube/IcoGCBtnX.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GameCube/IcoGCBtnY.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GameCube/IcoGCBtnZ.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Logitech/IcoLBtnBack.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Logitech/IcoLBtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Logitech/IcoLBtnLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Logitech/IcoLBtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Logitech/IcoLBtnRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Logitech/IcoLBtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Logitech/IcoLButton.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnA.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnCapture.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSDPADDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSDPADLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSDPADRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSDPADUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnHome.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnMinus.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnPlus.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnSL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnSR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnX.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnY.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnZL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSBtnZR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSLStickDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSLStickLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSLStickRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSLStickUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSLThumb.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSRStickDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSRStickLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSRStickRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSRStickUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NS/IcoNSRThumb.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnBack.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnCapture.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnMinus.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnPlus.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnClick.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15BtnTap.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2015/IcoNS15Button.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2017/IcoNS17BtnBack.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2017/IcoNS17BtnCapture.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2017/IcoNS17BtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2017/IcoNS17BtnLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2017/IcoNS17BtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2017/IcoNS17BtnRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/NvidiaShield2017/IcoNS17BtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex1/IcoFA1BtnC.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex1/IcoFA1BtnM1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex1/IcoFA1BtnM2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex1/IcoFA1BtnM3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex1/IcoFA1BtnM4.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex1/IcoFA1BtnSelect.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex1/IcoFA1BtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex1/IcoFA1BtnZ.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2AStickUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2AStickDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2AStickRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2AStickLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnC.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnM1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnM2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnM3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnM4.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnM5.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnM6.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnSelect.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnSelectBack.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnSelectHome.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnSelectPair.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex2/IcoFA2BtnZ.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex3/IcoFA3BtnSelect.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiApex3/IcoFA3BtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiVader2/IcoFV2BtnMinus.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiVader2/IcoFV2BtnPlus.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiVader2/IcoFV2BtnSelect.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadFlydigiVader2/IcoFV2BtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadDown-LeftL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadDown-LeftR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadDown-RightL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadDown-RightR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadDownL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadDownR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadLeftL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadLeftR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadRightL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadRightR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadUp-LeftL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadUp-LeftR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadUp-RightL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadUp-RightR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadUpL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoVSDTrackPadUpR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSStickDown-LeftL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSStickDown-LeftR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSStickDown-RightL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSStickDown-RightR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSStickUp-LeftL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSStickUp-LeftR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSStickUp-RightL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSStickUp-RightR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadClickL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadClickR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadDown-LeftL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadDown-LeftR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadDown-RightL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadDown-RightR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadDownL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadDownR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadLeftL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadLeftR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadRightL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadRightR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadTapL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadTapR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadUp-LeftL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadUp-LeftR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadUp-RightL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadUp-RightR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadUpL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/IcoSTrackPadUpR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowSliderL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowSliderR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedSliderL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedSliderR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighSliderL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighSliderR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighAllGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighAllLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighAllMouse.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighAllRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighDownGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighDownLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighDownMouse.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighDownRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighLeanLeftGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighLeanRightGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighLeftGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighLeftLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighLeftMouse.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighLeftRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighRightGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighRightLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighRightMouse.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighRightRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighUpGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighUpLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighUpMouse.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighUpRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowAllGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowAllLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowAllRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowDownGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowDownLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowDownRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowLeanLeftGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowLeanRightGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowLeftGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowLeftLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowLeftRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowRightGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowRightLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowRightRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowUpGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowUpLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowUpRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedAllGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedAllLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedAllRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedDownGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedDownLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedDownRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedLeanLeftGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedLeanRightGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedLeftGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedLeftLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedLeftRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedRightGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedRightLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedRightRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedUpGyro.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedUpLS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedUpRS.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowDPADDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowDPADUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowDPADLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowDPADRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedDPADDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedDPADUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedDPADLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedDPADRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighDPADDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighDPADUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighDPADLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighDPADRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowL1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowR1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedL1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedR1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighL1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighR1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowCross.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowCircle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowSquare.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneLowTriangle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedCross.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedCircle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedSquare.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneMedTriangle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighCross.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighCircle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighSquare.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/OverlayIcons/UriZoneHighTriangle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Stadia/IcoGSBtnCapture.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Stadia/IcoGSBtnL1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Stadia/IcoGSBtnL2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Stadia/IcoGSBtnMenu.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Stadia/IcoGSBtnOptions.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Stadia/IcoGSBtnR1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Stadia/IcoGSBtnR2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Stadia/IcoGSBtnStadia.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Stadia/IcoGSBtnAssistant.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSBtnBack.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSBtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSBtnLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSBtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSBtnRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSBtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSBtnSteam.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSLPaddle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSRPaddle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadControllerTypeGeneric/IcoGCTGBtn1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadControllerTypeGeneric/IcoGCTGBtnDoubleTriangle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadControllerTypeGeneric/IcoGCTGBtnDoubleCircle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadControllerTypeGeneric/IcoGCTGBtnDoubleCross.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadControllerTypeGeneric/IcoGCTGBtnDoubleSquare.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/SNES/IcoSNESBtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/SNES/IcoSNESBtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/SNES/IcoSNESBtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/RazerRaijuMobile/IcoRRMBtnSelect.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/RazerRaijuMobile/IcoRRMBtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSStickDown-Left.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSStickDown-Right.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSStickUp-Left.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSStickUp-Right.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSTrackPadClick.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSTrackPadTap.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSTrackPadDown-Left.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSTrackPadDown-Right.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSTrackPadUp-Left.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Steam/IcoSTrackPadUp-Right.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton4.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton5.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton6.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton7.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton8.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton10.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton11.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton12.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton13.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton14.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton15.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton16.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton17.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton18.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton19.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton20.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton21.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton22.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton23.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton24.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton25.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton26.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeron/IcoABtnButton27.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton13.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton14.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton15.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton16.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton17.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton18.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton19.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton20.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton3.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton4.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton5.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton6.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton7.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadAzeronCyro/IcoACBtnButton8.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadXBOneSeriesS/IcoSSBtnShare.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadDualSense/IcoDS5BtnButton.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadDualSense/IcoDS5BtnCreate.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadDualSense/IcoDS5BtnMic.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadDualSense/IcoDS5BtnOptions.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadDualSenseEdge/IcoDSEBtnFn.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadDualSenseEdge/IcoDSEBtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadDualSenseEdge/IcoDSEBtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadSegaGenesis/IcoGSGBtnMode.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadSwitchOnlineN64/IcoGSON64BtnDown.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadSwitchOnlineN64/IcoGSON64BtnL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadSwitchOnlineN64/IcoGSON64BtnLeft.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadSwitchOnlineN64/IcoGSON64BtnR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadSwitchOnlineN64/IcoGSON64BtnRight.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadSwitchOnlineN64/IcoGSON64BtnStart.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadSwitchOnlineN64/IcoGSON64BtnUp.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadSwitchOnlineN64/IcoGSON64BtnZ.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadSwitchOnlineN64/IcoGSON64BtnZR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadNES/IcoGNESJvBtnL_R.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Ipega-9023/IcoIP9023BtnL2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Ipega-9023/IcoIP9023BtnLB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Ipega-9023/IcoIP9023BtnR2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/Ipega-9023/IcoIP9023BtnRB.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/MOGAXP5-XPlus/IcoMXP5BtnLT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/MOGAXP5-XPlus/IcoMXP5BtnMenu.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/MOGAXP5-XPlus/IcoMXP5BtnRT.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/MOGAXP5-XPlus/IcoMXP5BtnView.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/MOGAXP5-XPlus/IcoMXP5LPaddle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/MOGAXP5-XPlus/IcoMXP5RPaddle.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadWiiClassic/IcoWCBtnZL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadWiiClassic/IcoWCBtnZR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadWiiNunchuk/IcoWNBtnC.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadWiiNunchuk/IcoWNBtnZ.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadWiiPro/IcoWPBtnL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadWiiPro/IcoWPBtnR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadWiiPro/IcoWPBtnZL.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadWiiPro/IcoWPBtnZR.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadWiiRemote/IcoWRBtn2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriWiredMini/IcoGHWMBtnL1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriWiredMini/IcoGHWMBtnL2.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriWiredMini/IcoGHWMBtnR1.xaml" />
+		<ResourceDictionary
+			Source="Gamepad/GamepadHoriWiredMini/IcoGHWMBtnR2.xaml" />
+		<ResourceDictionary
+			Source="Gamepads/Common.xaml" />
+		<ResourceDictionary
+			Source="Annotations/IcoAnnotationSlashSeparator.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift0White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift1White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift2White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift3White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift4White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift5White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift6White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift7White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift8White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift9White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift10White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift11White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift12White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift13White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift14White.xaml" />
+		<ResourceDictionary
+			Source="Shifts/Shift15White.xaml" />
+		<ResourceDictionary
+			Source="Sticks/GamepadDS3LeftStick.xaml" />
+		<ResourceDictionary
+			Source="Sticks/GamepadDS3RightStick.xaml" />
+		<ResourceDictionary
+			Source="Sticks/GamepadDS4LeftStick.xaml" />
+		<ResourceDictionary
+			Source="Sticks/GamepadDS4RightStick.xaml" />
+		<ResourceDictionary
+			Source="Sticks/GamepadXB360LeftStick.xaml" />
+		<ResourceDictionary
+			Source="Sticks/GamepadXB360RightStick.xaml" />
+		<ResourceDictionary
+			Source="Sticks/GamepadXBEliteLeftStick.xaml" />
+		<ResourceDictionary
+			Source="Sticks/GamepadXBEliteRightStick.xaml" />
+		<ResourceDictionary
+			Source="Sticks/GamepadXBOneLeftStick.xaml" />
+		<ResourceDictionary
+			Source="Sticks/GamepadXBOneRightStick.xaml" />
+		<ResourceDictionary
+			Source="Triggers/GamepadDS3LeftTrigger.xaml" />
+		<ResourceDictionary
+			Source="Triggers/GamepadDS3RightTrigger.xaml" />
+		<ResourceDictionary
+			Source="Triggers/GamepadDS4LeftTrigger.xaml" />
+		<ResourceDictionary
+			Source="Triggers/GamepadDS4RightTrigger.xaml" />
+		<ResourceDictionary
+			Source="Triggers/GamepadXBLeftTrigger.xaml" />
+		<ResourceDictionary
+			Source="Triggers/GamepadXBRightTrigger.xaml" />
+		<ResourceDictionary
+			Source="Triggers/GamepadValveSteamDeckLeftTrackpad.xaml" />
+		<ResourceDictionary
+			Source="Triggers/GamepadValveSteamDeckRightTrackpad.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandAntibossMode.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandCloseTask.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandCustom.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandGyroSwitch.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandHibernate.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandLogout.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandReconnectToTargetBT.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandScreenshot.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandTiltReset.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandToggleGyro.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandToggleGyroOn.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandToggleGyroOff.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandTurnGamepadOff.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandToggleRadialMenu.xaml" />
+		<ResourceDictionary
+			Source="UserCommands/UriUserCommandRestartPC.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ActivatorDouble.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ActivatorLong.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ActivatorRelease.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ActivatorSingle.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ActivatorStart.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ActivatorTriple.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AdaptiveTriggers.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AdaptiveTriggersMapping.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AddBackground.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AddConfig.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AddFeature.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AddKey.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AddGame.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Advanced.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AmiiboCommand.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Autodetect.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Back.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Copy.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Cycle.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Clear.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Community.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/default_settings.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Delete.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Description.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/DetectDevice.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Disconnected.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Download.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Edit.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/EditPen.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/EngineControllerComposite.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/GamepadGameSirG7MenuView.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/GamepadGameSirG7MenuViewZoom.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/GameSirMode.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/help.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/HelpDiscord.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/HelpFB.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/HelpForum.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/HelpOnline.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Hold.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Info.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/CemuUdp.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/IcoMappingFilterDS3.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/IcoMappingFilterDS4.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/IcoMappingFilterKeyboard.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/IcoMappingFilterMouse.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/IcoMappingFilterUserCommand.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/IcoMappingFilterXBOX360.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/IcoMappingFilterXBOXOne.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/IcoMappingFilterNSPro.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ImportFromFile2.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/InitializingKeyboard.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/InitializingMouse.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/InternalHelp.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/IrrelevantSubConfigsEnabled.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/IrrelevantSubConfigsDisabled.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Junior.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/KeyComboBreak.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/KeyComboPause.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/KeyComboSeparator.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/KeyComboStop.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/KeyComboTimer.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/LedSettings.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/LedSettingsNotConfigured.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Macros.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MacrosMapping.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MacroUnlock.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ManualSetting.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Mask.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MaskPlus.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Menu.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MenuOpen.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MicroKeyboard.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MicroMouse.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniEngineControllerGamepad.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniEngineControllerGamepadInvert.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniEngineControllerTouchpad.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniEngineControllerMouseTouchpad.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniEngineControllerControlPad.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepad.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadAzeron.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadAzeronLefty.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadAzeronCyborg.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadAzeroncyborgLefty.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadAzeronCyro.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadAzeronCyroLefty.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadCompositeDevice.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadDS3.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadDS3Bluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadDS4.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadDS4Bluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadDualSense.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadDualSenseBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadDualSenseEdge.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadDualSenseEdgeBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadExclamation.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadGameCube.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadGameSirG7.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadGoogleStadia.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadGoogleStadiaBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadHoriWiredMini.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadHoriFightingCommanderOctaPS.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadHoriFightingCommanderOctaXbox.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadKeyboard.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadKeyboardMedia.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadKeyboardMediaMouse.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadKeyboardMouse.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadKeyboardUnverified.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadLogitech.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadMouse5btn.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadMouse7btn.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNav.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNavBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNJCon.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNJConL.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNJConLBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNJConR.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNJConRBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNSPro.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNSProBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNvidiaShield2015.xaml " />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNvidiaShield2015Bluetooth.xaml " />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNvidiaShield2017.xaml " />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNvidiaShield2017Bluetooth.xaml " />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadRazerRaijuMobile.xaml " />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadRazerRaijuMobileBluetooth.xaml " />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadPlain.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadSteam.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadSteamBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadThrustmasterDualTrigger.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadValveSteamDeck.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadUnknown.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadXB360.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadXBOne.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadXBOneBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadXBElite.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadXBEliteBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadXBEliteChatpad.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadXimNexus.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadXimNexusBluetooth.xaml " />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadiPegaPG-9023.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadiPegaPG-9023Bluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadPowerAMOGAXP5-XPlus.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadPowerAMOGAXP5-XPlusBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadiPegaPG-9023Bluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadRazerWolverineV2.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadSNES.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadSNESBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNES.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNESBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNESJapaneseversionI.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNESJapaneseversionIBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNESJapaneseversionII.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadNESJapaneseversionIIBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadSwitchOnlineN64.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadSwitchOnlineN64Bluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadSegaGenesis.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadSegaGenesisBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadSegaGenesisJapaneseEdition.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadSegaGenesisJapaneseEditionBluetooth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadThrustmasterDualAnalog4.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadFlydigiApex1.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadFlydigiApex2.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadFlydigiApex3.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadFlydigiVader2.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadWiiNunchuk.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadWiiPro.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadWiiRemote.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadWiiClassic.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadControllerTypeGeneric12b.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadControllerTypeGeneric13b.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniGamepadControllerTypeGeneric14b.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MoreInfo.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MissingFeatures.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/NewGameProfile.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/NoConnection.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/OverlayMenuMode.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MenuPreferences.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuPreferences\TinedMenu.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuPreferences\TinedMenuHover.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuPreferences\TinedSubMenu.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SegaGenesisInternationalversion.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SegaGenesisJapaneseversion.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MinimizeHelp.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Openlocation.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/GamepadDevices.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/GamepadEmpty.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/GroupSettings.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Preferences.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Print.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ReadOnlyMode.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ReconnectToTargetBT.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Refresh.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/RemapOnOff.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Remove.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Rename.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/RollDown.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/RollUp.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Rotate.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Rumble.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Save.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Search.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SaveAsPreset.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Share.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ShiftMode.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Slot.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SlotActive.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SlotAdd.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SlotPower.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SwitchToKeyboard.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SwitchToKeypad.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SwitchToMouse.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SwitchToVibration.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/SwitchToVirtualKeyboard.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Toggle.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Turbo.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Update.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/VirtualDS3Mode.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/VirtualDS4Mode.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/VirtualXBOX360Mode.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/VirtualXBOXOneMode.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/OverlayMenuMode.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/VirtualNSProMode.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Zones.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ZoomIn.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ZoomOut.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/100%Size.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/FitInWidth.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/WholePage.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/TwoPages.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AzeronSwitchToLeft.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AzeronSwitchToRight.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/CalibrateGamepad.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/HideUntilReconect.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Paste.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/RefreshFileLocation.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ShowAssignedActions.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ShowDescriptions.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ViewSettings.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ExpandActivators.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ShowMappingsDescriptions.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/Unpair.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/AddSubMenu.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniEngineControllerMobileKeyboard.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniEngineControllerMobileMouse.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/MiniEngineControllerMobileMouse+Keyboard.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/GamepadUnsupportedDevice.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/back.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-advancedmapping-big.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-advancedmapping-big-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-advancedmapping-small.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-advancedmapping-small-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-fourslots-big.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-fourslots-big-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-fourslots-small.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-fourslots-small-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-license-big.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-license-big-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-license-small.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-license-small-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-macros-big.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-macros-big-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-macros-small.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-macros-small-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-mobilecontroller-big.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-mobilecontroller-big-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-mobilecontroller-small.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-mobilecontroller-small-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-turbotoggleslots-big.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-turbotoggleslots-big-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-turbotoggle-small.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-turbotoggle-small-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-rapidfire-big.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-rapidfire-big-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-rapidfire-small.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-rapidfire-small-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-sale-big.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-sale-big-bought.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-sale-small.xaml" />
+		<ResourceDictionary
+			Source="FeaturesIcons/features-sale-small-bought.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesActivator.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesAgent.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesCommunity.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesConfigs.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesConfirmation.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesGamepads.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesGeneral.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesLED.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesSlots.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesOverlay.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesBlacklist.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesExternalDevices.xaml" />
+		<ResourceDictionary
+			Source="Preferences/PreferencesServer.xaml" />
+		<ResourceDictionary
+			Source="Adapters/AdapterKeyQuestion.xaml" />
+		<ResourceDictionary
+			Source="Adapters/AdapterKeyBT.xaml" />
+		<ResourceDictionary
+			Source="Adapters/AdapterKeyGIMX.xaml" />
+		<ResourceDictionary
+			Source="Adapters/AdapterKeyESP32.xaml" />
+		<ResourceDictionary
+			Source="Adapters/AdapterKeyESP32-S2.xaml" />
+		<ResourceDictionary
+			Source="Adapters/AdapterKeyBTExclamationMark.xaml" />
+		<ResourceDictionary
+			Source="Adapters/AdapterKeyGIMXExclamationMark.xaml" />
+		<ResourceDictionary
+			Source="Adapters/AdapterKeyESP32ExclamationMark.xaml" />
+		<ResourceDictionary
+			Source="Adapters/AdapterKeyESP32-S2ExclamationMark.xaml" />
+		<ResourceDictionary
+			Source="CalibrationWizard/Auto_calibrate.xaml" />
+		<ResourceDictionary
+			Source="CalibrationWizard/Calibrate.xaml" />
+		<ResourceDictionary
+			Source="CalibrationWizard/Calibrate_done.xaml" />
+		<ResourceDictionary
+			Source="CalibrationWizard/Calibration_error.xaml" />
+		<ResourceDictionary
+			Source="CalibrationWizard/Horizontal_calibrate.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Checking_firmware.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Waiting_adapter.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/VirtualNintendoSwitchProConsoleFinderWizardStep1-1.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/VirtualNintendoSwitchProConsoleFinderWizardStep1-2.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/VirtualNintendoSwitchProConsoleFinderWizardStep2.3.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/VirtualNintendoSwitchProConsoleFinderWizardStep3.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Adapter_added.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Adapter_correctly.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Connected_PlayStation.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Connected_target_device.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Connected_Xbox.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Connect_PlayStation_4.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Connect_to_PlayStation_4.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Connect_to_target_device.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Connect_to_Xbox.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Connect_Xbox.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Detected_device.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Disconnected.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/ESP32-S2_USB_adapter.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Esp32.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Esptool.xaml" />
+		<ResourceDictionary
+			Source="AddExternalDeviceWizard/Update_failed.xaml" />
+		<ResourceDictionary
+			Source="store/app-store-badge.xaml" />
+		<ResourceDictionary
+			Source="store/google-play-badge.xaml" />
+		<ResourceDictionary
+			Source="MainpageIcons/ApplyToCurrentLayer.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Acceleration.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Ammunition.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Bomb.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Bulletproof.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Cartridge.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Case.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Dynamite.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Firework.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/FirstAidKit.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Flashbang.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Gift.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Grenade.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Hardware.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/HEGrenade.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Knife.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Pistol.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Rocket.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/Sniper.xaml" />
+		<ResourceDictionary
+			Source="RadialMenuIcons/TwoCartridges.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/OverlayMappingApply.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/OverlayMappingCancel.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/OverlayMappingNextSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/OverlayMappingPrevSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/AddNextSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/AddPrevSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/AddSubMenu.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/DeleteSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/DeleteSubMenu.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/MoveNextSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/MovePrevSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/AddNextSubSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/AddPrevSubSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/DeleteSubSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/MoveNextSubSector.xaml" />
+		<ResourceDictionary
+			Source="OverlayMapping/MovePrevSubSector.xaml" />
+		<ResourceDictionary
+			Source="Support/SupportBlog.xaml" />
+		<ResourceDictionary
+			Source="Support/SupportDiscord.xaml" />
+		<ResourceDictionary
+			Source="Support/SupportFacebook.xaml" />
+		<ResourceDictionary
+			Source="Support/SupportForum.xaml" />
+		<ResourceDictionary
+			Source="Support/SupportHelpGuide.xaml" />
+		<ResourceDictionary
+			Source="Support/SupportReddit.xaml" />
+		<ResourceDictionary
+			Source="Support/SupportTwitter.xaml" />
+		<ResourceDictionary
+			Source="Logo.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,38 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Pistol" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Pistol">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,36,36" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M33,14.39C33,14.49 33,14.59 32.94,14.68 32.88,14.77 32.94,14.94 32.94,15.06L32.88,15.06C32.49,14.99 32.37,15.22 32.3,15.56 32.23,15.9 32.14,16.17 32.06,16.49L20.4,16.49C20.55,16.762 20.683,17.042 20.8,17.33 21.107,18.182 20.906,19.135 20.28,19.79 19.71,20.526 18.906,21.045 18,21.26 17.667,21.293 17.333,21.293 17,21.26 16.32,21.26 15.63,21.26 15,21.26 14.815,21.237 14.633,21.19 14.46,21.12L14.46,21C14.241,21.204 14.034,21.421 13.84,21.65 12.671,23.058 11.748,24.654 11.11,26.37 10.997,26.692 10.933,27.029 10.92,27.37 10.92,28 11.23,28.32 11.86,28.27L12.12,28.27 12.12,29.97 3,29.97C2.946,29.472 2.994,28.969 3.14,28.49 3.459,26.493 3.989,24.535 4.72,22.65 5.123,21.628 5.668,20.669 6.34,19.8 6.7,19.312 6.952,18.753 7.08,18.16 7.321,17.132 7.137,16.051 6.57,15.16 6.036,14.33 5.64,13.418 5.4,12.46 5.325,12.132 5.301,11.795 5.33,11.46 5.441,10.623 6.155,9.998 7,10 7.4,10 7.8,10 8.2,10L31.89,10 31.89,9.21 32.74,9.21C32.734,9.29 32.734,9.37 32.74,9.45 32.869,10.294 32.915,11.147 32.88,12 32.88,12 32.96,12.1 33,12.15L33,14.39z M14.69,19.93C14.848,19.963 15.009,19.983 15.17,19.99 15.963,19.99 16.753,19.99 17.54,19.99 17.752,19.986 17.962,19.945 18.16,19.87 18.853,19.606 19.303,18.931 19.28,18.19 19.277,17.422 18.748,16.756 18,16.58 17.224,16.535 16.446,16.535 15.67,16.58 15.78,17.4 15.86,18.2 16.67,18.64 16.89,18.743 16.985,19.005 16.883,19.225 16.879,19.234 16.875,19.242 16.87,19.25 16.768,19.465 16.512,19.556 16.297,19.454 16.288,19.45 16.279,19.445 16.27,19.44 15.893,19.29 15.576,19.019 15.37,18.67 15.24,18.43 15.12,18.19 14.96,17.88 14.89,18.58 14.79,19.24 14.69,19.93z M18.23,15.09L29.67,15.09 29.67,14.44 29.3,14.44C26.5,14.44 23.7,14.44 20.9,14.44 19.978,14.496 19.074,14.716 18.23,15.09z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

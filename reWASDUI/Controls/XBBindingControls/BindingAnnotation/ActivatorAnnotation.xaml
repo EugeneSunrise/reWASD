@@ -1,0 +1,89 @@
+<controls:BaseServicesResolvingControl
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingAnnotation.ActivatorAnnotation" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:base1="clr-namespace:reWASDUI.ViewModels.Base" xmlns:bindingAnnotation="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingAnnotation" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters3="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common"
+	AutomationProperties.AutomationId="{Binding ActivatorXBBinding.ActivatorType, RelativeSource={RelativeSource Self}}">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingAnnotation:ActivatorAnnotation}">
+			<StackPanel
+				Orientation="Horizontal"
+				DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingAnnotation:GamepadBindingAnnotationText}}">
+				<Button
+					FrameworkElement.Style="{StaticResource ButtonStripped}"
+					Click="SetCurrentActivatorButton_Click">
+					<Border
+						Name="ActivatorBorder"
+						FrameworkElement.Style="{DynamicResource ActivatorAnnotionBorderStyle}"
+						UIElement.Visibility="{Binding ActivatorXBBinding.HostDictionary.IsAnyNonSingleActivatorHasMapping, Converter={converters:BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+						<recolorableImages:RecolorableSVG
+							Name="ActivatorDrawing"
+							IsColorShift="True"
+							Stretch="None"
+							ColorShiftBrush="{Binding BorderBrush, ElementName=ActivatorBorder}"
+							Drawing="{Binding ActivatorXBBinding.ActivatorType, RelativeSource={RelativeSource TemplatedParent}, Converter={converters3:ActivatorTypeToDrawingConverter}}">
+							<FrameworkElement.ToolTip>
+								<bindingAnnotation:ActivatorVirtualMappingAnnotation
+									ActivatorXBBinding="{TemplateBinding bindingAnnotation:ActivatorAnnotation.ActivatorXBBinding}"
+									Control.Foreground="{TemplateBinding Control.Foreground}"
+									IsLabelMode="{TemplateBinding bindingAnnotation:ActivatorAnnotation.IsLabelMode}"
+									ShiftActivatorXBBinding="{Binding ActivatorXBBinding.ShiftActivatorXBBinding, RelativeSource={RelativeSource TemplatedParent}}" />
+							</FrameworkElement.ToolTip>
+						</recolorableImages:RecolorableSVG>
+					</Border>
+				</Button>
+				<StackPanel
+					Orientation="Horizontal"
+					UIElement.Visibility="{TemplateBinding IsShowActivatorContent, Converter={converters:BooleanToVisibilityConverter}}">
+					<bindingAnnotation:ActivatorVirtualMappingAnnotation
+						x:Name="mainAnnotation"
+						FrameworkElement.Margin="0,0,4,0"
+						ActivatorXBBinding="{TemplateBinding bindingAnnotation:ActivatorAnnotation.ActivatorXBBinding}"
+						Control.Foreground="{TemplateBinding Control.Foreground}"
+						IsLabelMode="{TemplateBinding bindingAnnotation:ActivatorAnnotation.IsLabelMode}"
+						IsShiftVisible="False"
+						ShiftActivatorXBBinding="{TemplateBinding bindingAnnotation:ActivatorAnnotation.ActivatorXBBinding}"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+						<UIElement.Visibility>
+							<MultiBinding
+								ConverterParameter="({0} &amp;&amp; ({1} || {2}))"
+								Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+								<Binding
+									Path="ActivatorXBBinding.IsShowAnnotationAcordingShift"
+									RelativeSource="{RelativeSource TemplatedParent}" />
+								<Binding
+									Path="ActivatorXBBinding.IsAnnotationShouldBeShownForMappingWithoutShift"
+									RelativeSource="{RelativeSource TemplatedParent}" />
+								<Binding
+									Path="IsLabelMode"
+									RelativeSource="{RelativeSource TemplatedParent}" />
+							</MultiBinding>
+						</UIElement.Visibility>
+					</bindingAnnotation:ActivatorVirtualMappingAnnotation>
+					<bindingAnnotation:ActivatorVirtualMappingAnnotation
+						x:Name="shiftAnnotation"
+						FrameworkElement.Margin="0,0,4,0"
+						ActivatorXBBinding="{TemplateBinding bindingAnnotation:ActivatorAnnotation.ActivatorXBBinding}"
+						Control.Foreground="{TemplateBinding Control.Foreground}"
+						IsLabelMode="False"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						ShiftActivatorXBBinding="{Binding ActivatorXBBinding.ShiftActivatorXBBinding, RelativeSource={RelativeSource TemplatedParent}}">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+								<Binding
+									Path="ActivatorXBBinding.IsJumpToShift"
+									RelativeSource="{RelativeSource TemplatedParent}" />
+								<Binding
+									Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowMappingsView"
+									RelativeSource="{RelativeSource TemplatedParent}" />
+								<Binding
+									Path="ActivatorXBBinding.HostDictionary.HostXBBinding.IsInheritedBinding"
+									Converter="{converters:InverseBooleanConverter}"
+									RelativeSource="{RelativeSource TemplatedParent}" />
+							</MultiBinding>
+						</UIElement.Visibility>
+					</bindingAnnotation:ActivatorVirtualMappingAnnotation>
+				</StackPanel>
+			</StackPanel>
+		</ControlTemplate>
+	</Control.Template>
+</controls:BaseServicesResolvingControl>

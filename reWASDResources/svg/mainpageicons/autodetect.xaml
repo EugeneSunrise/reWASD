@@ -1,0 +1,77 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Autodetect" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Autodetect">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<RadialGradientBrush
+								Center="606.2949,829.9795"
+								RadiusX="12.5363"
+								RadiusY="12.5363"
+								GradientOrigin="0.5,0.5"
+								MappingMode="Absolute"
+								Opacity="1"
+								Transform="1,0,0,1,-590.1992,-825.9805">
+								<GradientBrush.GradientStops>
+									<GradientStop
+										Color="#00FFFFFF"
+										Offset="0.2366" />
+									<GradientStop
+										Color="#FFFFFFFF"
+										Offset="1" />
+								</GradientBrush.GradientStops>
+							</RadialGradientBrush>
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8,1C9.741,1 11.336,1.64 12.563,2.696 14.055,3.98 15,5.882 15,8 15,9.32 14.633,10.557 13.995,11.609 12.768,13.641 10.54,15 8,15 4.14,15 1,11.859 1,8 1,4.14 4.14,1 8,1 M8,0C3.582,0 0,3.582 0,8 0,12.418 3.582,16 8,16 12.418,16 16,12.418 16,8 16,5.615 14.956,3.474 13.3,2.008 11.889,0.759 10.033,0 8,0L8,0z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<RadialGradientBrush
+								Center="606.2949,829.9795"
+								RadiusX="12.5363"
+								RadiusY="12.5363"
+								GradientOrigin="0.5,0.5"
+								MappingMode="Absolute"
+								Opacity="1"
+								Transform="1,0,0,1,-590.1992,-825.9805">
+								<GradientBrush.GradientStops>
+									<GradientStop
+										Color="#00FFFFFF"
+										Offset="0.2366" />
+									<GradientStop
+										Color="#FFFFFFFF"
+										Offset="1" />
+								</GradientBrush.GradientStops>
+							</RadialGradientBrush>
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8,4C10.206,4 12,5.794 12,8 12,10.206 10.206,12 8,12 5.794,12 4,10.206 4,8 4,5.794 5.794,4 8,4 M8,3C5.239,3 3,5.239 3,8 3,10.762 5.239,13 8,13 10.762,13 13,10.762 13,8 13,5.239 10.762,3 8,3L8,3z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M15.354,1.354L14.647,0.647 13.289,2.007C11.876,0.762 10.029,0 8,0 3.582,0 0,3.582 0,8 0,10.998 1.65,13.611 4.091,14.982L4.783,14.213C2.538,13.049 1,10.7 1,8 1,4.14 4.14,1 8,1 9.75,1 11.348,1.651 12.576,2.717L11.159,4.134C10.297,3.429 9.201,3 8,3 5.239,3 3,5.239 3,8 3,9.422 3.593,10.704 4.545,11.614L5.434,11.066C4.558,10.332 4,9.23 4,8 4,5.794 5.794,4 8,4 8.876,4 9.777,4.363 10.443,4.849L9.01,6.283C8.713,6.107 8.37,6 8,6 6.896,6 6,6.896 6,8 6,9.104 6.896,10 8,10 9.104,10 10,9.104 10,8 10,7.63 9.893,7.287 9.717,6.99L15.354,1.354z M8,9C7.449,9 7,8.552 7,8 7,7.448 7.449,7 8,7 8.086,7 8.164,7.027 8.244,7.049L7.647,7.646 8.354,8.353 8.951,7.755C8.971,7.836 9,7.914 9,8 9,8.552 8.551,9 8,9z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

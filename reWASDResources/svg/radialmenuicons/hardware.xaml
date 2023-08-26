@@ -1,0 +1,38 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Hardware" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Hardware">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,36,36" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M31.19,14.15L27.61,14.15 27.61,17.84 26.61,17.84 26.61,10.66 25.37,10.66 25.37,9.07 29.68,9.07 29.68,14.15 31.24,14.15 31.24,7.51 23.81,7.51 23.81,10.66 20.3,10.66 20.3,6 10.72,6 10.72,9.72 5.64,9.72 5.64,14.15 3,14.15 3,30 33,30 33,14.15 31.19,14.15z M27.61,24.82L8.39,24.82 8.39,22.89 27.61,22.89 27.61,24.82z M8.39,26.38L27.61,26.38 27.61,28.19 8.39,28.19 8.39,26.38z M27.61,21.33L8.39,21.33 8.39,19.4 27.61,19.4C27.61,19.4,27.61,21.33,27.61,21.33z M18.61,17.84L18.61,12.22 25,12.22 25,17.84 18.61,17.84z M12.28,7.59L18.74,7.59 18.74,10.66 17,10.66 17,17.84 15.22,17.84 15.22,9.72 12.28,9.72 12.28,7.59z M7.2,11.28L13.66,11.28 13.66,17.84 8.39,17.84 8.39,14.15 7.2,14.15 7.2,11.28z M4.77,21.16L4.77,15.93 6.83,15.93 6.83,28.19 4.77,28.19 4.77,21.19 4.77,21.16z M31.23,23L31.23,28.2 29.17,28.2 29.17,15.93 31.23,15.93 31.23,22.93 31.23,23z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

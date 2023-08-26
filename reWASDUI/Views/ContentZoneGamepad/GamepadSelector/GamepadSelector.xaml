@@ -1,0 +1,51 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.GamepadSelector.GamepadSelector" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:gamepadSelector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector" xmlns:infrastructure="clr-namespace:reWASDUI.Infrastructure" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:prism="http://prismlibrary.com/" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:reWASDUI.Infrastructure" xmlns:utils1="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:views="clr-namespace:XBEliteWPF.Views" xmlns:views1="clr-namespace:reWASDUI.Views" xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Wpf"
+	mvvm:ViewModelLocator.AutoWireViewModel="True">
+	<Grid>
+		<StackPanel
+			FrameworkElement.Height="44"
+			FrameworkElement.Margin="0,6,0,8"
+			FrameworkElement.HorizontalAlignment="Stretch"
+			FrameworkElement.VerticalAlignment="Bottom">
+			<gamepadSelector:GamepadSlotProfiles />
+		</StackPanel>
+		<Grid
+			FrameworkElement.Margin="16,10,0,12"
+			FrameworkElement.HorizontalAlignment="Stretch"
+			FrameworkElement.VerticalAlignment="Top">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+			</Grid.ColumnDefinitions>
+			<gamepadSelector:GamepadList />
+			<gamepadSelector:GamepadName
+				Grid.Column="1"
+				FrameworkElement.Margin="20,0,10,10"
+				ContextMenu="{StaticResource ctxMenuGamepad}"
+				DataContext="{Binding GamepadService.CurrentGamepad}" />
+		</Grid>
+		<Grid
+			FrameworkElement.HorizontalAlignment="Right">
+			<Grid
+				UIElement.Visibility="{Binding LicensingService.IsValidLicense, Converter={converters:BooleanToVisibilityConverter}}">
+				<Border
+					FrameworkElement.Margin="0,10,10,0"
+					UIElement.Visibility="{Binding GamepadService.IsServiceInited, Converter={converters:BooleanToVisibilityConverter}}">
+					<TextBlock
+						FrameworkElement.HorizontalAlignment="Center"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						utils1:NavigationServiceHTML.Command="{Binding ShowBlacklistPreferencesCommand}"
+						utils1:NavigationServiceHTML.Text="{l:Translate {x:Static s:StringConsts.STR_NO_DEVICES_DESCRIPTION}}"
+						UIElement.Visibility="{Binding GamepadService.IsAnyGamepadConnected, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}" />
+				</Border>
+			</Grid>
+		</Grid>
+		<gamepadSelector:GamepadRemapStatus
+			Grid.Row="1"
+			FrameworkElement.Margin="16,15,0,12"
+			FrameworkElement.VerticalAlignment="Bottom"
+			UIElement.Visibility="{Binding GamepadService.CurrentGamepad, ConverterParameter=hidden, Converter={converters:ValueIsNullToVisibilityConverter}}" />
+	</Grid>
+</UserControl>

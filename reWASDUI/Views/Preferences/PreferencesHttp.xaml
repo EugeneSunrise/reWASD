@@ -1,0 +1,171 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesHttp" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:characterRestrictingTextBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CharacterRestrictingTextBoxes;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences"
+	x:Name="ucPreferencesHttp" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<Border
+		Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+		Border.BorderThickness="1,0,0,0">
+		<ScrollViewer
+			FrameworkElement.Style="{DynamicResource PreferencesPageGridStyle}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="auto" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<StackPanel
+					Grid.Row="0">
+					<checkBoxes:FillCheckBox
+						Name="chkHttpEnabled"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_ENABLE_LOCAL_NETWORK_SHARING}}"
+						IsChecked="{Binding IsEnabledOverLocalNetwork}" />
+					<StackPanel
+						UIElement.IsEnabled="{Binding IsEnabledOverLocalNetwork}">
+						<TextBlock
+							FrameworkElement.Margin="0,10,0,0"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_NETWORK_INTERFACE}}" />
+						<comboBoxes:ColoredComboBox
+							Name="cmbInterfaces"
+							FrameworkElement.Width="Auto"
+							FrameworkElement.HorizontalAlignment="Stretch"
+							DisabledBorderBrush="{DynamicResource DisabledForeground}"
+							DisabledForeground="{DynamicResource DisabledButtonForeground}"
+							IsSynchronizedWithCurrentItem="True"
+							ItemsControl.ItemsSource="{Binding InterfacesCollection}"
+							SelectedItem="{Binding CurrentInterface}" />
+						<TextBlock
+							FrameworkElement.Margin="0,10,0,0"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_TCP_PORT}}" />
+						<characterRestrictingTextBoxes:DigitBox
+							IsEmptyAllowed="True"
+							AutomationProperties.Name="TCPPort"
+							MaxLength="5">
+							<Binding
+								Path="PortString"
+								UpdateSourceTrigger="PropertyChanged"
+								ValidatesOnDataErrors="True" />
+							<FrameworkElement.ToolTip>
+								<TextBlock
+									TextBlock.Text="{Binding PortToolTip}" />
+							</FrameworkElement.ToolTip>
+						</characterRestrictingTextBoxes:DigitBox>
+						<StackPanel
+							Orientation="Horizontal">
+							<TextBlock
+								FrameworkElement.Margin="0"
+								FrameworkElement.Style="{DynamicResource HintTextBlockStyle}"
+								UIElement.IsEnabled="{Binding IsEnabledOverLocalNetwork}"
+								TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_DEFAULT_PORT_COL}}" />
+							<TextBlock
+								FrameworkElement.Margin="5,0,0,0"
+								FrameworkElement.Style="{DynamicResource HintTextBlockStyle}"
+								TextBlock.Text="{Binding DefaultPort}" />
+						</StackPanel>
+						<TextBlock
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_UDP_EMULATOR_PORT}}" />
+						<characterRestrictingTextBoxes:DigitBox
+							IsEmptyAllowed="True"
+							AutomationProperties.Name="UDPEmulatorPort"
+							MaxLength="5">
+							<Binding
+								Path="UDPEmulatorPortString"
+								UpdateSourceTrigger="PropertyChanged"
+								ValidatesOnDataErrors="True" />
+							<FrameworkElement.ToolTip>
+								<TextBlock
+									TextBlock.Text="{Binding UDPEmulatorPortToolTip}" />
+							</FrameworkElement.ToolTip>
+						</characterRestrictingTextBoxes:DigitBox>
+						<StackPanel
+							Orientation="Horizontal">
+							<TextBlock
+								FrameworkElement.Margin="0"
+								FrameworkElement.Style="{DynamicResource HintTextBlockStyle}"
+								UIElement.IsEnabled="{Binding IsEnabledOverLocalNetwork}"
+								TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_DEFAULT_PORT_COL}}" />
+							<TextBlock
+								FrameworkElement.Margin="5,0,0,0"
+								FrameworkElement.Style="{DynamicResource HintTextBlockStyle}"
+								TextBlock.Text="{Binding DefaultUDPEmulatorPort}" />
+						</StackPanel>
+						<StackPanel
+							FrameworkElement.HorizontalAlignment="Stretch">
+							<TextBlock
+								FrameworkElement.Name="tbPCName"
+								FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+								TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PC_NAME}}"
+								x:Name="tbPCName" />
+							<controls:WaterMarkTextBox
+								MaxLength="32"
+								AutomationProperties.LabeledBy="{Binding ElementName=tbPCName}"
+								TextBox.Text="{Binding DeviceName, UpdateSourceTrigger=PropertyChanged}" />
+						</StackPanel>
+					</StackPanel>
+				</StackPanel>
+				<StackPanel
+					Grid.Row="1"
+					FrameworkElement.VerticalAlignment="Top"
+					FrameworkElement.Margin="0,20">
+					<checkBoxes:FillCheckBox
+						Name="chkUdpEnabled"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_UDP_SERVER}}"
+						IsChecked="{Binding IsUdpSelected}" />
+					<StackPanel
+						UIElement.IsEnabled="{Binding IsUdpSelected}">
+						<TextBlock
+							UIElement.Visibility="Collapsed"
+							FrameworkElement.Margin="0,10,0,0"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_NETWORK_INTERFACE}}" />
+						<comboBoxes:ColoredComboBox
+							Name="cmbUdpInterfaces"
+							UIElement.Visibility="Collapsed"
+							FrameworkElement.Width="Auto"
+							FrameworkElement.HorizontalAlignment="Stretch"
+							DisabledBorderBrush="{DynamicResource DisabledForeground}"
+							DisabledForeground="{DynamicResource DisabledButtonForeground}"
+							ItemsControl.ItemsSource="{Binding UdpInterfacesCollection}"
+							SelectedItem="{Binding CurrentUdpInterface}" />
+						<TextBlock
+							FrameworkElement.Margin="0,10,0,0"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PORT}}" />
+						<characterRestrictingTextBoxes:DigitBox
+							IsEmptyAllowed="True"
+							MaxLength="5"
+							AutomationProperties.Name="{l:Translate {x:Static s:StringConsts.STR_PORT}}">
+							<Binding
+								Path="UdpPortString"
+								UpdateSourceTrigger="PropertyChanged"
+								ValidatesOnDataErrors="True" />
+							<FrameworkElement.ToolTip>
+								<TextBlock
+									TextBlock.Text="{Binding UdpPortToolTip}" />
+							</FrameworkElement.ToolTip>
+						</characterRestrictingTextBoxes:DigitBox>
+						<StackPanel
+							Orientation="Horizontal">
+							<TextBlock
+								FrameworkElement.Margin="0"
+								FrameworkElement.Style="{DynamicResource HintTextBlockStyle}"
+								TextBlock.Text="{Binding UdpPortToolTip}"
+								UIElement.IsEnabled="{Binding IsUdpSelected}" />
+						</StackPanel>
+					</StackPanel>
+					<TextBlock
+						FrameworkElement.Margin="0,10,0,0"
+						FrameworkElement.Style="{DynamicResource HintTextBlockStyle}"
+						TextBlock.Text="{Binding UdpStateString}" />
+				</StackPanel>
+			</Grid>
+		</ScrollViewer>
+	</Border>
+</UserControl>

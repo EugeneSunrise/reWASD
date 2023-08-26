@@ -1,0 +1,135 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ControlTemplate
+		x:Key="SubmenuHeaderTemplate"
+		TargetType="{x:Type MenuItem}">
+		<Grid
+			SnapsToDevicePixels="true">
+			<Border
+				Name="Bg"
+				Border.Background="{TemplateBinding Control.Background}"
+				Border.BorderThickness="0">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto"
+							ColumnDefinition.MinWidth="24"
+							SharedSizeGroup="MenuItemIconColumnGroup" />
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto"
+							SharedSizeGroup="MenuItemIGTColumnGroup" />
+						<ColumnDefinition
+							ColumnDefinition.Width="17" />
+					</Grid.ColumnDefinitions>
+					<ContentPresenter
+						Name="Icon"
+						FrameworkElement.Margin="0"
+						FrameworkElement.VerticalAlignment="Center"
+						ContentPresenter.ContentSource="Icon"
+						SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+					<ContentPresenter
+						Grid.Column="1"
+						FrameworkElement.Margin="0,0,10,0"
+						FrameworkElement.VerticalAlignment="Center"
+						ContentPresenter.ContentSource="Header"
+						ContentPresenter.RecognizesAccessKey="True"
+						SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+					<TextBlock
+						Grid.Column="2"
+						FrameworkElement.Margin="{TemplateBinding Control.Padding}"
+						FrameworkElement.VerticalAlignment="Center"
+						TextBlock.Foreground="{TemplateBinding Control.Foreground}"
+						TextBlock.Text="{TemplateBinding MenuItem.InputGestureText}" />
+					<Path
+						Grid.Column="3"
+						FrameworkElement.Margin="4,0,0,0"
+						FrameworkElement.VerticalAlignment="Center"
+						Path.Data="{DynamicResource RightArrow}"
+						Shape.Fill="{TemplateBinding Control.Foreground}" />
+				</Grid>
+			</Border>
+			<Popup
+				Name="PART_Popup"
+				AllowsTransparency="true"
+				UIElement.Focusable="false"
+				HorizontalOffset="-2"
+				Popup.Placement="Right"
+				Popup.PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}"
+				VerticalOffset="-3"
+				Popup.IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}">
+				<ContentControl
+					Name="SubMenuBorder"
+					Control.IsTabStop="false"
+					Control.Template="{DynamicResource {ComponentResourceKey ResourceId=SubmenuContent, TypeInTargetAssembly={x:Type FrameworkElement}}}">
+					<ScrollViewer
+						Name="SubMenuScrollViewer"
+						ScrollViewer.CanContentScroll="true"
+						FrameworkElement.Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
+						<Grid
+							RenderOptions.ClearTypeHint="Enabled">
+							<Canvas
+								FrameworkElement.Width="0"
+								FrameworkElement.Height="0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top">
+								<Rectangle
+									Shape.Fill="{DynamicResource MenuBackground}"
+									FrameworkElement.Width="{Binding ActualWidth, ElementName=SubMenuBorder}"
+									FrameworkElement.Height="{Binding ActualHeight, ElementName=SubMenuBorder}" />
+							</Canvas>
+							<ItemsPresenter
+								Name="ItemsPresenter"
+								Grid.IsSharedSizeScope="true"
+								KeyboardNavigation.DirectionalNavigation="Cycle"
+								KeyboardNavigation.TabNavigation="Cycle"
+								SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+						</Grid>
+					</ScrollViewer>
+				</ContentControl>
+			</Popup>
+		</Grid>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="MenuItem.IsSuspendingPopupAnimation"
+				Value="true">
+				<Setter
+					TargetName="PART_Popup"
+					Property="Popup.PopupAnimation"
+					Value="None" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.Icon"
+				Value="{x:Null}">
+				<Setter
+					TargetName="Icon"
+					Property="UIElement.Visibility"
+					Value="Collapsed" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.IsChecked"
+				Value="true">
+				<Setter
+					TargetName="Icon"
+					Property="UIElement.Visibility"
+					Value="Collapsed" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.IsHighlighted"
+				Value="true">
+				<Setter
+					TargetName="Bg"
+					Value="{DynamicResource MenuHighlightedBackground}"
+					Property="Border.Background" />
+			</Trigger>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="false">
+				<Setter
+					TargetName="Icon"
+					Property="UIElement.Opacity"
+					Value="0.5" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+</ResourceDictionary>

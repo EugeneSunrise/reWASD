@@ -1,0 +1,29 @@
+<UserControl
+	x:Class="reWASDUI.Controls.ScaleWatchingControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base="clr-namespace:reWASDUI.ViewModels.Base" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:reWASDUI.Controls">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="3*" />
+			<RowDefinition
+				RowDefinition.Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				ColumnDefinition.Width="*" />
+			<ColumnDefinition
+				ColumnDefinition.Width="3*" />
+			<ColumnDefinition
+				ColumnDefinition.Width="*" />
+		</Grid.ColumnDefinitions>
+		<Border
+			Grid.Row="1"
+			Grid.Column="1"
+			FrameworkElement.HorizontalAlignment="Stretch"
+			FrameworkElement.VerticalAlignment="Stretch"
+			attachedBehaviours:SizeObserver.Observe="True"
+			attachedBehaviours:SizeObserver.ObservedHeight="{Binding GuiScaleService.SvgContainerHeight, Mode=OneWayToSource}"
+			attachedBehaviours:SizeObserver.ObservedWidth="{Binding GuiScaleService.SvgContainerWidth, Mode=OneWayToSource}" />
+	</Grid>
+</UserControl>

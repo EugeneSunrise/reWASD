@@ -1,0 +1,500 @@
+<UserControl
+	x:Class="reWASDUI.Controls.IconAnimation" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	FrameworkElement.Width="52"
+	FrameworkElement.Height="52" xmlns:controls="clr-namespace:reWASDUI.Controls">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<Storyboard
+				x:Key="Storyboard1">
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_2"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="1" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="-0.003" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_2"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="15" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="14.979" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="23" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="26.01" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_4"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="1" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="0.002" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_4"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="-8.104" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="-8.012" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="0" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="3.024" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_3"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="1" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="0" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_3"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="10.842" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="10.776" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="16.263" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="18.384" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_3"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="33.842" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="33.776" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="39.263" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="41.384" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_1"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="1" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="0" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_1"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="10.842" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="10.776" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="16.263" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="18.385" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_1"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="12.158" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="12.224" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="6.737" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="4.615" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_5"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="1" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="0" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_5"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="-10.958" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="-11.058" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="-16.263" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="-18.384" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_5"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="-12.042" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="-11.941" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="-6.737" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="-4.616" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_6"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="1" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="0" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_6"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="-11.843" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="-15" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="-23" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="-26" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_7"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="1" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="0" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_7"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="-10.842" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="-10.981" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="-16.263" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="-18.346" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_7"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="-33.842" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="-33.981" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="-39.263" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="-41.346" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_7"
+					Storyboard.TargetProperty="(UIElement.Opacity)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="1" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="1" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_8"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="1" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="0" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_8"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="8.042" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="8.007" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="0" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.5000000"
+						Value="-3" />
+				</DoubleAnimationUsingKeyFrames>
+				<PointAnimationUsingKeyFrames
+					Storyboard.TargetName="_6"
+					Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)">
+					<EasingPointKeyFrame
+						KeyTime="00:00:00"
+						Value="0.542,-0.028" />
+					<EasingPointKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="0.5,0.5" />
+				</PointAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_6"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="-19.81" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="-23" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="_4"
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="0" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.1000000"
+						Value="-0.031" />
+					<EasingDoubleKeyFrame
+						KeyTime="00:00:00.3000000"
+						Value="0" />
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		FrameworkElement.Width="52"
+		FrameworkElement.Height="52"
+		FrameworkElement.HorizontalAlignment="Center"
+		FrameworkElement.VerticalAlignment="Center">
+		<FrameworkElement.Triggers>
+			<EventTrigger
+				RoutedEvent="MouseEnter">
+				<EventTrigger.Actions>
+					<BeginStoryboard
+						BeginStoryboard.Storyboard="{DynamicResource Storyboard1}" />
+				</EventTrigger.Actions>
+			</EventTrigger>
+		</FrameworkElement.Triggers>
+		<Rectangle
+			Name="_1"
+			FrameworkElement.Width="1"
+			FrameworkElement.Height="6"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Top"
+			RenderTransformOrigin="0.5,0.5"
+			Shape.Fill="{Binding AnimationBrush}">
+			<UIElement.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform />
+					<SkewTransform />
+					<RotateTransform
+						Angle="45" />
+					<TranslateTransform
+						X="16.263"
+						Y="6.737" />
+				</TransformGroup>
+			</UIElement.RenderTransform>
+		</Rectangle>
+		<Rectangle
+			Name="_2"
+			FrameworkElement.Width="1"
+			FrameworkElement.Height="6"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Top"
+			RenderTransformOrigin="0.5,0.5"
+			Shape.Fill="{Binding AnimationBrush}">
+			<UIElement.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform />
+					<SkewTransform />
+					<RotateTransform
+						Angle="90" />
+					<TranslateTransform
+						X="23"
+						Y="23" />
+				</TransformGroup>
+			</UIElement.RenderTransform>
+		</Rectangle>
+		<Rectangle
+			Name="_3"
+			FrameworkElement.Width="1"
+			FrameworkElement.Height="6"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Top"
+			RenderTransformOrigin="0.5,0.5"
+			Shape.Fill="{Binding AnimationBrush}">
+			<UIElement.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform />
+					<SkewTransform />
+					<RotateTransform
+						Angle="135" />
+					<TranslateTransform
+						X="16.263"
+						Y="39.263" />
+				</TransformGroup>
+			</UIElement.RenderTransform>
+		</Rectangle>
+		<Rectangle
+			Name="_4"
+			FrameworkElement.Width="1"
+			FrameworkElement.Height="6"
+			FrameworkElement.Margin="0,46,0,0"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Top"
+			RenderTransformOrigin="0.5,0.5"
+			Shape.Fill="{Binding AnimationBrush}">
+			<UIElement.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform />
+					<SkewTransform />
+					<RotateTransform />
+					<TranslateTransform />
+				</TransformGroup>
+			</UIElement.RenderTransform>
+		</Rectangle>
+		<Rectangle
+			Name="_5"
+			FrameworkElement.Width="1"
+			FrameworkElement.Height="6"
+			FrameworkElement.Margin="0,46,0,0"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Top"
+			RenderTransformOrigin="0.5,0.5"
+			Shape.Fill="{Binding AnimationBrush}">
+			<UIElement.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform />
+					<SkewTransform />
+					<RotateTransform
+						Angle="45" />
+					<TranslateTransform
+						X="-16.263"
+						Y="-6.737" />
+				</TransformGroup>
+			</UIElement.RenderTransform>
+		</Rectangle>
+		<Rectangle
+			Name="_6"
+			FrameworkElement.Width="1"
+			FrameworkElement.Height="6"
+			FrameworkElement.Margin="0,46,0,0"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Top"
+			RenderTransformOrigin="0.5,0.5"
+			Shape.Fill="{Binding AnimationBrush}">
+			<UIElement.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform />
+					<SkewTransform />
+					<RotateTransform
+						Angle="90" />
+					<TranslateTransform
+						X="-23"
+						Y="-23" />
+				</TransformGroup>
+			</UIElement.RenderTransform>
+		</Rectangle>
+		<Rectangle
+			Name="_7"
+			FrameworkElement.Width="1"
+			FrameworkElement.Height="6"
+			FrameworkElement.Margin="0,46,0,0"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Top"
+			RenderTransformOrigin="0.5,0.5"
+			Shape.Fill="{Binding AnimationBrush}">
+			<UIElement.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform />
+					<SkewTransform />
+					<RotateTransform
+						Angle="135" />
+					<TranslateTransform
+						X="-16.263"
+						Y="-39.263" />
+				</TransformGroup>
+			</UIElement.RenderTransform>
+		</Rectangle>
+		<Rectangle
+			Name="_8"
+			FrameworkElement.Width="1"
+			FrameworkElement.Height="6"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Top"
+			RenderTransformOrigin="0.5,0.5"
+			Shape.Fill="{Binding AnimationBrush}">
+			<UIElement.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform />
+					<SkewTransform />
+					<RotateTransform />
+					<TranslateTransform />
+				</TransformGroup>
+			</UIElement.RenderTransform>
+		</Rectangle>
+	</Grid>
+</UserControl>

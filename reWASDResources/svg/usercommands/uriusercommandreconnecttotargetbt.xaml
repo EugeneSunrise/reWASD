@@ -1,0 +1,30 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriUserCommandReconnectToTargetBT" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriUserCommandReconnectToTargetBT">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup
+						svr:SvgObject.Id="UriUserCommandReconnectToTargetBT">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M10,4L10,5C11.103,5 12,5.897 12,7 12,8.103 11.103,9 10,9L4,9C2.897,9 2,8.103 2,7 2,5.897 2.897,5 4,5L6.293,5 5.146,6.146 5.853,6.853 7.853,4.853C8.048,4.658,8.048,4.341,7.853,4.146L5.853,2.146 5.146,2.854 6.293,4 4,4C2.346,4 1,5.346 1,7 1,8.654 2.346,10 4,10L10,10C11.654,10 13,8.654 13,7 13,5.346 11.654,4 10,4z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

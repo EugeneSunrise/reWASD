@@ -1,0 +1,147 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.GamepadSelector.GamepadBatteryLevel" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:gamepadselector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector">
+	<Border
+		Name="BatteryLevelBorder"
+		FrameworkElement.Width="32"
+		FrameworkElement.Height="29"
+		UIElement.Visibility="{Binding GamepadService.CurrentGamepad.IsControllerBatteryBlockVisible, ConverterParameter=hidden, Converter={converters:BooleanToVisibilityConverter}}">
+		<FrameworkElement.Style>
+			<Style>
+				<Style.Triggers>
+					<DataTrigger
+						Value="True"
+						Binding="{Binding GamepadService.CurrentGamepad.IsBatteryLevelPercentPresent}">
+						<Setter
+							Property="FrameworkElement.ToolTip"
+							Value="{Binding GamepadService.CurrentGamepad.BatteryLevelPercent, Converter={converters1:BatteryPercentageToStringConverter}}" />
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+		</FrameworkElement.Style>
+		<recolorableImages:RecolorableSVG
+			FrameworkElement.Width="23"
+			FrameworkElement.Height="12">
+			<FrameworkElement.Style>
+				<Style
+					TargetType="{x:Type recolorableImages:RecolorableSVG}">
+					<Setter
+						Property="recolorableImages:RecolorableSVG.Drawing"
+						Value="{DynamicResource Battery_unknown}" />
+					<Style.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="{x:Static enums:BatteryLevel.Critical}"
+									Binding="{Binding GamepadService.CurrentGamepad.ControllerBatteryLevel}" />
+								<Condition
+									Value="False"
+									Binding="{Binding GamepadService.CurrentGamepad.IsCharging}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="recolorableImages:RecolorableSVG.Drawing"
+								Value="{DynamicResource Battery_critical}" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="{x:Static enums:BatteryLevel.Low}"
+									Binding="{Binding GamepadService.CurrentGamepad.ControllerBatteryLevel}" />
+								<Condition
+									Value="False"
+									Binding="{Binding GamepadService.CurrentGamepad.IsCharging}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="recolorableImages:RecolorableSVG.Drawing"
+								Value="{DynamicResource Battery_low}" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="{x:Static enums:BatteryLevel.Medium}"
+									Binding="{Binding GamepadService.CurrentGamepad.ControllerBatteryLevel}" />
+								<Condition
+									Value="False"
+									Binding="{Binding GamepadService.CurrentGamepad.IsCharging}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="recolorableImages:RecolorableSVG.Drawing"
+								Value="{DynamicResource Battery_medium}" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="{x:Static enums:BatteryLevel.High}"
+									Binding="{Binding GamepadService.CurrentGamepad.ControllerBatteryLevel}" />
+								<Condition
+									Value="False"
+									Binding="{Binding GamepadService.CurrentGamepad.IsCharging}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="recolorableImages:RecolorableSVG.Drawing"
+								Value="{DynamicResource Battery_high}" />
+						</MultiDataTrigger>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding GamepadService.CurrentGamepad.IsConnectionWired}">
+							<Setter
+								Property="recolorableImages:RecolorableSVG.Drawing"
+								Value="{DynamicResource battery_wired}" />
+						</DataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="{x:Static enums:BatteryLevel.Critical}"
+									Binding="{Binding GamepadService.CurrentGamepad.ControllerBatteryLevel}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.CurrentGamepad.IsCharging}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="recolorableImages:RecolorableSVG.Drawing"
+								Value="{DynamicResource Battery_charging_critical}" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="{x:Static enums:BatteryLevel.Low}"
+									Binding="{Binding GamepadService.CurrentGamepad.ControllerBatteryLevel}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.CurrentGamepad.IsCharging}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="recolorableImages:RecolorableSVG.Drawing"
+								Value="{DynamicResource Battery_charging_low}" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="{x:Static enums:BatteryLevel.Medium}"
+									Binding="{Binding GamepadService.CurrentGamepad.ControllerBatteryLevel}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.CurrentGamepad.IsCharging}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="recolorableImages:RecolorableSVG.Drawing"
+								Value="{DynamicResource Battery_charging_medium}" />
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Value="{x:Static enums:BatteryLevel.High}"
+									Binding="{Binding GamepadService.CurrentGamepad.ControllerBatteryLevel}" />
+								<Condition
+									Value="True"
+									Binding="{Binding GamepadService.CurrentGamepad.IsCharging}" />
+							</MultiDataTrigger.Conditions>
+							<Setter
+								Property="recolorableImages:RecolorableSVG.Drawing"
+								Value="{DynamicResource Battery_charging_high}" />
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</FrameworkElement.Style>
+		</recolorableImages:RecolorableSVG>
+	</Border>
+</UserControl>

@@ -1,0 +1,248 @@
+<buttonBinding:BaseButtonBinding
+	x:Class="reWASDUI.Controls.XBBindingControls.ButtonBinding.SingleButtonBinding" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:bindingAnnotation="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingAnnotation" xmlns:buttonBinding="clr-namespace:reWASDUI.Controls.XBBindingControls.ButtonBinding" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:interfaces1="clr-namespace:reWASDUI.Services.Interfaces" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:xb="clr-namespace:reWASDUI.Infrastructure.KeyBindings.XB" xmlns:xbBindingControls="clr-namespace:reWASDUI.Controls.XBBindingControls">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type buttonBinding:SingleButtonBinding}">
+			<Border
+				Border.Background="#00FFFFFF"
+				MouseDown="ContainerBorderMouseDown">
+				<FrameworkElement.ContextMenu>
+					<xbBindingControls:CopyPasteClearBindingContextMenu
+						XBBinding="{Binding XBBinding, RelativeSource={RelativeSource TemplatedParent}}" />
+				</FrameworkElement.ContextMenu>
+				<StackPanel
+					DataContext="{TemplateBinding xbBindingControls:BaseXBBindingUserControl.XBBinding}"
+					FocusManager.FocusedElement="{Binding ElementName=cmbKeyCode}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+						</Grid.ColumnDefinitions>
+						<StackPanel
+							Orientation="Horizontal"
+							UIElement.Visibility="{TemplateBinding buttonBinding:SingleButtonBinding.TitleVisibility}">
+							<Grid>
+								<TextBlock
+									Name="tbTitle"
+									FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+									TextBlock.Text="{TemplateBinding buttonBinding:BaseButtonBinding.TitleKeyMap}"
+									UIElement.Visibility="Collapsed" />
+								<TextBlock
+									Name="tbFriendlyName"
+									FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+									UIElement.Visibility="Collapsed"
+									TextBlock.Text="{Binding GamepadButton.FriendlyName}" />
+							</Grid>
+							<buttons:SVGButton
+								Name="btnRemoveKeyBinding"
+								FrameworkElement.Margin="0,0,0,3"
+								FrameworkElement.VerticalAlignment="Bottom"
+								FrameworkElement.Style="{DynamicResource SVGButtonRemove}"
+								ColorShiftBrush="{Binding XBBinding.HostCollection.CollectionBrush, FallbackValue='{StaticResource ButtonBorderBrush}', RelativeSource={RelativeSource TemplatedParent}}"
+								Click="BtnRemoveKeyBinding">
+								<UIElement.Visibility>
+									<MultiBinding
+										ConverterParameter="(!{0} || {1})"
+										FallbackValue="Collapsed"
+										Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+										<Binding
+											Path="XBBinding.CurrentActivatorXBBinding.MappedKey.IsNotMapped"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="XBBinding.CurrentActivatorXBBinding.IsMacroMapping"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</UIElement.Visibility>
+							</buttons:SVGButton>
+						</StackPanel>
+						<StackPanel
+							Grid.Column="1"
+							FrameworkElement.HorizontalAlignment="Right"
+							FrameworkElement.VerticalAlignment="Bottom"
+							Orientation="Horizontal"
+							UIElement.Visibility="{Binding Visibility, ElementName=cmbKeyCodeAdaptor}">
+							<checkBoxes:DrawingCheckBox
+								FrameworkElement.Name="cbMappingFilterOverlay"
+								Drawing="{DynamicResource OverlayMenuMode}"
+								IsCheckedDrawingBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								FrameworkElement.Style="{DynamicResource MappingFilterCheckBoxStyle}"
+								IsChecked="{Binding IsShowOverlayButtons, RelativeSource={RelativeSource TemplatedParent}}"
+								IsCheckedTooltip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_INCLUDES_OVERLAY_NAV}}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_EXCLUDES_OVERLAY_NAV}}"
+								MouseDoubleClick="EnableOverlayFilterOnly">
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+										<Binding
+											Path="HostCollection.IsOverlayCollection" />
+										<Binding
+											Path="IsOverlaySector"
+											Converter="{converters:InverseBooleanConverter}" />
+									</MultiBinding>
+								</UIElement.Visibility>
+							</checkBoxes:DrawingCheckBox>
+							<checkBoxes:DrawingCheckBox
+								FrameworkElement.Name="cbMappingFilterXBOX360"
+								Drawing="{DynamicResource IcoMappingFilterXBOX360}"
+								IsCheckedDrawingBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								FrameworkElement.Style="{DynamicResource MappingFilterCheckBoxStyle}"
+								IsChecked="{Binding IsShowVirtualGamepadButtons, RelativeSource={RelativeSource TemplatedParent}}"
+								IsCheckedTooltip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_INCLUDES_GAMEPAD_KEYS}}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_EXCLUDES_GAMEPAD_KEYS}}"
+								UIElement.Visibility="{Binding CurrentVirtualGamepad, ConverterParameter='{x:Static enums:VirtualGamepadType.Xbox360}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:ValuesAreEqualToVisibilityConverter}}"
+								MouseDoubleClick="EnableGamepadFilterOnly" />
+							<checkBoxes:DrawingCheckBox
+								FrameworkElement.Name="cbMappingFilterDS4"
+								Drawing="{DynamicResource IcoMappingFilterDS4}"
+								IsCheckedDrawingBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								FrameworkElement.Style="{DynamicResource MappingFilterCheckBoxStyle}"
+								IsChecked="{Binding IsShowVirtualGamepadButtons, RelativeSource={RelativeSource TemplatedParent}}"
+								IsCheckedTooltip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_INCLUDES_GAMEPAD_KEYS}}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_EXCLUDES_GAMEPAD_KEYS}}"
+								UIElement.Visibility="{Binding CurrentVirtualGamepad, ConverterParameter='{x:Static enums:VirtualGamepadType.SonyDualshock4}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:ValuesAreEqualToVisibilityConverter}}"
+								PreviewMouseDoubleClick="EnableGamepadFilterOnly" />
+							<checkBoxes:DrawingCheckBox
+								FrameworkElement.Name="cbMappingFilterXBOXOne"
+								Drawing="{DynamicResource IcoMappingFilterXBOXOne}"
+								IsCheckedDrawingBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								FrameworkElement.Style="{DynamicResource MappingFilterCheckBoxStyle}"
+								IsChecked="{Binding IsShowVirtualGamepadButtons, RelativeSource={RelativeSource TemplatedParent}}"
+								IsCheckedTooltip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_INCLUDES_GAMEPAD_KEYS}}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_EXCLUDES_GAMEPAD_KEYS}}"
+								UIElement.Visibility="{Binding CurrentVirtualGamepad, ConverterParameter='{x:Static enums:VirtualGamepadType.XboxOneBT}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:ValuesAreEqualToVisibilityConverter}}"
+								PreviewMouseDoubleClick="EnableGamepadFilterOnly" />
+							<checkBoxes:DrawingCheckBox
+								FrameworkElement.Name="cbMappingFilterNSPro"
+								Drawing="{DynamicResource IcoMappingFilterNSPro}"
+								IsCheckedDrawingBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								FrameworkElement.Style="{DynamicResource MappingFilterCheckBoxStyle}"
+								IsChecked="{Binding IsShowVirtualGamepadButtons, RelativeSource={RelativeSource TemplatedParent}}"
+								IsCheckedTooltip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_INCLUDES_GAMEPAD_KEYS}}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_EXCLUDES_GAMEPAD_KEYS}}"
+								UIElement.Visibility="{Binding CurrentVirtualGamepad, ConverterParameter='{x:Static enums:VirtualGamepadType.NintendoSwitchPro}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:ValuesAreEqualToVisibilityConverter}}"
+								PreviewMouseDoubleClick="EnableGamepadFilterOnly" />
+							<checkBoxes:DrawingCheckBox
+								FrameworkElement.Name="cbMappingFilterDS3"
+								Drawing="{DynamicResource IcoMappingFilterDS3}"
+								IsCheckedDrawingBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								FrameworkElement.Style="{DynamicResource MappingFilterCheckBoxStyle}"
+								IsChecked="{Binding IsShowVirtualGamepadButtons, RelativeSource={RelativeSource TemplatedParent}}"
+								IsCheckedTooltip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_INCLUDES_GAMEPAD_KEYS}}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_EXCLUDES_GAMEPAD_KEYS}}"
+								UIElement.Visibility="{Binding CurrentVirtualGamepad, ConverterParameter='{x:Static enums:VirtualGamepadType.SonyDualshock3}', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:ValuesAreEqualToVisibilityConverter}}"
+								PreviewMouseDoubleClick="EnableGamepadFilterOnly" />
+							<checkBoxes:DrawingCheckBox
+								FrameworkElement.Name="cbMappingFilterMouse"
+								Drawing="{DynamicResource IcoMappingFilterMouse}"
+								IsCheckedDrawingBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								IsChecked="{Binding IsShowMouseButtons, RelativeSource={RelativeSource TemplatedParent}}"
+								IsCheckedTooltip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_INCLUDES_MOUSE_KEYS}}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_EXCLUDES_MOUSE_KEYS}}"
+								PreviewMouseDoubleClick="EnableMouseFilterOnly">
+								<FrameworkElement.Style>
+									<Style
+										BasedOn="{StaticResource MappingFilterCheckBoxStyle}"
+										TargetType="{x:Type checkBoxes:DrawingCheckBox}">
+										<Setter
+											Property="checkBoxes:DrawingCheckBox.SVGHeight"
+											Value="11" />
+										<Setter
+											Property="checkBoxes:DrawingCheckBox.SVGWidth"
+											Value="11" />
+									</Style>
+								</FrameworkElement.Style>
+							</checkBoxes:DrawingCheckBox>
+							<checkBoxes:DrawingCheckBox
+								FrameworkElement.Name="cbMappingFilterKeyboard"
+								Drawing="{DynamicResource IcoMappingFilterKeyboard}"
+								IsCheckedDrawingBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								FrameworkElement.Style="{DynamicResource MappingFilterCheckBoxStyle}"
+								IsChecked="{Binding IsShowKeyboardButtons, RelativeSource={RelativeSource TemplatedParent}}"
+								IsCheckedTooltip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_INCLUDES_KEYBOARD_KEYS}}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_EXCLUDES_KEYBOARD_KEYS}}"
+								PreviewMouseDoubleClick="EnableKeyboardFilterOnly" />
+							<checkBoxes:DrawingCheckBox
+								FrameworkElement.Name="cbMappingFilterUserCommand"
+								Drawing="{DynamicResource IcoMappingFilterUserCommand}"
+								IsCheckedDrawingBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								FrameworkElement.Style="{DynamicResource MappingFilterCheckBoxStyle}"
+								IsChecked="{Binding IsShowUserCommands, RelativeSource={RelativeSource TemplatedParent}}"
+								IsCheckedTooltip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_INCLUDES_COMMANDS}}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_LIST_EXCLUDES_COMMANDS}}"
+								PreviewMouseDoubleClick="EnableUserCommandsFilterOnly" />
+						</StackPanel>
+					</Grid>
+					<Grid>
+						<comboBoxes:ComboBoxAdaptor
+							Name="cmbKeyCodeAdaptor"
+							AllowNull="False"
+							ItemsSource="{TemplateBinding buttonBinding:SingleButtonBinding.RewasdMappings}"
+							SelectedItem="{Binding CurrentActivatorXBBinding.MappedKey, Delay=10}"
+							UIElement.Visibility="{Binding IsVisible, ElementName=KeyComboAnnotation, ConverterParameter='invert hidden', Converter={converters:BooleanToVisibilityConverter}}">
+							<comboBoxes:ColoredComboBox
+								Name="cmbKeyCode"
+								FrameworkElement.HorizontalAlignment="Stretch"
+								FrameworkElement.VerticalAlignment="Center"
+								BlockKeyboardEvents="True"
+								HighlightedBorderBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								HighlightedScrollThumbBackground="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								ItemsControl.ItemTemplate="{StaticResource KeyScanCodeInSingleButtonDataTemplate}"
+								PopupBorderBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+								attachedBehaviours:FocusBehavior.InitialyFocused="{Binding Path=(attachedBehaviours:FocusBehavior.InitialyFocused), RelativeSource={RelativeSource TemplatedParent}}"
+								attachedBehaviours:FocusBehavior.VisibleFocused="{Binding Path=(attachedBehaviours:FocusBehavior.InitialyFocused), RelativeSource={RelativeSource TemplatedParent}}"
+								DisabledBorderBrush="{TemplateBinding ControlsBorderBrush, ConverterParameter=0.7, Converter={converters:SolidColorBrushSetOpacityViaParamConvertor}}"
+								ToolTip="{Binding CurrentActivatorXBBinding.MappedKey.ToolTip, Delay=10}" />
+						</comboBoxes:ComboBoxAdaptor>
+						<bindingAnnotation:ActivatorVirtualMappingAnnotation
+							x:Name="KeyComboAnnotation"
+							FrameworkElement.VerticalAlignment="Center"
+							Control.Foreground="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+							IsMappingVisible="True"
+							IsShiftVisible="false"
+							ActivatorXBBinding="{Binding CurrentActivatorXBBinding}"
+							ShiftActivatorXBBinding="{Binding CurrentActivatorXBBinding}">
+							<UIElement.Visibility>
+								<MultiBinding
+									Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+									<Binding
+										Path="CurrentActivatorXBBinding.IsMacroMapping" />
+									<Binding
+										Path="CurrentActivatorXBBinding.MappedKey.IsNotMapped"
+										ConverterParameter="invert" />
+								</MultiBinding>
+							</UIElement.Visibility>
+						</bindingAnnotation:ActivatorVirtualMappingAnnotation>
+					</Grid>
+				</StackPanel>
+			</Border>
+			<ControlTemplate.Triggers>
+				<DataTrigger
+					Value="False"
+					Binding="{Binding Title, RelativeSource={RelativeSource Mode=Self}, Converter={converters:ValueIsNotNull}}">
+					<Setter
+						TargetName="tbFriendlyName"
+						Property="UIElement.Visibility"
+						Value="Visible" />
+					<Setter
+						TargetName="tbTitle"
+						Property="UIElement.Visibility"
+						Value="Collapsed" />
+				</DataTrigger>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding Title, RelativeSource={RelativeSource Mode=Self}, Converter={converters:ValueIsNotNull}}">
+					<Setter
+						TargetName="tbFriendlyName"
+						Property="UIElement.Visibility"
+						Value="Collapsed" />
+					<Setter
+						TargetName="tbTitle"
+						Property="UIElement.Visibility"
+						Value="Visible" />
+				</DataTrigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</buttonBinding:BaseButtonBinding>

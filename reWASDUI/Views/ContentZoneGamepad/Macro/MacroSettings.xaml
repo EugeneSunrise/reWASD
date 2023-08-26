@@ -1,0 +1,837 @@
+<controls1:BaseServicesDataContextControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.Macro.MacroSettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:b="clr-namespace:DiscSoft.NET.Common.Utils.InteractivityBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:controls1="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:gamepad="clr-namespace:reWASDUI.Views.ContentZoneGamepad.Macro.Gamepad" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:interfaces1="clr-namespace:reWASDUI.Services.Interfaces" xmlns:keyboard="clr-namespace:reWASDUI.Views.ContentZoneGamepad.Macro.Keyboard" xmlns:licenseFeatureManaging="clr-namespace:reWASDUI.Controls.LicenseFeatureManaging" xmlns:listViewLayoutManager="clr-namespace:DiscSoft.NET.Common.Utils.ListViewLayoutManager;assembly=DiscSoft.NET.Common" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:macro="clr-namespace:reWASDUI.Views.ContentZoneGamepad.Macro" xmlns:markupExtensions="clr-namespace:DiscSoft.NET.Common.Utils.Markup_Extensions;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mouse="clr-namespace:reWASDUI.Views.ContentZoneGamepad.Macro.Mouse" xmlns:reWasdui="clr-namespace:reWASDUI" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:xbEliteWpf="clr-namespace:XBEliteWPF" xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+	UIElement.Focusable="True">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type macro:MacroSettings}">
+			<Grid
+				FrameworkElement.Margin="0,-20,0,0">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="0" />
+					<RowDefinition
+						RowDefinition.Height="*" />
+					<RowDefinition
+						RowDefinition.Height="90" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="0" />
+					<ColumnDefinition
+						ColumnDefinition.Width="15*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="0" />
+				</Grid.ColumnDefinitions>
+				<Grid
+					Row="1"
+					Column="1"
+					FrameworkElement.HorizontalAlignment="Stretch"
+					FrameworkElement.VerticalAlignment="Stretch">
+					<Grid.RowDefinitions>
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="*" />
+						<RowDefinition
+							RowDefinition.Height="*"
+							RowDefinition.MaxHeight="350" />
+					</Grid.RowDefinitions>
+					<Grid
+						FrameworkElement.Height="44"
+						FrameworkElement.Margin="10,0"
+						UIElement.IsEnabled="{TemplateBinding IsRecording, Converter={converters:InverseBooleanConverter}}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid
+							Column="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto" />
+								<ColumnDefinition
+									ColumnDefinition.Width="*" />
+							</Grid.ColumnDefinitions>
+							<buttons:SVGButton
+								FrameworkElement.Margin="0,0,0,3"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Center">
+								<FrameworkElement.Style>
+									<Style
+										BasedOn="{StaticResource ButtonBackBindingFrame}"
+										TargetType="{x:Type buttons:SVGButton}">
+										<Setter
+											Property="ButtonBase.CommandParameter"
+											Value="{Binding BindingFrameViewTypeToReturnBack, RelativeSource={RelativeSource TemplatedParent}}" />
+										<Style.Triggers>
+											<DataTrigger
+												Value="True"
+												Binding="{Binding XBBinding.MaskConditions[0].IsSet, RelativeSource={RelativeSource TemplatedParent}}">
+												<Setter
+													Property="buttons:SVGButton.Text"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_BACK_TO}}" />
+											</DataTrigger>
+											<DataTrigger
+												Value="True"
+												Binding="{Binding XBBinding.IsOverlaySector, RelativeSource={RelativeSource TemplatedParent}}">
+												<Setter
+													Property="buttons:SVGButton.Text"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_BACK_TO}}" />
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</FrameworkElement.Style>
+							</buttons:SVGButton>
+							<recolorableImages:RecolorableSVG
+								Grid.Column="1"
+								FrameworkElement.Margin="10,0,5,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								Drawing="{DynamicResource OverlayMenuMode}"
+								UIElement.Visibility="{Binding XBBinding.IsOverlaySector, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}" />
+							<ScrollViewer
+								Grid.Column="1"
+								FrameworkElement.Height="40"
+								FrameworkElement.Margin="0,0,0,0"
+								ScrollViewer.HorizontalScrollBarVisibility="Auto"
+								ScrollViewer.VerticalScrollBarVisibility="Hidden">
+								<StackPanel
+									FrameworkElement.Margin="10,0,0,0"
+									FrameworkElement.VerticalAlignment="Center"
+									Orientation="Horizontal">
+									<ContentControl
+										ContentControl.ContentTemplate="{DynamicResource MacroControllerButtonTemplate}"
+										ContentControl.Content="{Binding XBBinding.MaskConditions[0], RelativeSource={RelativeSource TemplatedParent}}"
+										UIElement.Visibility="{Binding XBBinding.MaskConditions[0], FallbackValue=Collapsed, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:ValueIsNotNullToVisibilityConverter}}" />
+									<recolorableImages:RecolorableSVG
+										FrameworkElement.Margin="5,0,5,0"
+										FrameworkElement.Style="{DynamicResource SVGPlusGray}">
+										<UIElement.Visibility>
+											<MultiBinding
+												ConverterParameter="({0} &amp;&amp; ({1} || {2} || {3}))"
+												Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+												<Binding
+													Path="XBBinding.MaskConditions[0].IsSet"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="XBBinding.MaskConditions[1].IsSet"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="XBBinding.MaskConditions[2].IsSet"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="XBBinding.MaskConditions[3].IsSet"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+											</MultiBinding>
+										</UIElement.Visibility>
+									</recolorableImages:RecolorableSVG>
+									<ContentControl
+										ContentControl.ContentTemplate="{DynamicResource MacroControllerButtonTemplate}"
+										ContentControl.Content="{Binding XBBinding.MaskConditions[1], RelativeSource={RelativeSource TemplatedParent}}"
+										UIElement.Visibility="{Binding XBBinding.MaskConditions[1].IsSet, FallbackValue=Collapsed, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:ValueIsNotNullToVisibilityConverter}}" />
+									<recolorableImages:RecolorableSVG
+										FrameworkElement.Margin="5,0,5,0"
+										FrameworkElement.Style="{DynamicResource SVGPlusGray}">
+										<UIElement.Visibility>
+											<MultiBinding
+												ConverterParameter="({0} &amp;&amp; ({1} || {2}))"
+												Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+												<Binding
+													Path="XBBinding.MaskConditions[1].IsSet"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="XBBinding.MaskConditions[2].IsSet"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="XBBinding.MaskConditions[3].IsSet"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+											</MultiBinding>
+										</UIElement.Visibility>
+									</recolorableImages:RecolorableSVG>
+									<ContentControl
+										ContentControl.ContentTemplate="{DynamicResource MacroControllerButtonTemplate}"
+										ContentControl.Content="{Binding XBBinding.MaskConditions[2], RelativeSource={RelativeSource TemplatedParent}}"
+										UIElement.Visibility="{Binding XBBinding.MaskConditions[2].IsSet, FallbackValue=Collapsed, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}" />
+									<recolorableImages:RecolorableSVG
+										FrameworkElement.Margin="5,0,5,0"
+										FrameworkElement.Style="{DynamicResource SVGPlusGray}">
+										<UIElement.Visibility>
+											<MultiBinding
+												Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+												<Binding
+													Path="XBBinding.MaskConditions[2].IsSet"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="XBBinding.MaskConditions[3].IsSet"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+											</MultiBinding>
+										</UIElement.Visibility>
+									</recolorableImages:RecolorableSVG>
+									<ContentControl
+										ContentControl.ContentTemplate="{DynamicResource MacroControllerButtonTemplate}"
+										ContentControl.Content="{Binding XBBinding.MaskConditions[3], RelativeSource={RelativeSource TemplatedParent}}"
+										UIElement.Visibility="{Binding XBBinding.MaskConditions[3].IsSet, FallbackValue=Collapsed, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}" />
+								</StackPanel>
+							</ScrollViewer>
+						</Grid>
+						<StackPanel
+							Grid.Column="1"
+							FrameworkElement.HorizontalAlignment="Center"
+							KeyboardNavigation.IsTabStop="False"
+							KeyboardNavigation.TabNavigation="None"
+							Orientation="Horizontal"
+							UIElement.IsEnabled="{Binding GamepadService.CurrentGamepad.GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+							<buttons:ColoredButton
+								Name="btnSwitchToHold"
+								FrameworkElement.Margin="0"
+								Control.BorderThickness="1,1,0,1"
+								UIElement.Focusable="False"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_HOLD_MODE_LIMITED}}"
+								ButtonBase.Command="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.SwitchToHoldUntilReleaseCommand, RelativeSource={RelativeSource TemplatedParent}}"
+								ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_HOLD_UNTIL_RELEASE}}"
+								IsTriggered="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.IsHoldUntilRelease, RelativeSource={RelativeSource TemplatedParent}}">
+								<UIElement.IsEnabled>
+									<MultiBinding
+										Converter="{converters:MultiBooleanAndConverter}">
+										<Binding
+											Path="XBBinding.CurrentActivatorXBBinding.IsToggle"
+											Converter="{converters:InverseBooleanConverter}"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="XBBinding.CurrentActivatorXBBinding.IsTurbo"
+											Converter="{converters:InverseBooleanConverter}"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="XBBinding.ControllerButton.IsMouseScroll"
+											Converter="{converters:InverseBooleanConverter}"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="XBBinding.CurrentActivatorXBBinding.IsReleaseActivator"
+											Converter="{converters:InverseBooleanConverter}"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</buttons:ColoredButton>
+							<buttons:ColoredButton
+								Name="btnSwitchToExecuteAtOnce"
+								FrameworkElement.Margin="0"
+								Control.BorderThickness="0,1,1,1"
+								UIElement.Focusable="False"
+								FrameworkElement.Style="{DynamicResource ButtonSmall}"
+								ButtonBase.Command="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.SwitchToExecuteAtOnceCommand, RelativeSource={RelativeSource TemplatedParent}}"
+								ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_EXECUTE_AT_ONCE}}"
+								IsTriggered="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.IsOnetime, RelativeSource={RelativeSource TemplatedParent}}" />
+						</StackPanel>
+						<StackPanel
+							Grid.Column="2"
+							FrameworkElement.HorizontalAlignment="Right"
+							Orientation="Horizontal">
+							<buttons:SVGButton
+								Name="btnMacroHelp"
+								Drawing="{DynamicResource Help}"
+								UIElement.Focusable="False"
+								Control.Foreground="{DynamicResource ForegroundBrush}"
+								HighlightedForeground="{DynamicResource CreamBrush}"
+								SVGMargin="5"
+								ButtonBase.Command="{Binding ShowMacroHelpCommand}"
+								Text="{localization:Translate {x:Static s:StringConsts.STR_HELP_GUIDE}}" />
+						</StackPanel>
+					</Grid>
+					<Border
+						Grid.Row="1"
+						FrameworkElement.Height="40"
+						Border.Background="{DynamicResource MacroHeaderBackground}"
+						KeyboardNavigation.IsTabStop="False"
+						KeyboardNavigation.TabNavigation="None"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									ColumnDefinition.Width="*" />
+								<ColumnDefinition
+									ColumnDefinition.Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<StackPanel
+								FrameworkElement.HorizontalAlignment="Left"
+								KeyboardNavigation.IsTabStop="False"
+								KeyboardNavigation.TabNavigation="None"
+								Orientation="Horizontal">
+								<buttons:SVGButton
+									Name="btnRecordStart"
+									FrameworkElement.Margin="10,0,0,0"
+									ColorShiftBrush="{DynamicResource MacroRecordRedBrush}"
+									Drawing="{DynamicResource MacrosRecord}"
+									UIElement.Focusable="False"
+									IsColorShift="True"
+									KeyboardNavigation.IsTabStop="False"
+									KeyboardNavigation.TabNavigation="None"
+									attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_DTT_COMBO_RECORDING_NOT_ALLOWED}}"
+									UIElement.IsEnabled="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.IsOnetime, RelativeSource={RelativeSource TemplatedParent}}"
+									ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_START_RECORDING}}"
+									UIElement.Visibility="{TemplateBinding IsRecording, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}"
+									Click="BtnStartRecord_OnClick" />
+								<controls:OverrideParentIsEnabledContainer>
+									<buttons:SVGButton
+										Name="btnRecordStop"
+										FrameworkElement.Margin="10,0,0,0"
+										ColorShiftBrush="{DynamicResource MacroRecordRedBrush}"
+										Drawing="{DynamicResource MacrosStop}"
+										UIElement.Focusable="False"
+										IsColorShift="True"
+										KeyboardNavigation.IsTabStop="False"
+										KeyboardNavigation.TabNavigation="None"
+										attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_DTT_COMBO_RECORDING_NOT_ALLOWED}}"
+										UIElement.IsEnabled="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.IsOnetime, RelativeSource={RelativeSource TemplatedParent}}"
+										ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_STOP_RECORDING}}"
+										UIElement.Visibility="{TemplateBinding IsRecording, Converter={converters:BooleanToVisibilityConverter}}"
+										Click="BtnStopRecord_OnClick" />
+								</controls:OverrideParentIsEnabledContainer>
+								<Border
+									FrameworkElement.Height="20"
+									Border.BorderBrush="{DynamicResource MenuSeparatorBrush}"
+									Border.BorderThickness="0,0,1,0" />
+								<StackPanel
+									KeyboardNavigation.IsTabStop="False"
+									KeyboardNavigation.TabNavigation="None"
+									Orientation="Horizontal"
+									UIElement.IsEnabled="{TemplateBinding IsRecording, Converter={converters:InverseBooleanConverter}}">
+									<buttons:SVGButton
+										Name="btnAddPause"
+										Drawing="{DynamicResource MacrosPause}"
+										UIElement.Focusable="False"
+										attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_DTT_ADD_ONE_KEY}}"
+										ButtonBase.Command="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.AddPauseCommand, RelativeSource={RelativeSource TemplatedParent}}"
+										ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_ADD_PAUSE}}" />
+									<buttons:SVGButton
+										Name="btnAddBreak"
+										Drawing="{DynamicResource MacrosBreak}"
+										UIElement.Focusable="False"
+										ToolTipService.ShowOnDisabled="True"
+										ButtonBase.Command="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.AddBreakCommand, RelativeSource={RelativeSource TemplatedParent}}">
+										<UIElement.IsEnabled>
+											<MultiBinding
+												Converter="{converters:MultiBooleanAndConverter}">
+												<Binding
+													Path="XBBinding.CurrentActivatorXBBinding.IsToggle"
+													Converter="{converters:InverseBooleanConverter}"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="XBBinding.CurrentActivatorXBBinding.IsTurbo"
+													Converter="{converters:InverseBooleanConverter}"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+											</MultiBinding>
+										</UIElement.IsEnabled>
+										<FrameworkElement.Style>
+											<Style
+												BasedOn="{StaticResource {x:Type buttons:SVGButton}}"
+												TargetType="{x:Type buttons:SVGButton}">
+												<Style.Triggers>
+													<Trigger
+														Property="UIElement.IsEnabled"
+														Value="True">
+														<Setter
+															Property="FrameworkElement.ToolTip"
+															Value="{localization:Translate {x:Static s:StringConsts.STR_ADD_BREAK}}" />
+													</Trigger>
+													<Trigger
+														Property="UIElement.IsEnabled"
+														Value="False">
+														<Setter
+															Property="FrameworkElement.ToolTip"
+															Value="{localization:Translate {x:Static s:StringConsts.STR_DTT_ADD_ONE_KEY}}" />
+													</Trigger>
+													<MultiDataTrigger>
+														<MultiDataTrigger.Conditions>
+															<Condition
+																Value="True"
+																Binding="{Binding IsRecording, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type macro:MacroSettings}}}" />
+															<Condition
+																Value="False"
+																Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" />
+														</MultiDataTrigger.Conditions>
+														<Setter
+															Property="FrameworkElement.ToolTip"
+															Value="{x:Null}" />
+													</MultiDataTrigger>
+													<DataTrigger
+														Value="True">
+														<DataTrigger.Binding>
+															<MultiBinding
+																ConverterParameter="({0} &amp;&amp; ({1} || {2} ))"
+																FallbackValue="False"
+																Converter="{converters:MultiBooleanParametrizedConverter}">
+																<Binding
+																	Path="IsEnabled"
+																	Converter="{converters:InverseBooleanConverter}"
+																	RelativeSource="{RelativeSource Self}" />
+																<Binding
+																	Path="XBBinding.CurrentActivatorXBBinding.IsToggle"
+																	RelativeSource="{RelativeSource TemplatedParent}" />
+																<Binding
+																	Path="XBBinding.CurrentActivatorXBBinding.IsTurbo"
+																	RelativeSource="{RelativeSource TemplatedParent}" />
+															</MultiBinding>
+														</DataTrigger.Binding>
+														<Setter
+															Property="FrameworkElement.ToolTip"
+															Value="{localization:Translate {x:Static s:StringConsts.STR_DTT_SWITCH_TO_HOLD}}" />
+													</DataTrigger>
+												</Style.Triggers>
+											</Style>
+										</FrameworkElement.Style>
+									</buttons:SVGButton>
+									<buttons:SVGButton
+										Name="btnAddRumble"
+										Drawing="{DynamicResource UriRumble}"
+										UIElement.Focusable="False"
+										attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_DTT_ADD_ONE_KEY}}"
+										ButtonBase.Command="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.AddRumbleCommand, RelativeSource={RelativeSource TemplatedParent}}"
+										ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_ADD_RUMBLE}}" />
+								</StackPanel>
+								<Border
+									FrameworkElement.Height="20"
+									Border.BorderBrush="{DynamicResource MenuSeparatorBrush}"
+									Border.BorderThickness="0,0,1,0" />
+								<buttons:SVGButton
+									Name="btnClear"
+									Drawing="{DynamicResource MacrosClean}"
+									UIElement.Focusable="False"
+									Control.Foreground="{DynamicResource ForegroundBrush}"
+									HighlightedForeground="{DynamicResource CreamBrush}"
+									ButtonBase.Command="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.ClearCommand, RelativeSource={RelativeSource TemplatedParent}}"
+									ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_CLEAN}}" />
+								<buttons:SVGButton
+									Name="btnRemovePauses"
+									Drawing="{DynamicResource MacrosRemovePauses}"
+									UIElement.Focusable="False"
+									Control.Foreground="{DynamicResource ForegroundBrush}"
+									HighlightedForeground="{DynamicResource CreamBrush}"
+									ButtonBase.Command="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.ClearAllPausesCommand, RelativeSource={RelativeSource TemplatedParent}}"
+									ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_REMOVE_ALL_PAUSES}}" />
+							</StackPanel>
+							<StackPanel
+								Grid.Column="1"
+								FrameworkElement.HorizontalAlignment="Right"
+								KeyboardNavigation.IsTabStop="False"
+								KeyboardNavigation.TabNavigation="None"
+								Orientation="Horizontal"
+								UIElement.IsEnabled="{TemplateBinding IsRecording, Converter={converters:InverseBooleanConverter}}">
+								<controls1:MacrosDurationContainer
+									x:Name="durIterationPause"
+									FrameworkElement.MaxWidth="260"
+									UIElement.Focusable="False"
+									FrameworkElement.Style="{DynamicResource MacroIterationPause}"
+									attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_DTT_ADD_ONE_KEY}}"
+									Increment="{markupExtensions:CastObjectToInt {x:Static infrastructure:Constants.MacroKeyDelayUnit}}"
+									UIElement.IsEnabled="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.BindingNodeCount, ConverterParameter='> 0', RelativeSource={RelativeSource TemplatedParent}, Converter={converters:ValueSatisfiesRuleParameter}}"
+									Maximum="{markupExtensions:CastObjectToInt {x:Static infrastructure:Constants.MacroKeyDelayMaxValueInMS}}"
+									Minimum="{markupExtensions:CastObjectToInt {x:Static infrastructure:Constants.MacroKeyDelayMinValueInMS}}"
+									UnitsString="{localization:Translate {x:Static s:StringConsts.STR_TIME_UNITS}}"
+									UIElement.Visibility="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.IsOnetime, FallbackValue=Collapsed, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}"
+									Duration="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.KeyDelay, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource TemplatedParent}}">
+									<Border
+										Name="durIterationPauseBorder"
+										FrameworkElement.Style="{DynamicResource MacroDurationIterationPauseInternalContainer}">
+										<StackPanel
+											Name="durIterationPausePanel"
+											Orientation="Horizontal">
+											<recolorableImages:RecolorableSVG
+												Name="durIterationPauseSVG"
+												FrameworkElement.Width="14"
+												FrameworkElement.Height="14"
+												FrameworkElement.Margin="6,0"
+												FrameworkElement.VerticalAlignment="Center"
+												ColorShiftBrush="{DynamicResource CreamBrush}"
+												Drawing="{DynamicResource MacrosDelay}"
+												IsColorShift="True" />
+											<TextBlock
+												Name="durIterationPauseTB"
+												FrameworkElement.Margin="0,0,7,0"
+												FrameworkElement.VerticalAlignment="Center"
+												TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_DELAY_BETWEEN_KEYS}}" />
+										</StackPanel>
+									</Border>
+								</controls1:MacrosDurationContainer>
+								<controls1:MacrosDurationContainer
+									x:Name="durRepeatCount"
+									FrameworkElement.MaxWidth="160"
+									UIElement.Focusable="False"
+									Increment="1"
+									Minimum="1"
+									FrameworkElement.Style="{DynamicResource MacroIterationPause}"
+									Maximum="{markupExtensions:CastObjectToInt {x:Static infrastructure:Constants.MacroRepeatCountMaxValue}}"
+									Duration="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.RepeatCount, RelativeSource={RelativeSource TemplatedParent}}">
+									<UIElement.Visibility>
+										<MultiBinding
+											ConverterParameter="invert"
+											Converter="{converters:MultiBooleanOrConverterToVisibilityConverter}">
+											<Binding
+												Path="XBBinding.CurrentActivatorXBBinding.MacroSequence.IsHoldUntilRelease"
+												RelativeSource="{RelativeSource TemplatedParent}" />
+											<Binding
+												Path="XBBinding.CurrentActivatorXBBinding.IsTurbo"
+												RelativeSource="{RelativeSource TemplatedParent}" />
+											<Binding
+												Path="XBBinding.CurrentActivatorXBBinding.IsToggle"
+												RelativeSource="{RelativeSource TemplatedParent}" />
+										</MultiBinding>
+									</UIElement.Visibility>
+									<Border
+										Name="durRepeatCountBorder"
+										FrameworkElement.Style="{DynamicResource MacroDurationIterationPauseInternalContainer}">
+										<StackPanel
+											Name="durRepeatCountPanel"
+											Orientation="Horizontal">
+											<recolorableImages:RecolorableSVG
+												Name="durRepeatCountSVG"
+												FrameworkElement.Width="14"
+												FrameworkElement.Height="14"
+												FrameworkElement.Margin="6,0"
+												FrameworkElement.VerticalAlignment="Center"
+												ColorShiftBrush="{DynamicResource CreamBrush}"
+												Drawing="{DynamicResource MacrosIterations}"
+												IsColorShift="True" />
+											<TextBlock
+												Name="durRepeatCountTB"
+												FrameworkElement.Margin="0,0,7,0"
+												FrameworkElement.VerticalAlignment="Center"
+												TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_ITERATIONS}}" />
+										</StackPanel>
+									</Border>
+								</controls1:MacrosDurationContainer>
+								<controls1:MacrosDurationContainer
+									x:Name="durRepeatInterval"
+									FrameworkElement.MaxWidth="270"
+									UIElement.Focusable="False"
+									Minimum="0"
+									FrameworkElement.Style="{DynamicResource MacroIterationPause}"
+									UIElement.IsEnabled="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.RepeatIntervalIsEnabled, RelativeSource={RelativeSource TemplatedParent}}"
+									Maximum="{markupExtensions:CastObjectToInt {x:Static infrastructure:Constants.MacroRepeatIntervalMaxValueMS}}"
+									UnitsString="{localization:Translate {x:Static s:StringConsts.STR_TIME_UNITS}}"
+									Duration="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.RepeatInterval, RelativeSource={RelativeSource TemplatedParent}}">
+									<UIElement.Visibility>
+										<MultiBinding
+											ConverterParameter="invert"
+											Converter="{converters:MultiBooleanOrConverterToVisibilityConverter}">
+											<Binding
+												Path="XBBinding.CurrentActivatorXBBinding.MacroSequence.IsHoldUntilRelease"
+												RelativeSource="{RelativeSource TemplatedParent}" />
+											<Binding
+												Path="XBBinding.CurrentActivatorXBBinding.IsTurbo"
+												RelativeSource="{RelativeSource TemplatedParent}" />
+											<Binding
+												Path="XBBinding.CurrentActivatorXBBinding.IsToggle"
+												RelativeSource="{RelativeSource TemplatedParent}" />
+										</MultiBinding>
+									</UIElement.Visibility>
+									<Border
+										Name="durRepeatIntervalBorder"
+										FrameworkElement.Style="{DynamicResource MacroDurationIterationPauseInternalContainer}">
+										<StackPanel
+											Name="durRepeatIntervalPanel"
+											Orientation="Horizontal">
+											<recolorableImages:RecolorableSVG
+												Name="durRepeatIntervalSVG"
+												FrameworkElement.Width="14"
+												FrameworkElement.Height="14"
+												FrameworkElement.Margin="6,0"
+												FrameworkElement.VerticalAlignment="Center"
+												ColorShiftBrush="{DynamicResource CreamBrush}"
+												Drawing="{DynamicResource MacrosPause}"
+												IsColorShift="True" />
+											<TextBlock
+												Name="durRepeatIntervalTB"
+												FrameworkElement.Margin="0,0,7,0"
+												FrameworkElement.VerticalAlignment="Center"
+												TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_PAUSE_BETWEEN_ITERATIONS}}" />
+										</StackPanel>
+									</Border>
+								</controls1:MacrosDurationContainer>
+							</StackPanel>
+						</Grid>
+					</Border>
+					<Grid
+						Name="macroContentGrid"
+						Row="2">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								RowDefinition.Height="*" />
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+						</Grid.RowDefinitions>
+						<Border
+							Grid.Row="0"
+							FrameworkElement.HorizontalAlignment="Stretch"
+							FrameworkElement.VerticalAlignment="Stretch"
+							Border.Background="{DynamicResource MacroContentBackground}"
+							UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+							IsHitTestVisible="{Binding IsRecording, FallbackValue=True, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=macro:MacroSettings}, Converter={converters:InverseBooleanConverter}}">
+							<controls:OverrideParentIsEnabledContainer>
+								<ScrollViewer
+									ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+									<Grid
+										Name="MacroListViewGrid">
+										<controls1:ExtendedListBox
+											x:Name="MacroListView"
+											PreviewDragEnter="MacroListView_DragEnter"
+											PreviewDrop="MacroListView_PreviewDrop"
+											PreviewMouseRightButtonDown="MacroListView_PreviewMouseRightButtonDown"
+											PreviewMouseRightButtonUp="MacroListView_PreviewMouseRightButtonUp"
+											SelectionChanged="MacroListView_OnSelectionChanged"
+											FrameworkElement.Margin="10"
+											attachedBehaviours:SelectorBehavior.ShouldSelectItemOnMouseUp="True"
+											listViewLayoutManager:ListViewLayoutManager.Enabled="True"
+											AllowDrop="True"
+											Control.Background="#00FFFFFF"
+											Control.BorderThickness="0"
+											ScrollViewer.CanContentScroll="False"
+											ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+											ScrollViewer.VerticalScrollBarVisibility="Disabled"
+											SelectionMode="Extended"
+											UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+											ItemsControl.ItemsSource="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence, RelativeSource={RelativeSource TemplatedParent}}">
+											<UIElement.InputBindings>
+												<KeyBinding
+													Key="C"
+													Modifiers="Control"
+													Command="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.CopyCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+												<KeyBinding
+													Key="V"
+													Modifiers="Control"
+													Command="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.PasteHotkeysCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+												<KeyBinding
+													Key="Delete"
+													Command="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.RemoveCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+											</UIElement.InputBindings>
+											<behaviors1:Interaction.Behaviors xmlns:behaviors1="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors">
+												<b:ItemsControlScrollOnNewItem />
+											</behaviors1:Interaction.Behaviors>
+											<ItemsControl.ItemsPanel>
+												<ItemsPanelTemplate>
+													<WrapPanel />
+												</ItemsPanelTemplate>
+											</ItemsControl.ItemsPanel>
+											<ItemsControl.ItemContainerStyle>
+												<Style
+													TargetType="{x:Type ListBoxItem}">
+													<Setter
+														Property="UIElement.AllowDrop"
+														Value="True" />
+													<Setter
+														Property="FrameworkElement.Margin"
+														Value="2" />
+													<Setter
+														Property="Control.Padding"
+														Value="0" />
+													<Setter
+														Property="ListBoxItem.IsSelected"
+														Value="{Binding IsSelected}" />
+													<Setter
+														Property="FrameworkElement.FocusVisualStyle"
+														Value="{DynamicResource MacroItemFocusVisualStyle}" />
+													<Setter
+														Property="Control.Template">
+														<Setter.Value>
+															<ControlTemplate
+																TargetType="{x:Type ListBoxItem}">
+																<Border
+																	FrameworkElement.Name="Border"
+																	FrameworkElement.Margin="{TemplateBinding FrameworkElement.Margin}"
+																	Padding="{TemplateBinding Control.Padding}"
+																	Border.Background="{TemplateBinding Control.Background}"
+																	Border.BorderBrush="{TemplateBinding Control.Background}"
+																	Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+																	<ContentPresenter />
+																</Border>
+															</ControlTemplate>
+														</Setter.Value>
+													</Setter>
+													<EventSetter
+														Event="PreviewMouseDown"
+														Handler="MacroItemPreviewMouseDown" />
+													<EventSetter
+														Event="PreviewMouseUp"
+														Handler="MacroItemPreviewMouseUp" />
+													<EventSetter
+														Event="MouseMove"
+														Handler="MacroItemPreviewMouseMove" />
+													<EventSetter
+														Event="MouseEnter"
+														Handler="MacroItemMouseEnter" />
+													<EventSetter
+														Event="MouseLeave"
+														Handler="MacroItemMouseLeave" />
+													<EventSetter
+														Event="PreviewDragLeave"
+														Handler="MacroItemDragLeave" />
+													<EventSetter
+														Event="GiveFeedback"
+														Handler="MacroItemDragGiveFeedback" />
+												</Style>
+											</ItemsControl.ItemContainerStyle>
+											<FrameworkElement.Style>
+												<Style
+													TargetType="{x:Type ListBox}">
+													<Setter
+														Property="Control.Template">
+														<Setter.Value>
+															<ControlTemplate
+																TargetType="{x:Type ListBox}">
+																<Border
+																	Border.Background="{TemplateBinding Control.Background}"
+																	Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+																	Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+																	<ItemsPresenter />
+																</Border>
+															</ControlTemplate>
+														</Setter.Value>
+													</Setter>
+												</Style>
+											</FrameworkElement.Style>
+										</controls1:ExtendedListBox>
+									</Grid>
+								</ScrollViewer>
+							</controls:OverrideParentIsEnabledContainer>
+						</Border>
+						<Border
+							Name="durationBorder"
+							Grid.Row="1"
+							FrameworkElement.Height="36"
+							FrameworkElement.VerticalAlignment="Bottom"
+							Border.Background="{DynamicResource MacroHeaderBackground}"
+							UIElement.Visibility="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.IsOnetime, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="*" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<StackPanel
+									Name="durationContainer"
+									Grid.Column="1"
+									FrameworkElement.Margin="10,0,10,0"
+									FrameworkElement.VerticalAlignment="Center"
+									UIElement.Focusable="False"
+									Orientation="Horizontal">
+									<StackPanel
+										Name="durationTagContainer"
+										FrameworkElement.VerticalAlignment="Center"
+										Orientation="Horizontal">
+										<recolorableImages:RecolorableSVG
+											Name="durationSVG"
+											FrameworkElement.Width="14"
+											FrameworkElement.Height="14"
+											FrameworkElement.Margin="6,0"
+											FrameworkElement.VerticalAlignment="Center"
+											ColorShiftBrush="{DynamicResource CreamBrush}"
+											Drawing="{DynamicResource MacrosDelay}"
+											IsColorShift="True" />
+										<TextBlock
+											Name="durationTB"
+											FrameworkElement.Margin="0,0,6,0"
+											TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_TOTAL_COMBO_TIME}}" />
+									</StackPanel>
+									<StackPanel
+										Name="TotalComboTimeStackPanel"
+										FrameworkElement.VerticalAlignment="Center"
+										UIElement.Focusable="False"
+										Orientation="Horizontal">
+										<TextBlock
+											Name="TotalComboTime"
+											TextBlock.TextTrimming="WordEllipsis"
+											TextBlock.TextWrapping="NoWrap"
+											FrameworkElement.MaxWidth="{Binding MacroDurationWidth, NotifyOnTargetUpdated=True, RelativeSource={RelativeSource TemplatedParent}}"
+											TextBlock.Text="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.TotalComboTime, RelativeSource={RelativeSource TemplatedParent}}">
+											<FrameworkElement.ToolTip>
+												<ToolTip
+													UIElement.Visibility="{Binding MacroDurationIsWrapped, NotifyOnTargetUpdated=True, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}">
+													<ContentControl.Content>
+														<TextBlock
+															Name="ToolTipTotalComboTime"
+															TextBlock.TextWrapping="Wrap"
+															TextBlock.Text="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence.TotalComboTime, RelativeSource={RelativeSource TemplatedParent}}" />
+													</ContentControl.Content>
+												</ToolTip>
+											</FrameworkElement.ToolTip>
+										</TextBlock>
+									</StackPanel>
+								</StackPanel>
+							</Grid>
+						</Border>
+					</Grid>
+					<Grid
+						Row="2"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						UIElement.Visibility="{TemplateBinding IsRecording, Converter={converters:BooleanToVisibilityConverter}}">
+						<Border
+							Border.Background="#80000000">
+							<Grid
+								FrameworkElement.Width="300"
+								FrameworkElement.Height="100"
+								Panel.Background="#FF000000">
+								<StackPanel
+									FrameworkElement.HorizontalAlignment="Center"
+									FrameworkElement.VerticalAlignment="Center"
+									Orientation="Vertical"
+									UIElement.Visibility="{TemplateBinding IsFinalizingRecording, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+									<TextBlock
+										FrameworkElement.HorizontalAlignment="Center"
+										TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_RECORIDNG}}" />
+									<TextBlock
+										FrameworkElement.HorizontalAlignment="Center"
+										TextBlock.FontSize="24"
+										TextBlock.Text="{TemplateBinding RecordingCounter, Converter={markupExtensions:ObjectToStringConverter}}" />
+								</StackPanel>
+								<StackPanel
+									FrameworkElement.HorizontalAlignment="Center"
+									FrameworkElement.VerticalAlignment="Center"
+									Orientation="Vertical"
+									UIElement.Visibility="{TemplateBinding IsFinalizingRecording, Converter={converters:BooleanToVisibilityConverter}}">
+									<TextBlock
+										FrameworkElement.HorizontalAlignment="Center"
+										TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_FINALIZING}}" />
+								</StackPanel>
+							</Grid>
+						</Border>
+					</Grid>
+					<Grid
+						Row="3"
+						FrameworkElement.MaxWidth="1200"
+						FrameworkElement.Margin="30,11,30,0"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						UIElement.Visibility="{Binding IsRecording, FallbackValue=True, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=macro:MacroSettings}, Converter={converters:InverseBooleanConverter}}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="17*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="81*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="3*" />
+						</Grid.ColumnDefinitions>
+						<licenseFeatureManaging:LicenseFeatureManagingContainer
+							Grid.Column="0"
+							AssociatedFeatureGUID="{x:Static reWasdui:App.ADVANCED_MAPPING_FEATURE_GUID}"
+							IsFeatureUnlocked="{Binding LicensingService.IsAdvancedMappingFeatureUnlocked}">
+							<gamepad:MacroGamepad
+								MacroSequence="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence, RelativeSource={RelativeSource TemplatedParent}}" />
+						</licenseFeatureManaging:LicenseFeatureManagingContainer>
+						<keyboard:MacroKeyboard
+							Grid.Column="1"
+							FrameworkElement.Margin="10,0"
+							MacroSequence="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence, RelativeSource={RelativeSource TemplatedParent}}" />
+						<mouse:MacroMouse
+							Grid.Column="2"
+							MacroSequence="{Binding XBBinding.CurrentActivatorXBBinding.MacroSequence, RelativeSource={RelativeSource TemplatedParent}}" />
+					</Grid>
+				</Grid>
+			</Grid>
+		</ControlTemplate>
+	</Control.Template>
+</controls1:BaseServicesDataContextControl>

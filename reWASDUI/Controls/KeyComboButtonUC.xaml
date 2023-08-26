@@ -1,0 +1,55 @@
+<UserControl
+	x:Class="reWASDUI.Controls.KeyComboButtonUC" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:xbEliteWpf="clr-namespace:XBEliteWPF" xmlns:licenseFeatureManaging="clr-namespace:reWASDUI.Controls.LicenseFeatureManaging" xmlns:reWasdui="clr-namespace:reWASDUI" xmlns:controls="clr-namespace:reWASDUI.Controls">
+	<FrameworkElement.Style>
+		<Style
+			TargetType="{x:Type controls:KeyComboButtonUC}">
+			<Style.Setters>
+				<Setter
+					Property="controls:KeyComboButtonUC.XBBinding"
+					Value="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding}" />
+				<Setter
+					Property="Control.Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type controls:KeyComboButtonUC}">
+							<licenseFeatureManaging:LicenseFeatureManagingContainer
+								AssociatedFeatureGUID="{x:Static reWasdui:App.MACROS_FEATURE_GUID}"
+								IsFeatureUnlocked="{Binding LicensingService.IsMacroFeatureUnlocked}">
+								<UIElement.Visibility>
+									<MultiBinding
+										ConverterParameter="invert"
+										Converter="{converters:MultiBooleanOrConverterToVisibilityConverter}">
+										<Binding
+											Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentTouchpadDirectionalGroup.TouchpadAnalogMode" />
+									</MultiBinding>
+								</UIElement.Visibility>
+								<buttons:ColoredButton
+									Name="btnBFShowKeyCombo"
+									FrameworkElement.Margin="0"
+									FrameworkElement.Style="{DynamicResource ButtonSmallXBBindingShiftRecolored}"
+									ToolTipService.ShowOnDisabled="True"
+									ButtonBase.Command="{Binding ShowMacroSettingsCommand}"
+									ButtonBase.CommandParameter="{Binding XBBinding, RelativeSource={RelativeSource TemplatedParent}}"
+									ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_KEY_COMBO_NAV}}"
+									IsTriggered="{Binding XBBinding.CurrentActivatorXBBinding.IsMacroMapping, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+									UIElement.Visibility="{Binding XBBinding.ControllerButton.IsKeyComboMappingAvailiable, Converter={converters:BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+									<UIElement.IsEnabled>
+										<MultiBinding
+											ConverterParameter="({0} || {1})"
+											Converter="{converters:MultiBooleanParametrizedConverter}">
+											<Binding
+												Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+											<Binding
+												Path="XBBinding.CurrentActivatorXBBinding.IsMacroMapping"
+												RelativeSource="{RelativeSource Mode=TemplatedParent}" />
+										</MultiBinding>
+									</UIElement.IsEnabled>
+								</buttons:ColoredButton>
+							</licenseFeatureManaging:LicenseFeatureManagingContainer>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style.Setters>
+		</Style>
+	</FrameworkElement.Style>
+</UserControl>

@@ -1,0 +1,28 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="Buttons\Buttons.xaml" />
+		<ResourceDictionary
+			Source="Buttons\ButtonRounded.xaml" />
+		<ResourceDictionary
+			Source="DTTextBlockStyle.xaml" />
+		<ResourceDictionary
+			Source="ToggleButton.xaml" />
+		<ResourceDictionary
+			Source="TrimmableTextBlockStyle.xaml" />
+		<ResourceDictionary
+			Source="WaterMarkTextBoxStyle.xaml" />
+		<ResourceDictionary
+			Source="XBTextBoxStyles.xaml" />
+		<ResourceDictionary
+			Source="TabControlHorizontalStyle.xaml" />
+		<ResourceDictionary
+			Source="TabControlVerticalStyle.xaml" />
+		<ResourceDictionary
+			Source="DocumentViewer.xaml" />
+		<ResourceDictionary
+			Source="DoNotShowLogicControlStyle.xaml" />
+		<ResourceDictionary
+			Source="ProgressBarStyle.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

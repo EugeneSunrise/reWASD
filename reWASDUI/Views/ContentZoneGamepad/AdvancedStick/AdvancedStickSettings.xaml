@@ -1,0 +1,246 @@
+<advancedStick:BaseDirectionalAnalogGroupUserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.AdvancedStick.AdvancedStickSettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:advancedStick="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick" xmlns:bindingFrame="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame" xmlns:bindingFrameViews="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:reWASDUI.Utils.Converters" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dsConverters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:infrastructure="clr-namespace:reWASDUI.Infrastructure" xmlns:interfaces1="clr-namespace:reWASDUI.Services.Interfaces" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:stickCross="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick.StickCross" xmlns:stickZone="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick.StickZone" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels"
+	DirectionalGroup="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrenDirectionalAnalogGroup}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="BindingFrameTemplates/BFStickAdvancedTemplate.xaml" />
+				<ResourceDictionary
+					Source="BindingFrameTemplates/BFDigitalTouchpadAdvancedTemplate.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type advancedStick:AdvancedStickSettings}">
+			<Grid
+				FrameworkElement.Margin="0,0,0,0">
+				<Grid
+					FrameworkElement.Width="600"
+					FrameworkElement.VerticalAlignment="Top">
+					<buttons:SVGButton
+						FrameworkElement.HorizontalAlignment="Left"
+						SVGMargin="0,7,5,5"
+						FrameworkElement.Style="{DynamicResource ButtonBackFrame}" />
+					<buttons:ColoredButton
+						Name="btnResetStick"
+						Control.Padding="5,0"
+						FrameworkElement.HorizontalAlignment="Right"
+						FrameworkElement.Style="{DynamicResource ButtonSmallShiftRecolored}"
+						ButtonBase.Command="{Binding GameProfilesService.CurrentMainBindingCollection.ResetStickToDefaultCommand}"
+						ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_DEFAULT_SETTINGS}}"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrenDirectionalAnalogGroup.IsResetToDefaultButtonAllowed, Converter={dsConverters:BooleanToVisibilityConverter}}" />
+					<TextBlock
+						Name="label"
+						FrameworkElement.Margin="0,5"
+						FrameworkElement.HorizontalAlignment="Center"
+						FrameworkElement.Style="{DynamicResource DTBFHeaderTextBlockStyle}"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						TextBlock.Text="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrenDirectionalAnalogGroup.GroupLabel}" />
+				</Grid>
+				<ScrollViewer
+					FrameworkElement.MaxWidth="1200"
+					FrameworkElement.Margin="0,64,0,48"
+					ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+					<Grid
+						FrameworkElement.Margin="0,0,5,0"
+						FrameworkElement.MaxHeight="700">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="0*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+							<ColumnDefinition
+								ColumnDefinition.Width="8*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+							<ColumnDefinition
+								ColumnDefinition.Width="0*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								RowDefinition.Height="*" />
+							<RowDefinition
+								RowDefinition.Height="*" />
+						</Grid.RowDefinitions>
+						<ScrollViewer
+							Grid.Row="0"
+							Grid.RowSpan="2"
+							Grid.Column="1"
+							FrameworkElement.VerticalAlignment="Top">
+							<bindingFrame:BindingFrameUC
+								FrameworkElement.Width="285"
+								HookKeyboardEventsOnlyWhenFocused="True"
+								IsFixedWidth="False">
+								<Border
+									Border.Background="{DynamicResource ContentBackground}"
+									Border.BorderBrush="{DynamicResource ContentBorderBrush}">
+									<Border
+										FrameworkElement.Margin="10,0"
+										FrameworkElement.HorizontalAlignment="Stretch"
+										FrameworkElement.VerticalAlignment="Stretch">
+										<Grid>
+											<ContentControl
+												ContentControl.ContentTemplate="{StaticResource BFStickAdvancedTemplate}"
+												UIElement.Focusable="False"
+												UIElement.Visibility="{Binding DirectionalGroup.IsDigitalMode, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+											<ContentControl
+												ContentControl.ContentTemplate="{StaticResource BFDigitalTouchpadAdvancedTemplate}"
+												UIElement.Focusable="False"
+												UIElement.Visibility="{Binding DirectionalGroup.IsDigitalMode, RelativeSource={RelativeSource TemplatedParent}, Converter={dsConverters:BooleanToVisibilityConverter}}" />
+										</Grid>
+									</Border>
+								</Border>
+							</bindingFrame:BindingFrameUC>
+						</ScrollViewer>
+						<stickCross:StickCrossView
+							x:Name="StickCrossView"
+							Grid.Row="0"
+							Grid.Column="2"
+							FrameworkElement.Margin="0,18,0,0"
+							FrameworkElement.MaxWidth="500"
+							FrameworkElement.MaxHeight="220"
+							DirectionalGroup="{Binding DirectionalGroup, RelativeSource={RelativeSource TemplatedParent}}" />
+						<stickZone:StickZonesView
+							x:Name="StickZonesView"
+							Grid.Row="1"
+							Grid.Column="2"
+							FrameworkElement.Margin="0,18,0,0"
+							FrameworkElement.HorizontalAlignment="Right"
+							DirectionalGroup="{Binding DirectionalGroup, RelativeSource={RelativeSource TemplatedParent}}"
+							UIElement.Visibility="{Binding DirectionalGroup.IsZonesAllowed, RelativeSource={RelativeSource TemplatedParent}, Converter={dsConverters:BooleanToVisibilityConverter}}" />
+						<ScrollViewer
+							Grid.Row="0"
+							Grid.RowSpan="2"
+							Grid.Column="3"
+							FrameworkElement.VerticalAlignment="Bottom"
+							UIElement.Visibility="{Binding DirectionalGroup.IsDigitalMode, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition
+										RowDefinition.Height="Auto" />
+									<RowDefinition
+										RowDefinition.Height="Auto" />
+								</Grid.RowDefinitions>
+								<bindingFrame:BindingFrameUC
+									Grid.Row="0"
+									FrameworkElement.Width="285"
+									FrameworkElement.VerticalAlignment="Bottom"
+									HookKeyboardEventsOnlyWhenFocused="True"
+									IsFixedWidth="False"
+									UIElement.Visibility="{Binding DirectionalGroup.IsSpringModeAllowed, RelativeSource={RelativeSource TemplatedParent}, Converter={dsConverters:BooleanToVisibilityConverter}}">
+									<Border
+										Border.Background="{DynamicResource ContentBackground}"
+										Border.BorderBrush="{DynamicResource ContentBorderBrush}">
+										<Border
+											FrameworkElement.MinWidth="230"
+											FrameworkElement.Margin="10,0,10,13"
+											FrameworkElement.HorizontalAlignment="Stretch"
+											FrameworkElement.VerticalAlignment="Stretch">
+											<advancedStick:AdvancedSpringSettings
+												DirectionalGroup="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrenDirectionalAnalogGroup}"
+												UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}" />
+										</Border>
+									</Border>
+								</bindingFrame:BindingFrameUC>
+								<ContentControl
+									Grid.Row="1"
+									FrameworkElement.VerticalAlignment="Bottom"
+									ContentControl.Content="{Binding}">
+									<FrameworkElement.Style>
+										<Style
+											TargetType="{x:Type ContentControl}">
+											<Setter
+												Property="ContentControl.ContentTemplate">
+												<Setter.Value>
+													<DataTemplate />
+												</Setter.Value>
+											</Setter>
+											<Style.Triggers>
+												<DataTrigger
+													Value="True"
+													Binding="{Binding DirectionalGroup.IsZonesAllowed, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type advancedStick:AdvancedStickSettings}}}">
+													<Setter
+														Property="ContentControl.ContentTemplate">
+														<Setter.Value>
+															<DataTemplate>
+																<bindingFrame:BindingFrameUC
+																	FrameworkElement.Width="285"
+																	HookKeyboardEventsOnlyWhenFocused="True"
+																	DefaultViewType="{x:Type bindingFrameViews:BFAdvancedZonesSettings}" />
+															</DataTemplate>
+														</Setter.Value>
+													</Setter>
+												</DataTrigger>
+											</Style.Triggers>
+										</Style>
+									</FrameworkElement.Style>
+								</ContentControl>
+							</Grid>
+						</ScrollViewer>
+					</Grid>
+				</ScrollViewer>
+			</Grid>
+			<ControlTemplate.Triggers>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBindingIsLeftStick}">
+					<Setter
+						TargetName="btnResetStick"
+						Value="{x:Static enums:Stick.Left}"
+						Property="ButtonBase.CommandParameter" />
+				</DataTrigger>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBindingIsRightStick}">
+					<Setter
+						TargetName="btnResetStick"
+						Value="{x:Static enums:Stick.Right}"
+						Property="ButtonBase.CommandParameter" />
+				</DataTrigger>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBindingIsAdditionalStick}">
+					<Setter
+						TargetName="btnResetStick"
+						Value="{x:Static enums:Stick.Additional}"
+						Property="ButtonBase.CommandParameter" />
+				</DataTrigger>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBindingIsMouseDirectionOrZone}">
+					<Setter
+						TargetName="btnResetStick"
+						Value="{x:Static enums:Stick.Mouse}"
+						Property="ButtonBase.CommandParameter" />
+				</DataTrigger>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBindingIsGyroTilt}">
+					<Setter
+						TargetName="btnResetStick"
+						Value="{x:Static enums:Stick.Gyro}"
+						Property="ButtonBase.CommandParameter" />
+				</DataTrigger>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBindingIsPhysicalTrackPad1}">
+					<Setter
+						TargetName="btnResetStick"
+						Value="{x:Static enums:Stick.TrackPad1}"
+						Property="ButtonBase.CommandParameter" />
+				</DataTrigger>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentBindingIsPhysicalTrackPad2}">
+					<Setter
+						TargetName="btnResetStick"
+						Value="{x:Static enums:Stick.TrackPad2}"
+						Property="ButtonBase.CommandParameter" />
+				</DataTrigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</advancedStick:BaseDirectionalAnalogGroupUserControl>

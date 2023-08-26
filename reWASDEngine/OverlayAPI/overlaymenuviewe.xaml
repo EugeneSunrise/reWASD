@@ -1,0 +1,386 @@
+<Window
+	x:Class="Overlay.NET.Wpf.OverlayMenuViewE" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:DTOverlay="clr-namespace:DTOverlay;assembly=reWASDCommon" xmlns:controls="clr-namespace:RadialMenu.Controls;assembly=reWASDCommon" xmlns:converters1="clr-namespace:reWASDEngine.Infrastructure.RadialMenu.Converters" xmlns:overlayMenuNamespace="clr-namespace:DTOverlay" xmlns:wpf="clr-namespace:Overlay.NET.Wpf" xmlns:converters21="clr-namespace:reWASDCommon.Utils.Converters;assembly=reWASDCommon" xmlns:recolorableimages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:overlayApi="clr-namespace:reWASDEngine.Services.OverlayAPI"
+	Title="reWASD overlay"
+	FrameworkElement.Width="600"
+	FrameworkElement.Height="600"
+	AllowsTransparency="True"
+	AutomationProperties.AutomationId="VirtualControllerTesterOverlay"
+	Control.Background="#00FFFFFF"
+	RenderOptions.ClearTypeHint="Enabled"
+	ShowInTaskbar="False"
+	TextOptions.TextFormattingMode="Ideal"
+	Topmost="True"
+	UseLayoutRounding="True"
+	WindowStartupLocation="Manual"
+	WindowStyle="None"
+	SizeChanged="UpdateSize">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<Style
+				x:Key="DTTextBlockStyle"
+				BasedOn="{StaticResource DTBaseTextBlockStyle}"
+				TargetType="{x:Type TextBlock}">
+				<Setter
+					Property="TextBlock.Foreground"
+					Value="{DynamicResource ForegroundBrush}" />
+			</Style>
+			<Style
+				x:Key="DTBaseTextBlockStyle"
+				TargetType="{x:Type TextBlock}">
+				<Setter
+					Property="TextBlock.FontSize"
+					Value="13" />
+				<Setter
+					Property="FrameworkElement.MinHeight"
+					Value="21" />
+				<Setter
+					Property="TextBlock.TextWrapping"
+					Value="Wrap" />
+				<Style.Triggers>
+					<Trigger
+						Property="UIElement.IsEnabled"
+						Value="false">
+						<Setter
+							Property="TextBlock.Foreground"
+							Value="{DynamicResource DisabledControlForegroundColor}" />
+					</Trigger>
+				</Style.Triggers>
+			</Style>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type overlayMenuNamespace:SectorItemE}}"
+				DataType="{x:Type overlayMenuNamespace:SectorItemE}">
+				<controls:RadialMenuItem
+					controls:RadialMenuItem.IsEmpty="False"
+					controls:RadialMenuItem.IsUI="False"
+					Control.Foreground="{StaticResource ContentBackground}"
+					controls:RadialMenuItem.Index="{Binding NumberSector}"
+					controls:RadialMenuItem.Count="{Binding owner.UISectorsCount}"
+					controls:RadialMenuItem.IsHasSubMenu="{Binding IsSubmenuOn}"
+					controls:RadialMenuItem.HalfShifted="{Binding HalfShiftedItems, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:RadialMenu}}"
+					controls:RadialMenuItem.IsActive="{Binding IsActive}"
+					controls:RadialMenuItem.AngleDelta="{Binding Current.SectorsAngleDelta, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:RadialMenu}}"
+					controls:RadialMenuItem.SectorBrush="{Binding SectorColor, Converter={converters:ColorToSolidBrushConverter}}"
+					controls:RadialMenuItem.RadialMenu="{Binding Current, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:RadialMenu}}"
+					controls:RadialMenuItem.Drawing="{Binding SelectedIconDrawing}"
+					controls:RadialMenuItem.OpenParameter="{Binding OpenParameter}"
+					controls:RadialMenuItem.XBBinding="{Binding XBBinding}"
+					StartAngleChanged="RadialMenuItem_StartAngleChanged" />
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type wpf:OverlayMenuViewE}">
+			<Grid
+				FrameworkElement.HorizontalAlignment="Stretch"
+				ZIndex="1000"
+				FrameworkElement.VerticalAlignment="Stretch">
+				<FrameworkElement.LayoutTransform>
+					<ScaleTransform
+						ScaleX="1"
+						ScaleY="1" />
+				</FrameworkElement.LayoutTransform>
+				<controls:RadialMenu
+					controls:RadialMenu.Name="MainCircle"
+					Control.Background="#33000000"
+					Panel.ZIndex="0"
+					controls:RadialMenu.HalfShiftedItems="{x:Static DTOverlay:OverlayConstants.C_HALF_SHIFTED_ITEM}"
+					controls:RadialMenu.MinStrokeThickness="95"
+					controls:RadialMenu.MaxStrokeThickness="120"
+					UIElement.Opacity="1"
+					controls:RadialMenu.IsOpen="True"
+					controls:RadialMenu.IsSubMenuShown="{Binding ViewModel.Circle.CurrentSector.IsSubmenuVisible, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}"
+					controls:RadialMenu.CurrentItemIndex="{Binding ViewModel.Circle.CurrentSectorIndex, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}"
+					controls:RadialMenu.Items="{Binding ViewModel.Circle.Sectors, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}" />
+				<controls:RadialMenu
+					controls:RadialMenu.Name="SubCircle"
+					Control.Background="#33000000"
+					FrameworkElement.Width="40"
+					FrameworkElement.Height="40"
+					Panel.ZIndex="1"
+					FrameworkElement.Margin="0,0,360,360"
+					controls:RadialMenu.IsSubMenu="True"
+					controls:RadialMenu.HalfShiftedItems="{x:Static DTOverlay:OverlayConstants.C_HALF_SHIFTED_ITEM}"
+					controls:RadialMenu.MinStrokeThickness="75"
+					controls:RadialMenu.HostRadialMenuIsAngleShifted="{x:Static DTOverlay:OverlayConstants.C_HALF_SHIFTED_ITEM}"
+					UIElement.Opacity="1"
+					controls:RadialMenu.IsOpen="True"
+					controls:RadialMenu.HostRadialMenuItem="{Binding CurrentItem, ElementName=MainCircle}"
+					controls:RadialMenu.Items="{Binding ViewModel.Circle.CurrentSector.Submenu.Sectors, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}"
+					controls:RadialMenu.HostRadialMenuItemIndex="{Binding ViewModel.Circle.CurrentMainSectorIndex, FallbackValue=-1, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}"
+					controls:RadialMenu.HostRadialMenuSectorsCount="{Binding ViewModel.Circle.Sectors.Count, FallbackValue=-1, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}"
+					controls:RadialMenu.CurrentItemIndex="{Binding ViewModel.Circle.CurrentSector.Submenu.CurrentSectorIndex, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}"
+					UIElement.Visibility="{Binding ViewModel.Circle.CurrentSector.IsSubmenuVisible, FallbackValue=Collapsed, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}, Converter={converters:BooleanToVisibilityConverter}}" />
+				<controls:RadialMenuCentralItem
+					Panel.ZIndex="2"
+					controls:RadialMenuCentralItem.StartAngle="{Binding ViewModel.Circle.CurrAngleUI, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}"
+					controls:RadialMenuCentralItem.IsNavigatorVisible="{Binding ViewModel.Circle.NavigatorVisible, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}">
+					<Grid
+						FrameworkElement.HorizontalAlignment="Center"
+						FrameworkElement.VerticalAlignment="Center">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								RowDefinition.Height="0.5*" />
+							<RowDefinition
+								RowDefinition.Height="0.5*" />
+						</Grid.RowDefinitions>
+						<StackPanel
+							Name="MainOrSubmenuSP"
+							Grid.Row="0"
+							Orientation="Vertical"
+							FrameworkElement.HorizontalAlignment="Center"
+							FrameworkElement.VerticalAlignment="Center"
+							ZIndex="2"
+							UIElement.Visibility="{Binding ViewModel.Circle.MainOrSubmenu.CurrentSector, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}, Converter={converters:ValueIsNotNullToVisibilityConverter}}">
+							<Border
+								FrameworkElement.Width="44"
+								FrameworkElement.Height="44"
+								CornerRadius="99"
+								FrameworkElement.HorizontalAlignment="Stretch"
+								Panel.ZIndex="2"
+								FrameworkElement.VerticalAlignment="Stretch">
+								<Border.Background>
+									<MultiBinding
+										Converter="{converters:ColorToSolidBrushConverter}">
+										<Binding
+											Path="ViewModel.Circle.MainOrSubmenu.CurrentSector.SectorColor.A"
+											RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+										<Binding
+											Path="ViewModel.Circle.MainOrSubmenu.CurrentSector.SectorColor.R"
+											RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+										<Binding
+											Path="ViewModel.Circle.MainOrSubmenu.CurrentSector.SectorColor.G"
+											RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+										<Binding
+											Path="ViewModel.Circle.MainOrSubmenu.CurrentSector.SectorColor.B"
+											RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+									</MultiBinding>
+								</Border.Background>
+								<recolorableimages:RecolorableSVG
+									FrameworkElement.HorizontalAlignment="Center"
+									FrameworkElement.VerticalAlignment="Center"
+									FrameworkElement.Width="28"
+									Panel.ZIndex="2"
+									FrameworkElement.Height="28"
+									IsColorShift="True"
+									Drawing="{Binding ViewModel.Circle.MainOrSubmenu.CurrentSector.SelectedIconDrawing, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}">
+									<recolorableimages:RecolorableSVG.ColorShiftBrush>
+										<MultiBinding>
+											<MultiBinding.Converter>
+												<converters21:BrightnessColorConverter />
+											</MultiBinding.Converter>
+											<Binding
+												Path="ViewModel.Circle.MainOrSubmenu.CurrentSector.SectorColor.A"
+												RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+											<Binding
+												Path="ViewModel.Circle.MainOrSubmenu.CurrentSector.SectorColor.R"
+												RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+											<Binding
+												Path="ViewModel.Circle.MainOrSubmenu.CurrentSector.SectorColor.G"
+												RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+											<Binding
+												Path="ViewModel.Circle.MainOrSubmenu.CurrentSector.SectorColor.B"
+												RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+										</MultiBinding>
+									</recolorableimages:RecolorableSVG.ColorShiftBrush>
+								</recolorableimages:RecolorableSVG>
+							</Border>
+							<TextBlock
+								FrameworkElement.Margin="10,3,10,0"
+								FrameworkElement.HorizontalAlignment="Center"
+								FrameworkElement.Width="160"
+								FrameworkElement.VerticalAlignment="Center"
+								TextBlock.TextWrapping="NoWrap"
+								TextAlignment="Center"
+								TextBlock.TextTrimming="CharacterEllipsis"
+								Panel.ZIndex="2"
+								FrameworkElement.Style="{StaticResource DTTextBlockStyle}"
+								TextBlock.Text="{Binding ViewModel.Circle.MainOrSubmenu.CurrentSector.XBBinding.SingleActivator.Description, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}" />
+						</StackPanel>
+						<StackPanel
+							Grid.Row="0"
+							Orientation="Vertical"
+							FrameworkElement.HorizontalAlignment="Center"
+							FrameworkElement.VerticalAlignment="Center"
+							ZIndex="2"
+							UIElement.Visibility="{Binding Visibility, ConverterParameter=hidden, ElementName=MainOrSubmenuSP, Converter={converters:InvertVisibilityConverter}}">
+							<Border
+								FrameworkElement.Width="44"
+								FrameworkElement.Height="44"
+								CornerRadius="99"
+								FrameworkElement.HorizontalAlignment="Stretch"
+								Panel.ZIndex="2"
+								FrameworkElement.VerticalAlignment="Stretch">
+								<Border.Background>
+									<MultiBinding
+										Converter="{converters:ColorToSolidBrushConverter}">
+										<Binding
+											Path="ViewModel.Circle.CurrentSector.SectorColor.A"
+											RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+										<Binding
+											Path="ViewModel.Circle.CurrentSector.SectorColor.R"
+											RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+										<Binding
+											Path="ViewModel.Circle.CurrentSector.SectorColor.G"
+											RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+										<Binding
+											Path="ViewModel.Circle.CurrentSector.SectorColor.B"
+											RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+									</MultiBinding>
+								</Border.Background>
+								<recolorableimages:RecolorableSVG
+									FrameworkElement.HorizontalAlignment="Center"
+									FrameworkElement.VerticalAlignment="Center"
+									FrameworkElement.Width="28"
+									Panel.ZIndex="2"
+									FrameworkElement.Height="28"
+									IsColorShift="True"
+									Drawing="{Binding ViewModel.Circle.CurrentSector.SelectedIconDrawing, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}">
+									<recolorableimages:RecolorableSVG.ColorShiftBrush>
+										<MultiBinding>
+											<MultiBinding.Converter>
+												<converters21:BrightnessColorConverter />
+											</MultiBinding.Converter>
+											<Binding
+												Path="ViewModel.Circle.CurrentSector.SectorColor.A"
+												RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+											<Binding
+												Path="ViewModel.Circle.CurrentSector.SectorColor.R"
+												RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+											<Binding
+												Path="ViewModel.Circle.CurrentSector.SectorColor.G"
+												RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+											<Binding
+												Path="ViewModel.Circle.CurrentSector.SectorColor.B"
+												RelativeSource="{RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}" />
+										</MultiBinding>
+									</recolorableimages:RecolorableSVG.ColorShiftBrush>
+								</recolorableimages:RecolorableSVG>
+							</Border>
+							<TextBlock
+								FrameworkElement.Margin="10,3,10,0"
+								FrameworkElement.HorizontalAlignment="Center"
+								FrameworkElement.VerticalAlignment="Center"
+								FrameworkElement.Width="160"
+								TextAlignment="Center"
+								TextBlock.TextWrapping="NoWrap"
+								TextBlock.TextTrimming="CharacterEllipsis"
+								Panel.ZIndex="2"
+								FrameworkElement.Style="{StaticResource DTTextBlockStyle}"
+								TextBlock.Text="{Binding ViewModel.Circle.CurrentSector.XBBinding.SingleActivator.Description, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}" />
+						</StackPanel>
+						<StackPanel
+							Orientation="Vertical"
+							Grid.Row="1"
+							FrameworkElement.HorizontalAlignment="Center"
+							FrameworkElement.VerticalAlignment="Top"
+							FrameworkElement.Margin="0,10,0,0"
+							ZIndex="2">
+							<Grid
+								FrameworkElement.Margin="0,2,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="0.5*" />
+									<ColumnDefinition
+										ColumnDefinition.Width="0.5*" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition
+										RowDefinition.Height="Auto" />
+									<RowDefinition
+										RowDefinition.Height="Auto" />
+								</Grid.RowDefinitions>
+								<overlayApi:AssociatedControllerButtonView
+									IsShowDescription="False"
+									Control.FontSize="12"
+									IsShowNotSelected="False"
+									UseLayoutRounding="True"
+									SnapsToDevicePixels="True"
+									Control.Foreground="#AAAAAA"
+									UIElement.Visibility="{Binding ViewModel.Circle.MainOrSubmenu.IsUIUseButtonVisible, ConverterParameter=hidden, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}, Converter={converters:BooleanToVisibilityConverter}}"
+									AssociatedControllerButton="{Binding ViewModel.Circle.UIUseButton, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}"
+									ControllerType="{Binding ViewModel.Circle.UIUseButtonControllerType, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}">
+									<FrameworkElement.Style>
+										<Style
+											TargetType="{x:Type overlayApi:AssociatedControllerButtonView}">
+											<Style.Triggers>
+												<DataTrigger
+													Value="false"
+													Binding="{Binding ViewModel.Circle.UIUseButton.IsKeyScanCode, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}">
+													<Setter
+														Property="AutomationProperties.AutomationId"
+														Value="{Binding ViewModel.Circle.UIUseButton.GamepadButton, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}" />
+												</DataTrigger>
+												<DataTrigger
+													Value="true"
+													Binding="{Binding ViewModel.Circle.UIUseButton.IsKeyScanCode, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}">
+													<Setter
+														Property="AutomationProperties.AutomationId"
+														Value="{Binding ViewModel.Circle.UIUseButton.KeyScanCode.Description, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}" />
+												</DataTrigger>
+											</Style.Triggers>
+										</Style>
+									</FrameworkElement.Style>
+								</overlayApi:AssociatedControllerButtonView>
+								<TextBlock
+									Grid.Column="1"
+									Grid.Row="0"
+									FrameworkElement.Margin="4,3,0,0"
+									TextBlock.FontSize="12"
+									FrameworkElement.VerticalAlignment="Center"
+									TextBlock.Foreground="#AAAAAA"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_APPLY}}"
+									UIElement.Visibility="{Binding ViewModel.Circle.MainOrSubmenu.IsUIUseButtonVisible, ConverterParameter=hidden, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}, Converter={converters:BooleanToVisibilityConverter}}" />
+								<overlayApi:AssociatedControllerButtonView
+									Grid.Column="0"
+									Grid.Row="1"
+									IsShowNotSelected="False"
+									IsShowDescription="False"
+									UseLayoutRounding="True"
+									SnapsToDevicePixels="True"
+									Control.FontSize="12"
+									Control.Foreground="#AAAAAA"
+									UIElement.Visibility="{Binding ViewModel.Circle.MainOrSubmenu.IsUICancelButtonVisible, ConverterParameter=hidden, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}, Converter={converters:BooleanToVisibilityConverter}}"
+									AssociatedControllerButton="{Binding ViewModel.Circle.UICancelButton, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}"
+									ControllerType="{Binding ViewModel.Circle.UICancelButtonControllerType, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}">
+									<FrameworkElement.Style>
+										<Style
+											TargetType="{x:Type overlayApi:AssociatedControllerButtonView}">
+											<Style.Triggers>
+												<DataTrigger
+													Value="false"
+													Binding="{Binding ViewModel.Circle.UICancelButton.IsKeyScanCode, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}">
+													<Setter
+														Property="AutomationProperties.AutomationId"
+														Value="{Binding ViewModel.Circle.UICancelButton.GamepadButton, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}" />
+												</DataTrigger>
+												<DataTrigger
+													Value="true"
+													Binding="{Binding ViewModel.Circle.UICancelButton.IsKeyScanCode, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}">
+													<Setter
+														Property="AutomationProperties.AutomationId"
+														Value="{Binding ViewModel.Circle.UICancelButton.KeyScanCode.Description, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}}" />
+												</DataTrigger>
+											</Style.Triggers>
+										</Style>
+									</FrameworkElement.Style>
+								</overlayApi:AssociatedControllerButtonView>
+								<TextBlock
+									Grid.Column="1"
+									Grid.Row="1"
+									FrameworkElement.Margin="4,3,0,0"
+									TextBlock.FontSize="12"
+									FrameworkElement.VerticalAlignment="Center"
+									TextBlock.Foreground="#AAAAAA"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="{localization:Translate {x:Static s:StringConsts.IDS_WIZARD_BACK}}"
+									UIElement.Visibility="{Binding ViewModel.Circle.MainOrSubmenu.IsUICancelButtonVisible, ConverterParameter=hidden, RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:OverlayMenuViewE}, Converter={converters:BooleanToVisibilityConverter}}" />
+							</Grid>
+						</StackPanel>
+					</Grid>
+				</controls:RadialMenuCentralItem>
+			</Grid>
+		</ControlTemplate>
+	</Control.Template>
+</Window>

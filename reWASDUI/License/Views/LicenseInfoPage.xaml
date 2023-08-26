@@ -1,0 +1,124 @@
+<UserControl
+	x:Class="reWASDUI.License.Views.LicenseInfoPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:pages="clr-namespace:reWASDUI.License.Pages" xmlns:views="clr-namespace:reWASDUI.License.Views">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="40" />
+		</Grid.RowDefinitions>
+		<Border
+			Padding="0,58,40,0"
+			FrameworkElement.Style="{DynamicResource LicensePageContentBorderStyle}">
+			<Grid
+				FrameworkElement.VerticalAlignment="Top">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="171" />
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+				</Grid.ColumnDefinitions>
+				<Image
+					Grid.Column="0"
+					FrameworkElement.Width="81"
+					FrameworkElement.Margin="57,25,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.VerticalAlignment="Center"
+					Image.Source="{DynamicResource IcoLicense}"
+					UIElement.Visibility="{Binding IsPaidLicense, Converter={converters:BooleanToVisibilityConverter}}" />
+				<Image
+					Grid.Column="0"
+					FrameworkElement.Width="81"
+					FrameworkElement.Margin="57,25,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.VerticalAlignment="Center"
+					Image.Source="{DynamicResource IcoLicenseTrial}"
+					UIElement.Visibility="{Binding IsPaidLicense, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}" />
+				<Grid
+					Column="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							RowDefinition.Height="46" />
+						<RowDefinition
+							RowDefinition.Height="25" />
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+					</Grid.RowDefinitions>
+					<TextBlock
+						Name="tbHeader"
+						Grid.ColumnSpan="2"
+						FrameworkElement.Style="{DynamicResource LicenseHeaderTextBlockStyle}"
+						TextBlock.Text="{Binding Header, Mode=OneWay}" />
+					<TextBlock
+						Grid.Row="1"
+						Grid.Column="0"
+						FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_SERIAL_PARAM}}"
+						UIElement.Visibility="{Binding IsPaidLicense, Converter={converters:BooleanToVisibilityConverter}}" />
+					<TextBox
+						Name="tbSerial"
+						Grid.Row="1"
+						Grid.Column="1"
+						FrameworkElement.Margin="14,0,0,0"
+						FrameworkElement.Style="{DynamicResource LicenseValueTextBoxStyle}"
+						TextBox.Text="{Binding Serial, Mode=OneWay}"
+						UIElement.Visibility="{Binding IsPaidLicense, Converter={converters:BooleanToVisibilityConverter}}" />
+					<TextBlock
+						Name="tbExpiresCaption"
+						Grid.Row="1"
+						Grid.Column="0"
+						FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+						TextBlock.Text="{Binding ExpiresCaption}"
+						UIElement.Visibility="{Binding IsPaidLicense, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}" />
+					<TextBox
+						Name="tbExpiresDate"
+						Grid.Row="1"
+						Grid.Column="1"
+						FrameworkElement.Margin="14,0,0,0"
+						FrameworkElement.Style="{DynamicResource LicenseValueTextBoxStyle}"
+						TextBox.Text="{Binding ExpiresDate}"
+						UIElement.Visibility="{Binding IsPaidLicense, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}" />
+					<TextBlock
+						Grid.Row="2"
+						Grid.Column="0"
+						FrameworkElement.VerticalAlignment="Top"
+						FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_5173}}" />
+					<TextBox
+						Name="tbHardwareId"
+						Grid.Row="2"
+						Grid.Column="1"
+						FrameworkElement.Margin="14,0,0,0"
+						FrameworkElement.VerticalAlignment="Top"
+						FrameworkElement.Style="{DynamicResource LicenseValueTextBoxStyle}"
+						TextBox.Text="{Binding HardwareId, Mode=OneWay}" />
+				</Grid>
+			</Grid>
+		</Border>
+		<Border
+			Grid.Row="1"
+			FrameworkElement.Style="{DynamicResource LicensePageFooterBorderStyle}">
+			<StackPanel
+				FrameworkElement.HorizontalAlignment="Right"
+				Orientation="Horizontal">
+				<buttons:ColoredButton
+					Name="btnChange"
+					FrameworkElement.Style="{DynamicResource ButtonSmall}"
+					ButtonBase.Command="{Binding ActivateCommand}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.IDS_CHANGE}}"
+					UIElement.Visibility="{Binding IsPaidLicense, ConverterParameter=invert, Converter={converters:BooleanToVisibilityConverter}}" />
+				<buttons:ColoredButton
+					Name="btnClose"
+					FrameworkElement.Style="{DynamicResource ButtonSmall}"
+					ButtonBase.Command="{Binding CloseCommand}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.MANAGE_DIALOG_CLOSE}}" />
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

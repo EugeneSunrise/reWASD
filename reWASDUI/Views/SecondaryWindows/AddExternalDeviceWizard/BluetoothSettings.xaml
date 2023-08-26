@@ -1,0 +1,166 @@
+<UserControl
+	x:Class="reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard.BluetoothSettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dtEngine="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:addExternalDeviceWizard="clr-namespace:reWASDUI.ViewModels.SecondaryWindows.AddExternalDeviceWizard"
+	FrameworkElement.Height="466" xmlns:addexternaldevicewizard="clr-namespace:reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="108" />
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="70" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			Name="LocalBluetoothTB"
+			FrameworkElement.Style="{DynamicResource SecondaryWindowHeaderStyle}"
+			TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_LOCAL_BLUETOOTH}}" />
+		<Grid
+			Row="1"
+			FrameworkElement.Style="{DynamicResource WizardContentGridStyle}"
+			FrameworkElement.Margin="70,0"
+			UIElement.Visibility="{Binding CanAddBluetooth, Converter={converters:BooleanToVisibilityConverter}}">
+			<Grid
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center"
+				FrameworkElement.Margin="0,-45,0,0">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="*" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					Name="ChangeBluetoothAdapterClassTB"
+					FrameworkElement.Style="{DynamicResource WizardSingleMsgPageTextBlockStyle}"
+					TextAlignment="Left"
+					TextBlock.TextWrapping="Wrap"
+					TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_CHANGE_BLUETOOTH_ADAPTER_CLASS}}"
+					UIElement.Visibility="{Binding IsNeedChangeAdapterType, Converter={converters:BooleanToVisibilityConverter}}" />
+				<Grid
+					Row="0"
+					UIElement.Visibility="{Binding IsNeedChangeAdapterType, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+					<TextBlock
+						Name="DeviseIsReadyToGoTB"
+						FrameworkElement.Style="{DynamicResource WizardSingleMsgPageTextBlockStyle}"
+						TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_DEVICE_IS_READY_TO_GO}}"
+						UIElement.Visibility="{Binding IsNeedReboot, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+					<TextBlock
+						Name="RebootRequiredTB"
+						FrameworkElement.Style="{DynamicResource WizardSingleMsgPageTextBlockStyle}"
+						TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_REBOOT_REQUIRED}}"
+						UIElement.Visibility="{Binding IsNeedReboot, Converter={converters:BooleanToVisibilityConverter}}" />
+				</Grid>
+				<Grid
+					Row="1"
+					FrameworkElement.Margin="0,10"
+					UIElement.Visibility="{Binding IsNeedChangeAdapterType, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+					<TextBlock
+						Name="SecureSimpleNotExcistWarningTB"
+						FrameworkElement.Style="{DynamicResource WizardSingleMsgPageTextBlockStyle}"
+						TextBlock.TextWrapping="Wrap"
+						TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_SECURE_SIMPLE_NOT_EXIST_WARNING}}"
+						UIElement.Visibility="{Binding IsSecureSimpleParingIsNotPresent, Converter={converters:BooleanToVisibilityConverter}}" />
+				</Grid>
+			</Grid>
+		</Grid>
+		<Grid
+			Row="1"
+			FrameworkElement.Style="{DynamicResource WizardContentGridStyle}"
+			UIElement.Visibility="{Binding CanAddBluetooth, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+			<Grid
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="*" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					Name="BluetoothIsOffTB"
+					TextBlock.TextWrapping="Wrap"
+					TextBlock.Text="{localization:Translate {x:Static dtEngine:StringConsts.STR_BLUETOOTH_IS_OFF}}" />
+			</Grid>
+		</Grid>
+		<Border
+			Grid.Row="2"
+			FrameworkElement.Style="{DynamicResource WizardFooterBorderStyle}">
+			<Grid>
+				<buttons:ColoredButton
+					Name="FinishButton"
+					FrameworkElement.Margin="10,5,40,5"
+					FrameworkElement.HorizontalAlignment="Right"
+					ButtonBase.Command="{Binding FinishCommand}"
+					ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STR_5019_FINISH}}">
+					<FrameworkElement.Style>
+						<Style
+							BasedOn="{StaticResource WizardFooterButton}"
+							TargetType="{x:Type buttons:ColoredButton}">
+							<Style.Triggers>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding IsNeedReboot}">
+									<Setter
+										Property="UIElement.Visibility"
+										Value="Hidden" />
+								</DataTrigger>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding IsNeedChangeAdapterType}">
+									<Setter
+										Property="UIElement.Visibility"
+										Value="Hidden" />
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</buttons:ColoredButton>
+				<StackPanel
+					FrameworkElement.HorizontalAlignment="Right"
+					Orientation="Horizontal"
+					UIElement.Visibility="{Binding IsNeedChangeAdapterType, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+					<buttons:ColoredButton
+						Name="RebootNowButton"
+						FrameworkElement.Margin="0,5"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding RebootNowCommand}"
+						ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STRING_SETUP_REBOOT_NOW}}"
+						UIElement.Visibility="{Binding IsNeedReboot, Converter={converters:BooleanToVisibilityConverter}}" />
+					<buttons:ColoredButton
+						Name="RebootLaterButton"
+						FrameworkElement.Margin="10,5,40,5"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding RebootLaterCommand}"
+						ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STRING_SETUP_REBOOT_LATER}}"
+						UIElement.Visibility="{Binding IsNeedReboot, Converter={converters:BooleanToVisibilityConverter}}" />
+				</StackPanel>
+				<buttons:ColoredButton
+					Name="BackButton"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+					ButtonBase.Command="{Binding BackCommand}"
+					ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.IDS_WIZARD_BACK}}"
+					UIElement.Visibility="{Binding IsNeedChangeAdapterType, Converter={converters:BooleanToVisibilityConverter}}" />
+				<StackPanel
+					FrameworkElement.HorizontalAlignment="Right"
+					Orientation="Horizontal"
+					UIElement.Visibility="{Binding IsNeedChangeAdapterType, Converter={converters:BooleanToVisibilityConverter}}">
+					<buttons:ColoredButton
+						Name="NextButton"
+						FrameworkElement.Margin="0,5"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						UacRequired="True"
+						ButtonBase.Command="{Binding NextCommand}"
+						ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STR_5017_NEXT}}"
+						UIElement.IsEnabled="{Binding CanAddBluetooth}" />
+					<buttons:ColoredButton
+						Name="CancelButton"
+						FrameworkElement.Margin="10,5,40,5"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding CancelCommand}"
+						ContentControl.Content="{localization:Translate {x:Static dtEngine:StringConsts.STR_5005_CANCEL}}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

@@ -1,0 +1,46 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="Menu/MenuStyle.xaml" />
+		<ResourceDictionary
+			Source="BaseControlStyle.xaml" />
+		<ResourceDictionary
+			Source="CheckBoxStyle.xaml" />
+		<ResourceDictionary
+			Source="ComboBoxStyle.xaml" />
+		<ResourceDictionary
+			Source="ContentControl.xaml" />
+		<ResourceDictionary
+			Source="DragSelectionStyle.xaml" />
+		<ResourceDictionary
+			Source="GroupBoxStyle.xaml" />
+		<ResourceDictionary
+			Source="HorizontalSliderStyle.xaml" />
+		<ResourceDictionary
+			Source="HyperlinkStyle.xaml" />
+		<ResourceDictionary
+			Source="ItemsControl.xaml" />
+		<ResourceDictionary
+			Source="ListBox.xaml" />
+		<ResourceDictionary
+			Source="ListBoxItem.xaml" />
+		<ResourceDictionary
+			Source="ListView.xaml" />
+		<ResourceDictionary
+			Source="RadioButtonStyle.xaml" />
+		<ResourceDictionary
+			Source="RecolorableSVGStyle.xaml" />
+		<ResourceDictionary
+			Source="ScrollViewer.xaml" />
+		<ResourceDictionary
+			Source="StickSensitivityGraphStyle.xaml" />
+		<ResourceDictionary
+			Source="SVGButtonStyle.xaml" />
+		<ResourceDictionary
+			Source="TabItemStyle.xaml" />
+		<ResourceDictionary
+			Source="TextBoxStyle.xaml" />
+		<ResourceDictionary
+			Source="TooltipStyle.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

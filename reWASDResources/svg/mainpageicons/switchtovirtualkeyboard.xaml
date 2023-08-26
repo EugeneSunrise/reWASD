@@ -1,0 +1,161 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="SwitchToVirtualKeyboard" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="SwitchToVirtualKeyboard">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Round"
+										EndLineCap="Round"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M15,9L15,7.75C15,5.679,16.679,4,18.75,4L31.25,4C33.321,4,35,5.679,35,7.75L35,20.25C35,22.32,33.321,24,31.25,24L29,24" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<DrawingGroup>
+								<DrawingGroup.Children>
+									<DrawingGroup>
+										<DrawingGroup.Children>
+											<GeometryDrawing>
+												<GeometryDrawing.Pen>
+													<Pen
+														Brush="#FFFFFFFF"
+														Thickness="1"
+														StartLineCap="Round"
+														EndLineCap="Round"
+														LineJoin="Round"
+														MiterLimit="10" />
+												</GeometryDrawing.Pen>
+												<GeometryDrawing.Geometry>
+													<PathGeometry
+														FillRule="Nonzero"
+														PathGeometry.Figures="M8.492,26.344L8.492,26.344 11,19.656 13.508,26.344" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+										</DrawingGroup.Children>
+									</DrawingGroup>
+									<GeometryDrawing>
+										<GeometryDrawing.Pen>
+											<Pen
+												Brush="#FFFFFFFF"
+												Thickness="1"
+												StartLineCap="Round"
+												EndLineCap="Round"
+												LineJoin="Round"
+												MiterLimit="10" />
+										</GeometryDrawing.Pen>
+										<GeometryDrawing.Geometry>
+											<LineGeometry
+												StartPoint="9,25"
+												EndPoint="13,25" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+							<DrawingGroup>
+								<DrawingGroup.Children>
+									<GeometryDrawing>
+										<GeometryDrawing.Pen>
+											<Pen
+												Brush="#FFFFFFFF"
+												Thickness="1"
+												StartLineCap="Round"
+												EndLineCap="Round"
+												LineJoin="Round"
+												MiterLimit="10" />
+										</GeometryDrawing.Pen>
+										<GeometryDrawing.Geometry>
+											<PathGeometry
+												FillRule="Nonzero"
+												PathGeometry.Figures="M22.703,17.063L22.703,17.063 25,10.938 27.297,17.063" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing>
+										<GeometryDrawing.Pen>
+											<Pen
+												Brush="#FFFFFFFF"
+												Thickness="1"
+												StartLineCap="Round"
+												EndLineCap="Round"
+												LineJoin="Round"
+												MiterLimit="10" />
+										</GeometryDrawing.Pen>
+										<GeometryDrawing.Geometry>
+											<LineGeometry
+												StartPoint="27.297,17.063"
+												EndPoint="29.594,10.938" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+									<GeometryDrawing>
+										<GeometryDrawing.Pen>
+											<Pen
+												Brush="#FFFFFFFF"
+												Thickness="1"
+												StartLineCap="Round"
+												EndLineCap="Round"
+												LineJoin="Round"
+												MiterLimit="10" />
+										</GeometryDrawing.Pen>
+										<GeometryDrawing.Geometry>
+											<LineGeometry
+												StartPoint="20.406,10.938"
+												EndPoint="22.703,17.063" />
+										</GeometryDrawing.Geometry>
+									</GeometryDrawing>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M25.895,24.903L19.184,18.195C18.939,18,18.569,18.187,18.569,18.479L18.569,27.646C18.569,27.852 18.736,28.017 18.941,28.017 19.038,28.017 19.13,27.98 19.182,27.927L21.041,26.308 22.558,29.85C22.582,29.909 22.632,29.958 22.694,29.983 22.723,29.993 22.755,30 22.785,30 22.817,30 22.851,29.992 22.883,29.979L24.477,29.295C24.602,29.242,24.663,29.098,24.61,28.971L23.139,25.541 25.629,25.541C25.832,25.541 26,25.373 26,25.168 26.002,25.108 25.986,25.018 25.895,24.903z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Round"
+										EndLineCap="Round"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M15.557,13L4.75,13C2.679,13,1,14.68,1,16.75L1,29.25C1,31.32,2.679,33,4.75,33L17.25,33C18.541,33,19.68,32.347,20.354,31.354" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

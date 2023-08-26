@@ -1,0 +1,261 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesTrayAgent" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:controls1="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:XBEliteWPF.Utils.Converters;assembly=reWASDCommon" xmlns:converters3="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:infrastructure1="clr-namespace:XBEliteWPF.Infrastructure;assembly=reWASDCommon" xmlns:infrastructureLed="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	x:Name="ucPreferencesTray" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<DataTemplate
+				x:Key="ControllerNameCollectionDataTemplate"
+				DataType="infrastructure1:GamepadSettings">
+				<WrapPanel>
+					<recolorableImages:RecolorableSVG
+						FrameworkElement.MinHeight="20"
+						FrameworkElement.Margin="0,0,10,0"
+						ColorShiftBrush="{DynamicResource CreamBrush}"
+						IsColorShift="True"
+						Drawing="{Binding ControllerType, Converter={converters3:ControllerTypeEnumToDrawingConverter}}" />
+					<TextBlock
+						Grid.Column="1"
+						FrameworkElement.VerticalAlignment="Center"
+						TextBlock.TextTrimming="CharacterEllipsis"
+						TextBlock.Text="{Binding DisplayName}" />
+				</WrapPanel>
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Border
+		Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+		Border.BorderThickness="1,0,0,0">
+		<ScrollViewer
+			FrameworkElement.Style="{DynamicResource PreferencesPageGridStyle}">
+			<Grid>
+				<StackPanel
+					Grid.Row="0">
+					<checkBoxes:FillCheckBox
+						Name="chkAutorun"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_AUTOSTART_ENGINE}}"
+						IsChecked="{Binding AutorunService}" />
+					<checkBoxes:FillCheckBox
+						Name="chkAutoremap"
+						FrameworkElement.Margin="26,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STRING_AUTOREMAP}}"
+						IsChecked="{Binding AutoRemap}"
+						UIElement.IsEnabled="{Binding AutorunService}" />
+					<checkBoxes:FillCheckBox
+						Name="chkRestoreXBXOXEliteSlot"
+						FrameworkElement.Margin="26,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_RESTORE_XBOXELITE_SLOT}}"
+						IsChecked="{Binding RestoreXBOXEliteSlot}"
+						UIElement.IsEnabled="{Binding AutorunService}" />
+					<checkBoxes:FillCheckBox
+						Name="chkRemoveAppliedConfig"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_REMOVE_APPLIED_CONFIG}}"
+						IsChecked="{Binding TurnRemapOffOnLostFocus}" />
+					<checkBoxes:FillCheckBox
+						Name="chkUseAgent"
+						FrameworkElement.Margin="0,8,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Top"
+						ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SHOW_TRAY_ICONS}}"
+						IsChecked="{Binding ShowTrayIcons}" />
+					<StackPanel
+						FrameworkElement.Margin="26,0,0,0"
+						Orientation="Vertical"
+						UIElement.IsEnabled="{Binding ShowTrayIcons}">
+						<checkBoxes:FillCheckBox
+							Name="chkMainIcon"
+							FrameworkElement.Margin="0,8,0,0"
+							FrameworkElement.HorizontalAlignment="Left"
+							FrameworkElement.VerticalAlignment="Top"
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SHOW_TRAY_AGENT}}"
+							IsChecked="{Binding UseAgent}" />
+						<StackPanel
+							UIElement.Visibility="{Binding CurrentGamepadSettings, Converter={converters:NullVisibilityConverter}}">
+							<TextBlock
+								FrameworkElement.Margin="0,18,0,8"
+								TextBlock.FontSize="16"
+								FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+								TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_ADJUST_BATTARY_STATUS_ICON}}" />
+							<Grid
+								FrameworkElement.Width="245"
+								FrameworkElement.HorizontalAlignment="Left">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="*" />
+									<ColumnDefinition
+										ColumnDefinition.Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<comboBoxes:ColoredComboBox
+									Name="cmbGamepads"
+									FrameworkElement.Width="220"
+									FrameworkElement.HorizontalAlignment="Left"
+									ItemsControl.ItemTemplate="{StaticResource ControllerNameCollectionDataTemplate}"
+									WatermarkItemNotSelected="No devices detected"
+									ItemsControl.ItemsSource="{Binding GamepadsSettings}"
+									SelectedItem="{Binding CurrentGamepadSettings}" />
+								<buttons:SVGButton
+									Name="btnRemoveDevice"
+									Grid.Column="1"
+									FrameworkElement.VerticalAlignment="Top"
+									Drawing="{DynamicResource Remove}"
+									Control.Foreground="{DynamicResource CreamBrush}"
+									HighlightedForeground="#FFFFFFFF"
+									PressedForeground="{DynamicResource CreamBrush}"
+									SVGMargin="3,6,3,3"
+									ButtonBase.Command="{Binding RemoveCurrentEntryCommand}"
+									ToolTip="{l:Translate {x:Static s:StringConsts.STR_REMOVE_DEVICE_FROM_LIST}}" />
+							</Grid>
+							<checkBoxes:FillCheckBox
+								Name="chkShowBatteryIcon"
+								FrameworkElement.Margin="0,8,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Top"
+								ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SHOW_ICON_AND_MARK}}"
+								IsChecked="{Binding ShowIconForGamepad}" />
+							<comboBoxes:ColoredComboBox
+								Name="cmbGamepadColors"
+								FrameworkElement.Width="220"
+								FrameworkElement.Margin="0,10,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								MaxDropDownHeight="600"
+								UIElement.IsEnabled="{Binding ShowIconForGamepad}"
+								ItemsControl.ItemsSource="{Binding GamepadColors}"
+								SelectedItem="{Binding SelectedColor}">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<Grid>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition
+													ColumnDefinition.Width="Auto" />
+												<ColumnDefinition
+													ColumnDefinition.Width="*" />
+											</Grid.ColumnDefinitions>
+											<recolorableImages:RecolorableSVG
+												FrameworkElement.Width="23"
+												FrameworkElement.Height="20"
+												FrameworkElement.Margin="0,0,10,0"
+												Drawing="{DynamicResource Battery_high}"
+												IsColorShift="True"
+												UIElement.Visibility="{Binding ConverterParameter='{x:Static infrastructure1:GamepadColor.MyChoise}', Converter={converters3:InvertedEnumToBooleanToVisibilityConverter}}">
+												<recolorableImages:RecolorableSVG.ColorShiftBrush>
+													<Binding
+														ConverterParameter="a">
+														<Binding.Converter>
+															<converters2:GamepadColorToBrushConverter />
+														</Binding.Converter>
+													</Binding>
+												</recolorableImages:RecolorableSVG.ColorShiftBrush>
+											</recolorableImages:RecolorableSVG>
+											<recolorableImages:RecolorableSVG
+												FrameworkElement.Width="23"
+												FrameworkElement.Height="20"
+												FrameworkElement.Margin="0,0,10,0"
+												Drawing="{DynamicResource Battery_my_choice}"
+												IsColorShift="True"
+												UIElement.Visibility="{Binding ConverterParameter='{x:Static infrastructure1:GamepadColor.MyChoise}', Converter={converters3:EnumToBooleanToVisibilityConverter}}" />
+											<TextBlock
+												Grid.Column="1"
+												FrameworkElement.VerticalAlignment="Center"
+												TextBlock.Text="{Binding Converter={converters:EnumLocalizedDescriptionConverter}}" />
+										</Grid>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</comboBoxes:ColoredComboBox>
+							<StackPanel
+								FrameworkElement.Margin="0,10,0,0"
+								Orientation="Horizontal"
+								UIElement.Visibility="{Binding IsSelectedCustomColor, Converter={converters:BooleanToVisibilityConverter}}">
+								<TextBlock
+									FrameworkElement.Margin="0,0,8,0"
+									FrameworkElement.VerticalAlignment="Center"
+									FrameworkElement.Style="{StaticResource DTTextBlockStyle}"
+									TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_CHOOSE_CUSTOM_COLOR}}" />
+								<StackPanel
+									Orientation="Horizontal">
+									<controls1:ProperPopup
+										Name="popupColorPicker"
+										AllowsTransparency="True"
+										Popup.Placement="Right"
+										StaysOpen="False"
+										VerticalOffset="-113"
+										Popup.IsOpen="{Binding IsTriggered, ElementName=btnColor}"
+										PlacementTarget="{Binding ElementName=btnColor}">
+										<StackPanel
+											Orientation="Horizontal">
+											<Border
+												Border.Background="#00FFFFFF">
+												<Border
+													FrameworkElement.Width="57"
+													FrameworkElement.Height="1"
+													Border.Background="{DynamicResource CreamBrush}" />
+											</Border>
+											<controls1:zColorPicker
+												Control.Background="{DynamicResource ContentBackground}"
+												Control.BorderBrush="{DynamicResource ContentBorderBrush}"
+												Control.Foreground="{DynamicResource CreamBrush}"
+												IsAlphaSelectionAvailable="False"
+												IsMonochromeMode="False"
+												PredefinedColors="{x:Static infrastructureLed:Constants.LEDColorCollection}"
+												Color="{Binding CustomTrayColor, Mode=TwoWay}" />
+										</StackPanel>
+									</controls1:ProperPopup>
+									<buttons:ColoredButton
+										Name="btnColor"
+										FrameworkElement.Width="29"
+										FrameworkElement.Height="29"
+										FrameworkElement.Margin="0"
+										Control.Padding="0"
+										FrameworkElement.VerticalAlignment="Center"
+										Control.Background="{DynamicResource MiniGamepadHoverBackgroundBrush}"
+										Control.BorderBrush="#00FFFFFF"
+										Control.BorderThickness="1"
+										GroupName="color"
+										IsHighlightedOnKeyboardFocus="False"
+										IsMouseOverHiglightEnabled="False"
+										IsTriggerSelfOnClick="True"
+										PressedBackground="{DynamicResource MiniGamepadHoverBackgroundBrush}"
+										PressedBorderBrush="{DynamicResource CreamBrush}"
+										TriggeredBackground="{DynamicResource MiniGamepadHoverBackgroundBrush}"
+										TriggeredBorderBrush="{DynamicResource CreamBrush}"
+										TriggeredHighlightedBackground="{DynamicResource MiniGamepadHoverBackgroundBrush}"
+										TriggeredPressedBackground="{DynamicResource MiniGamepadHoverBackgroundBrush}"
+										TriggeredPressedBorderBrush="{DynamicResource CreamBrush}"
+										UntriggerSelfOnUnload="True">
+										<Border
+											FrameworkElement.Width="29"
+											FrameworkElement.Height="29"
+											FrameworkElement.HorizontalAlignment="Stretch"
+											FrameworkElement.VerticalAlignment="Stretch">
+											<Border.Background>
+												<MultiBinding
+													Converter="{converters:ColorToSolidBrushConverter}">
+													<Binding
+														Path="CustomTrayColor.A" />
+													<Binding
+														Path="CustomTrayColor.R" />
+													<Binding
+														Path="CustomTrayColor.G" />
+													<Binding
+														Path="CustomTrayColor.B" />
+												</MultiBinding>
+											</Border.Background>
+										</Border>
+									</buttons:ColoredButton>
+								</StackPanel>
+							</StackPanel>
+						</StackPanel>
+					</StackPanel>
+				</StackPanel>
+			</Grid>
+		</ScrollViewer>
+	</Border>
+</UserControl>

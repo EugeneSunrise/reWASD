@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriKeyScanCodeWebHome" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriKeyScanCodeWebHome">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Round"
+								EndLineCap="Round"
+								LineJoin="Round"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M12.811,6.424L7.261,1.104C7.115,0.965,6.887,0.965,6.742,1.104L1.185,6.43C1.067,6.547 1,6.709 1,6.875 1,7.22 1.281,7.5 1.625,7.5L2.5,7.5 2.5,12C2.5,12.553,2.947,13,3.5,13L5.5,13 5.5,9 8.5,9 8.5,13 10.5,13C11.053,13,11.5,12.553,11.5,12L11.5,7.5 12.375,7.5C12.719,7.5 13,7.22 13,6.875 13,6.709 12.934,6.547 12.811,6.424z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

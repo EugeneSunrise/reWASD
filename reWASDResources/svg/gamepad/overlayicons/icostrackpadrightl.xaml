@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoSTrackPadRightL" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoSTrackPadRightL">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M1.38,9.26L2.68,9.26 2.68,13.86 5,13.86 5,15 1.38,15 1.38,9.26z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M14,2.71L14,2.71 13.65,2.36 13.65,2.36 13.3,2 13.3,2C10.275,-0.671,5.735,-0.671,2.71,2L2.71,2 2.36,2.34 2.36,2.34 2,2.7 2,2.7C0.485,4.427,-0.214,6.722,0.08,9L1.08,9C0.789,6.992,1.384,4.956,2.71,3.42L7.29,8 5.92,9.37 6.63,10.08 8,8.71 12.58,13.29C11.043,14.613,9.007,15.204,7,14.91L7,15.91C7.331,15.96 7.665,15.99 8,16 9.948,16 11.829,15.288 13.29,14L13.29,14 13.64,13.65 13.64,13.65 14,13.3 14,13.3C16.671,10.275,16.671,5.735,14,2.71z M8,7.29L3.42,2.71C6.05,0.435,9.95,0.435,12.58,2.71L8,7.29z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

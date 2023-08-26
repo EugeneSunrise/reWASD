@@ -1,0 +1,64 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="PreferencesConfirmation" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="PreferencesConfirmation">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<DrawingGroup
+								svr:SvgObject.Id="icons">
+								<DrawingGroup.Children>
+									<DrawingGroup
+										svr:SvgObject.Id="PreferencesConfirmation">
+										<DrawingGroup.Children>
+											<GeometryDrawing>
+												<GeometryDrawing.Brush>
+													<SolidColorBrush
+														Color="#FF000000"
+														Opacity="0" />
+												</GeometryDrawing.Brush>
+												<GeometryDrawing.Geometry>
+													<RectangleGeometry
+														RadiusX="0"
+														RadiusY="0"
+														Rect="0,0,32,32" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+											<DrawingGroup>
+												<DrawingGroup.Children>
+													<GeometryDrawing
+														Brush="#FFFFFFFF">
+														<GeometryDrawing.Geometry>
+															<PathGeometry
+																FillRule="Nonzero"
+																PathGeometry.Figures="M16,3C23.2,3 29,8.8 29,16 29,23.2 23.2,29 16,29 8.8,29 3,23.2 3,16 3,8.8 8.8,3 16,3 M16,2C8.3,2 2,8.3 2,16 2,23.7 8.3,30 16,30 23.7,30 30,23.7 30,16 30,8.3 23.7,2 16,2z" />
+														</GeometryDrawing.Geometry>
+													</GeometryDrawing>
+													<GeometryDrawing
+														Brush="#FFFFFFFF">
+														<GeometryDrawing.Geometry>
+															<PathGeometry
+																FillRule="Nonzero"
+																PathGeometry.Figures="M14,22L14,22C13.9,22,13.7,21.9,13.6,21.9L9.4,17.7C9.2,17.5 9.2,17.2 9.4,17 9.6,16.8 9.9,16.8 10.1,17L14,20.9 22.1,12.8C22.3,12.6 22.6,12.6 22.8,12.8 23,13 23,13.3 22.8,13.5L22.8,13.5 14.3,22C14.3,21.9,14.1,22,14,22z" />
+														</GeometryDrawing.Geometry>
+													</GeometryDrawing>
+												</DrawingGroup.Children>
+											</DrawingGroup>
+										</DrawingGroup.Children>
+									</DrawingGroup>
+								</DrawingGroup.Children>
+							</DrawingGroup>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,32,32" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

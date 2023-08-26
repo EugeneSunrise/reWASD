@@ -1,0 +1,54 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		x:Key="DTMessageBoxTitleFontStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+		<Setter
+			Property="TextBlock.FontSize"
+			Value="14" />
+		<Setter
+			Property="TextBlock.TextAlignment"
+			Value="Left" />
+	</Style>
+	<Style
+		x:Key="DTMessageBoxFontStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+		<Setter
+			Property="TextBlock.TextAlignment"
+			Value="Left" />
+	</Style>
+	<Style
+		x:Key="SecondaryDialogFontStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.TextAlignment"
+			Value="Center" />
+	</Style>
+	<Style
+		x:Key="SecondaryDialogRadioButtonStyle"
+		BasedOn="{StaticResource {x:Type RadioButton}}"
+		TargetType="{x:Type RadioButton}">
+		<Setter
+			Property="Control.Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+	</Style>
+	<Style
+		x:Key="SecondaryDialogCheckBoxStyle"
+		BasedOn="{StaticResource {x:Type CheckBox}}"
+		TargetType="{x:Type CheckBox}" />
+	<Style
+		x:Key="WaitDialogFontStyle"
+		TargetType="{x:Type TextBlock}">
+		<Setter
+			Property="TextBlock.Foreground"
+			Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+		<Setter
+			Property="TextBlock.TextWrapping"
+			Value="Wrap" />
+	</Style>
+</ResourceDictionary>

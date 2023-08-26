@@ -1,0 +1,57 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoSTrackPadTapR" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoSTrackPadTapR">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M6.18,9.35C6.749,9.265 7.324,9.225 7.9,9.23 8.55,9.171 9.2,9.329 9.75,9.68 10.111,9.971 10.308,10.418 10.28,10.88 10.272,11.512 9.874,12.074 9.28,12.29L9.28,12.29C9.679,12.519 9.947,12.923 10,13.38 10.18,14.03 10.35,14.78 10.46,15L9.17,15C9.002,14.569 8.872,14.124 8.78,13.67 8.62,12.95 8.38,12.76 7.85,12.75L7.46,12.75 7.46,15 6.18,15 6.18,9.35z M7.46,11.81L8,11.81C8.64,11.81 9,11.49 9,10.99 9,10.49 8.65,10.2 8,10.19 7.805,10.18 7.61,10.197 7.42,10.24L7.46,11.81z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing>
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M5.17,10.7C3.609,9.137 3.61,6.604 5.173,5.043 6.736,3.482 9.269,3.483 10.83,5.046 12.39,6.608 12.39,9.138 10.83,10.7" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing>
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M12.6,12.47C15.136,9.929 15.133,5.814 12.592,3.278 10.051,0.742 5.936,0.745 3.4,3.285 0.867,5.823 0.867,9.932 3.4,12.47" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

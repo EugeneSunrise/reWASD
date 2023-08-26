@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="features-mobilecontroller-small-bought" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="features-mobilecontroller-small-bought">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M24.1,6.5L1.9,6.5C0.8,6.5,0,7.4,0,8.4L0,17.6C0,18.7,0.8,19.5,1.9,19.5L24.2,19.5C25.2,19.5,26.1,18.6,26.1,17.6L26.1,8.4C26,7.4,25.2,6.5,24.1,6.5z M10.5,13.5L8,13.5 8,16C8,16.3 7.8,16.5 7.5,16.5 7.2,16.5 7,16.3 7,16L7,13.5 4.5,13.5C4.2,13.5 4,13.3 4,13 4,12.7 4.2,12.5 4.5,12.5L7,12.5 7,10C7,9.7 7.2,9.5 7.5,9.5 7.8,9.5 8,9.7 8,10L8,12.5 10.5,12.5C10.8,12.5 11,12.7 11,13 11,13.3 10.8,13.5 10.5,13.5z M17.5,13C16.7,13 16,12.3 16,11.5 16,10.7 16.7,10 17.5,10 18.3,10 19,10.7 19,11.5 19,12.3 18.3,13 17.5,13z M20.5,16C19.7,16 19,15.3 19,14.5 19,13.7 19.7,13 20.5,13 21.3,13 22,13.7 22,14.5 22,15.3 21.3,16 20.5,16z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,26,26" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

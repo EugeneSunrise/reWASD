@@ -1,0 +1,60 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriKeyScanCodeBackspace" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriKeyScanCodeBackspace">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup
+						svr:SvgObject.Id="Layer_2">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M12,2L3,2 3,2 0,6.979 3,12C3,12 10,12 12.008,12 14.016,12 14,10.008 14,10.008 14,10.008 14,5.984 14,4 14,2.016 12,2 12,2z M13,9.992C13,11,12,11,12,11L3.454,11 1.301,6.982 3.467,3.006 3.464,3C5.165,3 11.145,3 12,3 13,3 13,4 13,4 13,4 13,8.984 13,9.992z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<SolidColorBrush
+										Color="#FFFFFFFF"
+										Opacity="1"
+										Transform="0.7071,0.7071,-0.7071,0.7071,7.222,-3.7792" />
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="7.673,3.328,1,6.999"
+										Transform="0.7071,0.7071,-0.7071,0.7071,7.222,-3.7792" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<SolidColorBrush
+										Color="#FFFFFFFF"
+										Opacity="1"
+										Transform="0.7071,0.7071,-0.7071,0.7071,7.2217,-3.7785" />
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="4.672,6.328,6.999,1"
+										Transform="0.7071,0.7071,-0.7071,0.7071,7.2217,-3.7785" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

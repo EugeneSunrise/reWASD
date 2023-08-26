@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="ShiftMode" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="ShiftMode">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M17.747,4.47C17.722,4.452 11.942,0.402 11.591,0.165999999999999 11.326,-0.0120000000000005 11.035,-0.0620000000000005 10.743,0.0909999999999995 10.458,0.239999999999999 10.362,0.497999999999999 10.365,0.809 10.37,1.389 10.367,2.721 10.367,2.813 10.298,2.827 10.244,2.842 10.189,2.848 9.164,2.962 8.169,3.205 7.205,3.567 4.25,4.676 2.132,6.657 0.95,9.603 0.477,10.783 0.214,12.015 0.076,13.275 -0.00900000000000005,14.059 -0.022,14.844 0.032,15.63 0.032,15.63 0.032,15.63 0.032,15.631 0.032,15.632 0.032,15.633 0.032,15.634 0.034,15.69 0.079,15.735 0.136,15.735 0.181,15.735 0.219,15.706 0.234,15.665 0.236,15.659 0.237,15.652 0.239,15.646 0.292,15.433 0.339,15.237 0.392,15.044 0.798,13.562 1.55,12.26 2.458,11.037 3.168,10.081 4.019,9.277 5.02,8.632 6.273,7.825 7.646,7.333 9.11,7.088 9.518,7.02 9.932,6.989 10.366,6.939 10.366,7.05 10.365,8.356 10.366,8.942 10.367,9.47 10.723,9.785 11.24,9.691 11.393,9.663 17.585,5.367 17.756,5.242 18.085,5.001 18.08,4.71 17.747,4.47z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,18,18" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

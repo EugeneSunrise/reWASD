@@ -1,0 +1,54 @@
+<bindingAnnotation:BaseXBBindingAnnotation
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingAnnotation.GamepadRemapAnnotation" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:bindingAnnotation="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingAnnotation" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common"
+	UIElement.Focusable="False">
+	<UIElement.Visibility>
+		<MultiBinding
+			ConverterParameter="({0} &amp;&amp; {1} &amp;&amp; {2})"
+			FallbackValue="Collapsed"
+			Converter="{converters:MultiBooleanParametrizedConverterToVisibilityConverter}">
+			<Binding
+				Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowMappingsView"
+				RelativeSource="{RelativeSource Self}" />
+			<Binding
+				Path="ShowHardwareMapping"
+				RelativeSource="{RelativeSource Self}" />
+			<Binding
+				Path="XBBinding.IsRemapedOrUnmappedShouldBeShown"
+				RelativeSource="{RelativeSource Self}" />
+		</MultiBinding>
+	</UIElement.Visibility>
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingAnnotation:GamepadRemapAnnotation}">
+			<StackPanel
+				Orientation="Horizontal">
+				<recolorableImages:RecolorableSVG
+					Name="imgRemapedToAnnotationIco"
+					FrameworkElement.Width="16"
+					FrameworkElement.Height="16"
+					FrameworkElement.Margin="0,0,2,0"
+					ColorShiftBrush="#FFFFFFFF"
+					IsColorShift="True"
+					AutomationProperties.AutomationId="{Binding XBBinding.RemapedTo.Button, RelativeSource={RelativeSource TemplatedParent}}"
+					Drawing="{Binding XBBinding.RemapedTo, Converter={converters1:GamepadButtonAnnotationIconConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
+			</StackPanel>
+			<ControlTemplate.Triggers>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding XBBinding.IsInheritedBinding, RelativeSource={RelativeSource Self}}">
+					<Setter
+						TargetName="imgRemapedToAnnotationIco"
+						Value="{DynamicResource DisabledControlForegroundColor}"
+						Property="recolorableImages:RecolorableSVG.ColorShiftBrush" />
+				</DataTrigger>
+				<Trigger
+					Property="UIElement.IsEnabled"
+					Value="False">
+					<Setter
+						Property="UIElement.Opacity"
+						Value="0.7" />
+				</Trigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</bindingAnnotation:BaseXBBindingAnnotation>

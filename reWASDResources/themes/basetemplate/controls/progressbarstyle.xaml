@@ -1,0 +1,146 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common">
+	<Style
+		x:Key="circularProgressBar"
+		TargetType="{x:Type controls:CircularProgressBar}">
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type controls:CircularProgressBar}">
+					<Grid
+						FrameworkElement.Margin="2,2,0,0"
+						FrameworkElement.HorizontalAlignment="Center"
+						FrameworkElement.VerticalAlignment="Center">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								RowDefinition.Height="Auto" />
+						</Grid.RowDefinitions>
+						<Path
+							Grid.Row="0"
+							FrameworkElement.Width="{TemplateBinding controls:CircularProgressBar.DiameterWithMargin}"
+							FrameworkElement.Height="{TemplateBinding controls:CircularProgressBar.DiameterWithMargin}"
+							FrameworkElement.Margin="0"
+							SnapsToDevicePixels="True"
+							Shape.Stroke="#c1c1c1"
+							Shape.StrokeThickness="{TemplateBinding controls:CircularProgressBar.StrokeThickness}">
+							<Path.Data>
+								<PathGeometry>
+									<PathFigure
+										StartPoint="{Binding Diameter, Converter={converters:DiameterToStartPointConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CircularProgressBar}}">
+										<ArcSegment
+											IsLargeArc="True"
+											RotationAngle="0"
+											SweepDirection="Clockwise"
+											Point="{Binding Diameter, Converter={converters:DiameterToEndPointConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CircularProgressBar}}"
+											Size="{Binding Diameter, Converter={converters:DiameterToSizeConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CircularProgressBar}}" />
+									</PathFigure>
+								</PathGeometry>
+							</Path.Data>
+						</Path>
+						<Path
+							Grid.Row="0"
+							FrameworkElement.Width="{TemplateBinding controls:CircularProgressBar.DiameterWithMargin}"
+							FrameworkElement.Height="{TemplateBinding controls:CircularProgressBar.DiameterWithMargin}"
+							SnapsToDevicePixels="True"
+							Shape.Stroke="#FFE795"
+							Shape.StrokeThickness="{TemplateBinding controls:CircularProgressBar.StrokeThickness}"
+							UIElement.Visibility="{Binding Path=Value, ConverterParameter=0, Converter={converters:InvertedCompareIntToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CircularProgressBar}}">
+							<Path.Data>
+								<PathGeometry>
+									<PathFigure
+										StartPoint="{Binding Diameter, Converter={converters:DiameterToStartPointConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CircularProgressBar}}">
+										<ArcSegment
+											RotationAngle="0"
+											SweepDirection="Clockwise"
+											IsLargeArc="{Binding Path=Value, Converter={converters:AngleToIsLargeConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CircularProgressBar}}"
+											Point="{Binding Point, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CircularProgressBar}}"
+											Size="{Binding Diameter, Converter={converters:DiameterToSizeConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CircularProgressBar}}" />
+									</PathFigure>
+								</PathGeometry>
+							</Path.Data>
+						</Path>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="{x:Type ProgressBar}"
+		TargetType="{x:Type ProgressBar}">
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ProgressBar}">
+					<Grid>
+						<Border
+							Name="PART_Track"
+							Border.Background="{DynamicResource ProgressBackground}"
+							Border.BorderBrush="{DynamicResource ProgressBackground}"
+							Border.BorderThickness="2"
+							CornerRadius="0" />
+						<Border
+							Name="PART_Indicator"
+							FrameworkElement.Margin="2"
+							FrameworkElement.HorizontalAlignment="Left"
+							Border.Background="{DynamicResource ProgressForeground}"
+							Border.BorderThickness="0"
+							CornerRadius="0" />
+						<Grid
+							Name="Animation"
+							UIElement.ClipToBounds="True"
+							UIElement.Visibility="Hidden">
+							<Border
+								FrameworkElement.Name="PART_GlowRect"
+								FrameworkElement.Width="100"
+								FrameworkElement.Height="10"
+								FrameworkElement.Margin="0,0,0,0"
+								FrameworkElement.HorizontalAlignment="Left"
+								Border.Background="{DynamicResource ProgressForegroundHigh}" />
+						</Grid>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="ProgressBar.IsIndeterminate"
+							Value="True">
+							<Setter
+								TargetName="Animation"
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="PART_Indicator"
+								Property="UIElement.Visibility"
+								Value="Hidden" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="IndeterminateCircularProgressBar"
+		BasedOn="{StaticResource circularProgressBar}"
+		TargetType="{x:Type controls:CircularProgressBar}">
+		<Setter
+			Property="FrameworkElement.HorizontalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="FrameworkElement.VerticalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="controls:CircularProgressBar.Diameter"
+			Value="12" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+		<Setter
+			Property="FrameworkElement.UseLayoutRounding"
+			Value="True" />
+		<Setter
+			Property="controls:CircularProgressBar.StrokeThickness"
+			Value="3" />
+		<Setter
+			Property="RangeBase.Value"
+			Value="20" />
+	</Style>
+</ResourceDictionary>

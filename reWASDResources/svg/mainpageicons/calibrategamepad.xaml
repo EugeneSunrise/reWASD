@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="CalibrateGamepad" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="CalibrateGamepad">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M12,5C11.347,5,10.726,5.206,10.192,5.606L5.196,9.603C4.849,9.863 4.436,10 4,10 2.897,10 2,9.103 2,8 2,6.897 2.897,6 4,6 4.291,6 4.562,6.081 4.816,6.196L3.178,7.142 3.678,8.008 6.709,6.258 4.959,3.227 4.093,3.727 4.91,5.143C4.619,5.049 4.313,5 4,5 2.346,5 1,6.346 1,8 1,9.654 2.346,11 4,11 4.653,11 5.274,10.794 5.808,10.394L8,8.64 10.224,10.418C10.742,10.799 11.356,11 12,11 13.654,11 15,9.654 15,8 15,6.346 13.654,5 12,5z M12,10C11.57,10,11.162,9.866,10.833,9.625L8.8,8 10.803,6.397C11.151,6.137 11.564,6 12,6 13.103,6 14,6.897 14,8 14,9.103 13.103,10 12,10z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

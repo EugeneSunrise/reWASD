@@ -1,0 +1,38 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="VTiltPitchDown" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="VTiltPitchDown">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,14,14" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M10.062,6L10.062,6.5 13.191,6.5 10.691,11.5 5.689,11.5C5.75,10.846 5.83,10.148 5.952,9.369 6.581,5.346 7.555,3.156 8.001,2.746 8.132,2.976 8.247,3.588 8.29,4.509L7.33,4.509 8.83,6.5 10.33,4.509 9.301,4.509C9.301,4.501 9.301,4.493 9.301,4.485 9.221,2.696 8.86,1.813 8.165,1.704 7.475,1.596 6.856,2.327 6.234,4.006 5.726,5.376 5.275,7.226 4.964,9.215 4.924,9.473 4.789,10.382 4.688,11.5L0.809,11.5 3.309,6.5 4.5,6.5 4.5,6 3,6 0,12 11,12 14,6 10.062,6z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

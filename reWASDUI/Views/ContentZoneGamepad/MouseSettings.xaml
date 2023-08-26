@@ -1,0 +1,232 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.MouseSettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboboxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:interfaces1="clr-namespace:reWASDUI.Services.Interfaces" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:contentzonegamepad="clr-namespace:reWASDUI.Views.ContentZoneGamepad">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				ColumnDefinition.Width="*" />
+			<ColumnDefinition
+				ColumnDefinition.Width="Auto" />
+		</Grid.ColumnDefinitions>
+		<Grid
+			FrameworkElement.Margin="60,40,0,0"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Center"
+			UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+			</Grid.RowDefinitions>
+			<StackPanel
+				Grid.Row="0"
+				Grid.Column="0"
+				FrameworkElement.Margin="25,0"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Top">
+				<TextBlock
+					FrameworkElement.Margin="0,0,0,30"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.Style="{DynamicResource DTCreamHeaderTextBlockStyle}"
+					TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_VIRTUAL_MOUSE_SETTINGS}}" />
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+					</Grid.ColumnDefinitions>
+					<StackPanel
+						FrameworkElement.Width="210"
+						FrameworkElement.Margin="0,0,20,0">
+						<TextBlock
+							FrameworkElement.Margin="0"
+							FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+							TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_MOUSE_SENSITIVITY}}" />
+						<controls:ScrollableSliderWithManual
+							x:Name="sliderMouseSensitivity"
+							IsSnapToTickEnabled="True"
+							Maximum="100"
+							Minimum="1"
+							ScrollStep="1"
+							ScrollableSliderStyle="{DynamicResource MouseSliderStyle}"
+							Value="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.MouseSensitivity, Mode=TwoWay}" />
+						<StackPanel
+							ToolTip="{localization:Translate {x:Static s:StringConsts.STR_NOT_AFFECT_STICK_AND_TRIGGER}}">
+							<TextBlock
+								FrameworkElement.Margin="0,26,0,0"
+								FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+								TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_MOUSE_ACCELERATION}}" />
+							<controls:ScrollableSliderWithManual
+								x:Name="sliderMouseAcceleration"
+								IsSnapToTickEnabled="True"
+								Maximum="16"
+								Minimum="0"
+								ScrollStep="1"
+								ScrollableSliderStyle="{DynamicResource MouseSliderStyle}"
+								Value="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.MouseAcceleration, Mode=TwoWay}" />
+						</StackPanel>
+					</StackPanel>
+					<StackPanel
+						Grid.Column="1"
+						FrameworkElement.Width="210"
+						FrameworkElement.Margin="20,0,0,0">
+						<StackPanel
+							ToolTip="{localization:Translate {x:Static s:StringConsts.STR_NOT_AFFECT_STICK_AND_TRIGGER}}">
+							<TextBlock
+								FrameworkElement.Margin="0"
+								FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+								TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_MOUSE_INITIAL_SPEED}}" />
+							<controls:ScrollableSliderWithManual
+								x:Name="sliderMouseDeflection"
+								IsSnapToTickEnabled="True"
+								Maximum="16"
+								Minimum="1"
+								ScrollStep="1"
+								ScrollableSliderStyle="{DynamicResource MouseSliderStyle}"
+								Value="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.MouseDeflection, Mode=TwoWay}" />
+						</StackPanel>
+						<StackPanel>
+							<TextBlock
+								FrameworkElement.Margin="0,26,0,0"
+								FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+								TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_SCROLL_SPEED}}" />
+							<controls:ScrollableSliderWithManual
+								x:Name="sliderWheelDeflection"
+								IsSnapToTickEnabled="True"
+								Maximum="16"
+								Minimum="1"
+								ScrollStep="1"
+								ScrollableSliderStyle="{DynamicResource MouseSliderStyle}"
+								Value="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.WheelDeflection, Mode=TwoWay}" />
+						</StackPanel>
+					</StackPanel>
+				</Grid>
+			</StackPanel>
+			<StackPanel
+				Grid.Row="0"
+				Grid.Column="1"
+				FrameworkElement.Margin="50,0"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Top">
+				<TextBlock
+					FrameworkElement.Margin="0,0,0,30"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.Style="{DynamicResource DTCreamHeaderTextBlockStyle}"
+					TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_VK_REPEAT_SPEED}}" />
+				<comboboxes:ColoredComboBox
+					Name="cmbRepeatRate"
+					FrameworkElement.Width="170"
+					FrameworkElement.VerticalAlignment="Center"
+					UIElement.IsEnabled="True"
+					IsSynchronizedWithCurrentItem="True"
+					ItemsControl.ItemTemplate="{DynamicResource LocalizedDescriptionDataTemplate}"
+					ItemsControl.ItemsSource="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.KeyboardRepeatTypeCollection}"
+					SelectedItem="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.VirtualKeyboardRepeatRate}" />
+				<TextBlock
+					FrameworkElement.MinHeight="50"
+					FrameworkElement.MaxWidth="440"
+					FrameworkElement.Margin="0,17,0,0"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+					TextAlignment="Center"
+					TextBlock.TextWrapping="WrapWithOverflow"
+					TextBlock.Text="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.VirtualKeyboardRepeatRateInfo}" />
+			</StackPanel>
+			<StackPanel
+				Grid.Row="1"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="0,40,0,0"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center">
+				<checkBoxes:FillCheckBox
+					Name="chkUseSameSettings"
+					FrameworkElement.HorizontalAlignment="Center"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_USE_SAME_SETTINGS}}"
+					IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsUseMouseKeyboardSettingsForAllSubConfigs}" />
+			</StackPanel>
+		</Grid>
+		<StackPanel
+			Grid.Column="2"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Center"
+			Orientation="Vertical">
+			<buttons:SVGButton
+				Name="btnToggleShowGamepadFace"
+				ButtonBase.CommandParameter="{StaticResource BooleanFalseValue}"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				ButtonBase.Command="{Binding ShowGamepadCommand}"
+				Drawing="{Binding GamepadService.CurrentGamepadFlipToFaceButtonSVGUri}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_GAMEPAD_FRONT_BUTTONS}}" />
+			<Border
+				UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.SubConfigData.IsGamepad, Converter={converters:BooleanToVisibilityConverter}}">
+				<buttons:SVGButton
+					Name="btnToggleShowGamepadBack"
+					ButtonBase.CommandParameter="{StaticResource BooleanTrueValue}"
+					HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+					FrameworkElement.Style="{DynamicResource ButtonFlip}"
+					ButtonBase.Command="{Binding ShowGamepadCommand}"
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.CurrentController.ControllerType, Converter={converters1:SupportedGamepadToVisibilityGamepadBackConverter}}"
+					Drawing="{Binding GamepadService.CurrentGamepadFlipToBackButtonSVGUri}"
+					ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_GAMEPAD_BACK_BUTTONS}}" />
+			</Border>
+			<buttons:SVGButton
+				Name="btnToggleShowKeyboard"
+				ButtonBase.CommandParameter="{StaticResource BooleanFalseValue}"
+				Drawing="{DynamicResource SwitchToKeyboard}"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				ButtonBase.Command="{Binding ShowKeyboardCommand}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_KEYBOARD}}" />
+			<buttons:SVGButton
+				Name="btnToggleShowMouse"
+				ButtonBase.CommandParameter="{StaticResource BooleanFalseValue}"
+				SVGHeight="36"
+				SVGWidth="36"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				ButtonBase.Command="{Binding ShowMouseCommand}"
+				Drawing="{Binding GamepadService.CurrentMouseFlipSVGUri}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_BASIC_MOUSE_BUTTONS}}" />
+			<buttons:SVGButton
+				Name="btnToggleShowGamepadKeyboard"
+				ButtonBase.CommandParameter="{StaticResource BooleanFalseValue}"
+				Drawing="{DynamicResource SwitchToKeypad}"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				ButtonBase.Command="{Binding ShowKeypadCommand}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_ADDITIONAL_MOUSE_BUTTONS}}" />
+			<buttons:SVGButton
+				Name="btnToggleShowVirtualKeyboard"
+				Drawing="{DynamicResource SwitchToVirtualKeyboard}"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				IsTriggered="True"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				TriggeredForeground="{DynamicResource CreamBrush}"
+				TriggeredHighlightedForeground="{DynamicResource CreamBrush}"
+				ButtonBase.Command="{Binding ShowMouseSettingsCommand}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_VIRTUAL_DEVICES}}" />
+			<Border
+				UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.SubConfigData.IsGamepad, Converter={converters:BooleanToVisibilityConverter}}">
+				<buttons:SVGButton
+					Name="btnToggleShowVibrationSettings"
+					Drawing="{DynamicResource SwitchToVibration}"
+					HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+					FrameworkElement.Style="{DynamicResource ButtonFlip}"
+					TriggeredForeground="{DynamicResource CreamBrush}"
+					TriggeredHighlightedForeground="{DynamicResource CreamBrush}"
+					ButtonBase.Command="{Binding ShowVibrationSettingsCommand}"
+					ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_VIBRATION_SETTINGS}}"
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.CurrentController.IsNoRumble, FallbackValue=Visible, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+			</Border>
+		</StackPanel>
+	</Grid>
+</UserControl>

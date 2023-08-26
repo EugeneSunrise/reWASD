@@ -1,0 +1,34 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="MacrosClean" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="MacrosClean">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#00FFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,16,16" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M15,6L14.667,5.668 15,5 13.216,4.703 14,0 12,0 11.129,4.354 9,4 8.5,5 8,5C6.719,10 2,14 2,14 2.667,14.688 3.444,14.918 4.186,14.918 5.666,14.918 7,14 7,14 7,15 5.812,16 5.812,16L12.092,16C15.094,16,15,6,15,6z M12.406,14.83C12.238,15,12.138,15,12.093,15L7.79,15C7.917,14.689,7.999,14.354,7.999,14L7.999,12.1 6.434,13.176C6.422,13.184 5.325,13.918 4.185,13.918 3.987,13.918 3.8,13.895 3.624,13.848 5.026,12.45 7.549,9.582 8.705,6.119L13.99,6.998C13.924,9.803,13.48,13.746,12.406,14.83z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

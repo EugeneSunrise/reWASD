@@ -1,0 +1,313 @@
+<UserControl
+	x:Class="reWASDUI.Views.OverlayMenu.RadialMenuPreferences" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:local="clr-namespace:reWASDUI.Views.OverlayMenu" xmlns:multiRangeSlider="clr-namespace:DiscSoft.NET.Common.View.Controls.MultiRangeSlider;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:infrastructure="clr-namespace:reWASDUI.Infrastructure" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls"
+	x:Name="RMPref">
+	<ScrollViewer
+		FrameworkElement.Width="559"
+		FrameworkElement.Margin="0,36,0,0"
+		DockPanel.Dock="Top"
+		UIElement.Focusable="false"
+		ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+		<StackPanel
+			FrameworkElement.Name="RootPanel"
+			FrameworkElement.Width="499"
+			FrameworkElement.VerticalAlignment="Top"
+			x:Name="RootPanel">
+			<TextBlock
+				FrameworkElement.HorizontalAlignment="Center"
+				TextBlock.FontSize="18"
+				FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+				UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}"
+				TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_OM_RADIAL_MENU_PREFERENCES}}" />
+			<StackPanel
+				FrameworkElement.HorizontalAlignment="left"
+				FrameworkElement.Margin="0,16,0,0">
+				<checkBoxes:FillCheckBox
+					FrameworkElement.Margin="0,0,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_OM_TINTED_BACKGROUND}}"
+					IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.IsTintedBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}" />
+				<StackPanel
+					FrameworkElement.Margin="20,13,0,0"
+					UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.IsTintedBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}, Converter={converters2:BooleanToVisibilityConverter}}">
+					<multiRangeSlider:MultiRangeSlider
+						Control.Background="#00FFFFFF"
+						Maximum="100"
+						Minimum="1"
+						ThumbWidth="5"
+						Units="%"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}">
+						<multiRangeSlider:MultiRangeSlider.Items>
+							<multiRangeSlider:MultiRangeSliderItem
+								IsThumbHitTestVisible="False"
+								LeftValue="1"
+								RightBackground="{DynamicResource Shift2Brush}"
+								ThumbBackground="{DynamicResource Shift2Brush}"
+								ThumbStyle="{StaticResource {x:Type Thumb}}" />
+							<multiRangeSlider:MultiRangeSliderItem
+								IsShowValueInTooltip="True"
+								RightBackground="{DynamicResource CreamBrush}"
+								ThumbBackground="{DynamicResource Shift2Brush}"
+								ThumbStyle="{StaticResource {x:Type Thumb}}"
+								Header="{l:Translate {x:Static s:StringConsts.STR_VALUE}}"
+								LeftValue="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.TintBackground, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}"
+								RightValue="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.TintBackground, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}" />
+							<multiRangeSlider:MultiRangeSliderItem
+								IsThumbHitTestVisible="False"
+								LeftValue="100"
+								RightBackground="{DynamicResource CreamBrush}"
+								RightValue="100"
+								ThumbBackground="{DynamicResource CreamBrush}"
+								ThumbStyle="{StaticResource {x:Type Thumb}}" />
+						</multiRangeSlider:MultiRangeSlider.Items>
+						<FrameworkElement.Resources>
+							<ResourceDictionary>
+								<Style
+									x:Key="DoubleUpDownMultiRangeItem"
+									BasedOn="{StaticResource {x:Type toolkit:DoubleUpDown}}"
+									TargetType="{x:Type DoubleUpDown}">
+									<Setter
+										Property="FrameworkElement.MinWidth"
+										Value="70" />
+									<Setter
+										Property="FrameworkElement.MaxWidth"
+										Value="70" />
+									<Setter xmlns:primitives="clr-namespace:Xceed.Wpf.Toolkit.Primitives;assembly=Xceed.Wpf.Toolkit.NET5"
+										Property="primitives:UpDownBase_x0060_1.ClipValueToMinMax"
+										Value="True" />
+									<Setter
+										Property="UpDownBase_x0060_1.DisplayDefaultValueOnEmptyText"
+										Value="True" />
+									<Setter xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit.NET5"
+										Property="toolkit:NumericUpDown_x0060_1.FormatString"
+										Value="F0" />
+									<Setter xmlns:primitives="clr-namespace:Xceed.Wpf.Toolkit.Primitives;assembly=Xceed.Wpf.Toolkit.NET5"
+										Property="primitives:InputBase.TextAlignment"
+										Value="Right" />
+									<Setter
+										Property="NumericUpDown_x0060_1.Increment"
+										Value="1" />
+								</Style>
+							</ResourceDictionary>
+						</FrameworkElement.Resources>
+					</multiRangeSlider:MultiRangeSlider>
+					<Grid>
+						<Image
+							FrameworkElement.Width="220"
+							FrameworkElement.Height="149"
+							FrameworkElement.Margin="0,13"
+							Image.Source="{DynamicResource IcoSettingsGamePicBackground}" />
+						<Grid
+							FrameworkElement.Width="220"
+							FrameworkElement.Height="149"
+							Panel.Background="#FF000000"
+							Opacity="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.TintBackground, ConverterParameter=0.01, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}, Converter={converters2:NumericValueMultiplier}}" />
+						<recolorableImages:RecolorableSVG
+							FrameworkElement.Width="180"
+							FrameworkElement.Height="109"
+							ColorShiftBrush="{DynamicResource ForegroundBrush}"
+							Drawing="{DynamicResource TinedMenuHover}"
+							FrameworkElement.Style="{StaticResource recolorableSVGWithState}" />
+					</Grid>
+				</StackPanel>
+				<checkBoxes:FillCheckBox
+					FrameworkElement.Margin="0,13,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_OM_DELAY_BEFORE_OPENING}}"
+					IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.IsDelayBeforeOpening, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}" />
+				<StackPanel
+					FrameworkElement.Margin="20,13,0,0"
+					UIElement.Visibility="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.IsDelayBeforeOpening, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}, Converter={converters2:BooleanToVisibilityConverter}}">
+					<multiRangeSlider:MultiRangeSlider
+						Control.Background="#00FFFFFF"
+						Maximum="2000"
+						Minimum="100"
+						ThumbWidth="5"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}"
+						Units="{l:Translate {x:Static s:StringConsts.STR_UNIT_TIME_MS}}">
+						<multiRangeSlider:MultiRangeSlider.Items>
+							<multiRangeSlider:MultiRangeSliderItem
+								IsThumbHitTestVisible="False"
+								LeftValue="1"
+								RightBackground="{DynamicResource Shift2Brush}"
+								ThumbBackground="{DynamicResource Shift2Brush}"
+								ThumbStyle="{StaticResource {x:Type Thumb}}" />
+							<multiRangeSlider:MultiRangeSliderItem
+								IsShowValueInTooltip="True"
+								RightBackground="{DynamicResource CreamBrush}"
+								ThumbBackground="{DynamicResource Shift2Brush}"
+								ThumbStyle="{StaticResource {x:Type Thumb}}"
+								Header="{l:Translate {x:Static s:StringConsts.STR_VALUE}}"
+								LeftValue="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.DelayBeforeOpening, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}"
+								RightValue="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.DelayBeforeOpening, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}" />
+							<multiRangeSlider:MultiRangeSliderItem
+								IsThumbHitTestVisible="False"
+								LeftValue="2000"
+								RightBackground="{DynamicResource CreamBrush}"
+								RightValue="2000"
+								ThumbBackground="{DynamicResource CreamBrush}"
+								ThumbStyle="{StaticResource {x:Type Thumb}}" />
+						</multiRangeSlider:MultiRangeSlider.Items>
+						<FrameworkElement.Resources>
+							<ResourceDictionary>
+								<Style
+									x:Key="DoubleUpDownMultiRangeItem"
+									BasedOn="{StaticResource {x:Type DoubleUpDown}}"
+									TargetType="{x:Type DoubleUpDown}">
+									<Setter
+										Property="FrameworkElement.MinWidth"
+										Value="70" />
+									<Setter
+										Property="FrameworkElement.MaxWidth"
+										Value="70" />
+									<Setter
+										Property="UpDownBase_x0060_1.ClipValueToMinMax"
+										Value="True" />
+									<Setter
+										Property="UpDownBase_x0060_1.DisplayDefaultValueOnEmptyText"
+										Value="True" />
+									<Setter
+										Property="NumericUpDown_x0060_1.FormatString"
+										Value="F0" />
+									<Setter xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit.NET5"
+										Property="toolkit:CommonNumericUpDown_x0060_1.ParsingNumberStyle"
+										Value="Integer" />
+									<Setter
+										Property="InputBase.TextAlignment"
+										Value="Right" />
+									<Setter
+										Property="NumericUpDown_x0060_1.Increment"
+										Value="100" />
+								</Style>
+							</ResourceDictionary>
+						</FrameworkElement.Resources>
+					</multiRangeSlider:MultiRangeSlider>
+					<Grid>
+						<Image
+							FrameworkElement.Width="220"
+							FrameworkElement.Height="149"
+							FrameworkElement.Margin="0,13"
+							Image.Source="{DynamicResource IcoSettingsGamePicBackground}" />
+						<recolorableImages:RecolorableSVG
+							FrameworkElement.Width="180"
+							FrameworkElement.Height="109"
+							ColorShiftBrush="{DynamicResource ForegroundBrush}"
+							Drawing="{DynamicResource TinedMenu}"
+							FrameworkElement.Style="{StaticResource recolorableSVGWithState}"
+							UIElement.Visibility="{Binding vFrame1, Converter={converters2:BooleanToVisibilityConverter}}" />
+						<recolorableImages:RecolorableSVG
+							FrameworkElement.Width="180"
+							FrameworkElement.Height="109"
+							ColorShiftBrush="{DynamicResource ForegroundBrush}"
+							Drawing="{DynamicResource TinedMenuHover}"
+							FrameworkElement.Style="{StaticResource recolorableSVGWithState}"
+							UIElement.Visibility="{Binding vFrame2, Converter={converters2:BooleanToVisibilityConverter}}" />
+						<recolorableImages:RecolorableSVG
+							FrameworkElement.Width="180"
+							FrameworkElement.Height="109"
+							ColorShiftBrush="{DynamicResource ForegroundBrush}"
+							Drawing="{DynamicResource TinedSubMenu}"
+							FrameworkElement.Style="{StaticResource recolorableSVGWithState}"
+							UIElement.Visibility="{Binding vFrame3, Converter={converters2:BooleanToVisibilityConverter}}" />
+					</Grid>
+				</StackPanel>
+				<StackPanel
+					FrameworkElement.Margin="20,13,0,0">
+					<TextBlock
+						TextBlock.Text="Scale" />
+					<multiRangeSlider:MultiRangeSliderArrow
+						Control.Background="#00FFFFFF"
+						Maximum="100"
+						Minimum="1"
+						ThumbWidth="5"
+						Units="%"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}">
+						<multiRangeSlider:MultiRangeSliderArrow.Items>
+							<multiRangeSlider:MultiRangeSliderItem
+								IsThumbHitTestVisible="False"
+								LeftValue="1"
+								RightBackground="{DynamicResource Shift2Brush}"
+								ThumbBackground="{DynamicResource Shift2Brush}"
+								ThumbStyle="{StaticResource {x:Type Thumb}}" />
+							<multiRangeSlider:MultiRangeSliderItem
+								IsShowValueInTooltip="True"
+								RightBackground="{DynamicResource CreamBrush}"
+								ThumbBackground="{DynamicResource Shift2Brush}"
+								ThumbStyle="{StaticResource {x:Type Thumb}}"
+								Header="{l:Translate {x:Static s:StringConsts.STR_VALUE}}"
+								LeftValue="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.Scale, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}"
+								RightValue="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.OverlayMenu.Circle.Scale, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:BaseServicesDataContextControl}}" />
+							<multiRangeSlider:MultiRangeSliderItem
+								IsThumbHitTestVisible="False"
+								LeftValue="100"
+								RightBackground="{DynamicResource CreamBrush}"
+								RightValue="100"
+								ThumbBackground="{DynamicResource CreamBrush}"
+								ThumbStyle="{StaticResource {x:Type Thumb}}" />
+						</multiRangeSlider:MultiRangeSliderArrow.Items>
+						<FrameworkElement.Resources>
+							<ResourceDictionary>
+								<Style
+									x:Key="DoubleUpDownMultiRangeItem"
+									BasedOn="{StaticResource {x:Type DoubleUpDown}}"
+									TargetType="{x:Type DoubleUpDown}">
+									<Setter
+										Property="FrameworkElement.MinWidth"
+										Value="70" />
+									<Setter
+										Property="FrameworkElement.MaxWidth"
+										Value="70" />
+									<Setter
+										Property="UpDownBase_x0060_1.ClipValueToMinMax"
+										Value="True" />
+									<Setter
+										Property="UpDownBase_x0060_1.DisplayDefaultValueOnEmptyText"
+										Value="True" />
+									<Setter
+										Property="NumericUpDown_x0060_1.FormatString"
+										Value="F0" />
+									<Setter
+										Property="InputBase.TextAlignment"
+										Value="Right" />
+									<Setter
+										Property="NumericUpDown_x0060_1.Increment"
+										Value="1" />
+								</Style>
+							</ResourceDictionary>
+						</FrameworkElement.Resources>
+					</multiRangeSlider:MultiRangeSliderArrow>
+					<Grid>
+						<Image
+							FrameworkElement.Width="220"
+							FrameworkElement.Height="149"
+							FrameworkElement.Margin="0,13"
+							Image.Source="{DynamicResource IcoSettingsGamePicBackground}" />
+						<recolorableImages:RecolorableSVG
+							FrameworkElement.Width="180"
+							FrameworkElement.Height="109"
+							ColorShiftBrush="{DynamicResource ForegroundBrush}"
+							Drawing="{DynamicResource TinedMenuHover}"
+							FrameworkElement.Style="{StaticResource recolorableSVGWithState}" />
+					</Grid>
+				</StackPanel>
+			</StackPanel>
+			<StackPanel
+				FrameworkElement.Margin="0,13,0,0"
+				UIElement.Visibility="{Binding IsManyMonitors, Converter={converters2:BooleanToVisibilityConverter}}">
+				<TextBlock
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					TextBlock.Text="Select Monitor 11111" />
+				<ItemsControl
+					ItemsControl.ItemsSource="{Binding Monitors}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<WrapPanel />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ItemsControl>
+			</StackPanel>
+		</StackPanel>
+	</ScrollViewer>
+</UserControl>

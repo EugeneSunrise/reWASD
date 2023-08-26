@@ -1,0 +1,81 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="MiniEngineControllerMobileMouse" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="MiniEngineControllerMobileMouse">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M1.855,6.5L24.145,6.5C25.167,6.5,26,7.361,26,8.421L26,17.579C26,18.638,25.167,19.5,24.145,19.5L1.856,19.5C0.832,19.5,0,18.638,0,17.579L0,8.421C0,7.361,0.832,6.5,1.855,6.5z M24.145,18.5C24.616,18.5,25,18.087,25,17.579L25,8.421C25,7.913,24.616,7.5,24.145,7.5L1.856,7.5C1.384,7.5,1.001,7.913,1.001,8.421L1.001,17.579C1,18.087,1.384,18.5,1.855,18.5L24.145,18.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M13.5,16L13.5,10 20.127,10 20.127,16 13.5,16 M13.25,17L20.377,17C20.791,17,21.127,16.664,21.127,16.25L21.127,9.75C21.127,9.336,20.791,9,20.377,9L13.25,9C12.836,9,12.5,9.336,12.5,9.75L12.5,16.25C12.5,16.664,12.836,17,13.25,17L13.25,17z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.397,15L9.976,15C10.092,15,10.187,15.094,10.187,15.211L10.187,16.789C10.187,16.906,10.092,17,9.976,17L8.397,17C8.281,17,8.186,16.906,8.186,16.789L8.186,15.21C8.187,15.094,8.281,15,8.397,15z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.397,12L9.976,12C10.092,12,10.187,12.094,10.187,12.211L10.187,13.79C10.187,13.906,10.093,14.001,9.976,14.001L8.397,14.001C8.281,14.001,8.186,13.907,8.186,13.79L8.186,12.211C8.187,12.094,8.281,12,8.397,12z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.397,9L9.976,9C10.092,9,10.187,9.094,10.187,9.211L10.187,10.79C10.187,10.906,10.093,11.001,9.976,11.001L8.397,11.001C8.281,11.001,8.186,10.907,8.186,10.79L8.186,9.211C8.187,9.094,8.281,9,8.397,9z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M5.084,15L6.663,15C6.779,15,6.874,15.094,6.874,15.211L6.874,16.789C6.873,16.906,6.779,17,6.663,17L5.084,17C4.968,17,4.873,16.906,4.873,16.789L4.873,15.21C4.873,15.094,4.968,15,5.084,15z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M5.084,12L6.663,12C6.779,12,6.874,12.094,6.874,12.211L6.874,13.79C6.874,13.906,6.78,14.001,6.663,14.001L5.084,14.001C4.968,14.001,4.873,13.907,4.873,13.79L4.873,12.211C4.873,12.094,4.968,12,5.084,12z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M5.084,9L6.663,9C6.779,9,6.874,9.094,6.874,9.211L6.874,10.79C6.874,10.906,6.78,11.001,6.663,11.001L5.084,11.001C4.968,11.001,4.873,10.907,4.873,10.79L4.873,9.211C4.873,9.094,4.968,9,5.084,9z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,26,26" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

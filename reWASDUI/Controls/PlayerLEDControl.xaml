@@ -1,0 +1,86 @@
+<UserControl
+	x:Class="reWASDUI.Controls.PlayerLEDControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:led="clr-namespace:XBEliteWPF.Infrastructure.LED;assembly=reWASDCommon" xmlns:led1="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:preferences="clr-namespace:reWASDUI.Views.Preferences">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type controls:PlayerLEDControl}">
+			<StackPanel>
+				<TextBlock
+					TextBlock.FontSize="12"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_TURN_PLAYER_LED_WHEN}}" />
+				<comboBoxes:ColoredComboBox
+					Name="cmbPlayerLEDMode"
+					FrameworkElement.Width="220"
+					FrameworkElement.HorizontalAlignment="Left"
+					ItemsControl.ItemsSource="{Binding DataContext.PlayerLedCollection, RelativeSource={RelativeSource AncestorType=preferences:PreferencesLEDSettings}}"
+					SelectedItem="{Binding PlayerLedMode}"
+					SelectionChanged="cmbPlayerLEDMode_SelectionChanged">
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<TextBlock
+								FrameworkElement.VerticalAlignment="Center"
+								TextBlock.Text="{Binding Converter={converters:EnumLocalizedDescriptionConverter}}" />
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</comboBoxes:ColoredComboBox>
+				<StackPanel
+					Name="spLEDContent">
+					<TextBlock
+						FrameworkElement.Margin="0,8,0,0"
+						TextBlock.FontSize="12"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_DEFINE_PLAYER_NUMBER}}" />
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="220" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<StackPanel>
+							<comboBoxes:ColoredComboBox
+								FrameworkElement.Name="cmGamepadsUserLed"
+								ItemsControl.ItemsSource="{Binding DataContext.SupportedGamepadsUserLedCollection, RelativeSource={RelativeSource AncestorType=preferences:PreferencesLEDSettings}}"
+								SelectedItem="{Binding DataContext.CurrentPlayerLedPair, RelativeSource={RelativeSource AncestorType=preferences:PreferencesLEDSettings}}"
+								WatermarkNoItems="{l:Translate {x:Static s:StringConsts.STR_NO_DEVICE_DETECTED}}">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<TextBlock
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.TextTrimming="CharacterEllipsis"
+											utils:NavigationServiceHTML.Text="{Binding Converter={converters1:ControllerIDToFriendlyNameConverter}}" />
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</comboBoxes:ColoredComboBox>
+							<StackPanel>
+								<TextBlock
+									FrameworkElement.Margin="0,8,0,0"
+									TextBlock.FontSize="12"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PLAYER_LED}}" />
+								<comboBoxes:ColoredComboBox
+									Name="cmbPlayerLEDNumber"
+									FrameworkElement.Width="220"
+									FrameworkElement.HorizontalAlignment="Left"
+									UIElement.IsEnabled="{Binding ElementName=cmGamepadsUserLed, Path=IsEnabled}"
+									ItemsControl.ItemsSource="{Binding DataContext.PlayerLEDNumbers, RelativeSource={RelativeSource AncestorType=preferences:PreferencesLEDSettings}}"
+									SelectedItem="{Binding DataContext.SelectedPlayerLed, RelativeSource={RelativeSource AncestorType=preferences:PreferencesLEDSettings}}" />
+							</StackPanel>
+						</StackPanel>
+						<buttons:SVGButton
+							Name="btnRemoveDevice"
+							Grid.Column="1"
+							FrameworkElement.VerticalAlignment="Top"
+							Drawing="{DynamicResource Remove}"
+							Control.Foreground="{DynamicResource CreamBrush}"
+							HighlightedForeground="#FFFFFFFF"
+							PressedForeground="{DynamicResource CreamBrush}"
+							SVGMargin="7,6,0,0"
+							ButtonBase.Command="{Binding DataContext.RemoveDeviceEntryCommand, RelativeSource={RelativeSource AncestorType=preferences:PreferencesLEDSettings}}"
+							ToolTip="{l:Translate {x:Static s:StringConsts.STR_REMOVE_DEVICE_FROM_LIST}}" />
+					</Grid>
+				</StackPanel>
+			</StackPanel>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

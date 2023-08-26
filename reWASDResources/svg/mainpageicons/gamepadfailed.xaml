@@ -1,0 +1,68 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="GamepadFailed" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="GamepadFailed">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup
+						svr:SvgObject.Id="XboxElite">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M12.484,11.953C12.49,11.953 12.607,12.019 12.929,12.41 13.136,12.646 13.37,12.973 13.617,13.31 14.422,14.413 14.954,15.085 15.555,15.205L15.635,15.221 15.714,15.209C16.504,15.104 17.996,14.313 17.996,12.084 17.996,9.855 16.975,7.215 16.15,5.094L15.871,4.368C15.742,4.092 15.538,3.868 15.308,3.669 15.261,3.464 15.138,3.207 14.802,2.958L14.66,2.852C13.833,2.221 12.971,1.636 12.248,1.636 11.922,1.636 11.682,1.787 11.486,1.907 11.39,1.964 11.257,1.984 10.943,1.984L7.042,1.984C6.731,1.984 6.595,1.963 6.502,1.907 6.308,1.787 6.067,1.636 5.743,1.636 4.91,1.636 3.892,2.418 3.346,2.839L3.184,2.962C2.872,3.193 2.732,3.451 2.681,3.682 2.446,3.886 2.237,4.118 2.104,4.402L1.891,4.962C1.062,7.119 0.03,9.803 0.03,12.079 0.03,14.308 1.501,15.1 2.279,15.204L2.359,15.216 2.439,15.2C3.039,15.088 3.571,14.41 4.377,13.304 4.622,12.965 4.857,12.644 5.076,12.394 5.292,12.127 5.331,12.077 5.465,12.077L5.053,11.187C5.053,11.187 4.76,11.199 4.312,11.75 4.089,12.005 3.834,12.354 3.569,12.715 3.229,13.182 2.616,14.022 2.314,14.192 1.979,14.1 1.031,13.7 1.031,12.078 1.031,9.986 2.026,7.398 2.826,5.32L3.027,4.792C3.382,4.027 4.959,3.667 5.48,3.594 5.48,3.594 5.524,3.608 5.596,3.698 5.9,4.072 6.646,4.552 6.906,4.716 7.068,4.877 7.346,5 7.704,5L10.291,5C10.65,5 10.93,4.876 11.092,4.715 11.352,4.552 12.098,4.067 12.399,3.694 12.444,3.637 12.481,3.61 12.503,3.598L12.514,3.6C13.037,3.664,14.614,4.022,14.956,4.757L15.225,5.455C16.016,7.499 17,10.042 17,12.084 17,13.707 16.029,14.105 15.686,14.195 15.381,14.023 14.77,13.185 14.43,12.72 14.163,12.355 13.909,12.001 13.692,11.757 13.379,11.415 13.1,11.22 12.946,11.185L12.484,11.953z M11.62,3.064C11.455,3.269,10.869,3.676,10.505,3.902L10.35,3.952 10.291,4 7.634,4 7.491,3.9C7.127,3.68 6.54,3.273 6.374,3.068 6.295,2.973 6.215,2.896 6.137,2.834 6.427,2.965 6.731,2.984 7.044,2.984L10.952,2.984C11.258,2.984 11.556,2.963 11.844,2.84 11.77,2.902 11.695,2.973 11.62,3.064z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<SolidColorBrush
+										Color="#FFFFFFFF"
+										Opacity="1"
+										Transform="0.7071,0.7071,-0.7071,0.7071,8.9997,-3.7272" />
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="6.171,8.5,5.657,1"
+										Transform="0.7071,0.7071,-0.7071,0.7071,8.9997,-3.7272" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<SolidColorBrush
+										Color="#FFFFFFFF"
+										Opacity="1"
+										Transform="0.7071,0.7071,-0.7071,0.7071,8.9997,-3.7272" />
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="8.499,6.172,1,5.657"
+										Transform="0.7071,0.7071,-0.7071,0.7071,8.9997,-3.7272" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,18,18" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

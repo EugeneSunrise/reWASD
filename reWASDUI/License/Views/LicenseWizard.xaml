@@ -1,0 +1,71 @@
+<Window
+	x:Class="reWASDUI.License.Views.LicenseWizard" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pages="clr-namespace:reWASDUI.License.Pages" xmlns:views="clr-namespace:reWASDUI.License.Views" xmlns:license1="clr-namespace:reWASDUI.License"
+	Title="reWASD"
+	FrameworkElement.Width="624"
+	FrameworkElement.Height="345"
+	attachedBehaviours:CustomResizeBorderBehaviour.AllowResize="False"
+	ResizeMode="NoResize"
+	FrameworkElement.Style="{DynamicResource MainWindowStyle}"
+	WindowStartupLocation="CenterOwner">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type pages:LicenseInfoPageVM}}"
+				DataType="{x:Type pages:LicenseInfoPageVM}">
+				<views:LicenseInfoPage />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type pages:LicenseEnterSerialPageVM}}"
+				DataType="{x:Type pages:LicenseEnterSerialPageVM}">
+				<views:LicenseEnterSerialPage />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type pages:LicenseWelcomeNotActivatedPageVM}}"
+				DataType="{x:Type pages:LicenseWelcomeNotActivatedPageVM}">
+				<views:LicenseWelcomeNotActivatedPage />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type pages:UpdateAvailablePageVM}}"
+				DataType="{x:Type pages:UpdateAvailablePageVM}">
+				<views:UpdateAvailablePage />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type pages:OfferPageVM}}"
+				DataType="{x:Type pages:OfferPageVM}">
+				<views:OfferPage />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type pages:LicenseTrialExpiredPageVM}}"
+				DataType="{x:Type pages:LicenseTrialExpiredPageVM}">
+				<views:LicenseTrialExpiredPage />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type pages:LicenseEnterEmailPageVM}}"
+				DataType="{x:Type pages:LicenseEnterEmailPageVM}">
+				<views:LicenseEnterEmailPage />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type pages:LicensePaidUncheckedPageVM}}"
+				DataType="{x:Type pages:LicensePaidUncheckedPageVM}">
+				<views:LicensePaidUncheckedPage />
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Border>
+		<Grid>
+			<Grid
+				UIElement.Focusable="False">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="*" />
+				</Grid.RowDefinitions>
+				<Grid
+					Name="ContentGrid"
+					UIElement.Focusable="False">
+					<ContentControl
+						ContentControl.Content="{Binding CurrentPage}" />
+				</Grid>
+			</Grid>
+		</Grid>
+	</Border>
+</Window>

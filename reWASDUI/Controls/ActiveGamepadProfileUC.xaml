@@ -1,0 +1,112 @@
+<UserControl
+	x:Class="reWASDUI.Controls.ActiveGamepadProfileUC" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:gamepadActiveProfiles="clr-namespace:reWASDUI.DataModels.GamepadActiveProfiles" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels">
+	<FrameworkElement.Style>
+		<Style
+			TargetType="{x:Type controls:ActiveGamepadProfileUC}">
+			<Style.Triggers>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding DataContext.GamepadService.IsCurrentGamepadRemaped, RelativeSource={RelativeSource Self}}">
+					<Setter
+						Property="AutomationProperties.AutomationId"
+						Value="Remap is On" />
+				</DataTrigger>
+				<DataTrigger
+					Value="False"
+					Binding="{Binding DataContext.GamepadService.IsCurrentGamepadRemaped, RelativeSource={RelativeSource Self}}">
+					<Setter
+						Property="AutomationProperties.AutomationId"
+						Value="Remap is Off" />
+				</DataTrigger>
+			</Style.Triggers>
+		</Style>
+	</FrameworkElement.Style>
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type controls:ActiveGamepadProfileUC}">
+			<StackPanel
+				Name="gapContainer"
+				Orientation="Horizontal"
+				UIElement.Visibility="{Binding DataContext, RelativeSource={RelativeSource Self}, Converter={converters:ValueIsNotNullToVisibilityConverter}}">
+				<FrameworkElement.DataContext>
+					<MultiBinding
+						Converter="{converters:BindToDictionaryWithKeyConverter}">
+						<Binding
+							Path="GamepadService.CurrentGamepadActiveProfiles.SlotProfiles" />
+						<Binding
+							Path="Slot"
+							RelativeSource="{RelativeSource TemplatedParent}" />
+						<Binding
+							Path="GamepadService.CurrentGamepadActiveProfiles.SlotProfiles.Count" />
+					</MultiBinding>
+				</FrameworkElement.DataContext>
+				<Grid
+					UIElement.Visibility="{Binding DataContext, RelativeSource={RelativeSource Self}, Converter={converters:ValueIsNotNullToVisibilityConverter}}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<StackPanel
+						Name="CurrentConfigSP"
+						Grid.Column="0"
+						FrameworkElement.HorizontalAlignment="Center"
+						FrameworkElement.VerticalAlignment="Center"
+						Orientation="Horizontal"
+						attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_CONFIG_IS_NOT_ACTIVE}}"
+						UIElement.IsEnabled="{Binding DataContext.GamepadService.IsCurrentGamepadRemaped, RelativeSource={RelativeSource TemplatedParent}}">
+						<TextBlock
+							Name="GameNameTB"
+							FrameworkElement.MinHeight="22"
+							FrameworkElement.MaxWidth="200"
+							TextBlock.FontSize="14"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.TextTrimming="CharacterEllipsis"
+							TextBlock.TextWrapping="NoWrap"
+							AutomationProperties.AutomationId="{Binding GameName}"
+							TextBlock.Text="{Binding GameName}" />
+						<TextBlock
+							FrameworkElement.MinHeight="22"
+							TextBlock.FontSize="14"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							TextBlock.Text=": " />
+						<TextBlock
+							Name="ProfileNameTB"
+							FrameworkElement.MinHeight="22"
+							FrameworkElement.MaxWidth="200"
+							TextBlock.FontSize="14"
+							FrameworkElement.Style="{DynamicResource DTTextBlockCreamBrushStyle}"
+							TextBlock.TextTrimming="CharacterEllipsis"
+							TextBlock.TextWrapping="NoWrap"
+							AutomationProperties.AutomationId="{Binding ProfileName}"
+							TextBlock.Text="{Binding ProfileName}" />
+					</StackPanel>
+					<buttons:SVGButton
+						Grid.Column="1"
+						FrameworkElement.Height="20"
+						AutomationProperties.AutomationId="btnRemoveSlotProfile"
+						ColorShiftBrush="#FFFFFFFF"
+						Drawing="{DynamicResource Remove}"
+						HighlightedBackground="#00FFFFFF"
+						HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+						PressedBackground="#00FFFFFF"
+						PressedForeground="#FFFFFFFF"
+						SVGMargin="4,0,0,0"
+						AutomationProperties.Name="{Binding ProfileName}"
+						ButtonBase.Command="{Binding DataContext.RestoreDefaultsCommand, RelativeSource={RelativeSource TemplatedParent}}"
+						ButtonBase.CommandParameter="{Binding Slot, RelativeSource={RelativeSource TemplatedParent}}" />
+				</Grid>
+			</StackPanel>
+			<ControlTemplate.Triggers>
+				<DataTrigger
+					Value="Collapsed"
+					Binding="{Binding Visibility, ElementName=gapContainer}">
+					<Setter
+						Property="UIElement.Visibility"
+						Value="Collapsed" />
+				</DataTrigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

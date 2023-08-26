@@ -1,0 +1,339 @@
+<UserControl
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.TurboToggle" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:base1="clr-namespace:reWASDUI.ViewModels.Base" xmlns:bindingFrame="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:licenseFeatureManaging="clr-namespace:reWASDUI.Controls.LicenseFeatureManaging" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:me="clr-namespace:DiscSoft.NET.Common.Utils.Markup_Extensions;assembly=DiscSoft.NET.Common" xmlns:reWasdui="clr-namespace:reWASDUI" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:xbEliteWpf="clr-namespace:XBEliteWPF">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingFrame:TurboToggle}">
+			<StackPanel>
+				<StackPanel
+					FrameworkElement.Name="TurboCheckboxContainer"
+					UIElement.Visibility="{Binding TurboIsVisible, Converter={converters:BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+					<licenseFeatureManaging:LicenseFeatureManagingContainer
+						AssociatedFeatureGUID="{x:Static reWasdui:App.RAPID_FIRE_FEATURE_GUID}"
+						IsFeatureUnlocked="{Binding Path=LicensingService.IsTurboFeatureUnlocked}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									ColumnDefinition.Width="0.5*" />
+								<ColumnDefinition
+									ColumnDefinition.Width="0.5*" />
+							</Grid.ColumnDefinitions>
+							<checkBoxes:FillCheckBox
+								FrameworkElement.Name="TurboCheckbox"
+								FrameworkElement.Margin="0,0,0,5"
+								ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_TURBO}}"
+								IsChecked="{Binding XBBinding.CurrentActivatorXBBinding.IsTurbo, RelativeSource={RelativeSource TemplatedParent}}">
+								<FrameworkElement.Style>
+									<Style
+										BasedOn="{StaticResource ShiftXBBindingColoredCheckBox}"
+										TargetType="{x:Type checkBoxes:FillCheckBox}">
+										<Style.Triggers>
+											<MultiDataTrigger>
+												<MultiDataTrigger.Conditions>
+													<Condition
+														Value="False"
+														Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" />
+													<Condition
+														Value="True"
+														Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsTurboOrToggleCanBeEnabledWithoutMapping, RelativeSource={RelativeSource TemplatedParent}}" />
+												</MultiDataTrigger.Conditions>
+												<Setter
+													Property="FrameworkElement.ToolTip"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CANT_USE_TURBO_OR_TOGGLE_WITHOUT_MAPPING}}" />
+											</MultiDataTrigger>
+											<MultiDataTrigger>
+												<MultiDataTrigger.Conditions>
+													<Condition
+														Value="False"
+														Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" />
+													<Condition
+														Value="False"
+														Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsTurboOrToggleCanBeEnabledWithoutMapping, RelativeSource={RelativeSource TemplatedParent}}" />
+												</MultiDataTrigger.Conditions>
+												<Setter
+													Property="FrameworkElement.ToolTip"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CANT_USE_TURBO_OR_TOGGLE}}" />
+											</MultiDataTrigger>
+											<DataTrigger
+												Value="True"
+												Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsToggle, RelativeSource={RelativeSource TemplatedParent}}">
+												<Setter
+													Property="FrameworkElement.ToolTip"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CANT_USE_TURBO}}" />
+											</DataTrigger>
+											<DataTrigger
+												Value="False"
+												Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsTurboOrTogglePeripheralCheck, RelativeSource={RelativeSource TemplatedParent}}">
+												<Setter
+													Property="FrameworkElement.ToolTip"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CANT_USE_TURBO_OR_TOGGLE_PERIPHERAL}}" />
+											</DataTrigger>
+											<DataTrigger
+												Value="False"
+												Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsTurboOrToggleCanBeEnabled, RelativeSource={RelativeSource TemplatedParent}}">
+												<Setter
+													Property="ToggleButton.IsChecked"
+													Value="False" />
+											</DataTrigger>
+											<MultiDataTrigger>
+												<MultiDataTrigger.Conditions>
+													<Condition
+														Value="False"
+														Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}" />
+													<Condition
+														Value="False"
+														Binding="{Binding LicensingService.IsTurboFeatureUnlocked}" />
+												</MultiDataTrigger.Conditions>
+												<Setter
+													Property="FrameworkElement.ToolTip"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_FEATURE_LOCKED_GOTO_LICENSE}}" />
+											</MultiDataTrigger>
+										</Style.Triggers>
+									</Style>
+								</FrameworkElement.Style>
+								<UIElement.Visibility>
+									<MultiBinding
+										Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+										<Binding
+											Path="XBBinding.IsStickDirection"
+											Converter="{converters:InverseBooleanConverter}"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="XBBinding.IsGyroTilt"
+											Converter="{converters:InverseBooleanConverter}"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="XBBinding.IsMouseStickOrScrolls"
+											Converter="{converters:InverseBooleanConverter}"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="XBBinding.CurrentActivatorXBBinding.ActivatorType"
+											ConverterParameter="{x:Static enums:ActivatorType.Release}"
+											Converter="{converters:ValuesAreNotEqual}"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</UIElement.Visibility>
+								<UIElement.IsEnabled>
+									<MultiBinding
+										Converter="{converters:MultiBooleanAndConverter}">
+										<Binding
+											Path="XBBinding.CurrentActivatorXBBinding.IsToggle"
+											Converter="{converters:InverseBooleanConverter}"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="XBBinding.CurrentActivatorXBBinding.IsTurboOrToggleCanBeEnabled"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+							</checkBoxes:FillCheckBox>
+							<controls:MacrosDurationContainer
+								Grid.Column="1"
+								FrameworkElement.MinWidth="112"
+								FrameworkElement.Margin="5,0,0,0"
+								FrameworkElement.HorizontalAlignment="Stretch"
+								FrameworkElement.VerticalAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								Control.BorderBrush="{DynamicResource ButtonBorderBrush}"
+								Control.Foreground="#FFFFFFFF"
+								Minimum="1"
+								HighlightedBorderBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}"
+								Maximum="{me:CastObjectToInt {x:Static infrastructure:Constants.MacroTurboDelayMaxValueInMS}}"
+								UnitsString="{localization:Translate {x:Static s:StringConsts.STR_TIME_UNITS}}"
+								UpDownArrowsBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}"
+								UIElement.Visibility="{Binding Visibility, ElementName=TurboCheckbox}"
+								Duration="{Binding XBBinding.CurrentActivatorXBBinding.TurboDelay, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+								<UIElement.IsEnabled>
+									<MultiBinding
+										Converter="{converters:MultiBooleanAndConverter}">
+										<Binding
+											Path="XBBinding.CurrentActivatorXBBinding.IsTurbo"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="XBBinding.CurrentActivatorXBBinding.IsTurboOrToggleCanBeEnabled"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</UIElement.IsEnabled>
+								<recolorableImages:RecolorableSVG
+									FrameworkElement.Margin="5,-1,5,0"
+									Drawing="{DynamicResource MacrosPause}"
+									IsColorShift="True"
+									ColorShiftBrush="{Binding XBBinding.HostCollection.CollectionBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+							</controls:MacrosDurationContainer>
+						</Grid>
+					</licenseFeatureManaging:LicenseFeatureManagingContainer>
+				</StackPanel>
+				<StackPanel
+					FrameworkElement.Name="ToggleCheckboxContainer"
+					FrameworkElement.Margin="0,0,10,5"
+					UIElement.Visibility="{Binding ToggleIsVisible, Converter={converters:BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+					<licenseFeatureManaging:LicenseFeatureManagingContainer
+						FrameworkElement.HorizontalAlignment="Left"
+						AssociatedFeatureGUID="{x:Static reWasdui:App.RAPID_FIRE_FEATURE_GUID}"
+						IsFeatureUnlocked="{Binding Path=LicensingService.IsToggleFeatureUnlocked}">
+						<checkBoxes:FillCheckBox
+							FrameworkElement.Name="ToggleCheckbox"
+							FrameworkElement.Margin="0,5,0,0"
+							ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_TOGGLE}}"
+							IsChecked="{Binding XBBinding.CurrentActivatorXBBinding.IsToggle, RelativeSource={RelativeSource TemplatedParent}}">
+							<FrameworkElement.Style>
+								<Style
+									BasedOn="{StaticResource ShiftXBBindingColoredCheckBox}"
+									TargetType="{x:Type checkBoxes:FillCheckBox}">
+									<Style.Triggers>
+										<MultiDataTrigger>
+											<MultiDataTrigger.Conditions>
+												<Condition
+													Value="False"
+													Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" />
+												<Condition
+													Value="True"
+													Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsTurboOrToggleCanBeEnabledWithoutMapping, RelativeSource={RelativeSource TemplatedParent}}" />
+											</MultiDataTrigger.Conditions>
+											<Setter
+												Property="FrameworkElement.ToolTip"
+												Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CANT_USE_TURBO_OR_TOGGLE_WITHOUT_MAPPING}}" />
+										</MultiDataTrigger>
+										<MultiDataTrigger>
+											<MultiDataTrigger.Conditions>
+												<Condition
+													Value="False"
+													Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" />
+												<Condition
+													Value="False"
+													Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsTurboOrToggleCanBeEnabledWithoutMapping, RelativeSource={RelativeSource TemplatedParent}}" />
+											</MultiDataTrigger.Conditions>
+											<Setter
+												Property="FrameworkElement.ToolTip"
+												Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CANT_USE_TURBO_OR_TOGGLE}}" />
+										</MultiDataTrigger>
+										<DataTrigger
+											Value="True"
+											Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsTurbo, RelativeSource={RelativeSource TemplatedParent}}">
+											<Setter
+												Property="FrameworkElement.ToolTip"
+												Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CANT_USE_TURBO}}" />
+										</DataTrigger>
+										<DataTrigger
+											Value="False"
+											Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsTurboOrTogglePeripheralCheck, RelativeSource={RelativeSource TemplatedParent}}">
+											<Setter
+												Property="FrameworkElement.ToolTip"
+												Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CANT_USE_TURBO_OR_TOGGLE_PERIPHERAL}}" />
+										</DataTrigger>
+										<DataTrigger
+											Value="False"
+											Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsTurboOrToggleCanBeEnabled, RelativeSource={RelativeSource TemplatedParent}}">
+											<Setter
+												Property="ToggleButton.IsChecked"
+												Value="False" />
+										</DataTrigger>
+										<MultiDataTrigger>
+											<MultiDataTrigger.Conditions>
+												<Condition
+													Value="False"
+													Binding="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}" />
+												<Condition
+													Value="False"
+													Binding="{Binding LicensingService.IsToggleFeatureUnlocked}" />
+											</MultiDataTrigger.Conditions>
+											<Setter
+												Property="FrameworkElement.ToolTip"
+												Value="{localization:Translate {x:Static s:StringConsts.STR_FEATURE_LOCKED_GOTO_LICENSE}}" />
+										</MultiDataTrigger>
+										<MultiDataTrigger>
+											<MultiDataTrigger.Conditions>
+												<Condition
+													Value="True"
+													Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsShiftToggle, RelativeSource={RelativeSource TemplatedParent}}" />
+												<Condition
+													Value="True"
+													Binding="{Binding XBBinding.CurrentActivatorXBBinding.IsJumpToShift, RelativeSource={RelativeSource TemplatedParent}}" />
+											</MultiDataTrigger.Conditions>
+											<Setter
+												Property="FrameworkElement.ToolTip"
+												Value="{localization:Translate {x:Static s:StringConsts.STR_TT_CANT_USE_TOGGLE_WITH_TOGGLE_SHIFT_IN_SHIFT}}" />
+										</MultiDataTrigger>
+									</Style.Triggers>
+								</Style>
+							</FrameworkElement.Style>
+							<UIElement.Visibility>
+								<MultiBinding
+									Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+									<Binding
+										Path="XBBinding.IsStickDirection"
+										Converter="{converters:InverseBooleanConverter}"
+										RelativeSource="{RelativeSource TemplatedParent}" />
+									<Binding
+										Path="XBBinding.IsGyroTilt"
+										Converter="{converters:InverseBooleanConverter}"
+										RelativeSource="{RelativeSource TemplatedParent}" />
+									<Binding
+										Path="XBBinding.IsMouseStickOrScrolls"
+										Converter="{converters:InverseBooleanConverter}"
+										RelativeSource="{RelativeSource TemplatedParent}" />
+									<Binding
+										Path="XBBinding.CurrentActivatorXBBinding.ActivatorType"
+										ConverterParameter="{x:Static enums:ActivatorType.Start}"
+										Converter="{converters:ValuesAreNotEqual}"
+										RelativeSource="{RelativeSource TemplatedParent}" />
+									<Binding
+										Path="XBBinding.CurrentActivatorXBBinding.ActivatorType"
+										ConverterParameter="{x:Static enums:ActivatorType.Release}"
+										Converter="{converters:ValuesAreNotEqual}"
+										RelativeSource="{RelativeSource TemplatedParent}" />
+								</MultiBinding>
+							</UIElement.Visibility>
+							<UIElement.IsEnabled>
+								<MultiBinding
+									Converter="{converters:MultiBooleanAndConverter}">
+									<Binding
+										Path="XBBinding.CurrentActivatorXBBinding.IsTurbo"
+										Converter="{converters:InverseBooleanConverter}"
+										RelativeSource="{RelativeSource TemplatedParent}" />
+									<Binding
+										Path="XBBinding.CurrentActivatorXBBinding.IsToggleCanBeEnabled"
+										RelativeSource="{RelativeSource TemplatedParent}" />
+								</MultiBinding>
+							</UIElement.IsEnabled>
+						</checkBoxes:FillCheckBox>
+					</licenseFeatureManaging:LicenseFeatureManagingContainer>
+				</StackPanel>
+			</StackPanel>
+			<ControlTemplate.Triggers>
+				<DataTrigger
+					Value="True">
+					<DataTrigger.Binding>
+						<MultiBinding
+							ConverterParameter="(({0} || {1}) &amp;&amp; ({2} || {3}))"
+							Converter="{converters:MultiBooleanParametrizedConverter}">
+							<Binding
+								Path="Visibility"
+								ConverterParameter="invert"
+								ElementName="TurboCheckbox"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+							<Binding
+								Path="Visibility"
+								ConverterParameter="invert"
+								ElementName="TurboCheckboxContainer"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+							<Binding
+								Path="Visibility"
+								ConverterParameter="invert"
+								ElementName="ToggleCheckbox"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+							<Binding
+								Path="Visibility"
+								ConverterParameter="invert"
+								ElementName="ToggleCheckboxContainer"
+								Converter="{converters:VisibilityToBooleanConverter}" />
+						</MultiBinding>
+					</DataTrigger.Binding>
+					<DataTrigger.Setters>
+						<Setter
+							Property="UIElement.Visibility"
+							Value="Collapsed" />
+					</DataTrigger.Setters>
+				</DataTrigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

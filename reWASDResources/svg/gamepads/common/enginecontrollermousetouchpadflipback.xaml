@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="EngineControllerMouseTouchpadFlipBack" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="EngineControllerMouseTouchpadFlipBack">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M33.5,27L2.5,27C1.122,27,0,25.879,0,24.5L0,11.5C0,10.122,1.122,9,2.5,9L33.5,9C34.879,9,36,10.122,36,11.5L36,24.5C36,25.879,34.879,27,33.5,27z M2.5,10C1.673,10,1,10.673,1,11.5L1,24.5C1,25.327,1.673,26,2.5,26L33.5,26C34.327,26,35,25.327,35,24.5L35,11.5C35,10.673,34.327,10,33.5,10L2.5,10z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M30.5,12L5.5,12C4.121,12,3,13.122,3,14.5L3,21.5C3,22.879,4.121,24,5.5,24L30.5,24C31.879,24,33,22.879,33,21.5L33,14.5C33,13.122,31.879,12,30.5,12z M5.5,13L30.5,13C31.327,13,32,13.673,32,14.5L32,20 4,20 4,14.5C4,13.673,4.673,13,5.5,13z M5.5,23C4.673,23,4,22.327,4,21.5L4,21 17.5,21 17.5,23 5.5,23z M30.5,23L18.5,23 18.5,21 32,21 32,21.5C32,22.327,31.327,23,30.5,23z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M30,18.5L29,18.5C28.724,18.5,28.5,18.276,28.5,18L28.5,15C28.5,14.724,28.724,14.5,29,14.5L30,14.5C30.276,14.5,30.5,14.724,30.5,15L30.5,18C30.5,18.276,30.276,18.5,30,18.5z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

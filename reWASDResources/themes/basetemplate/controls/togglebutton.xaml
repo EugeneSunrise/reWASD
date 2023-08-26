@@ -1,0 +1,671 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common">
+	<ControlTemplate
+		x:Key="ToggleButtonPlusMinus"
+		TargetType="{x:Type ToggleButton}">
+		<Border
+			Name="ExpanderButtonBorder"
+			Padding="{TemplateBinding Control.Padding}"
+			Border.Background="{TemplateBinding Control.Background}"
+			Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+			Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+				</Grid.ColumnDefinitions>
+				<Rectangle
+					Grid.ColumnSpan="2"
+					Shape.Fill="#00FFFFFF" />
+				<Ellipse
+					FrameworkElement.Name="Circle"
+					Grid.Column="0"
+					FrameworkElement.Width="20"
+					FrameworkElement.Height="20"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Center"
+					Shape.Stroke="#FFA9A9A9" />
+				<Path
+					Name="Sign"
+					Grid.Column="0"
+					FrameworkElement.Width="10"
+					FrameworkElement.Height="10"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Center"
+					Path.Data="M0,5 L10,5 M5,0 L5,10 Z"
+					RenderTransformOrigin="0.5,0.5"
+					Shape.Stroke="#FF666666"
+					Shape.StrokeThickness="2">
+					<UIElement.RenderTransform>
+						<RotateTransform
+							Angle="0" />
+					</UIElement.RenderTransform>
+				</Path>
+				<ContentPresenter
+					Name="HeaderContent"
+					Grid.Column="1"
+					FrameworkElement.Margin="4,0,0,0"
+					ContentPresenter.ContentSource="Content" />
+			</Grid>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="ToggleButton.IsChecked"
+				Value="True">
+				<Setter
+					TargetName="Sign"
+					Property="Path.Data"
+					Value="M0,5 L10,5 Z" />
+			</Trigger>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="true">
+				<Setter
+					TargetName="Circle"
+					Property="Shape.Stroke"
+					Value="#FF3C7FB1" />
+				<Setter
+					TargetName="Sign"
+					Property="Shape.Stroke"
+					Value="#222" />
+			</Trigger>
+			<Trigger
+				Property="ButtonBase.IsPressed"
+				Value="true">
+				<Setter
+					TargetName="Circle"
+					Property="Shape.Stroke"
+					Value="#FF526C7B" />
+				<Setter
+					TargetName="Circle"
+					Property="Shape.StrokeThickness"
+					Value="1.5" />
+				<Setter
+					TargetName="Sign"
+					Property="Shape.Stroke"
+					Value="#FF003366" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		x:Key="ToggleButton"
+		TargetType="{x:Type ToggleButton}">
+		<Border
+			Name="ExpanderButtonBorder"
+			Padding="{TemplateBinding Control.Padding}"
+			Border.Background="{TemplateBinding Control.Background}"
+			Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+			Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+				</Grid.ColumnDefinitions>
+				<Border
+					FrameworkElement.Width="20"
+					FrameworkElement.Height="20"
+					Border.Background="#00FFFFFF">
+					<Path
+						Name="Arrow"
+						FrameworkElement.Style="{DynamicResource arrowRight}" />
+				</Border>
+				<ContentPresenter
+					Name="HeaderContent"
+					Grid.Column="1"
+					FrameworkElement.Margin="4,0,0,0"
+					ContentPresenter.ContentSource="Content" />
+			</Grid>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="ToggleButton.IsChecked"
+				Value="True">
+				<Setter
+					TargetName="Arrow"
+					Value="{DynamicResource arrowDown}"
+					Property="FrameworkElement.Style" />
+			</Trigger>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="False">
+				<Setter
+					TargetName="Arrow"
+					Value="{DynamicResource arrowRight}"
+					Property="FrameworkElement.Style" />
+			</Trigger>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="Control.Background"
+					Value="#e7e7e7" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<Style
+		x:Key="ToggleEllipticRadialSwitch"
+		TargetType="{x:Type ToggleButton}">
+		<Setter
+			Property="Control.Background"
+			Value="{DynamicResource ContentBackground}" />
+		<Setter
+			Property="Control.BorderBrush"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Control.HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.Padding"
+			Value="1" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<StackPanel
+						Orientation="Horizontal">
+						<TextBlock
+							Name="tbOutsideL"
+							FrameworkElement.VerticalAlignment="Center"
+							TextBlock.Foreground="#FFFFFFFF"
+							TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_RADIAL}}" />
+						<Border
+							FrameworkElement.Width="50"
+							FrameworkElement.Margin="10"
+							Border.Background="{TemplateBinding Control.Background}"
+							Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+							Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+							<Grid
+								FrameworkElement.Margin="4">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="*" />
+									<ColumnDefinition
+										ColumnDefinition.Width="*" />
+								</Grid.ColumnDefinitions>
+								<Border
+									Name="brdL"
+									FrameworkElement.Width="18"
+									FrameworkElement.Height="18"
+									FrameworkElement.HorizontalAlignment="Left"
+									Border.Background="#00FFFFFF">
+									<TextBlock
+										Name="tbInsideL"
+										FrameworkElement.HorizontalAlignment="Center"
+										FrameworkElement.VerticalAlignment="Center"
+										TextBlock.Foreground="#FF000000"
+										TextBlock.Text="R"
+										UIElement.Visibility="Collapsed" />
+								</Border>
+								<Border
+									Name="brdR"
+									Grid.Column="1"
+									FrameworkElement.Width="18"
+									FrameworkElement.Height="18"
+									FrameworkElement.HorizontalAlignment="Right"
+									Border.Background="#00FFFFFF">
+									<TextBlock
+										Name="tbInsideR"
+										FrameworkElement.HorizontalAlignment="Center"
+										FrameworkElement.VerticalAlignment="Center"
+										TextBlock.Foreground="#FF000000"
+										TextBlock.Text="E"
+										UIElement.Visibility="Collapsed" />
+								</Border>
+							</Grid>
+						</Border>
+						<TextBlock
+							Name="tbOutsideR"
+							FrameworkElement.VerticalAlignment="Center"
+							TextBlock.Foreground="#FFFFFFFF"
+							TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_ELLIPTIC}}"
+							ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_ELLIPTIC}}" />
+					</StackPanel>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsEnabled"
+							Value="False">
+							<Setter
+								Property="UIElement.Opacity"
+								Value="0.6" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="true">
+							<Setter
+								TargetName="tbInsideL"
+								Property="UIElement.Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="tbInsideR"
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="brdR"
+								Property="Border.Background"
+								Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="tbOutsideR"
+								Property="TextBlock.Foreground"
+								Value="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="False">
+							<Setter
+								TargetName="tbInsideL"
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="tbInsideR"
+								Property="UIElement.Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="brdL"
+								Property="Border.Background"
+								Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="tbOutsideL"
+								Property="TextBlock.Foreground"
+								Value="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ToggleNormalHighVDP"
+		TargetType="{x:Type ToggleButton}">
+		<Setter
+			Property="Control.Background"
+			Value="{DynamicResource ContentBackground}" />
+		<Setter
+			Property="Control.BorderBrush"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Control.HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.Padding"
+			Value="1" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<StackPanel
+						Orientation="Horizontal">
+						<TextBlock
+							Name="tbOutsideL"
+							FrameworkElement.VerticalAlignment="Center"
+							TextBlock.Foreground="#FFFFFFFF"
+							TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_VIRTUAL_DEVICE_PERFORMANCE_NORMAL}}" />
+						<Border
+							FrameworkElement.Width="50"
+							FrameworkElement.Margin="10,0"
+							Border.Background="{TemplateBinding Control.Background}"
+							Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+							Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+							<Grid
+								FrameworkElement.Margin="4">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="*" />
+									<ColumnDefinition
+										ColumnDefinition.Width="*" />
+								</Grid.ColumnDefinitions>
+								<Border
+									Name="brdL"
+									FrameworkElement.Width="18"
+									FrameworkElement.Height="18"
+									FrameworkElement.HorizontalAlignment="Left"
+									Border.Background="#00FFFFFF" />
+								<Border
+									Name="brdR"
+									Grid.Column="1"
+									FrameworkElement.Width="18"
+									FrameworkElement.Height="18"
+									FrameworkElement.HorizontalAlignment="Right"
+									Border.Background="#00FFFFFF" />
+							</Grid>
+						</Border>
+						<TextBlock
+							Name="tbOutsideR"
+							FrameworkElement.VerticalAlignment="Center"
+							TextBlock.Foreground="#FFFFFFFF"
+							TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_VIRTUAL_DEVICE_PERFORMANCE_HIGH}}" />
+					</StackPanel>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsEnabled"
+							Value="False">
+							<Setter
+								Property="UIElement.Opacity"
+								Value="0.3" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="true">
+							<Setter
+								TargetName="brdR"
+								Property="Border.Background"
+								Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="tbOutsideR"
+								Property="TextBlock.Foreground"
+								Value="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="False">
+							<Setter
+								TargetName="brdL"
+								Property="Border.Background"
+								Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="tbOutsideL"
+								Property="TextBlock.Foreground"
+								Value="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ToggleLeftRightSwitch"
+		TargetType="{x:Type ToggleButton}">
+		<Setter
+			Property="Control.Background"
+			Value="{DynamicResource ContentBackground}" />
+		<Setter
+			Property="Control.BorderBrush"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Control.HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.Padding"
+			Value="1" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<StackPanel
+						Orientation="Horizontal">
+						<TextBlock
+							Name="tbOutsideL"
+							FrameworkElement.VerticalAlignment="Center"
+							TextBlock.Foreground="#FFFFFFFF"
+							TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_LEFT_STICK}}" />
+						<Border
+							FrameworkElement.Width="50"
+							FrameworkElement.Margin="10,0"
+							Border.Background="{TemplateBinding Control.Background}"
+							Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+							Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+							<Grid
+								FrameworkElement.Margin="4">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="*" />
+									<ColumnDefinition
+										ColumnDefinition.Width="*" />
+								</Grid.ColumnDefinitions>
+								<Border
+									Name="brdL"
+									FrameworkElement.Width="18"
+									FrameworkElement.Height="18"
+									FrameworkElement.HorizontalAlignment="Left"
+									Border.Background="#00FFFFFF">
+									<TextBlock
+										Name="tbInsideL"
+										FrameworkElement.HorizontalAlignment="Center"
+										FrameworkElement.VerticalAlignment="Center"
+										TextBlock.Foreground="#FF000000"
+										TextBlock.Text="L"
+										UIElement.Visibility="Collapsed" />
+								</Border>
+								<Border
+									Name="brdR"
+									Grid.Column="1"
+									FrameworkElement.Width="18"
+									FrameworkElement.Height="18"
+									FrameworkElement.HorizontalAlignment="Right"
+									Border.Background="#00FFFFFF">
+									<TextBlock
+										Name="tbInsideR"
+										FrameworkElement.HorizontalAlignment="Center"
+										FrameworkElement.VerticalAlignment="Center"
+										TextBlock.Foreground="#FF000000"
+										TextBlock.Text="R"
+										UIElement.Visibility="Collapsed" />
+								</Border>
+							</Grid>
+						</Border>
+						<TextBlock
+							Name="tbOutsideR"
+							FrameworkElement.VerticalAlignment="Center"
+							TextBlock.Foreground="#FFFFFFFF"
+							TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_STICK}}" />
+					</StackPanel>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="true">
+							<Setter
+								TargetName="tbInsideL"
+								Property="UIElement.Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="tbInsideR"
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="brdR"
+								Property="Border.Background"
+								Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="tbOutsideR"
+								Property="TextBlock.Foreground"
+								Value="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="False">
+							<Setter
+								TargetName="tbInsideL"
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="tbInsideR"
+								Property="UIElement.Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="brdL"
+								Property="Border.Background"
+								Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="tbOutsideL"
+								Property="TextBlock.Foreground"
+								Value="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ToggleLeftRightAzeronSwitch"
+		TargetType="{x:Type ToggleButton}">
+		<Setter
+			Property="Control.Background"
+			Value="{DynamicResource ContentBackground}" />
+		<Setter
+			Property="Control.BorderBrush"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Control.HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.Padding"
+			Value="0" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Grid
+						FrameworkElement.HorizontalAlignment="Center">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.MinWidth="200" />
+							<ColumnDefinition
+								ColumnDefinition.Width="70" />
+							<ColumnDefinition
+								ColumnDefinition.MinWidth="200" />
+						</Grid.ColumnDefinitions>
+						<Border
+							Grid.Column="0">
+							<TextBlock
+								Name="tbOutsideL"
+								FrameworkElement.HorizontalAlignment="Right"
+								FrameworkElement.VerticalAlignment="Center"
+								TextBlock.Foreground="#FFFFFFFF"
+								TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_LEFTY_LAYOUT}}" />
+						</Border>
+						<Border
+							Grid.Column="1"
+							FrameworkElement.Width="50"
+							FrameworkElement.Margin="10"
+							Border.Background="{TemplateBinding Control.Background}"
+							Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+							Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+							<Grid
+								FrameworkElement.Margin="4">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										ColumnDefinition.Width="*" />
+									<ColumnDefinition
+										ColumnDefinition.Width="*" />
+								</Grid.ColumnDefinitions>
+								<Border
+									Name="brdL"
+									FrameworkElement.Width="18"
+									FrameworkElement.Height="18"
+									FrameworkElement.HorizontalAlignment="Left"
+									Border.Background="#00FFFFFF">
+									<TextBlock
+										Name="tbInsideL"
+										FrameworkElement.HorizontalAlignment="Center"
+										FrameworkElement.VerticalAlignment="Center"
+										TextBlock.Foreground="#FF000000"
+										TextBlock.Text="L"
+										UIElement.Visibility="Collapsed" />
+								</Border>
+								<Border
+									Name="brdR"
+									Grid.Column="1"
+									FrameworkElement.Width="18"
+									FrameworkElement.Height="18"
+									FrameworkElement.HorizontalAlignment="Right"
+									Border.Background="#00FFFFFF">
+									<TextBlock
+										Name="tbInsideR"
+										FrameworkElement.HorizontalAlignment="Center"
+										FrameworkElement.VerticalAlignment="Center"
+										TextBlock.Foreground="#FF000000"
+										TextBlock.Text="R"
+										UIElement.Visibility="Collapsed" />
+								</Border>
+							</Grid>
+						</Border>
+						<Border
+							Grid.Column="2">
+							<TextBlock
+								Name="tbOutsideR"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Center"
+								TextBlock.Foreground="#FFFFFFFF"
+								TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_RIGHTY_LAYOUT}}" />
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="true">
+							<Setter
+								TargetName="tbInsideL"
+								Property="UIElement.Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="tbInsideR"
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="brdR"
+								Property="Border.Background"
+								Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="tbOutsideR"
+								Property="TextBlock.Foreground"
+								Value="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="False">
+							<Setter
+								TargetName="tbInsideL"
+								Property="UIElement.Visibility"
+								Value="Visible" />
+							<Setter
+								TargetName="tbInsideR"
+								Property="UIElement.Visibility"
+								Value="Collapsed" />
+							<Setter
+								TargetName="brdL"
+								Property="Border.Background"
+								Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter
+								TargetName="tbOutsideL"
+								Property="TextBlock.Foreground"
+								Value="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

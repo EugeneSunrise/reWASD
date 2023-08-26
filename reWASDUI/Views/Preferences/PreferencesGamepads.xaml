@@ -1,0 +1,227 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesGamepads" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:gif="http://wpfanimatedgif.codeplex.com" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	x:Name="ucPreferencesGamepads" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<Control.Template>
+		<ControlTemplate>
+			<Border
+				Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+				Border.BorderThickness="1,0,0,0">
+				<ScrollViewer
+					FrameworkElement.Style="{DynamicResource PreferencesPageGridStyle}">
+					<TabControl
+						Name="GamepadsTabControl"
+						Control.Background="#00FFFFFF"
+						Control.BorderThickness="0"
+						FrameworkElement.Style="{DynamicResource TabControlHorizontalStyle}"
+						TabStripPlacement="Top">
+						<TabItem
+							Name="GeneralTab"
+							FrameworkElement.Style="{DynamicResource HorizontalTabItem}">
+							<HeaderedContentControl.Header>
+								<StackPanel
+									Orientation="Horizontal">
+									<TextBlock
+										FrameworkElement.VerticalAlignment="Center"
+										TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PREF_CONFIRMATION_GENERAL}}" />
+								</StackPanel>
+							</HeaderedContentControl.Header>
+							<StackPanel>
+								<checkBoxes:FillCheckBox
+									Name="chkHideController"
+									FrameworkElement.Margin="0,8,0,0"
+									FrameworkElement.HorizontalAlignment="Left"
+									FrameworkElement.VerticalAlignment="Top"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_HIDE_PHYSICAL_CONTROLLER}}"
+									IsChecked="{Binding HidePhysicalControllerOnVirtualCreation}" />
+								<checkBoxes:FillCheckBox
+									Name="chkHideXboxOneOrEliteController"
+									FrameworkElement.Margin="26,8,0,0"
+									FrameworkElement.HorizontalAlignment="Left"
+									FrameworkElement.VerticalAlignment="Top"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_HIDE_PHYSICAL_XBOX_ONE_OR_ELITE_CONTROLLER}}"
+									IsChecked="{Binding HidePhysicalXboxOneOrEliteControllerOnVirtualCreation}"
+									UIElement.IsEnabled="{Binding HidePhysicalControllerOnVirtualCreation}"
+									UIElement.Visibility="{Binding IsWindows10OrHigher, Converter={converters:BooleanToVisibilityConverter}}" />
+								<checkBoxes:FillCheckBox
+									Name="chkSendRumble"
+									FrameworkElement.Margin="0,8,0,0"
+									FrameworkElement.HorizontalAlignment="Left"
+									FrameworkElement.VerticalAlignment="Top"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_SEND_RUMBLE}}"
+									IsChecked="{Binding SendRumbleToGamepad}" />
+								<checkBoxes:FillCheckBox
+									Name="chkDisableMappingsOnElite"
+									FrameworkElement.Margin="0,8,0,0"
+									FrameworkElement.HorizontalAlignment="Left"
+									FrameworkElement.VerticalAlignment="Top"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_DISABLE_MAPPINGS_ON_ELITE}}"
+									IsChecked="{Binding DisablePaddlesOnLocked}" />
+								<checkBoxes:FillCheckBox
+									Name="chkEmulateLizardConfigForSteam"
+									FrameworkElement.Margin="0,8,0,0"
+									FrameworkElement.HorizontalAlignment="Left"
+									FrameworkElement.VerticalAlignment="Top"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_EMULATE_LIZARD_CONFIG_FOR_STEAM}}"
+									IsChecked="{Binding EmulateLizardConfigForSteam}" />
+								<checkBoxes:FillCheckBox
+									Name="chkDisableStopMacroHotkey"
+									FrameworkElement.Margin="0,8,0,0"
+									FrameworkElement.HorizontalAlignment="Left"
+									FrameworkElement.VerticalAlignment="Top"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_STOP_MACRO_HOTKEY}}"
+									IsChecked="{Binding StopMacroHotkey}" />
+								<StackPanel
+									FrameworkElement.Margin="0,8,0,0"
+									Orientation="Horizontal">
+									<checkBoxes:FillCheckBox
+										Name="chkTurnOffWireless"
+										FrameworkElement.HorizontalAlignment="Left"
+										FrameworkElement.VerticalAlignment="Top"
+										BulletVerticalAlignment="Center"
+										IsChecked="{Binding TurnOffControllerOption}"
+										ToolTip="{l:Translate {x:Static s:StringConsts.STR_PREF_TURN_OFF_GAMEPAD_TIP}}">
+										<ContentControl.Content>
+											<TextBlock
+												FrameworkElement.VerticalAlignment="Center"
+												TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PREF_TURN_OFF_GAMEPAD}, StringFormatRule=div1}" />
+										</ContentControl.Content>
+									</checkBoxes:FillCheckBox>
+									<toolkit:IntegerUpDown
+										FrameworkElement.Width="40"
+										FrameworkElement.Margin="0"
+										Control.BorderThickness="1" xmlns:primitives="clr-namespace:Xceed.Wpf.Toolkit.Primitives;assembly=Xceed.Wpf.Toolkit.NET5"
+										primitives:UpDownBase_x0060_1.DefaultValue="15"
+										primitives:UpDownBase_x0060_1.DisplayDefaultValueOnEmptyText="True"
+										primitives:UpDownBase_x0060_1.Maximum="60"
+										primitives:UpDownBase_x0060_1.Minimum="1" xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit.NET5"
+										UIElement.IsEnabled="{Binding TurnOffControllerOption}"
+										primitives:UpDownBase_x0060_1.Value="{Binding TurnOffControllerTimeout}" />
+									<TextBlock
+										FrameworkElement.VerticalAlignment="Center"
+										TextBlock.Foreground="{DynamicResource CheckBoxForeground}"
+										TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_PREF_TURN_OFF_GAMEPAD}, StringFormatRule=div2}" />
+								</StackPanel>
+								<TextBlock
+									FrameworkElement.Margin="0,8,0,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_GYRO_STEERING_AXIS_CC}}" />
+								<RadioButton
+									Name="rbGyroSteerYaw"
+									attachedBehaviours:ToolTipHelper.StayOpen="True"
+									GroupName="GyroAxis"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_YAW}}"
+									IsChecked="{Binding IsGyroYawDefault}">
+									<FrameworkElement.ToolTip>
+										<Image
+											ImageBehavior.AnimatedSource="{DynamicResource YawGif}" />
+									</FrameworkElement.ToolTip>
+								</RadioButton>
+								<RadioButton
+									Name="rbGyroSteerRoll"
+									FrameworkElement.Margin="0,-5,0,0"
+									attachedBehaviours:ToolTipHelper.StayOpen="True"
+									GroupName="GyroAxis"
+									ToolTipService.ShowDuration="12000"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_ROLL}}"
+									IsChecked="{Binding IsGyroRollDefault}">
+									<FrameworkElement.ToolTip>
+										<Image
+											ImageBehavior.AnimatedSource="{DynamicResource RollGif}" />
+									</FrameworkElement.ToolTip>
+								</RadioButton>
+								<TextBlock
+									FrameworkElement.Margin="0,8,0,0"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_GYRO_INITIAL_STATE}}" />
+								<RadioButton
+									Name="rbGyroInitialStateOn"
+									GroupName="GyroInitialState"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_ON}}"
+									IsChecked="{Binding IsGyroInitialStateOnDefault}" />
+								<RadioButton
+									Name="rbGyroInitialStateOff"
+									FrameworkElement.Margin="0,-5,0,0"
+									GroupName="GyroInitialState"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_OFF}}"
+									IsChecked="{Binding IsGyroInitialStateOffDefault}" />
+							</StackPanel>
+						</TabItem>
+						<TabItem
+							Name="SteamDeckTab"
+							FrameworkElement.Style="{DynamicResource HorizontalTabItem}"
+							UIElement.Visibility="{Binding SteamDeckIsPresent, Converter={converters:BooleanToVisibilityConverter}}">
+							<HeaderedContentControl.Header>
+								<StackPanel
+									Orientation="Horizontal">
+									<TextBlock
+										FrameworkElement.VerticalAlignment="Center"
+										TextBlock.Text="Steam Deck" />
+								</StackPanel>
+							</HeaderedContentControl.Header>
+							<StackPanel>
+								<checkBoxes:FillCheckBox
+									Name="chkEmulateLizardConfigForSteamDeck"
+									FrameworkElement.Margin="0,8,0,0"
+									FrameworkElement.HorizontalAlignment="Left"
+									FrameworkElement.VerticalAlignment="Top"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_EMULATE_LIZARD_CONFIG_FOR_STEAM_DECK}}"
+									IsChecked="{Binding EmulateLizardConfigForSteamDeck}" />
+								<controls:SteamDeckVibrationIntensity
+									FrameworkElement.Margin="0,8,0,0"
+									Header="{l:Translate {x:Static s:StringConsts.STR_LEFT_VIBRATION_INTENSITY}}"
+									Intensity="{Binding SteamDeckLeftIntensity, Mode=TwoWay}"
+									IsStrongIntensity="{Binding SteamDeckLeftIsStrongIntensity, Mode=TwoWay}" />
+								<controls:SteamDeckVibrationIntensity
+									FrameworkElement.Margin="0,8,0,0"
+									Header="{l:Translate {x:Static s:StringConsts.STR_RIGHT_VIBRATION_INTENSITY}}"
+									Intensity="{Binding SteamDeckRightIntensity, Mode=TwoWay}"
+									IsStrongIntensity="{Binding SteamDeckRightIsStrongIntensity, Mode=TwoWay}" />
+								<buttons:ColoredButton
+									Name="btnRestoreDefaults"
+									FrameworkElement.HorizontalAlignment="Left"
+									ButtonBase.Command="{Binding ResetSteamDeckToDefaultsCommand}"
+									ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_RESTORE_TO_DEFAULTS}}" />
+							</StackPanel>
+						</TabItem>
+					</TabControl>
+				</ScrollViewer>
+			</Border>
+			<ControlTemplate.Triggers>
+				<DataTrigger
+					Value="False"
+					Binding="{Binding SteamDeckIsPresent}">
+					<Setter
+						TargetName="GamepadsTabControl"
+						Property="FrameworkElement.Style">
+						<Setter.Value>
+							<Style
+								TargetType="{x:Type TabControl}">
+								<Setter
+									Property="Control.Template">
+									<Setter.Value>
+										<ControlTemplate
+											TargetType="{x:Type TabControl}">
+											<Grid>
+												<TabPanel
+													Name="HeaderPanel"
+													FrameworkElement.Width="0"
+													FrameworkElement.Height="0"
+													ZIndex="1"
+													IsItemsHost="True"
+													KeyboardNavigation.TabIndex="1"
+													Panel.Background="{x:Null}" />
+												<ContentPresenter
+													Name="PART_SelectedContentHost"
+													ContentPresenter.ContentSource="SelectedContent" />
+											</Grid>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</Setter.Value>
+					</Setter>
+				</DataTrigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

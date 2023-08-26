@@ -1,0 +1,34 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="AddKey" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="AddKey">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#00FFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,16,16" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.969,4.5L8.969,6.5 8.969,7.5 9.969,7.5 11.969,7.5 11.969,9.5 9.969,9.5 8.969,9.5 8.969,10.5 8.969,12.5 6.969,12.5 6.969,10.5 6.969,9.5 5.969,9.5 4,9.5 4,7.5 5.969,7.5 6.969,7.5 6.969,6.5 6.969,4.5 8.969,4.5 M8.969,3.5L6.969,3.5C6.417,3.5,5.969,3.947,5.969,4.5L5.969,6.5 4,6.5C3.448,6.5,3,6.947,3,7.5L3,9.5C3,10.053,3.448,10.5,4,10.5L5.969,10.5 5.969,12.5C5.969,13.053,6.417,13.5,6.969,13.5L8.969,13.5C9.522,13.5,9.969,13.053,9.969,12.5L9.969,10.5 11.969,10.5C12.522,10.5,12.969,10.053,12.969,9.5L12.969,7.5C12.969,6.947,12.522,6.5,11.969,6.5L9.969,6.5 9.969,4.5C9.969,3.947,9.521,3.5,8.969,3.5L8.969,3.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

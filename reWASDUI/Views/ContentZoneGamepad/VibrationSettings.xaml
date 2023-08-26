@@ -1,0 +1,432 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.VibrationSettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:licenseFeatureManaging="clr-namespace:reWASDUI.Controls.LicenseFeatureManaging" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:reWasdui="clr-namespace:reWASDUI" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:xbEliteWpf="clr-namespace:XBEliteWPF" xmlns:contentzonegamepad="clr-namespace:reWASDUI.Views.ContentZoneGamepad">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				ColumnDefinition.Width="*" />
+			<ColumnDefinition
+				ColumnDefinition.Width="Auto" />
+		</Grid.ColumnDefinitions>
+		<Grid
+			ColumnSpan="2"
+			FrameworkElement.Width="600">
+			<buttons:SVGButton
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="0,0,20,0"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Top"
+				ButtonBase.CommandParameter="{StaticResource BooleanFalseValue}"
+				FrameworkElement.Style="{DynamicResource ButtonBackFrame}"
+				ButtonBase.Command="{Binding ShowGamepadCommand}" />
+			<buttons:ColoredButton
+				Name="btnResetVibration"
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="10,4,0,0"
+				Control.Padding="10,0"
+				FrameworkElement.HorizontalAlignment="Right"
+				FrameworkElement.VerticalAlignment="Top"
+				FrameworkElement.Style="{DynamicResource Button}"
+				ButtonBase.Command="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.ResetVibrationSettingsCommand}"
+				ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RESET_TO_DEFAULT}}"
+				UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}" />
+			<TextBlock
+				Name="VibrationSettingsTB"
+				Grid.ColumnSpan="2"
+				FrameworkElement.Margin="0,6,0,0"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.Style="{DynamicResource DTBFHeaderTextBlockStyle}"
+				UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+				TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_VIBRATION_SETTINGS}}" />
+		</Grid>
+		<ScrollViewer
+			FrameworkElement.Margin="40,65,0,48"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Center">
+			<Grid
+				FrameworkElement.Margin="10">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid
+					Row="1"
+					Column="1"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Center">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+					</Grid.RowDefinitions>
+					<licenseFeatureManaging:LicenseFeatureManagingContainer
+						Grid.Row="0"
+						Grid.Column="0"
+						AssociatedFeatureGUID="{x:Static reWasdui:App.ADVANCED_MAPPING_FEATURE_GUID}"
+						AutomationProperties.AutomationId="LeftMainContainer">
+						<licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+							<MultiBinding
+								Converter="{converters:MultiBooleanOrConverter}">
+								<Binding
+									Path="LicensingService.IsAdvancedMappingFeatureUnlocked" />
+							</MultiBinding>
+						</licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+						<StackPanel
+							FrameworkElement.HorizontalAlignment="Center"
+							FrameworkElement.VerticalAlignment="Top"
+							UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+							<StackPanel>
+								<checkBoxes:FillCheckBox
+									Name="chkLeftMain"
+									ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_LEFT_MAIN}}"
+									IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationMainLeft.TurnedOn}" />
+								<controls:ScrollableSliderWithManual
+									x:Name="xLeftMainIntensitySlider"
+									IsSnapToTickEnabled="True"
+									Maximum="100"
+									Minimum="1"
+									ScrollStep="1"
+									ScrollableSliderStyle="{DynamicResource VibrationSliderStyle}"
+									Value="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationMainLeft.Intensivity, Mode=TwoWay}" />
+							</StackPanel>
+							<StackPanel
+								ToolTipService.ShowOnDisabled="True"
+								UIElement.IsEnabled="{Binding UserSettingsService.IsHidePhysicalController}">
+								<TextBlock
+									FrameworkElement.Margin="0,15,0,0"
+									AutomationProperties.AutomationId="VibrationInsteadOfTB"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_VIBRATION_USE_INSTEAD_OF}}" />
+								<StackPanel
+									FrameworkElement.Margin="18,0,0,0">
+									<checkBoxes:FillCheckBox
+										Name="chkLeftMainInsteadOfMainRight"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_MAIN}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationMainLeft.InsteadOfMainRight}" />
+									<checkBoxes:FillCheckBox
+										Name="chkLeftMainInsteadOfTriggerLeft"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_LEFT_TRIGGER}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationMainLeft.InsteadOfTriggerLeftGui}" />
+									<checkBoxes:FillCheckBox
+										Name="chkLeftMainInsteadOfTriggerRight"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_TRIGGER}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationMainLeft.InsteadOfTriggerRightGui}" />
+								</StackPanel>
+								<FrameworkElement.Style>
+									<Style>
+										<Style.Triggers>
+											<DataTrigger
+												Value="False"
+												Binding="{Binding UserSettingsService.IsHidePhysicalController}">
+												<Setter
+													Property="FrameworkElement.ToolTip"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_TT_AGREE_HIDE_PHYSICAL_CONTROLLER}}" />
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</FrameworkElement.Style>
+							</StackPanel>
+						</StackPanel>
+					</licenseFeatureManaging:LicenseFeatureManagingContainer>
+					<licenseFeatureManaging:LicenseFeatureManagingContainer
+						Grid.Row="0"
+						Grid.Column="1"
+						AssociatedFeatureGUID="{x:Static reWasdui:App.ADVANCED_MAPPING_FEATURE_GUID}"
+						AutomationProperties.AutomationId="RightMainContainer">
+						<licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+							<MultiBinding
+								Converter="{converters:MultiBooleanOrConverter}">
+								<Binding
+									Path="LicensingService.IsAdvancedMappingFeatureUnlocked" />
+							</MultiBinding>
+						</licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+						<StackPanel
+							FrameworkElement.Margin="50,0,0,0"
+							FrameworkElement.HorizontalAlignment="Center"
+							FrameworkElement.VerticalAlignment="Top"
+							UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+							<StackPanel>
+								<checkBoxes:FillCheckBox
+									Name="chkRightMain"
+									ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_MAIN}}"
+									IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationMainRight.TurnedOn}" />
+								<controls:ScrollableSliderWithManual
+									x:Name="xRightMainIntensitySlider"
+									IsSnapToTickEnabled="True"
+									Maximum="100"
+									Minimum="1"
+									ScrollStep="1"
+									ScrollableSliderStyle="{DynamicResource VibrationSliderStyle}"
+									Value="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationMainRight.Intensivity, Mode=TwoWay}" />
+							</StackPanel>
+							<StackPanel
+								ToolTipService.ShowOnDisabled="True"
+								UIElement.IsEnabled="{Binding UserSettingsService.IsHidePhysicalController}">
+								<TextBlock
+									FrameworkElement.Margin="0,15,0,0"
+									AutomationProperties.AutomationId="VibrationInsteadOfTB"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_VIBRATION_USE_INSTEAD_OF}}" />
+								<StackPanel
+									FrameworkElement.Margin="18,0,0,0">
+									<checkBoxes:FillCheckBox
+										Name="chkRightMainInsteadOfMainLeft"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_LEFT_MAIN}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationMainRight.InsteadOfMainLeft}" />
+									<checkBoxes:FillCheckBox
+										Name="chkRightMainInsteadOfTriggerLeft"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_LEFT_TRIGGER}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationMainRight.InsteadOfTriggerLeftGui}" />
+									<checkBoxes:FillCheckBox
+										Name="chkRightMainInsteadOfTriggerRight"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_TRIGGER}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationMainRight.InsteadOfTriggerRightGui}" />
+								</StackPanel>
+								<FrameworkElement.Style>
+									<Style>
+										<Style.Triggers>
+											<DataTrigger
+												Value="False"
+												Binding="{Binding UserSettingsService.IsHidePhysicalController}">
+												<Setter
+													Property="FrameworkElement.ToolTip"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_TT_AGREE_HIDE_PHYSICAL_CONTROLLER}}" />
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</FrameworkElement.Style>
+							</StackPanel>
+						</StackPanel>
+					</licenseFeatureManaging:LicenseFeatureManagingContainer>
+					<licenseFeatureManaging:LicenseFeatureManagingContainer
+						Grid.Row="1"
+						Grid.Column="0"
+						AssociatedFeatureGUID="{x:Static reWasdui:App.ADVANCED_MAPPING_FEATURE_GUID}"
+						AutomationProperties.AutomationId="LeftTriggerContainer"
+						UIElement.Visibility="{Binding GamepadService.CurrentGamepad.CurrentController.IsTriggerRumbleMotorPresent, FallbackValue=Visible, Converter={converters:BooleanToVisibilityConverter}}">
+						<licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+							<MultiBinding
+								Converter="{converters:MultiBooleanOrConverter}">
+								<Binding
+									Path="LicensingService.IsAdvancedMappingFeatureUnlocked" />
+							</MultiBinding>
+						</licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+						<StackPanel
+							FrameworkElement.Margin="0,50,0,0"
+							FrameworkElement.HorizontalAlignment="Center"
+							FrameworkElement.VerticalAlignment="Top"
+							UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+							<StackPanel>
+								<checkBoxes:FillCheckBox
+									Name="chkLeftTrigger"
+									ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_LEFT_TRIGGER}}"
+									IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationTriggerLeft.TurnedOn}" />
+								<controls:ScrollableSliderWithManual
+									x:Name="xLeftTriggerIntensitySlider"
+									IsSnapToTickEnabled="True"
+									Maximum="100"
+									Minimum="1"
+									ScrollStep="1"
+									ScrollableSliderStyle="{DynamicResource VibrationSliderStyle}"
+									Value="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationTriggerLeft.Intensivity, Mode=TwoWay}" />
+							</StackPanel>
+							<StackPanel
+								ToolTipService.ShowOnDisabled="True"
+								UIElement.IsEnabled="{Binding UserSettingsService.IsHidePhysicalController}">
+								<TextBlock
+									FrameworkElement.Margin="0,15,0,0"
+									AutomationProperties.AutomationId="VibrationInsteadOfTB"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_VIBRATION_USE_INSTEAD_OF}}" />
+								<StackPanel
+									FrameworkElement.Margin="18,0,0,0">
+									<checkBoxes:FillCheckBox
+										Name="chkLeftTriggerInsteadOfMainLeft"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_LEFT_MAIN}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationTriggerLeft.InsteadOfMainLeft}" />
+									<checkBoxes:FillCheckBox
+										Name="chkLeftTriggerInsteadOfMainRight"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_MAIN}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationTriggerLeft.InsteadOfMainRight}" />
+									<checkBoxes:FillCheckBox
+										Name="chkLeftTriggerInsteadOfTriggerRight"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_TRIGGER}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationTriggerLeft.InsteadOfTriggerRightGui}" />
+								</StackPanel>
+								<FrameworkElement.Style>
+									<Style>
+										<Style.Triggers>
+											<DataTrigger
+												Value="False"
+												Binding="{Binding UserSettingsService.IsHidePhysicalController}">
+												<Setter
+													Property="FrameworkElement.ToolTip"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_TT_AGREE_HIDE_PHYSICAL_CONTROLLER}}" />
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</FrameworkElement.Style>
+							</StackPanel>
+						</StackPanel>
+					</licenseFeatureManaging:LicenseFeatureManagingContainer>
+					<licenseFeatureManaging:LicenseFeatureManagingContainer
+						Grid.Row="1"
+						Grid.Column="1"
+						AssociatedFeatureGUID="{x:Static reWasdui:App.ADVANCED_MAPPING_FEATURE_GUID}"
+						AutomationProperties.AutomationId="RightTriggerContainer"
+						UIElement.Visibility="{Binding GamepadService.CurrentGamepad.CurrentController.IsTriggerRumbleMotorPresent, FallbackValue=Visible, Converter={converters:BooleanToVisibilityConverter}}">
+						<licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+							<MultiBinding
+								Converter="{converters:MultiBooleanOrConverter}">
+								<Binding
+									Path="LicensingService.IsAdvancedMappingFeatureUnlocked" />
+							</MultiBinding>
+						</licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+						<StackPanel
+							FrameworkElement.Margin="50,50,0,0"
+							FrameworkElement.HorizontalAlignment="Center"
+							FrameworkElement.VerticalAlignment="Top"
+							UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+							<StackPanel>
+								<checkBoxes:FillCheckBox
+									Name="chkRightTrigger"
+									ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_TRIGGER}}"
+									IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationTriggerRight.TurnedOn}" />
+								<controls:ScrollableSliderWithManual
+									x:Name="xRightTriggerIntensitySlider"
+									IsSnapToTickEnabled="True"
+									Maximum="100"
+									Minimum="1"
+									ScrollStep="1"
+									ScrollableSliderStyle="{DynamicResource VibrationSliderStyle}"
+									Value="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationTriggerRight.Intensivity, Mode=TwoWay}" />
+							</StackPanel>
+							<StackPanel
+								ToolTipService.ShowOnDisabled="True"
+								UIElement.IsEnabled="{Binding UserSettingsService.IsHidePhysicalController}">
+								<TextBlock
+									FrameworkElement.Margin="0,15,0,0"
+									AutomationProperties.AutomationId="VibrationInsteadOfTB"
+									FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+									TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_VIBRATION_USE_INSTEAD_OF}}" />
+								<StackPanel
+									FrameworkElement.Margin="18,0,0,0">
+									<checkBoxes:FillCheckBox
+										Name="chkRightTriggerInsteadOfMainLeft"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_LEFT_MAIN}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationTriggerRight.InsteadOfMainLeft}" />
+									<checkBoxes:FillCheckBox
+										Name="chkRightTriggerInsteadOfMainRight"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_RIGHT_MAIN}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationTriggerRight.InsteadOfMainRight}" />
+									<checkBoxes:FillCheckBox
+										Name="chkRightTriggerInsteadOfTriggerLeft"
+										ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_LEFT_TRIGGER}}"
+										IsChecked="{Binding GameProfilesService.CurrentGame.CurrentConfig.CurrentBindingCollection.GamepadVibrationTriggerRight.InsteadOfTriggerLeftGui}" />
+								</StackPanel>
+								<FrameworkElement.Style>
+									<Style>
+										<Style.Triggers>
+											<DataTrigger
+												Value="False"
+												Binding="{Binding UserSettingsService.IsHidePhysicalController}">
+												<Setter
+													Property="FrameworkElement.ToolTip"
+													Value="{localization:Translate {x:Static s:StringConsts.STR_TT_AGREE_HIDE_PHYSICAL_CONTROLLER}}" />
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</FrameworkElement.Style>
+							</StackPanel>
+						</StackPanel>
+					</licenseFeatureManaging:LicenseFeatureManagingContainer>
+				</Grid>
+			</Grid>
+		</ScrollViewer>
+		<StackPanel
+			Grid.Column="1"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Center"
+			Orientation="Vertical">
+			<buttons:SVGButton
+				Name="btnToggleShowGamepadFace"
+				ButtonBase.CommandParameter="{StaticResource BooleanFalseValue}"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				ButtonBase.Command="{Binding ShowGamepadCommand}"
+				Drawing="{Binding GamepadService.CurrentGamepadFlipToFaceButtonSVGUri}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_GAMEPAD_FRONT_BUTTONS}}" />
+			<Border
+				UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.SubConfigData.IsGamepad, Converter={converters:BooleanToVisibilityConverter}}">
+				<buttons:SVGButton
+					Name="btnToggleShowGamepadBack"
+					ButtonBase.CommandParameter="{StaticResource BooleanTrueValue}"
+					HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+					FrameworkElement.Style="{DynamicResource ButtonFlip}"
+					ButtonBase.Command="{Binding ShowGamepadCommand}"
+					Drawing="{Binding GamepadService.CurrentGamepadFlipToBackButtonSVGUri}"
+					ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_GAMEPAD_BACK_BUTTONS}}"
+					UIElement.Visibility="{Binding GamepadService.CurrentGamepad.CurrentController.ControllerType, Converter={converters1:SupportedGamepadToVisibilityGamepadBackConverter}}" />
+			</Border>
+			<buttons:SVGButton
+				Name="btnToggleShowKeyboard"
+				ButtonBase.CommandParameter="{StaticResource BooleanFalseValue}"
+				Drawing="{DynamicResource SwitchToKeyboard}"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				ButtonBase.Command="{Binding ShowKeyboardCommand}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_KEYBOARD}}" />
+			<buttons:SVGButton
+				Name="btnToggleShowMouse"
+				ButtonBase.CommandParameter="{StaticResource BooleanFalseValue}"
+				Drawing="{DynamicResource SwitchToMouse}"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				ButtonBase.Command="{Binding ShowMouseCommand}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_BASIC_MOUSE_BUTTONS}}" />
+			<buttons:SVGButton
+				Name="btnToggleShowGamepadKeyboard"
+				ButtonBase.CommandParameter="{StaticResource BooleanFalseValue}"
+				Drawing="{DynamicResource SwitchToKeypad}"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				ButtonBase.Command="{Binding ShowGamepadKeypadCommand}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_ADDITIONAL_GAMEPAD_BUTTONS}}" />
+			<buttons:SVGButton
+				Name="btnToggleShowVirtualKeyboard"
+				Drawing="{DynamicResource SwitchToVirtualKeyboard}"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				TriggeredForeground="{DynamicResource CreamBrush}"
+				TriggeredHighlightedForeground="{DynamicResource CreamBrush}"
+				ButtonBase.Command="{Binding ShowMouseSettingsCommand}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_VIRTUAL_DEVICES}}" />
+			<buttons:SVGButton
+				Name="btnToggleShowVibrationSettings"
+				Drawing="{DynamicResource SwitchToVibration}"
+				HighlightedForeground="{DynamicResource ConfigItemHoverForeground}"
+				IsTriggered="True"
+				FrameworkElement.Style="{DynamicResource ButtonFlip}"
+				TriggeredForeground="{DynamicResource CreamBrush}"
+				TriggeredHighlightedForeground="{DynamicResource CreamBrush}"
+				ButtonBase.Command="{Binding ShowVibrationSettingsCommand}"
+				ToolTip="{localization:Translate {x:Static s:StringConsts.STR_TT_VIBRATION_SETTINGS}}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

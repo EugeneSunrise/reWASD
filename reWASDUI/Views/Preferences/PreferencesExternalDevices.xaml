@@ -1,0 +1,317 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.PreferencesExternalDevices" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	x:Name="ucPreferencesExternalDevices" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<Border
+		Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+		Border.BorderThickness="1,0,0,0">
+		<ScrollViewer
+			FrameworkElement.Style="{DynamicResource PreferencesPageGridStyle}">
+			<Grid>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="0.5*" />
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+						<RowDefinition
+							RowDefinition.Height="0.5*" />
+						<RowDefinition
+							RowDefinition.Height="Auto" />
+					</Grid.RowDefinitions>
+					<TextBlock
+						TextBlock.FontSize="16"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_ADAPTERS}}" />
+					<Grid
+						Row="1"
+						FrameworkElement.Margin="0,15,0,10">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<ListBox
+							Name="icAdapters"
+							FrameworkElement.VerticalAlignment="Stretch"
+							FrameworkElement.Style="{DynamicResource BorderedItemsControl}"
+							ItemsControl.ItemsSource="{Binding ExternalDevicesCollection}"
+							SelectedItem="{Binding SelectedExternalDevice}">
+							<FrameworkElement.Resources>
+								<ResourceDictionary>
+									<Style
+										x:Key="{x:Type ListBoxItem}"
+										BasedOn="{StaticResource ListBoxItemWithEvents}"
+										TargetType="{x:Type ListBoxItem}" />
+								</ResourceDictionary>
+							</FrameworkElement.Resources>
+							<Control.Template>
+								<ControlTemplate
+									TargetType="{x:Type ItemsControl}">
+									<Border
+										Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+										Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+										<ScrollViewer
+											Name="ScrollViewer"
+											Control.Padding="{TemplateBinding Control.Padding}">
+											<ItemsPresenter />
+										</ScrollViewer>
+									</Border>
+								</ControlTemplate>
+							</Control.Template>
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<Grid
+										Name="grid"
+										FrameworkElement.Margin="3">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto" />
+											<ColumnDefinition
+												ColumnDefinition.Width="*" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<recolorableImages:RecolorableSVG
+											Name="imgOk"
+											FrameworkElement.Width="22"
+											FrameworkElement.Height="22"
+											FrameworkElement.Margin="5,3"
+											IsColorShift="True"
+											ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}"
+											Drawing="{Binding Converter={converters2:ExternalDeviceToDrawingConverter}}" />
+										<controls:EditableTextBlock
+											Grid.Column="1"
+											FrameworkElement.MinHeight="0"
+											FrameworkElement.VerticalAlignment="Center"
+											IsEditable="True"
+											MaxLength="80"
+											IsInEditMode="{Binding IsEditing, Mode=TwoWay}"
+											Text="{Binding Alias, Mode=TwoWay}"
+											MouseDoubleClick="DeviceTextBlock_MouseDoubleClick"
+											OnEditModeChanged="DeviceTextBlock_OnEditModeChanged" />
+										<TextBlock
+											Grid.Column="2"
+											FrameworkElement.MinHeight="0"
+											FrameworkElement.Margin="5,0,10,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{Binding BluetoothLocalRadioAddress}" />
+									</Grid>
+									<DataTemplate.Triggers>
+										<DataTrigger
+											Value="False"
+											Binding="{Binding IsOnlineAndCorrect}">
+											<Setter
+												TargetName="grid"
+												Property="FrameworkElement.ToolTip"
+												Value="{l:Translate {x:Static s:StringConsts.STR_EXTERNAL_DEVICE_STATUS_NOT_WORKING_PROPERLY}}" />
+										</DataTrigger>
+										<DataTrigger
+											Value="True"
+											Binding="{Binding IsOffline}">
+											<Setter
+												TargetName="grid"
+												Property="FrameworkElement.ToolTip"
+												Value="{l:Translate {x:Static s:StringConsts.STR_EXTERNAL_DEVICE_STATUS_NOT_CONNECTED}}" />
+										</DataTrigger>
+										<DataTrigger
+											Value="True"
+											Binding="{Binding IsBluetoothSecureSimpleParingIsNotPresent}">
+											<Setter
+												TargetName="grid"
+												Property="FrameworkElement.ToolTip"
+												Value="{l:Translate {x:Static s:StringConsts.STR_SECURE_SIMPLE_NOT_EXIST_WARNING}}" />
+										</DataTrigger>
+										<DataTrigger
+											Value="True"
+											Binding="{Binding IsBluetoothRebootRequired}">
+											<Setter
+												TargetName="grid"
+												Property="FrameworkElement.ToolTip"
+												Value="{l:Translate {x:Static s:StringConsts.STR_EXTERNAL_HINT_NOT_WORKING_BT_REBOOT}}" />
+										</DataTrigger>
+									</DataTemplate.Triggers>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ListBox>
+						<StackPanel
+							Grid.Column="1"
+							FrameworkElement.Margin="5,0"
+							Orientation="Vertical">
+							<buttons:SVGButton
+								Name="btnAdapterUp"
+								Drawing="{DynamicResource RollUp}"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding RollUpExternalDeviceCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icAdapters}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STRING_BTN_UP}}" />
+							<buttons:SVGButton
+								Name="btnAdapterDown"
+								Drawing="{DynamicResource RollDown}"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding RollDownExternalDeviceCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icAdapters}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STRING_BTN_DOWN}}" />
+							<buttons:SVGButton
+								Name="btnAdapterRemove"
+								Drawing="{DynamicResource Remove}"
+								SVGMargin="0"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding RemoveExternalDeviceCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icAdapters}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STR_REMOVE}}" />
+							<buttons:SVGButton
+								Name="btnAdapterEdit"
+								Drawing="{DynamicResource Edit}"
+								SVGMargin="2"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding EditExternalDeviceCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icAdapters}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STRING_EDIT}}" />
+							<buttons:SVGButton
+								Name="btnAdapterRefresh"
+								Drawing="{DynamicResource Refresh}"
+								SVGMargin="2"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding RefreshExternalDeviceCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icAdapters}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STR_REFRESH}}" />
+							<buttons:SVGButton
+								Name="btnAdapterSetup"
+								Drawing="{DynamicResource Preferences}"
+								SVGMargin="0"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding SetupExternalDeviceCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icAdapters}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STR_SETTINGS}}" />
+						</StackPanel>
+					</Grid>
+					<TextBlock
+						Grid.Row="2"
+						TextBlock.FontSize="16"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_DEVICES_FOR_BLUETOOTH}}" />
+					<Grid
+						Row="3"
+						FrameworkElement.Margin="0,15,0,10">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<ListBox
+							Name="icClients"
+							FrameworkElement.VerticalAlignment="Stretch"
+							FrameworkElement.Style="{DynamicResource BorderedItemsControl}"
+							ItemsControl.ItemsSource="{Binding ExternalClientsCollection}"
+							SelectedItem="{Binding SelectedExternalClient}">
+							<FrameworkElement.Resources>
+								<ResourceDictionary>
+									<Style
+										x:Key="{x:Type ListBoxItem}"
+										BasedOn="{StaticResource ListBoxItemWithEvents}"
+										TargetType="{x:Type ListBoxItem}" />
+								</ResourceDictionary>
+							</FrameworkElement.Resources>
+							<Control.Template>
+								<ControlTemplate
+									TargetType="{x:Type ItemsControl}">
+									<Border
+										Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+										Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+										<ScrollViewer
+											Name="ScrollViewer"
+											Control.Padding="{TemplateBinding Control.Padding}">
+											<ItemsPresenter />
+										</ScrollViewer>
+									</Border>
+								</ControlTemplate>
+							</Control.Template>
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<Grid
+										FrameworkElement.Margin="3">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition
+												ColumnDefinition.Width="*" />
+											<ColumnDefinition
+												ColumnDefinition.Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<controls:EditableTextBlock
+											FrameworkElement.Margin="5,5"
+											FrameworkElement.VerticalAlignment="Center"
+											IsEditable="True"
+											MaxLength="20"
+											IsInEditMode="{Binding IsEditing, Mode=TwoWay}"
+											Text="{Binding Alias, Mode=TwoWay}"
+											MouseDoubleClick="ClientTextBlock_MouseDoubleClick"
+											OnEditModeChanged="ClientTextBlock_OnEditModeChanged" />
+										<TextBlock
+											Grid.Column="1"
+											FrameworkElement.MinHeight="0"
+											FrameworkElement.Margin="0,0,10,0"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.Text="{Binding MacAddressText}" />
+									</Grid>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ListBox>
+						<StackPanel
+							Grid.Column="1"
+							FrameworkElement.Margin="5,0"
+							Orientation="Vertical">
+							<buttons:SVGButton
+								Name="btnClientUp"
+								Drawing="{DynamicResource RollUp}"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding RollUpExternalClientCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icClients}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STRING_BTN_UP}}" />
+							<buttons:SVGButton
+								Name="btnClientDown"
+								Drawing="{DynamicResource RollDown}"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding RollDownExternalClientCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icClients}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STRING_BTN_DOWN}}" />
+							<buttons:SVGButton
+								Name="btnClientRemove"
+								Drawing="{DynamicResource Remove}"
+								SVGMargin="0"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding RemoveExternalClientCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icClients}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STR_REMOVE}}" />
+							<buttons:SVGButton
+								Name="btnClientEdit"
+								Drawing="{DynamicResource Edit}"
+								SVGMargin="2"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding EditExternalClientCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icClients}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STRING_EDIT}}" />
+							<buttons:SVGButton
+								Name="btnClientCopy"
+								Drawing="{DynamicResource Copy}"
+								SVGMargin="2"
+								FrameworkElement.Style="{DynamicResource PrefExternalButtons}"
+								ButtonBase.Command="{Binding CopyExternalClientCommand}"
+								ButtonBase.CommandParameter="{Binding Path=SelectedItem, ElementName=icClients}"
+								ToolTip="{l:Translate {x:Static s:StringConsts.STR_COPY}}" />
+						</StackPanel>
+					</Grid>
+					<StackPanel
+						Grid.Row="4"
+						Orientation="Vertical">
+						<checkBoxes:FillCheckBox
+							ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_EXTERNAL_DEVICE_OVERWRITE_PREV_CONFIG}}"
+							IsChecked="{Binding ExternalDeviceOverwritePrevConfig}" />
+					</StackPanel>
+				</Grid>
+			</Grid>
+		</ScrollViewer>
+	</Border>
+</UserControl>

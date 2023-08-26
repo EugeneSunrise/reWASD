@@ -1,0 +1,692 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:RadialMenu.Controls;assembly=reWASDCommon" xmlns:Converters1="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:recolorableimages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDEngine.Infrastructure.RadialMenu.Converters" xmlns:converters2="clr-namespace:reWASDCommon.Utils.Converters;assembly=reWASDCommon">
+	<converters1:RadialMenuItemToArrowPosition
+		x:Key="RadialMenuItemToArrowPosition" />
+	<Style
+		x:Key="RoundedArrowPath"
+		TargetType="{x:Type Path}">
+		<Setter
+			Property="FrameworkElement.Width"
+			Value="200" />
+		<Setter
+			Property="FrameworkElement.Height"
+			Value="200" />
+		<Setter
+			Property="Shape.Stretch"
+			Value="Fill" />
+	</Style>
+	<Style
+		x:Key="{x:Type Controls:RadialMenuItem}"
+		TargetType="{x:Type Controls:RadialMenuItem}">
+		<Style.Triggers>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="UIElement.IsMouseOver"
+						Value="True" />
+					<Condition
+						Property="Controls:RadialMenuItem.IsActive"
+						Value="True" />
+				</MultiTrigger.Conditions>
+				<MultiTrigger.Setters>
+					<Setter
+						Property="Control.Background"
+						Value="#33FFE795" />
+					<Setter
+						Property="Panel.ZIndex"
+						Value="20" />
+				</MultiTrigger.Setters>
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="UIElement.IsMouseOver"
+						Value="False" />
+					<Condition
+						Property="Controls:RadialMenuItem.IsActive"
+						Value="True" />
+				</MultiTrigger.Conditions>
+				<MultiTrigger.Setters>
+					<Setter
+						Property="Control.Background"
+						Value="#33FFE795" />
+					<Setter
+						Property="Panel.ZIndex"
+						Value="20" />
+				</MultiTrigger.Setters>
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="UIElement.IsMouseOver"
+						Value="True" />
+					<Condition
+						Property="Controls:RadialMenuItem.IsActive"
+						Value="False" />
+				</MultiTrigger.Conditions>
+				<MultiTrigger.Setters>
+					<Setter
+						Property="Control.Background"
+						Value="#1AFFE795" />
+					<Setter
+						Property="Panel.ZIndex"
+						Value="10" />
+					<Setter
+						Property="Control.BorderThickness"
+						Value="0,1,0,0" />
+					<Setter
+						Property="Control.BorderBrush"
+						Value="#FFE795" />
+				</MultiTrigger.Setters>
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="UIElement.IsMouseOver"
+						Value="False" />
+					<Condition
+						Property="Controls:RadialMenuItem.IsActive"
+						Value="False" />
+				</MultiTrigger.Conditions>
+				<MultiTrigger.Setters>
+					<Setter
+						Property="Control.Background"
+						Value="#2F2F2F" />
+					<Setter
+						Property="Panel.ZIndex"
+						Value="10" />
+					<Setter
+						Property="Controls:RadialMenuItem.SectorOpacity"
+						Value="0.4" />
+					<Setter
+						Property="Control.BorderThickness"
+						Value="0,1,0,0" />
+					<Setter
+						Property="Control.BorderBrush"
+						Value="#999999" />
+				</MultiTrigger.Setters>
+			</MultiTrigger>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="Control.Background"
+					Value="#666" />
+				<Setter
+					Property="Control.Foreground"
+					Value="#AFAFAF" />
+			</Trigger>
+			<Trigger
+				Property="Controls:RadialMenuItem.IsEmpty"
+				Value="True">
+				<Setter
+					Property="Control.Background"
+					Value="#1AA3A3A3" />
+				<Setter
+					Property="Control.BorderBrush"
+					Value="#A3999999" />
+				<Setter
+					Property="Controls:RadialMenuItem.IsContentVisible"
+					Value="False" />
+			</Trigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="True"
+						Binding="{Binding RadialMenu.IsSubMenuShown, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="False"
+						Binding="{Binding RadialMenu.IsSubMenu, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="False"
+						Binding="{Binding IsActive, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<MultiDataTrigger.Setters>
+					<Setter
+						Property="Controls:RadialMenuItem.OuterRadius"
+						Value="145" />
+					<Setter
+						Property="Controls:RadialMenuItem.InnerRadius"
+						Value="103" />
+					<Setter
+						Property="Controls:RadialMenuItem.SVGSize"
+						Value="18" />
+					<Setter
+						Property="Controls:RadialMenuItem.BorderSize"
+						Value="24" />
+					<Setter
+						Property="Controls:RadialMenuItem.CenterX"
+						Value="240" />
+					<Setter
+						Property="Controls:RadialMenuItem.CenterY"
+						Value="240" />
+					<Setter
+						Property="Controls:RadialMenuItem.EdgeInnerRadius"
+						Value="115" />
+					<Setter
+						Property="Controls:RadialMenuItem.EdgeOuterRadius"
+						Value="125" />
+					<Setter
+						Property="Controls:RadialMenuItem.ArrowRadius"
+						Value="140" />
+					<Setter
+						Property="Controls:RadialMenuItem.ArrowWidth"
+						Value="8" />
+					<Setter
+						Property="Controls:RadialMenuItem.ArrowHeight"
+						Value="6" />
+				</MultiDataTrigger.Setters>
+			</MultiDataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="True"
+						Binding="{Binding RadialMenu.IsSubMenuShown, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="False"
+						Binding="{Binding RadialMenu.IsSubMenu, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="True"
+						Binding="{Binding IsActive, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<MultiDataTrigger.Setters>
+					<Setter
+						Property="Controls:RadialMenuItem.OuterRadius"
+						Value="145" />
+					<Setter
+						Property="Controls:RadialMenuItem.InnerRadius"
+						Value="103" />
+					<Setter
+						Property="Controls:RadialMenuItem.EdgeInnerRadius"
+						Value="115" />
+					<Setter
+						Property="Controls:RadialMenuItem.EdgeOuterRadius"
+						Value="125" />
+					<Setter
+						Property="Controls:RadialMenuItem.CenterX"
+						Value="240" />
+					<Setter
+						Property="Controls:RadialMenuItem.CenterY"
+						Value="240" />
+					<Setter
+						Property="Controls:RadialMenuItem.ArrowRadius"
+						Value="140" />
+					<Setter
+						Property="Controls:RadialMenuItem.SVGSize"
+						Value="18" />
+					<Setter
+						Property="Controls:RadialMenuItem.BorderSize"
+						Value="24" />
+					<Setter
+						Property="Controls:RadialMenuItem.IsShowUIButtons"
+						Value="False" />
+					<Setter
+						Property="Control.BorderThickness"
+						Value="0,1,0,0" />
+					<Setter
+						Property="Control.BorderBrush"
+						Value="#FFE795" />
+					<Setter
+						Property="Controls:RadialMenuItem.ArrowBackground"
+						Value="#FFE795" />
+					<Setter
+						Property="Control.Background"
+						Value="#1AFFE795" />
+					<Setter
+						Property="Controls:RadialMenuItem.ArrowWidth"
+						Value="8" />
+					<Setter
+						Property="Controls:RadialMenuItem.ArrowHeight"
+						Value="6" />
+				</MultiDataTrigger.Setters>
+			</MultiDataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="False"
+						Binding="{Binding RadialMenu.IsSubMenuShown, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="False"
+						Binding="{Binding RadialMenu.IsSubMenu, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="True"
+						Binding="{Binding IsActive, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<MultiDataTrigger.Setters>
+					<Setter
+						Property="Controls:RadialMenuItem.OuterRadius"
+						Value="220" />
+					<Setter
+						Property="Controls:RadialMenuItem.InnerRadius"
+						Value="103" />
+					<Setter
+						Property="Controls:RadialMenuItem.EdgeInnerRadius"
+						Value="200" />
+					<Setter
+						Property="Controls:RadialMenuItem.EdgeOuterRadius"
+						Value="215" />
+					<Setter
+						Property="Controls:RadialMenuItem.IsShowUIButtons"
+						Value="True" />
+					<Setter
+						Property="Controls:RadialMenuItem.SVGSize"
+						Value="26" />
+					<Setter
+						Property="Controls:RadialMenuItem.BorderSize"
+						Value="44" />
+					<Setter
+						Property="Control.BorderThickness"
+						Value="0,3,0,0" />
+					<Setter
+						Property="Control.BorderBrush"
+						Value="#FFE795" />
+					<Setter
+						Property="Controls:RadialMenuItem.ArrowRadius"
+						Value="198" />
+				</MultiDataTrigger.Setters>
+			</MultiDataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="True"
+						Binding="{Binding RadialMenu.IsSubMenu, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="True"
+						Binding="{Binding IsActive, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<MultiDataTrigger.Setters>
+					<Setter
+						Property="Controls:RadialMenuItem.OuterRadius"
+						Value="255" />
+					<Setter
+						Property="Controls:RadialMenuItem.InnerRadius"
+						Value="150" />
+					<Setter
+						Property="Controls:RadialMenuItem.IsShowUIButtons"
+						Value="True" />
+					<Setter
+						Property="Controls:RadialMenuItem.SVGSize"
+						Value="26" />
+					<Setter
+						Property="Controls:RadialMenuItem.BorderSize"
+						Value="44" />
+					<Setter
+						Property="Control.BorderThickness"
+						Value="0,3,0,0" />
+					<Setter
+						Property="Control.BorderBrush"
+						Value="#FFE795" />
+				</MultiDataTrigger.Setters>
+			</MultiDataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="True"
+						Binding="{Binding RadialMenu.IsSubMenu, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="False"
+						Binding="{Binding IsActive, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<MultiDataTrigger.Setters>
+					<Setter
+						Property="Controls:RadialMenuItem.OuterRadius"
+						Value="235" />
+					<Setter
+						Property="Controls:RadialMenuItem.InnerRadius"
+						Value="150" />
+				</MultiDataTrigger.Setters>
+			</MultiDataTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition
+						Property="UIElement.IsMouseOver"
+						Value="True" />
+					<Condition
+						Property="Controls:RadialMenuItem.IsActive"
+						Value="True" />
+				</MultiTrigger.Conditions>
+				<MultiTrigger.Setters>
+					<Setter
+						Property="Control.Background"
+						Value="#33FFE795" />
+					<Setter
+						Property="Panel.ZIndex"
+						Value="20" />
+				</MultiTrigger.Setters>
+			</MultiTrigger>
+		</Style.Triggers>
+		<Setter
+			Property="Controls:RadialMenuItem.IsContentVisible"
+			Value="True" />
+		<Setter
+			Property="FrameworkElement.Width"
+			Value="400" />
+		<Setter
+			Property="FrameworkElement.Height"
+			Value="400" />
+		<Setter
+			Property="Controls:RadialMenuItem.CenterX"
+			Value="200" />
+		<Setter
+			Property="Controls:RadialMenuItem.CenterY"
+			Value="200" />
+		<Setter
+			Property="Controls:RadialMenuItem.OuterRadius"
+			Value="195" />
+		<Setter
+			Property="Control.Foreground"
+			Value="#303030" />
+		<Setter
+			Property="Control.Background"
+			Value="#D2FFFFFF" />
+		<Setter
+			Property="Controls:RadialMenuItem.Padding"
+			Value="2" />
+		<Setter
+			Property="Controls:RadialMenuItem.InnerRadius"
+			Value="103" />
+		<Setter
+			Property="Controls:RadialMenuItem.SVGSize"
+			Value="26" />
+		<Setter
+			Property="Controls:RadialMenuItem.SVGMargin"
+			Value="0" />
+		<Setter
+			Property="Controls:RadialMenuItem.BorderSize"
+			Value="40" />
+		<Setter
+			Property="Controls:RadialMenuItem.UIButtonSize"
+			Value="24" />
+		<Setter
+			Property="Controls:RadialMenuItem.UIButtonSizeHovered"
+			Value="30" />
+		<Setter
+			Property="Controls:RadialMenuItem.LineRadius"
+			Value="245" />
+		<Setter
+			Property="Controls:RadialMenuItem.EdgeBackground"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Controls:RadialMenuItem.EdgeBorderThickness"
+			Value="0" />
+		<Setter
+			Property="Controls:RadialMenuItem.EdgeBorderBrush"
+			Value="#B2303030" />
+		<Setter
+			Property="Controls:RadialMenuItem.EdgePadding"
+			Value="7" />
+		<Setter
+			Property="Controls:RadialMenuItem.EdgeInnerRadius"
+			Value="178" />
+		<Setter
+			Property="Controls:RadialMenuItem.EdgeOuterRadius"
+			Value="193" />
+		<Setter
+			Property="Controls:RadialMenuItem.ArrowBackground"
+			Value="#FFFFFF" />
+		<Setter
+			Property="Controls:RadialMenuItem.ArrowRadius"
+			Value="186" />
+		<Setter
+			Property="Controls:RadialMenuItem.ArrowWidth"
+			Value="9" />
+		<Setter
+			Property="Controls:RadialMenuItem.ArrowHeight"
+			Value="9" />
+		<Setter
+			Property="Panel.ZIndex"
+			Value="0" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Controls:RadialMenuItem}">
+					<Canvas
+						FrameworkElement.Width="{TemplateBinding FrameworkElement.Width}"
+						FrameworkElement.Height="{TemplateBinding FrameworkElement.Height}">
+						<Canvas
+							ZIndex="0">
+							<Controls:PieShape
+								Controls:PieShape.CenterX="{TemplateBinding Controls:RadialMenuItem.CenterX}"
+								Controls:PieShape.CenterY="{TemplateBinding Controls:RadialMenuItem.CenterY}"
+								Controls:PieShape.Padding="{TemplateBinding Controls:RadialMenuItem.Padding}"
+								Controls:PieShape.StartAngle="{TemplateBinding Controls:RadialMenuItem.StartAngle}"
+								Controls:PieShape.AngleDelta="{TemplateBinding Controls:RadialMenuItem.AngleDelta}"
+								Controls:PieShape.OuterRadius="{Binding OuterRadiusWithParam, RelativeSource={RelativeSource AncestorType=Controls:RadialMenuItem}}"
+								Shape.Fill="{Binding RadialMenu.Background, RelativeSource={RelativeSource AncestorType=Controls:RadialMenuItem}}"
+								UIElement.Visibility="{Binding IsShowUIButtons, Converter={Converters1:BooleanToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=Controls:RadialMenuItem}}">
+								<FrameworkElement.Style>
+									<Style
+										TargetType="{x:Type Controls:PieShape}">
+										<Style.Triggers>
+											<DataTrigger
+												Value="True"
+												Binding="{Binding RadialMenu.IsSubMenu, RelativeSource={RelativeSource AncestorType=Controls:RadialMenuItem}}">
+												<DataTrigger.Setters>
+													<Setter
+														Property="Controls:PieShape.InnerRadius"
+														Value="239.9" />
+												</DataTrigger.Setters>
+											</DataTrigger>
+											<DataTrigger
+												Value="False"
+												Binding="{Binding RadialMenu.IsSubMenu, RelativeSource={RelativeSource AncestorType=Controls:RadialMenuItem}}">
+												<DataTrigger.Setters>
+													<Setter
+														Property="Controls:PieShape.InnerRadius"
+														Value="199.9" />
+												</DataTrigger.Setters>
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</FrameworkElement.Style>
+							</Controls:PieShape>
+						</Canvas>
+						<Canvas
+							ZIndex="{TemplateBinding Panel.ZIndex}">
+							<Controls:PieShape
+								FrameworkElement.Name="MainShape"
+								Controls:PieShape.CenterX="{TemplateBinding Controls:RadialMenuItem.CenterX}"
+								Controls:PieShape.CenterY="{TemplateBinding Controls:RadialMenuItem.CenterY}"
+								Controls:PieShape.Padding="{TemplateBinding Controls:RadialMenuItem.Padding}"
+								UIElement.Opacity="{TemplateBinding Controls:RadialMenuItem.SectorOpacity}"
+								Shape.Fill="{TemplateBinding Control.Background}"
+								Shape.Stroke="{TemplateBinding Control.BorderBrush}"
+								Controls:PieShape.StartAngle="{TemplateBinding Controls:RadialMenuItem.StartAngle}"
+								Controls:PieShape.AngleDelta="{TemplateBinding Controls:RadialMenuItem.AngleDelta}"
+								Controls:PieShape.OuterRadius="{Binding OuterRadiusWithParam, RelativeSource={RelativeSource AncestorType=Controls:RadialMenuItem}}"
+								Shape.StrokeThickness="{Binding BorderThickness.Top, RelativeSource={RelativeSource AncestorType=Controls:RadialMenuItem}}"
+								Controls:PieShape.InnerRadius="{Binding InnerRadius, RelativeSource={RelativeSource AncestorType=Controls:RadialMenuItem}}" />
+							<Canvas
+								UIElement.Visibility="{TemplateBinding IsHasSubMenu, Converter={Converters1:BooleanToVisibilityConverter}}">
+								<Canvas>
+									<UIElement.RenderTransform>
+										<RotateTransform
+											Angle="{Binding Rotation, RelativeSource={RelativeSource TemplatedParent}}"
+											CenterX="{Binding CenterX, RelativeSource={RelativeSource TemplatedParent}}"
+											CenterY="{Binding CenterY, RelativeSource={RelativeSource TemplatedParent}}" />
+									</UIElement.RenderTransform>
+									<Rectangle
+										FrameworkElement.Width="{TemplateBinding Controls:RadialMenuItem.ArrowWidth}"
+										FrameworkElement.Height="{TemplateBinding Controls:RadialMenuItem.ArrowHeight}">
+										<Canvas.Left>
+											<MultiBinding
+												ConverterParameter="X"
+												Converter="{StaticResource RadialMenuItemToArrowPosition}">
+												<Binding
+													Path="CenterX"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="CenterY"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="ArrowWidth"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="ArrowHeight"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="OuterArrowRadiusWithParam"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="RadialMenu.IsSubMenuShown"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+											</MultiBinding>
+										</Canvas.Left>
+										<Canvas.Top>
+											<MultiBinding
+												ConverterParameter="Y"
+												Converter="{StaticResource RadialMenuItemToArrowPosition}">
+												<Binding
+													Path="CenterX"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="CenterY"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="ArrowWidth"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="ArrowHeight"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="OuterArrowRadiusWithParam"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding
+													Path="RadialMenu.IsSubMenuShown"
+													RelativeSource="{RelativeSource TemplatedParent}" />
+											</MultiBinding>
+										</Canvas.Top>
+										<Shape.Fill>
+											<VisualBrush>
+												<VisualBrush.Visual>
+													<Canvas
+														FrameworkElement.Width="76"
+														FrameworkElement.Height="76"
+														Panel.Background="#00FFFFFF">
+														<Path
+															Name="ArrowPath"
+															Shape.Stroke="{Binding ArrowBorderBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Controls:RadialMenuItem}}"
+															Shape.StrokeThickness="{Binding ArrowBorderThickness, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Controls:RadialMenuItem}}"
+															Shape.Fill="{Binding ArrowBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Controls:RadialMenuItem}}">
+															<FrameworkElement.Style>
+																<Style
+																	TargetType="{x:Type Path}"
+																	BasedOn="{StaticResource RoundedArrowPath}">
+																	<Style.Triggers>
+																		<DataTrigger
+																			Value="True"
+																			Binding="{Binding IsNeedArrowInvert, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Controls:RadialMenuItem}}">
+																			<Setter
+																				Property="Path.Data"
+																				Value="M197.287,7.59625 C194.815,3.19753 191.885,1 188.498,1 L13.5009,1 C10.1134,1 7.18481,3.19753 4.71048,7.59625 C2.23616,11.9998 1.00001,17.2061 1.00001,23.2246 C1.00001,29.242 2.23616,34.4483 4.71048,38.8482 L92.2095,194.399 C94.6866,198.798 97.6152,201 101,201 C104.385,201 107.316,198.798 109.788,194.399 L197.287,38.847 C199.759,34.4483 201,29.242 201,23.2234 C201,17.2061 199.759,11.9998 197.287,7.59625 Z" />
+																		</DataTrigger>
+																		<DataTrigger
+																			Value="False"
+																			Binding="{Binding IsNeedArrowInvert, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Controls:RadialMenuItem}}">
+																			<Setter
+																				Property="Path.Data"
+																				Value="M197.287,194.404 C194.815,198.802 191.885,201 188.498,201 L13.5009,201 C10.1134,201 7.18481,198.802 4.71048,194.404 C2.23616,190 1.00001,184.794 1.00001,178.775 C1.00001,172.758 2.23616,167.552 4.71048,163.152 L92.2095,7.60112 C94.6866,3.2024 97.6152,1 101,1 C104.385,1 107.316,3.2024 109.788,7.60112 L197.287,163.153 C199.759,167.552 201,172.758 201,178.777 C201,184.794 199.759,190 197.287,194.404 Z" />
+																		</DataTrigger>
+																	</Style.Triggers>
+																</Style>
+															</FrameworkElement.Style>
+														</Path>
+													</Canvas>
+												</VisualBrush.Visual>
+											</VisualBrush>
+										</Shape.Fill>
+									</Rectangle>
+								</Canvas>
+							</Canvas>
+							<WrapPanel>
+								<Canvas.Left>
+									<MultiBinding
+										ConverterParameter="X"
+										Converter="{converters1:RadialMenuItemToContentPosition}">
+										<Binding
+											Path="Rotation"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="CenterX"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="CenterY"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="ActualWidth"
+											RelativeSource="{RelativeSource Self}" />
+										<Binding
+											Path="BorderSize"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path=""
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="IsActive"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="RadialMenu.IsSubMenuShown"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</Canvas.Left>
+								<Canvas.Top>
+									<MultiBinding
+										ConverterParameter="Y"
+										Converter="{converters1:RadialMenuItemToContentPosition}">
+										<Binding
+											Path="Rotation"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="CenterX"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="CenterY"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="ActualWidth"
+											RelativeSource="{RelativeSource Self}" />
+										<Binding
+											Path="BorderSize"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path=""
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="IsActive"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="RadialMenu.IsSubMenuShown"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</Canvas.Top>
+								<Border
+									FrameworkElement.Width="{TemplateBinding Controls:RadialMenuItem.BorderSize}"
+									FrameworkElement.Height="{TemplateBinding Controls:RadialMenuItem.BorderSize}"
+									Border.Background="{TemplateBinding Controls:RadialMenuItem.SectorBrush}"
+									CornerRadius="100"
+									UIElement.Visibility="{Binding IsContentVisible, Converter={Converters1:BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+									<recolorableimages:RecolorableSVG
+										FrameworkElement.Margin="{TemplateBinding Controls:RadialMenuItem.SVGMargin}"
+										Drawing="{TemplateBinding Controls:RadialMenuItem.Drawing}"
+										FrameworkElement.Width="{TemplateBinding Controls:RadialMenuItem.SVGSize}"
+										FrameworkElement.Height="{TemplateBinding Controls:RadialMenuItem.SVGSize}"
+										IsColorShift="True">
+										<recolorableimages:RecolorableSVG.ColorShiftBrush>
+											<Binding
+												RelativeSource="{RelativeSource TemplatedParent}">
+												<Ctor xmlns="https://github.com/dnSpyEx/dnSpy">SectorBrush</Ctor>
+												<Binding.Converter>
+													<converters2:BrightnessColorConverter />
+												</Binding.Converter>
+											</Binding>
+										</recolorableimages:RecolorableSVG.ColorShiftBrush>
+									</recolorableimages:RecolorableSVG>
+								</Border>
+							</WrapPanel>
+						</Canvas>
+					</Canvas>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

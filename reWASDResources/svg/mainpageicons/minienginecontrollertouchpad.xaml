@@ -1,0 +1,41 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="MiniEngineControllerTouchpad" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="MiniEngineControllerTouchpad">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M24.145,19.5L1.855,19.5C0.833,19.5,0,18.639,0,17.579L0,8.421C0,7.362,0.833,6.5,1.855,6.5L24.144,6.5C25.168,6.5,26,7.362,26,8.421L26,17.579C26,18.639,25.168,19.5,24.145,19.5z M1.855,7.5C1.384,7.5,1,7.913,1,8.421L1,17.579C1,18.087,1.384,18.5,1.855,18.5L24.144,18.5C24.616,18.5,24.999,18.087,24.999,17.579L24.999,8.421C25,7.913,24.616,7.5,24.145,7.5L1.855,7.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M22,17L21,17C20.173,17,19.5,16.327,19.5,15.5L19.5,10.5C19.5,9.673,20.173,9,21,9L22,9C22.827,9,23.5,9.673,23.5,10.5L23.5,15.5C23.5,16.327,22.827,17,22,17z M21,10C20.724,10,20.5,10.224,20.5,10.5L20.5,15.5C20.5,15.775,20.724,16,21,16L22,16C22.275,16,22.5,15.775,22.5,15.5L22.5,10.5C22.5,10.224,22.275,10,22,10L21,10z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M16,9L10,9 4,9C3.173,9,2.5,9.673,2.5,10.5L2.5,15.5C2.5,16.327,3.173,17,4,17L10,17 16,17C16.827,17,17.5,16.327,17.5,15.5L17.5,10.5C17.5,9.673,16.827,9,16,9z M3.5,10.5C3.5,10.225,3.725,10,4,10L9.5,10 9.5,11.071C8.801,11.253,8.253,11.801,8.071,12.5L3.5,12.5 3.5,10.5z M9.5,16L4,16C3.725,16,3.5,15.776,3.5,15.5L3.5,13.5 8.071,13.5C8.253,14.199,8.801,14.747,9.5,14.929L9.5,16z M9,13C9,12.449 9.449,12 10,12 10.551,12 11,12.449 11,13 11,13.551 10.551,14 10,14 9.449,14 9,13.551 9,13z M16.5,15.5C16.5,15.775,16.275,16,16,16L10.5,16 10.5,14.929C11.199,14.747,11.747,14.199,11.929,13.5L16.5,13.5 16.5,15.5z M16.5,12.5L11.929,12.5C11.747,11.801,11.199,11.253,10.5,11.071L10.5,10 16,10C16.275,10,16.5,10.224,16.5,10.5L16.5,12.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,26,26" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

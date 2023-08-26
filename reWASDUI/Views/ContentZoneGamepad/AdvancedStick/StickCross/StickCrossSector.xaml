@@ -1,0 +1,14 @@
+<pie:PiePieceUserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.AdvancedStick.StickCross.StickCrossSector" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pie="clr-namespace:DiscSoft.NET.Common.View.Controls.Pie;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:stickCross="clr-namespace:reWASDUI.Views.ContentZoneGamepad.AdvancedStick.StickCross"
+	IsMirrorExpansion="True"
+	Control.Background="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type stickCross:StickCrossSector}">
+			<Border
+				Border.Background="{TemplateBinding Control.Background}"
+				Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+				Border.BorderThickness="{TemplateBinding Control.BorderThickness}" />
+		</ControlTemplate>
+	</Control.Template>
+</pie:PiePieceUserControl>

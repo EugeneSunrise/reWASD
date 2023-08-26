@@ -1,0 +1,70 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.GamepadSelector.GamepadSlotProfiles" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:gamepadselector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector">
+	<Border
+		Border.BorderBrush="#00FFFFFF"
+		Border.BorderThickness="0">
+		<UIElement.Visibility>
+			<MultiBinding
+				Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+				<Binding
+					Path="GamepadService.CurrentGamepad"
+					Converter="{converters:ValueIsNotNull}" />
+				<Binding
+					Path="GamepadService.CurrentGamepad.IsUnknownControllerType"
+					Converter="{converters:InverseBooleanConverter}" />
+				<Binding
+					Path="GamepadService.IsCurrentGamepadHasProfiles" />
+			</MultiBinding>
+		</UIElement.Visibility>
+		<StackPanel
+			FrameworkElement.Margin="0,0,12,0">
+			<ListBox
+				Name="list"
+				Uid="DevicesItemsControl"
+				FrameworkElement.Margin="0"
+				Control.Padding="0"
+				FrameworkElement.HorizontalAlignment="Right"
+				Control.HorizontalContentAlignment="Center"
+				Control.Background="#00FFFFFF"
+				Control.BorderBrush="#00FFFFFF"
+				Control.BorderThickness="0"
+				UIElement.Focusable="True"
+				ScrollViewer.CanContentScroll="False"
+				SelectionMode="Single"
+				ItemsControl.ItemsSource="{Binding GamepadService.SlotsInfo}"
+				SelectedItem="{Binding CurrentSlotInfo, Delay=1}">
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<Style
+							x:Key="{x:Type ListBoxItem}"
+							BasedOn="{StaticResource {x:Type ListBoxItem}}"
+							TargetType="{x:Type ListBoxItem}">
+							<Setter
+								Property="ContentControl.ContentTemplate"
+								Value="{StaticResource ButtonSlotInfoDataTemplate}" />
+						</Style>
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel
+							CanHorizontallyScroll="False"
+							CanVerticallyScroll="False"
+							Orientation="Horizontal" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ListBox>
+			<StackPanel
+				FrameworkElement.Margin="0,6,0,0"
+				FrameworkElement.HorizontalAlignment="Right"
+				Orientation="Horizontal"
+				UIElement.Visibility="{Binding GamepadService.CurrentGamepadActiveProfiles, Converter={converters:ValueIsNotNullToVisibilityConverter}}">
+				<Grid
+					FrameworkElement.VerticalAlignment="Center">
+					<controls:ActiveGamepadProfileUC
+						Slot="{Binding CurrentSlotInfo.Slot}" />
+				</Grid>
+			</StackPanel>
+		</StackPanel>
+	</Border>
+</UserControl>

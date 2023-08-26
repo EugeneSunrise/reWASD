@@ -1,0 +1,197 @@
+<controls:BaseServicesResolvingControl
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingAnnotation.GamepadBindingZonesAnnotation" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:bindingAnnotation="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingAnnotation" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:xb="clr-namespace:reWASDUI.Infrastructure.KeyBindings.XB"
+	UIElement.Focusable="False">
+	<FrameworkElement.Style>
+		<Style
+			TargetType="{x:Type bindingAnnotation:GamepadBindingZonesAnnotation}">
+			<Setter
+				Property="bindingAnnotation:GamepadBindingZonesAnnotation.AnnotationRecolorBrush"
+				Value="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, RelativeSource={RelativeSource Self}}" />
+			<Setter
+				Property="Control.Template">
+				<Setter.Value>
+					<ControlTemplate
+						TargetType="{x:Type bindingAnnotation:GamepadBindingZonesAnnotation}">
+						<FrameworkTemplate.Resources>
+							<ResourceDictionary>
+								<DataTemplate
+									x:Key="ZoneDirectionEmptyDataTemplate"
+									DataType="xb:XBBinding" />
+								<DataTemplate
+									x:Key="ZoneDirectionXBBindingDataTemplate"
+									DataType="xb:XBBinding">
+									<bindingAnnotation:ZoneAnnotation
+										ActivatorXBBinding="{Binding SingleActivator}"
+										AnnotatedZone="{Binding AnnotatedZone, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingAnnotation:GamepadBindingZonesAnnotation}}"
+										Control.Foreground="{Binding AnnotationRecolorBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingAnnotation:GamepadBindingZonesAnnotation}}"
+										IsLabelMode="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsLabelModeView, FallbackValue=false, RelativeSource={RelativeSource FindAncestor, AncestorType=bindingAnnotation:GamepadBindingZonesAnnotation}}"
+										UIElement.Visibility="{Binding SingleActivator.IsVirtualMappingPresent, Converter={converters:BooleanToVisibilityConverter}}">
+										<bindingAnnotation:ZoneAnnotation.IsShowZoneContent>
+											<MultiBinding
+												Converter="{converters2:IsShowActivatorContentConverter}">
+												<Binding
+													Path="DirectionalGroup.CurrentSelectedDirection"
+													RelativeSource="{RelativeSource FindAncestor, AncestorType=bindingAnnotation:GamepadBindingZonesAnnotation}" />
+												<Binding
+													Path="GamepadButton"
+													Converter="{converters2:GamepadButtonToDirectionConverter}" />
+												<Binding
+													Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.IsExpandActivatorsView"
+													FallbackValue="False"
+													RelativeSource="{RelativeSource FindAncestor, AncestorType=bindingAnnotation:GamepadBindingZonesAnnotation}" />
+											</MultiBinding>
+										</bindingAnnotation:ZoneAnnotation.IsShowZoneContent>
+									</bindingAnnotation:ZoneAnnotation>
+								</DataTemplate>
+								<Style
+									x:Key="ZoneDirectionContent"
+									TargetType="{x:Type ContentControl}">
+									<Setter
+										Property="ContentControl.Content"
+										Value="{Binding}" />
+									<Setter
+										Property="ContentControl.ContentTemplate"
+										Value="{StaticResource ZoneDirectionXBBindingDataTemplate}" />
+									<Style.Triggers>
+										<DataTrigger
+											Binding="{Binding}"
+											Value="{x:Null}">
+											<Setter
+												Property="UIElement.Visibility"
+												Value="Collapsed" />
+										</DataTrigger>
+									</Style.Triggers>
+								</Style>
+							</ResourceDictionary>
+						</FrameworkTemplate.Resources>
+						<StackPanel
+							Orientation="Horizontal"
+							DataContext="{Binding DirectionalGroup, RelativeSource={RelativeSource TemplatedParent}}">
+							<ContentControl
+								FrameworkElement.Style="{StaticResource ZoneDirectionContent}">
+								<FrameworkElement.DataContext>
+									<MultiBinding
+										Converter="{converters2:GetXBBindingFromDirectionalGroupByZoneAndDirectionConvertor}">
+										<Binding
+											Path="DirectionalGroup"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Source="{x:Static enums:Direction.All}" />
+										<Binding
+											Path="AnnotatedZone"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</FrameworkElement.DataContext>
+							</ContentControl>
+							<ContentControl
+								FrameworkElement.Style="{StaticResource ZoneDirectionContent}">
+								<FrameworkElement.DataContext>
+									<MultiBinding
+										Converter="{converters2:GetXBBindingFromDirectionalGroupByZoneAndDirectionConvertor}">
+										<Binding
+											Path="DirectionalGroup"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Source="{x:Static enums:Direction.Left}" />
+										<Binding
+											Path="AnnotatedZone"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</FrameworkElement.DataContext>
+							</ContentControl>
+							<ContentControl
+								FrameworkElement.Style="{StaticResource ZoneDirectionContent}">
+								<FrameworkElement.DataContext>
+									<MultiBinding
+										Converter="{converters2:GetXBBindingFromDirectionalGroupByZoneAndDirectionConvertor}">
+										<Binding
+											Path="DirectionalGroup"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Source="{x:Static enums:Direction.Right}" />
+										<Binding
+											Path="AnnotatedZone"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</FrameworkElement.DataContext>
+							</ContentControl>
+							<ContentControl
+								FrameworkElement.Style="{StaticResource ZoneDirectionContent}">
+								<FrameworkElement.DataContext>
+									<MultiBinding
+										Converter="{converters2:GetXBBindingFromDirectionalGroupByZoneAndDirectionConvertor}">
+										<Binding
+											Path="DirectionalGroup"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Source="{x:Static enums:Direction.Up}" />
+										<Binding
+											Path="AnnotatedZone"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</FrameworkElement.DataContext>
+							</ContentControl>
+							<ContentControl
+								FrameworkElement.Style="{StaticResource ZoneDirectionContent}">
+								<FrameworkElement.DataContext>
+									<MultiBinding
+										Converter="{converters2:GetXBBindingFromDirectionalGroupByZoneAndDirectionConvertor}">
+										<Binding
+											Path="DirectionalGroup"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Source="{x:Static enums:Direction.Down}" />
+										<Binding
+											Path="AnnotatedZone"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</FrameworkElement.DataContext>
+							</ContentControl>
+							<ContentControl
+								FrameworkElement.Style="{StaticResource ZoneDirectionContent}">
+								<FrameworkElement.DataContext>
+									<MultiBinding
+										Converter="{converters2:GetXBBindingFromDirectionalGroupByZoneAndDirectionConvertor}">
+										<Binding
+											Path="DirectionalGroup"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Source="{x:Static enums:Direction.LeanLeft}" />
+										<Binding
+											Path="AnnotatedZone"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</FrameworkElement.DataContext>
+							</ContentControl>
+							<ContentControl
+								FrameworkElement.Style="{StaticResource ZoneDirectionContent}">
+								<FrameworkElement.DataContext>
+									<MultiBinding
+										Converter="{converters2:GetXBBindingFromDirectionalGroupByZoneAndDirectionConvertor}">
+										<Binding
+											Path="DirectionalGroup"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Source="{x:Static enums:Direction.LeanRight}" />
+										<Binding
+											Path="AnnotatedZone"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+									</MultiBinding>
+								</FrameworkElement.DataContext>
+							</ContentControl>
+						</StackPanel>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Style.Triggers>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding XBBinding.IsInheritedBinding, RelativeSource={RelativeSource Self}}">
+					<Setter
+						Property="bindingAnnotation:GamepadBindingZonesAnnotation.AnnotationRecolorBrush"
+						Value="{DynamicResource DisabledButtonForeground}" />
+				</DataTrigger>
+			</Style.Triggers>
+		</Style>
+	</FrameworkElement.Style>
+</controls:BaseServicesResolvingControl>

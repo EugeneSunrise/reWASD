@@ -1,0 +1,87 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		x:Key="{x:Type TabControl}"
+		TargetType="{x:Type TabControl}">
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type TabControl}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+						</Grid.ColumnDefinitions>
+						<TabPanel
+							Grid.Column="0"
+							ZIndex="1"
+							IsItemsHost="True"
+							FrameworkElement.MinWidth="100"
+							Panel.Background="#00FFFFFF" />
+						<Border
+							Grid.Column="1"
+							SnapsToDevicePixels="true"
+							Border.BorderThickness="1">
+							<ContentPresenter
+								ContentPresenter.ContentSource="SelectedContent" />
+						</Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="{x:Type TabItem}"
+		TargetType="{x:Type TabItem}">
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type TabItem}">
+					<Border
+						FrameworkElement.Name="border"
+						SnapsToDevicePixels="True"
+						Border.BorderThickness="1"
+						Padding="5,8"
+						Border.Background="#00FFFFFF">
+						<TextBlock
+							FrameworkElement.Name="buttonText"
+							FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+							FrameworkElement.Margin="0"
+							TextBlock.FontSize="14"
+							TextBlock.Text="{TemplateBinding HeaderedContentControl.Header}"
+							FrameworkElement.VerticalAlignment="Center" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Trigger.Setters>
+								<Setter
+									TargetName="border"
+									Value="{DynamicResource ButtonBackgroundHover}"
+									Property="Border.Background" />
+							</Trigger.Setters>
+						</Trigger>
+						<Trigger
+							Property="TabItem.IsSelected"
+							Value="True">
+							<Trigger.Setters>
+								<Setter
+									TargetName="border"
+									Value="{DynamicResource CremBrush}"
+									Property="Border.Background" />
+								<Setter
+									TargetName="buttonText"
+									Value="{DynamicResource SideBarSelectedHeaderForeground}"
+									Property="TextBlock.Foreground" />
+							</Trigger.Setters>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

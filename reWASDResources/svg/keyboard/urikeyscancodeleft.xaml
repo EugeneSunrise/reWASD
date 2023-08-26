@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriKeyScanCodeLeft" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriKeyScanCodeLeft">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M13,1L13,13 1,13 1,1 13,1 M13,0L1,0C0.448,0,0,0.447,0,1L0,13C0,13.553,0.448,14,1,14L13,14C13.553,14,14,13.553,14,13L14,1C14,0.447,13.553,0,13,0L13,0z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M3.707,7.706L3,7 3.707,6.294C3.707,6.293,3.708,6.293,3.708,6.292L6.707,3.293C7.098,2.902 7.73,2.902 8.121,3.293 8.512,3.684 8.512,4.316 8.121,4.707L6.828,6 10.414,6C10.966,6 11.414,6.447 11.414,7 11.414,7.553 10.966,8 10.414,8L6.828,8 8.121,9.293C8.512,9.684 8.512,10.316 8.121,10.707 7.926,10.902 7.67,11 7.414,11 7.158,11 6.902,10.902 6.707,10.707L3.708,7.708C3.708,7.707,3.707,7.707,3.707,7.706z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

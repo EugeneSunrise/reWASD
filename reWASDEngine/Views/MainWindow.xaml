@@ -1,0 +1,42 @@
+<Window
+	x:Class="reWASDEngine.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:reWASDEngine" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:tb="clr-namespace:Hardcodet.Wpf.TaskbarNotification;assembly=DiscSoft.NET.Common"
+	Title="reWASD Engine"
+	FrameworkElement.Width="0"
+	FrameworkElement.Height="0"
+	ShowInTaskbar="False"
+	Top="-1000">
+	<Grid
+		Name="mainGrid">
+		<tb:TaskbarIcon
+			Name="notifyIcon"
+			MenuActivation="RightClick"
+			DoubleClickCommand="{Binding OpenGuiCommand}"
+			IconSource="{Binding TrayIcon}"
+			ToolTipText="{Binding TrayToolTip}">
+			<FrameworkElement.ContextMenu>
+				<ContextMenu>
+					<MenuItem
+						Name="RemapOnnOff"
+						Command="{Binding RemapOnOffCommand}"
+						HeaderedItemsControl.Header="{Binding RemapOnOffCaption}" />
+					<MenuItem
+						Name="OpenGui"
+						Command="{Binding OpenGuiCommand}"
+						HeaderedItemsControl.Header="{localization:Translate {x:Static s:StringConsts.STR_OPEN_REWASD}}" />
+					<MenuItem
+						Name="VisitCommunity"
+						Command="{Binding VisitCommunityCommand}"
+						HeaderedItemsControl.Header="{localization:Translate {x:Static s:StringConsts.STR_VISTIT_COMMUNITY}}" />
+					<MenuItem
+						Name="HideTrayAgent"
+						HeaderedItemsControl.Header="{localization:Translate {x:Static s:StringConsts.STR_HIDE_TRAY_AGENT}}"
+						Click="HideTrayMenuItem_Click" />
+					<MenuItem
+						Name="CloseCommand"
+						Command="{Binding CloseCommand}"
+						HeaderedItemsControl.Header="{localization:Translate {x:Static s:StringConsts.STR_EXIT_REWASD}}" />
+				</ContextMenu>
+			</FrameworkElement.ContextMenu>
+		</tb:TaskbarIcon>
+	</Grid>
+</Window>

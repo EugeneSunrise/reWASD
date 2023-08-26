@@ -1,0 +1,25 @@
+<dsBaseApp:DSBaseApplication
+	x:Class="reWASDUI.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dsBaseApp="clr-namespace:DiscSoft.NET.Common.DSBaseApp;assembly=DiscSoft.NET.Common" xmlns:rewasdui="clr-namespace:reWASDUI">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="/Views/Preferences/DirectXOverlayResources.xaml" />
+				<ResourceDictionary
+					Source="/reWASDResources;component/Images/_ImageCatalog.xaml" />
+				<ResourceDictionary
+					Source="/reWASDResources;component/SVG/_SVGCatalog.xaml" />
+				<ResourceDictionary
+					Source="/DiscSoft.NET.Common;component/Themes/_CommonTemplate.xaml" />
+				<ResourceDictionary
+					Source="/reWASDResources;component/Themes/BaseTemplate/_BaseTemplate.xaml" />
+				<ResourceDictionary
+					Source="Themes/BaseTemplate/_BaseTemplate.xaml" />
+				<ResourceDictionary
+					Source="DataTemplates/_DataTemplates.xaml" />
+				<ResourceDictionary
+					Source="Infrastructure/RadialMenu/Themes/Generic.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
+</dsBaseApp:DSBaseApplication>

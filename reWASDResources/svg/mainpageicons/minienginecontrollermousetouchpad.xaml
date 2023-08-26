@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="MiniEngineControllerMouseTouchpad" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="MiniEngineControllerMouseTouchpad">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M24.145,19.5L1.855,19.5C0.833,19.5,0,18.639,0,17.579L0,8.421C0,7.362,0.833,6.5,1.855,6.5L24.144,6.5C25.168,6.5,26,7.362,26,8.421L26,17.579C26,18.639,25.168,19.5,24.145,19.5z M1.855,7.5C1.384,7.5,1,7.913,1,8.421L1,17.579C1,18.087,1.384,18.5,1.855,18.5L24.144,18.5C24.616,18.5,24.999,18.087,24.999,17.579L24.999,8.421C25,7.913,24.616,7.5,24.145,7.5L1.855,7.5z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M20.5,13.5L19.5,13.5C19.224,13.5,19,13.276,19,13L19,11C19,10.724,19.224,10.5,19.5,10.5L20.5,10.5C20.776,10.5,21,10.724,21,11L21,13C21,13.276,20.776,13.5,20.5,13.5z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M22,9L4,9C3.172,9,2.5,9.672,2.5,10.5L2.5,15.5C2.5,16.328,3.172,17,4,17L22,17C22.828,17,23.5,16.328,23.5,15.5L23.5,10.5C23.5,9.672,22.828,9,22,9z M4,10L22,10C22.276,10,22.5,10.224,22.5,10.5L22.5,14 3.5,14 3.5,10.5C3.5,10.224,3.724,10,4,10z M4,16C3.724,16,3.5,15.776,3.5,15.5L3.5,15 12.5,15 12.5,16 4,16z M22,16L13.5,16 13.5,15 22.5,15 22.5,15.5C22.5,15.776,22.276,16,22,16z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,26,26" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

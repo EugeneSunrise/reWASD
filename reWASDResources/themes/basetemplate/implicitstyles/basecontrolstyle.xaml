@@ -1,0 +1,30 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		x:Key="BaseControlStyle"
+		TargetType="{x:Type Control}">
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0" />
+		<Setter
+			Property="FrameworkElement.MinHeight"
+			Value="24" />
+		<Setter
+			Property="Control.HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="Control.VerticalContentAlignment"
+			Value="Center" />
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsEnabled"
+				Value="false">
+				<Setter
+					Property="Control.Foreground"
+					Value="{DynamicResource DisabledControlForegroundColor}" />
+				<Setter
+					Property="UIElement.Opacity"
+					Value="0.7" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

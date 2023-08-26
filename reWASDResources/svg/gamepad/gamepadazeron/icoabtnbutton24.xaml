@@ -1,0 +1,53 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoABtnButton24" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoABtnButton24">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M7.727,11.5L3.049,11.5 3.049,10.66 4.828,8.871C5.354,8.333 5.702,7.951 5.874,7.726 6.046,7.501 6.171,7.289 6.25,7.091 6.329,6.893 6.368,6.681 6.368,6.453 6.368,6.142 6.274,5.896 6.087,5.716 5.9,5.536 5.641,5.447 5.311,5.447 5.047,5.447 4.791,5.495 4.544,5.593 4.296,5.691 4.011,5.868 3.687,6.123L3.087,5.392C3.47,5.068 3.844,4.838 4.206,4.703 4.568,4.567 4.953,4.5 5.362,4.5 6.004,4.5 6.519,4.668 6.905,5.003 7.291,5.338 7.485,5.789 7.485,6.356 7.485,6.667 7.429,6.963 7.317,7.243 7.207,7.523 7.035,7.812 6.804,8.109 6.572,8.406 6.187,8.808 5.651,9.315L4.451,10.476 4.451,10.523 7.727,10.523 7.727,11.5z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M12.951,9.977L12.011,9.977 12.011,11.5 10.918,11.5 10.918,9.977 7.727,9.977 7.727,9.112 10.917,4.5 12.01,4.5 12.01,9.046 12.95,9.046 12.95,9.978 12.951,9.978 12.951,9.977z M10.917,9.046L10.917,7.294C10.917,6.67,10.933,6.159,10.964,5.762L10.926,5.762C10.837,5.972,10.697,6.227,10.506,6.526L8.772,9.047C8.772,9.046,10.917,9.046,10.917,9.046z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<GeometryDrawing>
+						<GeometryDrawing.Pen>
+							<Pen
+								Brush="#FFFFFFFF"
+								Thickness="1"
+								StartLineCap="Flat"
+								EndLineCap="Flat"
+								LineJoin="Miter"
+								MiterLimit="10" />
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8,15.5L8,15.5C4.962,15.5,2.5,13.038,2.5,10L2.5,6C2.5,2.962,4.962,0.5,8,0.5L8,0.5C11.038,0.5,13.5,2.962,13.5,6L13.5,10C13.5,13.038,11.038,15.5,8,15.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

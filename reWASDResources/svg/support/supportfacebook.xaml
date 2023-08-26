@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="SupportFacebook" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="SupportFacebook">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFE795">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M11.5478,0.00439758L8.66976,0C5.43643,0,3.34584,2.1252,3.34584,5.4142L3.34584,7.91009 0.4522,7.91009C0.201597,7.91009,0,8.1114,0,8.3589L0,11.9757C0,12.2232,0.202711,12.4245,0.4522,12.4245L3.34584,12.4245 3.34584,21.5512C3.34695,21.7998,3.54855,22,3.79915,22L7.5749,22C7.8255,22,8.0271,21.7987,8.0271,21.5512L8.0271,12.4245 11.4108,12.4245C11.6603,12.4245,11.863,12.2243,11.863,11.9757L11.8641,8.3589C11.8641,8.2401 11.8162,8.12571 11.7316,8.04211 11.6469,7.95851 11.5311,7.91009 11.4108,7.91009L8.0271,7.91009 8.0271,5.79481C8.0271,4.77731,8.27102,4.26139,9.60868,4.26139L11.5478,4.2603C11.7973,4.2603,12,4.059,12,3.8115L12,0.453203C12,0.205703,11.7973,0.00549758,11.5478,0.00439758z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,12,22" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

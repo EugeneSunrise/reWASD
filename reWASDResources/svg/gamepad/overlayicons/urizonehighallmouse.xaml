@@ -1,0 +1,49 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriZoneHighAllMouse" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriZoneHighAllMouse">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M4.5,6.5L1.5,6.5 1.5,12.5 4.5,12.5 4.5,6.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.5,4.5L5.5,4.5 5.5,12.5 8.5,12.5 8.5,4.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M12.5,2.5L9.5,2.5 9.5,12.5 12.5,12.5 12.5,2.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M22,2.06L21.74,2.06 21.5,2C21.5,1.448,21.948,1,22.5,1L22.5,0C21.395,0 20.5,0.895 20.5,2 20.334,1.989 20.166,1.989 20,2 16.56,2.45 16.55,7 16.55,7L16.55,10C16.55,14,19.55,14,19.55,14L22.55,14C25.55,14,25.55,10,25.55,10L25.55,7C25.5,3.14,23.12,2.26,22,2.06z M24.5,7L21.5,7 21.5,3C22.5,3,24.5,4,24.5,7z M20.5,3L20.5,7 17.5,7C17.5,4,19.5,3,20.5,3z M22.5,13L19.5,13C17.5,13,17.5,10,17.5,10L17.5,8 24.5,8 24.5,10C24.5,13,22.5,13,22.5,13z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,28,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

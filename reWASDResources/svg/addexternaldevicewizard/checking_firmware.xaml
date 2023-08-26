@@ -1,0 +1,195 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Checking_firmware" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Checking_firmware">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FF464646">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										PathGeometry.Figures="M100,107L7,107C3.134,107,0,103.866,0,100L0,7C0,3.134,3.134,0,7,0L100,0C103.866,0,107,3.134,107,7L107,100C107,103.866,103.866,107,100,107z"
+										FillRule="Nonzero" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<GeometryDrawing
+						Brush="#FF535353">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								PathGeometry.Figures="M99.5,77.5L73.5,77.5C72.395,77.5,71.5,76.605,71.5,75.5L71.5,35.5C71.5,34.395,72.395,33.5,73.5,33.5L99.5,33.5C100.605,33.5,101.5,34.395,101.5,35.5L101.5,75.5C101.5,76.605,100.605,77.5,99.5,77.5z"
+								FillRule="Nonzero" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush
+								MappingMode="Absolute"
+								Opacity="1"
+								StartPoint="86.4985,79.3555"
+								EndPoint="86.4985,27.571">
+								<GradientBrush.GradientStops>
+									<GradientStop
+										Offset="0"
+										Color="#FFFFE384" />
+									<GradientStop
+										Offset="1"
+										Color="#FFFFF0BA" />
+								</GradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								PathGeometry.Figures="M99.498,75.5L73.498,75.5C72.393,75.5,71.498,74.605,71.498,73.5L71.498,33.5C71.498,32.395,72.393,31.5,73.498,31.5L99.498,31.5C100.603,31.5,101.498,32.395,101.498,33.5L101.498,73.5C101.498,74.605,100.603,75.5,99.498,75.5z"
+								FillRule="Nonzero" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup
+						svr:SvgObject.Id="pc">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FF464646">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										PathGeometry.Figures="M80.04,49.25L80.04,53.14 77.497,53.14 77.497,41.849 81.482,41.849C84.328,41.849 85.75,43.049 85.75,45.448 85.785,46.504 85.333,47.519 84.526,48.2 83.6,48.938 82.436,49.312 81.254,49.251L80.04,49.25z M80.04,43.801L80.04,47.321 81.04,47.321C82.394,47.321 83.071,46.728 83.071,45.542 83.071,44.382 82.394,43.801 81.04,43.801L80.04,43.801z M95.5,52.739C94.482,53.176 93.379,53.38 92.272,53.336 90.756,53.419 89.275,52.866 88.185,51.809 87.161,50.708 86.625,49.24 86.697,47.738 86.63,46.106 87.234,44.518 88.369,43.344 89.521,42.206 91.094,41.596 92.712,41.659 93.658,41.635 94.602,41.776 95.5,42.077L95.5,44.526C94.718,44.067 93.824,43.833 92.917,43.849 91.959,43.808 91.027,44.171 90.349,44.849 89.673,45.584 89.322,46.56 89.374,47.557 89.325,48.514 89.656,49.452 90.295,50.167 90.945,50.83 91.848,51.184 92.776,51.139 93.733,51.148 94.675,50.898 95.501,50.414L95.501,52.739z"
+										FillRule="Nonzero" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<GeometryDrawing
+						Brush="#FF464646">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								PathGeometry.Figures="M93,66L80,66 80,59.5 93,59.5 93,66z M81,65L92,65 92,60.5 81,60.5 81,65z"
+								FillRule="Nonzero" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FF464646">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="82.5,62.5,8,1.5" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FF535353">
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="55.833,51.875,2.833,2.833" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FF535353">
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="55.833,56.125,2.833,2.833" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FF535353">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										PathGeometry.Figures="M56.5,49.042L53,49.042 53,48.334 53,47.5 41.681,47.5 40.5,48.681 38.556,50.625 38.103,51.078 38.103,54.708 9.5,54.708 9.5,56.125 38.103,56.125 38.103,59.755 38.973,60.625 40.5,62.152 41.681,63.333 53,63.333 53,62.333 53,61.791 56.5,61.791 61.5,61.791 61.5,49.041 56.5,49.041z M51.583,49.042L51.583,61.792 51.583,61.917 42.268,61.917 39.52,59.169 39.52,51.665 42.268,48.917 51.583,48.917 51.583,49.042z M60.083,60.375L56.5,60.375 53,60.375 53,50.458 56.5,50.458 60.083,50.458 60.083,60.375z"
+										FillRule="Nonzero" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<LinearGradientBrush
+										MappingMode="Absolute"
+										Opacity="1"
+										StartPoint="86.4985,79.3555"
+										EndPoint="86.4985,27.571">
+										<GradientBrush.GradientStops>
+											<GradientStop
+												Offset="0"
+												Color="#FFFFE384" />
+											<GradientStop
+												Offset="1"
+												Color="#FFFFF0BA" />
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="55.833,49.875,2.833,2.833" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<LinearGradientBrush
+										MappingMode="Absolute"
+										Opacity="1"
+										StartPoint="86.4985,79.3555"
+										EndPoint="86.4985,27.571">
+										<GradientBrush.GradientStops>
+											<GradientStop
+												Offset="0"
+												Color="#FFFFE384" />
+											<GradientStop
+												Offset="1"
+												Color="#FFFFF0BA" />
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<RectangleGeometry
+										RadiusX="0"
+										RadiusY="0"
+										Rect="55.833,54.125,2.833,2.833" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Brush>
+									<LinearGradientBrush
+										MappingMode="Absolute"
+										Opacity="1"
+										StartPoint="86.4985,79.3555"
+										EndPoint="86.4985,27.571">
+										<GradientBrush.GradientStops>
+											<GradientStop
+												Offset="0"
+												Color="#FFFFE384" />
+											<GradientStop
+												Offset="1"
+												Color="#FFFFF0BA" />
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</GeometryDrawing.Brush>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										PathGeometry.Figures="M56.5,47.042L53,47.042 53,46.334 53,45.5 41.681,45.5 40.5,46.681 38.556,48.625 38.103,49.078 38.103,52.708 9.5,52.708 9.5,54.125 38.103,54.125 38.103,57.755 38.973,58.625 40.5,60.152 41.681,61.333 53,61.333 53,60.333 53,59.791 56.5,59.791 61.5,59.791 61.5,47.041 56.5,47.041z M51.583,47.042L51.583,59.792 51.583,59.917 42.268,59.917 39.52,57.169 39.52,49.665 42.268,46.917 51.583,46.917 51.583,47.042z M60.083,58.375L56.5,58.375 53,58.375 53,48.458 56.5,48.458 60.083,48.458 60.083,58.375z"
+										FillRule="Nonzero" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,107,107" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

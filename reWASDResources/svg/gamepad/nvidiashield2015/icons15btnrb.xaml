@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoNS15BtnRB" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoNS15BtnRB">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M1.5,5.048L14.5,5.048C14.776,5.048,15,5.272,15,5.548L15,10.452C15,10.728,14.777,10.952,14.502,10.952L1.469,10.138C1.206,10.122,1,9.902,1,9.639L1,5.548C1,5.272,1.224,5.048,1.5,5.048 M1.5,4.048C0.672,4.048,0,4.72,0,5.548L0,9.639C0,10.431,0.616,11.087,1.407,11.135L14.407,11.948C14.439,11.95 14.47,11.951 14.502,11.951 15.323,11.951 16,11.284 16,10.451L16,5.548C16,4.72,15.328,4.048,14.5,4.048L1.5,4.048 1.5,4.048z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M6.483,6.069C6.759,6 7.172,6 7.655,6 8.207,6 8.621,6.069 8.965,6.345 9.172,6.552 9.31,6.828 9.31,7.172 9.31,7.655 8.965,8 8.62,8.138L8.62,8.138C8.896,8.276 9.034,8.483 9.172,8.897 9.31,9.31 9.379,9.862 9.517,10L8.552,10C8.483,9.862 8.345,9.517 8.276,9.034 8.138,8.552 8,8.414 7.586,8.414L7.31,8.414 7.31,9.931 6.483,9.931C6.483,9.931,6.483,6.069,6.483,6.069z M7.31,7.793L7.655,7.793C8.069,7.793 8.345,7.586 8.345,7.241 8.345,6.896 8.069,6.689 7.655,6.689 7.448,6.689 7.31,6.689 7.241,6.689L7.241,7.792C7.241,7.793,7.31,7.793,7.31,7.793z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

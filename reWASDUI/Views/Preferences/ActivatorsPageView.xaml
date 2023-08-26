@@ -1,0 +1,194 @@
+<UserControl
+	x:Class="reWASDUI.Views.Preferences.ActivatorsPageView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:markupExtensions="clr-namespace:DiscSoft.NET.Common.Utils.Markup_Extensions;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:multiRangeSlider="clr-namespace:DiscSoft.NET.Common.View.Controls.MultiRangeSlider;assembly=DiscSoft.NET.Common" xmlns:qc="clr-namespace:QuickConverter;assembly=QuickConverter" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:preferences="clr-namespace:reWASDUI.ViewModels.Preferences"
+	x:Name="ucPreferencesPressTimes" xmlns:preferences1="clr-namespace:reWASDUI.Views.Preferences">
+	<Border
+		Border.BorderBrush="{DynamicResource ItemControlHighlightedBackground}"
+		Border.BorderThickness="1,0,0,0">
+		<ScrollViewer
+			FrameworkElement.Style="{DynamicResource PreferencesPageGridStyle}">
+			<StackPanel>
+				<TextBlock
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					utils:NavigationServiceHTML.Text="{l:Translate {x:Static s:StringConsts.STR_LONG_PRESS_TIME}}" />
+				<multiRangeSlider:MultiRangeSlider
+					Name="mrsLongPress"
+					FrameworkElement.Margin="0,3"
+					Control.Background="#00FFFFFF"
+					ThumbWidth="5"
+					Units="{l:Translate {x:Static s:StringConsts.STR_TIME_UNITS}}"
+					Maximum="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.LongWaitTimeMaxInMs}}"
+					Minimum="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.LongWaitTimeMinInMs}}">
+					<multiRangeSlider:MultiRangeSlider.Items>
+						<multiRangeSlider:MultiRangeSliderItem
+							IsThumbHitTestVisible="False"
+							RightBackground="{DynamicResource Shift2Brush}"
+							ThumbBackground="{DynamicResource Shift2Brush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							LeftValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.LongWaitTimeMinInMs}}" />
+						<multiRangeSlider:MultiRangeSliderItem
+							IsShowValueInTooltip="True"
+							RightBackground="#FF808080"
+							ThumbBackground="{DynamicResource Shift2Brush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							ToolTipValueAdditionalText="ms"
+							Header="{l:Translate {x:Static s:StringConsts.STR_VALUE}}"
+							LeftValue="{Binding LongWaitTimeInMs, Mode=TwoWay}"
+							RightValue="{Binding LongWaitTimeInMs, Mode=TwoWay}" />
+						<multiRangeSlider:MultiRangeSliderItem
+							IsThumbHitTestVisible="False"
+							RightBackground="#FF808080"
+							ThumbBackground="#FF808080"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							LeftValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.LongWaitTimeMaxInMs}}"
+							RightValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.LongWaitTimeMaxInMs}}" />
+					</multiRangeSlider:MultiRangeSlider.Items>
+				</multiRangeSlider:MultiRangeSlider>
+				<TextBlock
+					FrameworkElement.Margin="0,8,0,0"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					utils:NavigationServiceHTML.Text="{l:Translate {x:Static s:StringConsts.STR_DOUBLE_TRIPLE_PRESS_TIME}}" />
+				<multiRangeSlider:MultiRangeSlider
+					Name="mrsDoubleTriplePress"
+					FrameworkElement.Margin="0,3"
+					Control.Background="#00FFFFFF"
+					ThumbWidth="5"
+					Units="{l:Translate {x:Static s:StringConsts.STR_TIME_UNITS}}"
+					Maximum="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.DoubleWaitTimeMaxInMs}}"
+					Minimum="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.SingleWaitTimeMinInMs}}">
+					<multiRangeSlider:MultiRangeSlider.Items>
+						<multiRangeSlider:MultiRangeSliderItem
+							IsThumbHitTestVisible="False"
+							RightBackground="{DynamicResource Shift2Brush}"
+							ThumbBackground="{DynamicResource Shift2Brush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							LeftValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.SingleWaitTimeMinInMs}}" />
+						<multiRangeSlider:MultiRangeSliderItem
+							IsShowValueInTooltip="True"
+							RightBackground="{DynamicResource CreamBrush}"
+							ThumbBackground="{DynamicResource Shift2Brush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							ToolTipValueAdditionalText="ms"
+							Header="{l:Translate {x:Static s:StringConsts.STR_DOUBLE_PRESS}}"
+							LeftValue="{Binding SingleWaitTimeInMs, Mode=TwoWay}"
+							MinimumValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.SingleWaitTimeMinInMs}}"
+							RightValue="{Binding SingleWaitTimeInMs, Mode=TwoWay}">
+							<multiRangeSlider:MultiRangeSliderItem.MaximumValue>
+								<qc:MultiBinding
+									qc:MultiBinding.P0="{Binding DoubleWaitTimeInMs, Mode=OneWay}"
+									qc:MultiBinding.P1="{Binding Source='{x:Static infrastructure:Constants.SingleDoubleWaitMinDifferenceInMs}'}">
+									<Ctor xmlns="https://github.com/dnSpyEx/dnSpy">$P0-$P1</Ctor>
+								</qc:MultiBinding>
+							</multiRangeSlider:MultiRangeSliderItem.MaximumValue>
+						</multiRangeSlider:MultiRangeSliderItem>
+						<multiRangeSlider:MultiRangeSliderItem
+							IsShowValueInTooltip="True"
+							RightBackground="#FF808080"
+							ThumbBackground="{DynamicResource CreamBrush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							ToolTipValueAdditionalText="ms"
+							Header="{l:Translate {x:Static s:StringConsts.STR_TRIPLE_PRESS}}"
+							LeftValue="{Binding DoubleWaitTimeInMs, Mode=TwoWay}"
+							MaximumValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.DoubleWaitTimeMaxInMs}}"
+							RightValue="{Binding DoubleWaitTimeInMs, Mode=TwoWay}">
+							<multiRangeSlider:MultiRangeSliderItem.MinimumValue>
+								<qc:MultiBinding
+									qc:MultiBinding.P0="{Binding SingleWaitTimeInMs, Mode=OneWay}"
+									qc:MultiBinding.P1="{Binding Source='{x:Static infrastructure:Constants.SingleDoubleWaitMinDifferenceInMs}'}">
+									<Ctor xmlns="https://github.com/dnSpyEx/dnSpy">$P0+$P1</Ctor>
+								</qc:MultiBinding>
+							</multiRangeSlider:MultiRangeSliderItem.MinimumValue>
+						</multiRangeSlider:MultiRangeSliderItem>
+						<multiRangeSlider:MultiRangeSliderItem
+							IsThumbHitTestVisible="False"
+							RightBackground="#FF808080"
+							ThumbBackground="#FF808080"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							LeftValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.DoubleWaitTimeMaxInMs}}"
+							RightValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.DoubleWaitTimeMaxInMs}}" />
+					</multiRangeSlider:MultiRangeSlider.Items>
+				</multiRangeSlider:MultiRangeSlider>
+				<TextBlock
+					FrameworkElement.Margin="0,8,0,0"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					utils:NavigationServiceHTML.Text="{l:Translate {x:Static s:StringConsts.STR_SHORTCUT_PRESS_TIME}}" />
+				<multiRangeSlider:MultiRangeSlider
+					Name="mrsShortcutPressTimes"
+					FrameworkElement.Margin="0,3"
+					Control.Background="#00FFFFFF"
+					IsSnapToTickEnabled="True"
+					ThumbWidth="5"
+					Units="{l:Translate {x:Static s:StringConsts.STR_TIME_UNITS}}"
+					Maximum="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.ShortcutPressTimeMaxInMs}}"
+					Minimum="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.ShortcutPressTimeMinInMs}}">
+					<multiRangeSlider:MultiRangeSlider.Items>
+						<multiRangeSlider:MultiRangeSliderItem
+							IsThumbHitTestVisible="False"
+							RightBackground="{DynamicResource Shift2Brush}"
+							ThumbBackground="{DynamicResource Shift2Brush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							LeftValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.ShortcutPressTimeMinInMs}}" />
+						<multiRangeSlider:MultiRangeSliderItem
+							IsShowValueInTooltip="True"
+							RightBackground="#FF808080"
+							ThumbBackground="{DynamicResource Shift2Brush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							ToolTipValueAdditionalText="ms"
+							Header="{l:Translate {x:Static s:StringConsts.STR_VALUE}}"
+							LeftValue="{Binding ShortcutPressTimeInMs, Mode=TwoWay}"
+							RightValue="{Binding ShortcutPressTimeInMs, Mode=TwoWay}" />
+						<multiRangeSlider:MultiRangeSliderItem
+							IsThumbHitTestVisible="False"
+							RightBackground="#FF808080"
+							ThumbBackground="#FF808080"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							LeftValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.ShortcutPressTimeMaxInMs}}"
+							RightValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.ShortcutPressTimeMaxInMs}}" />
+					</multiRangeSlider:MultiRangeSlider.Items>
+				</multiRangeSlider:MultiRangeSlider>
+				<TextBlock
+					FrameworkElement.Margin="0,8,0,0"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					utils:NavigationServiceHTML.Text="{l:Translate {x:Static s:StringConsts.STR_SLOTHOTKEY_PRESS_TIME}}" />
+				<multiRangeSlider:MultiRangeSlider
+					Name="mrsSlotHotkeyPressTimes"
+					FrameworkElement.Margin="0,3"
+					Control.Background="#00FFFFFF"
+					IsSnapToTickEnabled="True"
+					ThumbWidth="5"
+					Units="{l:Translate {x:Static s:StringConsts.STR_TIME_UNITS}}"
+					Maximum="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.SlotHotkeyPressTimeMaxInMs}}"
+					Minimum="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.SlotHotkeyPressTimeMinInMs}}">
+					<multiRangeSlider:MultiRangeSlider.Items>
+						<multiRangeSlider:MultiRangeSliderItem
+							IsThumbHitTestVisible="False"
+							RightBackground="{DynamicResource Shift2Brush}"
+							ThumbBackground="{DynamicResource Shift2Brush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							LeftValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.SlotHotkeyPressTimeMinInMs}}" />
+						<multiRangeSlider:MultiRangeSliderItem
+							IsShowValueInTooltip="True"
+							RightBackground="#FF808080"
+							ThumbBackground="{DynamicResource Shift2Brush}"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							ToolTipValueAdditionalText="ms"
+							Header="{l:Translate {x:Static s:StringConsts.STR_VALUE}}"
+							LeftValue="{Binding SlotHotkeyPressTimeInMs, Mode=TwoWay}"
+							RightValue="{Binding SlotHotkeyPressTimeInMs, Mode=TwoWay}" />
+						<multiRangeSlider:MultiRangeSliderItem
+							IsThumbHitTestVisible="False"
+							RightBackground="#FF808080"
+							ThumbBackground="#FF808080"
+							ThumbStyle="{StaticResource {x:Type Thumb}}"
+							LeftValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.SlotHotkeyPressTimeMaxInMs}}"
+							RightValue="{markupExtensions:CastObjectToDouble {x:Static infrastructure:Constants.SlotHotkeyPressTimeMaxInMs}}" />
+					</multiRangeSlider:MultiRangeSlider.Items>
+				</multiRangeSlider:MultiRangeSlider>
+				<buttons:ColoredButton
+					Name="btnRestoreDefaults"
+					FrameworkElement.HorizontalAlignment="Left"
+					ButtonBase.Command="{Binding ResetToDefaultsCommand}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_RESTORE_TO_DEFAULTS}}" />
+			</StackPanel>
+		</ScrollViewer>
+	</Border>
+</UserControl>

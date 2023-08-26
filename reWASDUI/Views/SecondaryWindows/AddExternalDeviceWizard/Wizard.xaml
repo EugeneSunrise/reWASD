@@ -1,0 +1,185 @@
+<base:BaseSecondaryWindow
+	x:Class="reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard.Wizard" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:addExternalDeviceWizard="clr-namespace:reWASDUI.ViewModels.SecondaryWindows.AddExternalDeviceWizard" xmlns:addExternalDeviceWizard1="clr-namespace:reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard" xmlns:base="clr-namespace:DiscSoft.NET.Common.View.SecondaryWindows.Base;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="AddExternalDeviceWizard"
+	FrameworkElement.Width="650"
+	FrameworkElement.Height="466"
+	FrameworkElement.MaxWidth="650"
+	FrameworkElement.MaxHeight="466"
+	AutomationProperties.AutomationId="AddExternalDeviceWizard"
+	SizeToContent="Height"
+	FrameworkElement.Style="{DynamicResource SecondaryWindowStyle}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AdaptersSettingsVM}}"
+				DataType="{x:Type addExternalDeviceWizard:AdaptersSettingsVM}">
+				<addExternalDeviceWizard1:AdaptersSettings />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:DeviceTypeVM}}"
+				DataType="{x:Type addExternalDeviceWizard:DeviceTypeVM}">
+				<addExternalDeviceWizard1:DeviceType />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:BluetoothSettingsVM}}"
+				DataType="{x:Type addExternalDeviceWizard:BluetoothSettingsVM}">
+				<addExternalDeviceWizard1:BluetoothSettings />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:GimxStage1VM}}"
+				DataType="{x:Type addExternalDeviceWizard:GimxStage1VM}">
+				<addExternalDeviceWizard1:GimxStage1 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:GimxStage2VM}}"
+				DataType="{x:Type addExternalDeviceWizard:GimxStage2VM}">
+				<addExternalDeviceWizard1:GimxStage2 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:GimxStage3VM}}"
+				DataType="{x:Type addExternalDeviceWizard:GimxStage3VM}">
+				<addExternalDeviceWizard1:GimxStage3 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:GimxStage4VM}}"
+				DataType="{x:Type addExternalDeviceWizard:GimxStage4VM}">
+				<addExternalDeviceWizard1:GimxStage4 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:GimxFailsStageVM}}"
+				DataType="{x:Type addExternalDeviceWizard:GimxFailsStageVM}">
+				<addExternalDeviceWizard1:GimxFailsStage />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:EspStage1VM}}"
+				DataType="{x:Type addExternalDeviceWizard:EspStage1VM}">
+				<addExternalDeviceWizard1:EspStage1 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:EspStage3VM}}"
+				DataType="{x:Type addExternalDeviceWizard:EspStage3VM}">
+				<addExternalDeviceWizard1:EspStage3 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:EspStage4VM}}"
+				DataType="{x:Type addExternalDeviceWizard:EspStage4VM}">
+				<addExternalDeviceWizard1:EspStage4 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:EspFailsStageVM}}"
+				DataType="{x:Type addExternalDeviceWizard:EspFailsStageVM}">
+				<addExternalDeviceWizard1:EspFailsStage />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:ToolDownloaderVM}}"
+				DataType="{x:Type addExternalDeviceWizard:ToolDownloaderVM}">
+				<addExternalDeviceWizard1:ToolDownloader />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:EspLatencySpeedVM}}"
+				DataType="{x:Type addExternalDeviceWizard:EspLatencySpeedVM}">
+				<addExternalDeviceWizard1:EspLatencySpeed />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddExternalClientVM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddExternalClientVM}">
+				<addExternalDeviceWizard1:AddExternalClient />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddOtherBTClientVM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddOtherBTClientVM}">
+				<addExternalDeviceWizard1:AddOtherBTClient />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddOtherEsp32BTClientVM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddOtherEsp32BTClientVM}">
+				<addExternalDeviceWizard1:AddOtherEsp32BTClient />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddOtherEsp32BTClientFinishVM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddOtherEsp32BTClientFinishVM}">
+				<addExternalDeviceWizard1:AddOtherEsp32BTClientFinish />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddPS4ConsoleStep1VM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddPS4ConsoleStep1VM}">
+				<addExternalDeviceWizard1:AddPS4ConsoleStep1 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddPS4ConsoleStep2VM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddPS4ConsoleStep2VM}">
+				<addExternalDeviceWizard1:AddPS4ConsoleStep2 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddPS4ConsoleStepConfigRequiredVM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddPS4ConsoleStepConfigRequiredVM}">
+				<addExternalDeviceWizard1:AddPS4ConsoleStepConfigRequired />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddPS4ConsoleStep3VM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddPS4ConsoleStep3VM}">
+				<addExternalDeviceWizard1:AddPS4ConsoleStep3 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddPS4ConsoleStep4VM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddPS4ConsoleStep4VM}">
+				<addExternalDeviceWizard1:AddPS4ConsoleStep4 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddPS4ConsoleErrorPageVM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddPS4ConsoleErrorPageVM}">
+				<addExternalDeviceWizard1:AddPS4ConsoleErrorPage />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStep1VM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStep1VM}">
+				<addExternalDeviceWizard1:AddNintendoSwitchConsoleStep1 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStep2VM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStep2VM}">
+				<addExternalDeviceWizard1:AddNintendoSwitchConsoleStep2 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStep2aVM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStep2aVM}">
+				<addExternalDeviceWizard1:AddNintendoSwitchConsoleStep2a />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStep2bVM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStep2bVM}">
+				<addExternalDeviceWizard1:AddNintendoSwitchConsoleStep2b />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStep3VM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStep3VM}">
+				<addExternalDeviceWizard1:AddNintendoSwitchConsoleStep3 />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStepConfigRequiredVM}}"
+				DataType="{x:Type addExternalDeviceWizard:AddNintendoSwitchConsoleStepConfigRequiredVM}">
+				<addExternalDeviceWizard1:AddNintendoSwitchConsoleStepConfigRequired />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:SelectAuthGamepadVM}}"
+				DataType="{x:Type addExternalDeviceWizard:SelectAuthGamepadVM}">
+				<addExternalDeviceWizard1:SelectAuthGamepad />
+			</DataTemplate>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type addExternalDeviceWizard:FinishAndWaitUSBClientVM}}"
+				DataType="{x:Type addExternalDeviceWizard:FinishAndWaitUSBClientVM}">
+				<addExternalDeviceWizard1:FinishAndWaitUSBClient />
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Border>
+		<Grid
+			x:Uid="ContentGrid"
+			Panel.Background="{DynamicResource WizardBackgroundBrush}"
+			UIElement.Focusable="False">
+			<ContentControl
+				UIElement.Focusable="False"
+				ContentControl.Content="{Binding CurrentPage}" />
+		</Grid>
+	</Border>
+</base:BaseSecondaryWindow>

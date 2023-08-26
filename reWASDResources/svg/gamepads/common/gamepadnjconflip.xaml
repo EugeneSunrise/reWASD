@@ -1,0 +1,90 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="GamepadNJConFlip" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="GamepadNJConFlip">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#00FFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0.02,0.02,35.98,35.98" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M26.51,4.02C26.24,4.02 26.022,4.239 26.022,4.508 26.022,4.779 26.243,4.996 26.51,4.996 26.781,4.996 27,4.779 27,4.508 27,4.237 26.781,4.02 26.51,4.02L26.51,4.02z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M29,4.02C33,4.02,32.999,7.777,33,8.02L35,8.02 35,27.988C35,33.827,30.512,34.017,30,34.019L25,34.019 25,31.019 25,30.019 24,30.019 24,4.019 25,4.019 25,3.019 25,2.019 29,2.019 29,4.02z M30,1.02C24,1.02,24,1.02,24,1.02L24,3.02 23,3.02 23,31.02 24,31.02 24,35.02 30,35.02C30,35.02 30,35.02 30.001,35.02 30.104,35.02 36,34.992 36,27.989 36,20.926 36,8.021 36,8.021 36,8.021 36,1.02 30,1.02L30,1.02z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M33.51,11.02C33.24,11.02 33.022,11.239 33.022,11.508 33.022,11.779 33.243,11.996 33.51,11.996 33.781,11.996 34,11.779 34,11.508 34,11.237 33.781,11.02 33.51,11.02L33.51,11.02z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M26.488,32.041C26.217,32.041 26,32.262 26,32.531 26,32.802 26.219,33.019 26.488,33.019 26.759,33.019 26.978,32.802 26.978,32.531 26.979,32.262 26.76,32.041 26.488,32.041L26.488,32.041z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M7,2.02L11,2.02 11,3.02 11,4.02 12,4.02 12,30.02 11,30.02 11,31.02 11,34.02 6,34.02C5.488,34.018,1,33.828,1,27.989L1,8.02 3,8.02C3.001,7.777,3,4.02,7,4.02L7,2.02z M6,1.02C0,1.02 0,8.02 0,8.02 0,8.02 0,20.926 0,27.988 0,34.991 5.896,35.019 5.999,35.019 6,35.019 6,35.019 6,35.019L12,35.019 12,31.019 13,31.019 13,3.019 12,3.019 12,1.019C12,1.02,12,1.02,6,1.02L6,1.02z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M9.51,4.02C9.241,4.02 9.022,4.239 9.022,4.508 9.022,4.779 9.241,4.996 9.51,4.996 9.781,4.996 10,4.779 10,4.508 10,4.237 9.781,4.02 9.51,4.02L9.51,4.02z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M2.488,11.041C2.219,11.041 2,11.261 2,11.53 2,11.801 2.218,12.018 2.488,12.018 2.758,12.018 2.978,11.801 2.978,11.53 2.979,11.261 2.759,11.041 2.488,11.041L2.488,11.041z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M9.488,32.041C9.218,32.041 9,32.262 9,32.531 9,32.802 9.218,33.019 9.488,33.019 9.758,33.019 9.978,32.802 9.978,32.531 9.979,32.262 9.759,32.041 9.488,32.041L9.488,32.041z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

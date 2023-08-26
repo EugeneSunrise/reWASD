@@ -1,0 +1,97 @@
+<base:BaseSecondaryWindow
+	x:Class="reWASDUI.Views.SecondaryWindows.GetExternalClientAddress" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:base="clr-namespace:DiscSoft.NET.Common.View.SecondaryWindows.Base;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	Title="GetExternalClientAddress"
+	FrameworkElement.Width="350"
+	FrameworkElement.Height="450"
+	SizeToContent="Manual"
+	FrameworkElement.Style="{DynamicResource SecondaryWindowStyle}" xmlns:secondarywindows="clr-namespace:reWASDUI.Views.SecondaryWindows">
+	<Grid
+		FrameworkElement.Style="{DynamicResource SecondaryWindowContentGridStyle}">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="Auto" />
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="Auto" />
+		</Grid.RowDefinitions>
+		<StackPanel
+			Grid.Row="0"
+			Orientation="Vertical">
+			<TextBlock
+				TextBlock.FontSize="16"
+				FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+				TextBlock.Text="External clients for bluetooth connection" />
+			<StackPanel
+				Orientation="Horizontal">
+				<buttons:ColoredButton
+					FrameworkElement.HorizontalAlignment="Left"
+					ContentControl.Content="Add new"
+					ButtonBase.Command="{Binding AddExternalClientCommand}" />
+				<buttons:ColoredButton
+					FrameworkElement.Margin="10,10,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					ContentControl.Content="Add PS4"
+					ButtonBase.Command="{Binding AddExternalPS4ClientCommand}" />
+			</StackPanel>
+		</StackPanel>
+		<ListBox
+			Name="icClients"
+			Grid.Row="1"
+			FrameworkElement.Margin="0,15,0,10"
+			FrameworkElement.VerticalAlignment="Stretch"
+			Control.Background="#00FFFFFF"
+			Control.BorderBrush="{DynamicResource CreamBrush}"
+			Control.BorderThickness="1"
+			SelectionMode="Single"
+			ItemsControl.ItemsSource="{Binding ExternalClientsCollection}"
+			SelectedItem="{Binding ExternalClient}">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						x:Key="{x:Type ListBoxItem}"
+						BasedOn="{StaticResource ListBoxItemWithEvents}"
+						TargetType="{x:Type ListBoxItem}" />
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Grid
+						FrameworkElement.Margin="3">
+						<TextBlock
+							FrameworkElement.Style="{DynamicResource DTBaseTextBlockStyle}"
+							TextBlock.Text="{Binding Alias}" />
+						<TextBlock
+							FrameworkElement.HorizontalAlignment="Right"
+							FrameworkElement.Style="{DynamicResource DTBaseTextBlockStyle}"
+							TextBlock.Text="{Binding MacAddressText}" />
+					</Grid>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ListBox>
+		<Border
+			Grid.Row="2"
+			FrameworkElement.Margin="0,15,5,0"
+			FrameworkElement.Style="{DynamicResource SecondaryWindowFooterBorderStyle}">
+			<StackPanel
+				Orientation="Horizontal"
+				FrameworkElement.Style="{DynamicResource SecondaryWindowFooterContainerStyle}">
+				<!--Присоединяемое событие 'add_Click'.-->
+				<buttons:ColoredButton
+					Name="ButtonOk"
+					FrameworkElement.Margin="0"
+					Control.Padding="10,5"
+					FrameworkElement.Style="{DynamicResource Button}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_5004_OK}}"
+					UIElement.IsEnabled="{Binding IsSaveEnabled}" />
+				<!--Присоединяемое событие 'add_Click'.-->
+				<buttons:ColoredButton
+					Name="btnCancel"
+					FrameworkElement.Margin="10,0,0,0"
+					Control.Padding="10,5"
+					FrameworkElement.Style="{DynamicResource Button}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_5005_CANCEL}}" />
+			</StackPanel>
+		</Border>
+	</Grid>
+</base:BaseSecondaryWindow>

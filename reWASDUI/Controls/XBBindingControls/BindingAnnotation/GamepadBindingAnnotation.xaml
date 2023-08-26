@@ -1,0 +1,161 @@
+<bindingAnnotation:BaseGamepadBindingAnnotation
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingAnnotation.GamepadBindingAnnotation" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:view="clr-namespace:DiscSoft.NET.Common.View;assembly=DiscSoft.NET.Common" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:bindingAnnotation="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingAnnotation" xmlns:xbBindingControls="clr-namespace:reWASDUI.Controls.XBBindingControls"
+	UIElement.Focusable="False">
+	<FrameworkElement.Style>
+		<Style
+			TargetType="{x:Type bindingAnnotation:GamepadBindingAnnotation}">
+			<Setter
+				Property="bindingAnnotation:BaseXBBindingAnnotation.IsLabelMode"
+				Value="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsLabelModeView, FallbackValue=False}" />
+			<Setter
+				Property="bindingAnnotation:BaseXBBindingAnnotation.IsShowMappingsView"
+				Value="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowMappingsView, FallbackValue=True}" />
+			<Setter
+				Property="bindingAnnotation:BaseXBBindingAnnotation.AnnotationRecolorBrush"
+				Value="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}" />
+			<Setter
+				Property="Control.Template">
+				<Setter.Value>
+					<ControlTemplate
+						TargetType="{x:Type bindingAnnotation:GamepadBindingAnnotation}">
+						<Grid>
+							<Grid
+								FrameworkElement.Margin="-6,-3,-4,-3">
+								<Border
+									UIElement.Visibility="{TemplateBinding bindingAnnotation:GamepadBindingAnnotation.AnnotationVisibility}">
+									<Border
+										Grid.Row="0"
+										Grid.ColumnSpan="2"
+										Border.Background="{TemplateBinding bindingAnnotation:BaseXBBindingAnnotation.AnnotationRecolorBrush}"
+										Border.BorderThickness="1"
+										CornerRadius="11"
+										Opacity="0.3"
+										UIElement.Visibility="{TemplateBinding IsHovered, Converter={converters:BooleanToVisibilityConverter}}" />
+								</Border>
+								<StackPanel
+									FrameworkElement.Margin="6,3,4,3"
+									Orientation="Horizontal">
+									<FrameworkElement.ContextMenu>
+										<xbBindingControls:CopyPasteClearBindingContextMenu
+											XBBinding="{TemplateBinding xbBindingControls:BaseXBBindingUserControl.XBBinding}" />
+									</FrameworkElement.ContextMenu>
+									<bindingAnnotation:GamepadFakeGlobalVirtualAnnotation
+										x:Name="GamepadFakeGlobalVirtualAnnotation"
+										FrameworkElement.Margin="0,0,3,0"
+										AnnotationRecolorBrush="#FFF8DF"
+										IsHiddenIfNotMapped="{TemplateBinding bindingAnnotation:BaseGamepadBindingAnnotation.TextIsHiddenIfNotMapped}"
+										XBBinding="{TemplateBinding xbBindingControls:BaseXBBindingUserControl.XBBinding}"
+										UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}" />
+									<bindingAnnotation:GamepadBindingAnnotationText
+										x:Name="GamepadBindingAnnotationText"
+										FrameworkElement.MaxWidth="300"
+										AnnotationRecolorBrush="{TemplateBinding bindingAnnotation:BaseXBBindingAnnotation.AnnotationRecolorBrush}"
+										IsHiddenIfNotMapped="{TemplateBinding bindingAnnotation:BaseGamepadBindingAnnotation.TextIsHiddenIfNotMapped}"
+										ShowHardwareMapping="{TemplateBinding bindingAnnotation:GamepadBindingAnnotation.ShowHardwareMapping}"
+										ToolTipService.ShowOnDisabled="True"
+										XBBinding="{TemplateBinding xbBindingControls:BaseXBBindingUserControl.XBBinding}"
+										attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_XBBINDING_LICENSE_HINT}}"
+										UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowMappingsView, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}">
+										<UIElement.IsEnabled>
+											<MultiBinding
+												ConverterParameter="(({0} || ({2} &amp;&amp; !{3}) || !{2}) &amp;&amp; {4})"
+												Converter="{converters:MultiBooleanParametrizedConverter}">
+												<MultiBinding.Bindings>
+													<Binding
+														Path="IsAdvancedMappingFeatureUnlocked" />
+													<Binding
+														Path="XBBinding.IsUnmapped"
+														RelativeSource="{RelativeSource TemplatedParent}" />
+													<Binding
+														Path="GameProfilesService.CurrentGame.CurrentConfig.CurrentSubConfigData.IsMouse"
+														RelativeSource="{RelativeSource TemplatedParent}" />
+													<Binding
+														Path="XBBinding.IsMouseDirection"
+														RelativeSource="{RelativeSource TemplatedParent}" />
+													<Binding
+														Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode"
+														RelativeSource="{RelativeSource TemplatedParent}" />
+												</MultiBinding.Bindings>
+											</MultiBinding>
+										</UIElement.IsEnabled>
+									</bindingAnnotation:GamepadBindingAnnotationText>
+									<bindingAnnotation:GamepadRemapAnnotation
+										x:Name="GamepadRemapAnnotation"
+										FrameworkElement.Margin="0,0,3,0"
+										AnnotationRecolorBrush="{TemplateBinding bindingAnnotation:BaseXBBindingAnnotation.AnnotationRecolorBrush}"
+										IsHiddenIfNotMapped="{TemplateBinding bindingAnnotation:BaseGamepadBindingAnnotation.TextIsHiddenIfNotMapped}"
+										ShowHardwareMapping="{TemplateBinding bindingAnnotation:GamepadBindingAnnotation.ShowHardwareMapping}"
+										ToolTipService.ShowOnDisabled="True"
+										XBBinding="{TemplateBinding xbBindingControls:BaseXBBindingUserControl.XBBinding}"
+										attachedBehaviours:ToolTipHelper.DisabledToolTip="{localization:Translate {x:Static s:StringConsts.STR_XBBINDING_LICENSE_HINT}}"
+										UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowMappingsView, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}">
+										<UIElement.IsEnabled>
+											<MultiBinding
+												ConverterParameter="( {0} || ({1} &amp;&amp; {2} &amp;&amp; !{4} ) || ({4} &amp;&amp; {5} &amp;&amp; !{6}) || ({1} &amp;&amp; !{2} &amp;&amp; !{6}) || ({3} &amp;&amp; {4}  &amp;&amp; !{5}) || ({3} &amp;&amp; {5} &amp;&amp; !{6})) &amp;&amp; {7}"
+												Converter="{converters:MultiBooleanParametrizedConverter}">
+												<MultiBinding.Bindings>
+													<Binding
+														Path="IsAdvancedMappingFeatureUnlocked" />
+													<Binding
+														Path="IsAdvancedMappingFeatureNotRequired" />
+													<Binding
+														Path="XBBinding.IsStickDirection"
+														RelativeSource="{RelativeSource TemplatedParent}" />
+													<Binding
+														Path="IsAdvancedMappingFeatureNotRequiredForUnmap" />
+													<Binding
+														Path="XBBinding.IsUnmapped"
+														RelativeSource="{RelativeSource TemplatedParent}" />
+													<Binding
+														Path="GameProfilesService.CurrentGame.CurrentConfig.CurrentSubConfigData.IsMouse"
+														RelativeSource="{RelativeSource TemplatedParent}" />
+													<Binding
+														Path="XBBinding.IsMouseStick"
+														RelativeSource="{RelativeSource TemplatedParent}" />
+													<Binding
+														Path="GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode" />
+												</MultiBinding.Bindings>
+											</MultiBinding>
+										</UIElement.IsEnabled>
+									</bindingAnnotation:GamepadRemapAnnotation>
+									<bindingAnnotation:GamepadMaskAnnotation
+										x:Name="GamepadMaskAnnotation"
+										FrameworkElement.Margin="3,0,0,0"
+										AnnotationRecolorBrush="{TemplateBinding bindingAnnotation:BaseXBBindingAnnotation.AnnotationRecolorBrush}"
+										IsHiddenIfNotMapped="{TemplateBinding bindingAnnotation:BaseGamepadBindingAnnotation.TextIsHiddenIfNotMapped}"
+										XBBinding="{TemplateBinding xbBindingControls:BaseXBBindingUserControl.XBBinding}"
+										UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}" />
+								</StackPanel>
+								<FrameworkElement.LayoutTransform>
+									<ScaleTransform
+										CenterX="0"
+										CenterY="0"
+										ScaleX="{Binding GuiScaleService.ScaleValue}"
+										ScaleY="{Binding GuiScaleService.ScaleValue}" />
+								</FrameworkElement.LayoutTransform>
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<DataTrigger
+								Value="True"
+								Binding="{Binding XBBinding.IsInheritedBinding, RelativeSource={RelativeSource Self}}">
+								<Setter
+									TargetName="GamepadBindingAnnotationText"
+									Value="{DynamicResource DisabledControlForegroundColor}"
+									Property="bindingAnnotation:BaseXBBindingAnnotation.AnnotationRecolorBrush" />
+								<Setter
+									TargetName="GamepadFakeGlobalVirtualAnnotation"
+									Value="{DynamicResource DisabledControlForegroundColor}"
+									Property="bindingAnnotation:BaseXBBindingAnnotation.AnnotationRecolorBrush" />
+								<Setter
+									TargetName="GamepadMaskAnnotation"
+									Property="UIElement.Visibility"
+									Value="Collapsed" />
+							</DataTrigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</FrameworkElement.Style>
+</bindingAnnotation:BaseGamepadBindingAnnotation>

@@ -1,0 +1,131 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="GamepadGoogleStadiaFlip" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="GamepadGoogleStadiaFlip">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,36,36" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup
+						svr:SvgObject.Id="GoogleStadia">
+						<DrawingGroup.Children>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M21.178,17.705L14.822,17.705C14.259,17.705,13.802,17.248,13.802,16.685L13.802,16.685C13.802,16.122,14.259,15.665,14.822,15.665L21.178,15.665C21.741,15.665,22.198,16.122,22.198,16.685L22.198,16.685C22.198,17.249,21.741,17.705,21.178,17.705z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Flat"
+										EndLineCap="Flat"
+										LineJoin="Miter"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M33.548,15.464C32.841,12.907 31.982,10.35 30.386,8.737 30.063,9.216 29.442,9.428 28.88,9.212L26.193,8.181C25.704,7.993,25.398,7.537,25.379,7.045L10.623,7.045C10.608,7.541,10.301,8.004,9.808,8.193L7.121,9.223C6.556,9.44 5.932,9.225 5.61,8.741 4.017,10.355 3.159,12.909 2.453,15.463 1.413,19.227 -2.321,29.404 4.527,29.453 7.855,29.477 9.059,24.229 9.712,23.074 10.365,21.919 11.03,21.712 12.659,21.712L23.342,21.712C24.971,21.712 25.636,21.918 26.289,23.074 26.942,24.229 28.146,29.477 31.474,29.453 38.322,29.405 34.588,19.228 33.548,15.464z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Round"
+										EndLineCap="Round"
+										LineJoin="Round"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M7.121,9.223L9.808,8.192C10.288,8.008 10.623,7.51 10.623,7.044 10.623,6.881 10.416,6.67 10.272,6.571 9.851,6.285 8.805,5.921 8.219,6.047 7.793,6.139 7.279,6.408 6.768,7.465 6.569,7.877 6.531,8.254 6.384,8.577 6.353,8.645 6.124,8.891 5.948,9.083 6.281,9.311 6.716,9.379 7.121,9.223z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Round"
+										EndLineCap="Round"
+										LineJoin="Round"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M6.858,7.282C6.503,7.508 6.218,7.718 6.011,7.907 5.805,8.095 5.67,8.266 5.611,8.417 5.584,8.485 5.56,8.667 5.61,8.741 5.702,8.877 5.817,8.993 5.949,9.083 6.125,8.891 6.354,8.645 6.385,8.577 6.473,8.383 6.528,8.128 6.592,7.934 6.714,7.56 6.745,7.513 6.768,7.465 6.799,7.401 6.83,7.339 6.862,7.28 6.86,7.281 6.859,7.282 6.858,7.282z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Round"
+										EndLineCap="Round"
+										LineJoin="Round"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M28.874,9.227L26.187,8.196C25.707,8.012 25.372,7.514 25.372,7.048 25.372,6.885 25.579,6.674 25.723,6.575 26.144,6.288 27.19,5.924 27.776,6.05 28.202,6.142 28.716,6.411 29.227,7.468 29.426,7.879 29.464,8.256 29.61,8.58 29.641,8.648 29.87,8.894 30.046,9.086 29.714,9.315 29.28,9.382 28.874,9.227z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing>
+								<GeometryDrawing.Pen>
+									<Pen
+										Brush="#FFFFFFFF"
+										Thickness="1"
+										StartLineCap="Round"
+										EndLineCap="Round"
+										LineJoin="Round"
+										MiterLimit="10" />
+								</GeometryDrawing.Pen>
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M29.137,7.286C29.492,7.512 29.777,7.722 29.984,7.911 30.19,8.099 30.325,8.27 30.384,8.421 30.411,8.489 30.435,8.671 30.385,8.745 30.293,8.881 30.178,8.997 30.046,9.087 29.87,8.895 29.641,8.649 29.61,8.581 29.522,8.387 29.467,8.132 29.403,7.938 29.28,7.564 29.25,7.517 29.227,7.47 29.196,7.405 29.164,7.344 29.133,7.285 29.135,7.285 29.136,7.285 29.137,7.286z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

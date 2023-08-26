@@ -1,0 +1,15 @@
+<view:SVGElementAttachedButton
+	x:Class="reWASDUI.Views.ContentZoneGamepad.Macro.Gamepad.MacroGamepadAttachedButton" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:view="clr-namespace:DiscSoft.NET.Common.View;assembly=DiscSoft.NET.Common" xmlns:gamepad="clr-namespace:reWASDUI.Views.ContentZoneGamepad.Macro.Gamepad"
+	UIElement.Focusable="False">
+	<FrameworkElement.Style>
+		<Style
+			BasedOn="{StaticResource SVGElementAttachedButtonStyle}"
+			TargetType="{x:Type gamepad:MacroGamepadAttachedButton}">
+			<Style.Setters>
+				<Setter
+					Property="AutomationProperties.AutomationId"
+					Value="{Binding CommandParameter, RelativeSource={RelativeSource Self}}" />
+			</Style.Setters>
+		</Style>
+	</FrameworkElement.Style>
+</view:SVGElementAttachedButton>

@@ -1,0 +1,50 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Bomb" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Bomb">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing>
+						<GeometryDrawing.Brush>
+							<SolidColorBrush
+								Color="#FF000000"
+								Opacity="0" />
+						</GeometryDrawing.Brush>
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="0,0,36,36" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M30.54,6C29.852,6.418 29.381,7.116 29.25,7.91 29.213,8.716 29.518,9.501 30.09,10.07 28.14,9.59 26.99,10.34 26.61,12.35 26.357,11.554 25.769,10.907 25,10.58 24.196,10.364 23.337,10.51 22.65,10.98 23.65,9.14 23.14,7.84 21.24,6.98 22.068,6.913 22.825,6.485 23.31,5.81 23.697,5.097 23.763,4.254 23.49,3.49 24.068,4.047 24.848,4.343 25.65,4.31 26.462,4.183 27.175,3.703 27.6,3 27.6,3.22 27.6,3.38 27.6,3.54 27.549,4.798 28.528,5.859 29.786,5.91 29.787,5.91 29.788,5.91 29.79,5.91L30.47,5.91 30.54,6z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+							<GeometryDrawing
+								Brush="#FFFFFFFF">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										FillRule="Nonzero"
+										PathGeometry.Figures="M22.3,8.43L19.62,9.68C19.209,9.93 18.674,9.799 18.425,9.388 18.332,9.235 18.289,9.058 18.3,8.88 18.274,7.831 17.403,7.001 16.354,7.027 15.868,7.039 15.405,7.237 15.06,7.58 14.313,8.314 13.772,9.232 13.49,10.24 13.289,11.064 13.211,11.913 13.26,12.76L13.26,13.09 11.61,13.09C11.32,13.048 11.052,13.249 11.01,13.539 11.003,13.589 11.003,13.64 11.01,13.69 11.01,14.69 11.01,15.59 11.01,16.54 11.025,16.67 10.945,16.792 10.82,16.83 10.46,16.97 10.12,17.15 9.77,17.32L9.61,17.43 8.76,18 8.53,18.18C8.4,18.261 8.277,18.351 8.16,18.45 6.223,20.186 5.231,22.742 5.49,25.33 5.648,27.618 6.771,29.73 8.58,31.14 11.228,33.273 14.907,33.578 17.87,31.91 20.153,30.703 21.714,28.469 22.06,25.91 22.451,23.579 21.804,21.194 20.29,19.38 20.059,19.109 19.812,18.852 19.55,18.61L19.34,18.44C18.9,18.1 18.49,17.74 18.03,17.44 17.656,17.218 17.265,17.028 16.86,16.87 16.723,16.84 16.631,16.709 16.65,16.57 16.65,15.57 16.65,14.67 16.65,13.72 16.65,13.3 16.45,13.11 16.03,13.11L14.3,13.11C14.3,12.69 14.3,12.3 14.3,11.92 14.299,10.612 14.804,9.354 15.71,8.40999999999999 15.948,8.10999999999999 16.354,7.99999999999999 16.71,8.14 17.08,8.267 17.315,8.63 17.28,9.02 17.306,10.063 18.173,10.888 19.217,10.862 19.448,10.856 19.676,10.808 19.89,10.72 20.77,10.34 21.63,9.91 22.49,9.5 22.54,9.5 22.61,9.41 22.61,9.36 22.613,9.024 22.504,8.697 22.3,8.43z" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,36,36" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

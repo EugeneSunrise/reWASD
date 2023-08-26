@@ -1,0 +1,356 @@
+<UserControl
+	x:Class="reWASDUI.Views.CommunityConfigsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:controls1="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:gamepadSelector="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector" xmlns:local="clr-namespace:reWASDUI.Views" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mvvm="http://prismlibrary.com/" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:utils="clr-namespace:DiscSoft.NET.Common.Utils;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:views="clr-namespace:GenGamepadView.Views"
+	attachedBehaviours:FocusBehavior.FocusFirst="true">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<DrawingGroup
+				x:Key="star" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+				svr:SvgObject.Id="star">
+				<DrawingGroup.Children>
+					<DrawingGroup
+						svr:SvgLink.Key="DrawingLayer">
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFFE795">
+								<GeometryDrawing.Geometry>
+									<PathGeometry
+										PathGeometry.Figures="M10,0L13.0565,5.79311 19.5106,6.90983 14.9455,11.6069 15.8779,18.0902 10,15.2 4.12215,18.0902 5.05451,11.6069 0.489435,6.90983 6.94352,5.79311 10,0z"
+										FillRule="Nonzero" />
+								</GeometryDrawing.Geometry>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+						<DrawingGroup.ClipGeometry>
+							<RectangleGeometry
+								Rect="0,0,20,19" />
+						</DrawingGroup.ClipGeometry>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+			<DataTemplate
+				x:Key="{DataTemplateKey {x:Type viewModels:GameInfo}}"
+				DataType="{x:Type viewModels:GameInfo}">
+				<buttons:ColoredButton
+					Name="BigButton"
+					FrameworkElement.Height="218"
+					FrameworkElement.Margin="10,2,10,20"
+					Control.Padding="0"
+					Control.BorderThickness="0"
+					FocusVisualStyle="{DynamicResource ButtonFocusVisualStyle}"
+					ButtonBase.Command="{Binding ExploreContentCommand}">
+					<ContentControl.Content>
+						<Grid>
+							<Image
+								FrameworkElement.MaxWidth="506"
+								FrameworkElement.MaxHeight="218"
+								Image.Stretch="UniformToFill"
+								Image.Source="{Binding BoxArt.SmallUrl}" />
+							<Border
+								FrameworkElement.MaxWidth="506"
+								FrameworkElement.MaxHeight="218"
+								Border.Background="#303030"
+								Opacity="0.7" />
+							<Border
+								FrameworkElement.MaxWidth="506"
+								FrameworkElement.MaxHeight="218"
+								Border.Background="#FFE795"
+								Opacity="0.3"
+								UIElement.Visibility="{Binding IsHighlighted, Mode=TwoWay, Converter={converters:BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type buttons:ColoredButton}}}" />
+							<StackPanel
+								FrameworkElement.Margin="20">
+								<TextBlock
+									TextBlock.FontSize="16"
+									TextBlock.FontWeight="SemiBold"
+									TextBlock.Foreground="#FFFFFFFF"
+									TextBlock.Text="{Binding Name}" />
+								<TextBlock
+									FrameworkElement.Margin="0,6"
+									TextBlock.FontSize="16"
+									TextBlock.Foreground="#FFFFFFFF"
+									TextBlock.Text="{Binding ConfigsCountStr}" />
+							</StackPanel>
+							<buttons:ColoredButton
+								FrameworkElement.Margin="20"
+								FrameworkElement.HorizontalAlignment="Left"
+								FrameworkElement.VerticalAlignment="Bottom"
+								IsTriggered="True"
+								ButtonBase.Command="{Binding ExploreContentCommand}"
+								ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_EXPLORE_CONFIGS}}" />
+						</Grid>
+					</ContentControl.Content>
+				</buttons:ColoredButton>
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		PreviewMouseDown="Grid_PreviewMouseDown">
+		<Image
+			Name="img"
+			Image.Source="{DynamicResource StartScreenBackground}"
+			Image.Stretch="UniformToFill" />
+		<Grid
+			FrameworkElement.Margin="32,25,32,100"
+			FrameworkElement.HorizontalAlignment="Stretch"
+			FrameworkElement.VerticalAlignment="Stretch">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					RowDefinition.Height="Auto" />
+				<RowDefinition
+					RowDefinition.Height="*" />
+			</Grid.RowDefinitions>
+			<Grid
+				FrameworkElement.Width="600">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					FrameworkElement.Margin="0,27,0,24"
+					FrameworkElement.HorizontalAlignment="Center"
+					TextBlock.FontSize="20"
+					TextBlock.FontWeight="Bold"
+					TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_FIND_GAME}}" />
+				<Grid
+					Row="1"
+					UIElement.Visibility="{Binding IsInternetError, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<buttons:SVGButton
+						Name="btnBack"
+						FrameworkElement.Width="32"
+						FrameworkElement.Height="32"
+						FrameworkElement.HorizontalAlignment="Left"
+						Drawing="{DynamicResource MenuOpen}"
+						PressedBackground="#00FFFFFF"
+						SVGHeight="14"
+						SVGWidth="14"
+						ButtonBase.Command="{Binding BackCommand}" />
+					<controls:WaterMarkTextBox
+						FrameworkElement.Name="GameNameTextBox"
+						FrameworkElement.Height="32"
+						FrameworkElement.Margin="37,0,0,0"
+						attachedBehaviours:FocusBehavior.InitialyFocused="True"
+						Control.Background="{DynamicResource ButtonBackground}"
+						Control.BorderBrush="{DynamicResource ContentBorderBrush}"
+						Control.FontSize="14"
+						HighlightedBackground="{DynamicResource ButtonBackground}"
+						MaxLength="64"
+						TextBox.Text="{Binding GameName, UpdateSourceTrigger=PropertyChanged}"
+						x:Name="GameNameTextBox"
+						KeyDown="GameNameTextBox_OnKeyDown" />
+					<buttons:SVGButton
+						FrameworkElement.Margin="0,0,5,0"
+						FrameworkElement.HorizontalAlignment="Right"
+						ColorShiftBrush="#646464"
+						Drawing="{DynamicResource Remove}"
+						HighlightedForeground="#FFFFFFFF"
+						PressedForeground="#FFFFFFFF"
+						SVGMargin="2"
+						ButtonBase.Command="{Binding ClearGameNameCommand}"
+						UIElement.Visibility="{Binding GameName, ConverterParameter=inverted, Converter={converters:StringIsNullOrEmptyToVisibility}}" />
+					<Popup
+						Name="gamesPopup"
+						AllowsTransparency="True"
+						StaysOpen="False"
+						Popup.IsOpen="{Binding PopupGamesList.Count, ConverterParameter='!= 0', Mode=OneWay, Converter={converters:ValueSatisfiesRuleParameter}}"
+						PlacementTarget="{Binding ElementName=GameNameTextBox}">
+						<Border
+							Border.Background="{DynamicResource ButtonBackground}"
+							Border.BorderBrush="{DynamicResource CreamBrush}"
+							Border.BorderThickness="1"
+							FrameworkElement.Width="{Binding ActualWidth, ElementName=GameNameTextBox}">
+							<ListBox
+								Name="gamesListPopup"
+								ItemsControl.ItemsSource="{Binding PopupGamesList}"
+								SelectedItem="{Binding PopupCurrentGame}">
+								<FrameworkElement.Resources>
+									<ResourceDictionary>
+										<Style
+											x:Key="{x:Type ListBoxItem}"
+											BasedOn="{StaticResource ListBoxItemWithEvents}"
+											TargetType="{x:Type ListBoxItem}" />
+									</ResourceDictionary>
+								</FrameworkElement.Resources>
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<TextBlock
+											FrameworkElement.Margin="12,8"
+											FrameworkElement.VerticalAlignment="Center"
+											TextBlock.FontSize="14"
+											TextBlock.Foreground="#FFFFFFFF"
+											TextBlock.Text="{Binding Name}" />
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ListBox>
+						</Border>
+					</Popup>
+					<buttons:SVGButton
+						FrameworkElement.Name="btnBrowse"
+						Grid.Column="1"
+						FrameworkElement.Width="32"
+						FrameworkElement.Height="32"
+						FrameworkElement.Margin="10,0"
+						ColorShiftBrush="{DynamicResource ForegroundForCreamBackground}"
+						Drawing="{DynamicResource Search}"
+						IsColorShift="True"
+						IsTriggered="True"
+						SVGMargin="8,2"
+						TriggeredBackground="{DynamicResource CreamBrush}"
+						TriggeredForeground="{DynamicResource ForegroundForCreamBackground}"
+						ButtonBase.Command="{Binding SearchGamesCommand}"
+						x:Name="btnBrowse" />
+					<buttons:ColoredButton
+						FrameworkElement.Name="btnOpenCommunity"
+						Grid.Column="2"
+						FrameworkElement.Height="32"
+						FrameworkElement.Margin="0"
+						ButtonBase.Command="{Binding OpenCommunityCommand}"
+						ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_OPEN_COMMUNITY}}"
+						x:Name="btnOpenCommunity" />
+				</Grid>
+			</Grid>
+			<Grid
+				Row="1"
+				FrameworkElement.Width="1030"
+				FrameworkElement.Margin="0,20,0,0"
+				UIElement.Visibility="{Binding IsInternetError, Converter={converters:BooleanToVisibilityConverter}}">
+				<StackPanel
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Center">
+					<recolorableImages:RecolorableSVG
+						ColorShiftBrush="#FFF6D5"
+						Drawing="{DynamicResource NoConnection}"
+						IsColorShift="True" />
+					<TextBlock
+						FrameworkElement.Width="250"
+						FrameworkElement.Margin="0,12,0,0"
+						TextBlock.FontSize="16"
+						TextBlock.Foreground="#FFF6D5"
+						TextAlignment="Center"
+						TextBlock.TextWrapping="Wrap"
+						TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_NO_INTERNET_CONNECTION}}" />
+					<buttons:ColoredButton
+						FrameworkElement.Margin="40"
+						FrameworkElement.HorizontalAlignment="Center"
+						ButtonBase.Command="{Binding TryAgainCommand}"
+						ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_5020_TRY_AGAIN}}" />
+				</StackPanel>
+			</Grid>
+			<Grid
+				Row="1"
+				FrameworkElement.MaxWidth="950"
+				FrameworkElement.Margin="0,20,0,0"
+				UIElement.Visibility="{Binding IsInternetError, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+				<ItemsControl
+					Name="gamesList"
+					FrameworkElement.HorizontalAlignment="Stretch"
+					FocusVisualStyle="{x:Null}"
+					ItemsControl.ItemsSource="{Binding GamesList}"
+					UIElement.Visibility="{Binding ConfigsList, Converter={converters:ValueIsNullToVisibilityConverter}}">
+					<Control.Template>
+						<ControlTemplate>
+							<ScrollViewer
+								Name="ScrollViewer"
+								Control.Padding="{TemplateBinding Control.Padding}">
+								<ItemsPresenter />
+							</ScrollViewer>
+						</ControlTemplate>
+					</Control.Template>
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<UniformGrid
+								FrameworkElement.Margin="0,0,-5,0"
+								FrameworkElement.VerticalAlignment="Top"
+								Columns="2" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ItemsControl>
+				<ItemsControl
+					Name="configsList"
+					FrameworkElement.HorizontalAlignment="Stretch"
+					ItemsControl.ItemsSource="{Binding ConfigsList}"
+					UIElement.Visibility="{Binding ConfigsList, Converter={converters:ValueIsNotNullToVisibilityConverter}}">
+					<Control.Template>
+						<ControlTemplate>
+							<ScrollViewer
+								Name="ScrollViewer"
+								Control.Padding="{TemplateBinding Control.Padding}">
+								<ItemsPresenter />
+							</ScrollViewer>
+						</ControlTemplate>
+					</Control.Template>
+				</ItemsControl>
+			</Grid>
+			<Grid
+				Row="1"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center"
+				Panel.Background="#303030"
+				UIElement.Visibility="{Binding IsLoading, Converter={converters:BooleanToVisibilityConverter}}">
+				<StackPanel
+					FrameworkElement.Margin="50,20"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Center"
+					Orientation="Horizontal">
+					<utils:GifImage
+						FrameworkElement.Name="mediaElement"
+						FrameworkElement.HorizontalAlignment="Center"
+						FrameworkElement.VerticalAlignment="Center"
+						AutoStart="True"
+						GifSource="{DynamicResource IcoProgress}"
+						Image.Stretch="None"
+						UIElement.Visibility="{Binding IsLoading, Converter={converters:BooleanToVisibilityConverter}}"
+						x:Name="mediaElement" />
+					<TextBlock
+						FrameworkElement.Margin="15,0,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.VerticalAlignment="Center"
+						TextBlock.FontSize="13"
+						TextBlock.Foreground="#FFFFFFFF"
+						TextAlignment="Center"
+						TextBlock.TextWrapping="Wrap"
+						TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_LOADING_WAIT}}" />
+				</StackPanel>
+			</Grid>
+			<FrameworkElement.Style>
+				<Style>
+					<Style.Triggers>
+						<DataTrigger
+							Value="True"
+							Binding="{Binding GamesSelectorVM.IsGameListShown, ElementName=Header}">
+							<Setter
+								Property="UIElement.IsEnabled"
+								Value="False" />
+							<Setter
+								Property="UIElement.Opacity"
+								Value="0.6" />
+							<Setter
+								Property="UIElement.Effect">
+								<Setter.Value>
+									<BlurEffect
+										Radius="5" />
+								</Setter.Value>
+							</Setter>
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</FrameworkElement.Style>
+		</Grid>
+		<gamepadSelector:GamepadList
+			x:Name="GamepadList"
+			FrameworkElement.Margin="25,0,25,5"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Bottom"
+			IsBigIcons="True"
+			DataContext="{Binding GamepadSelectorVM, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CommunityConfigsView}}}" />
+		<local:HeaderZoneView
+			x:Name="Header" />
+	</Grid>
+</UserControl>

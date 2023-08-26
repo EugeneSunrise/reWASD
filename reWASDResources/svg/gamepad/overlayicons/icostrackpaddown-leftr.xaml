@@ -1,0 +1,33 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoSTrackPadDown-LeftR" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoSTrackPadDown-LeftR">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M15.92,7L14.92,7C15.214,9.007,14.623,11.043,13.3,12.58L8.73,8 8.73,8 8.73,8 10.08,6.65 9.37,5.94 8,7.29 8,7.29 8,7.29 3.42,2.71C4.957,1.387,6.993,0.796,9,1.09L9,0.0900000000000001C6.727,-0.204,4.436,0.492,2.71,2L2.71,2 2.36,2.34 2.36,2.34 2,2.7 2,2.7C-0.0179999999999998,4.986,-0.561,8.22,0.6,11.04L0.6,11.04 0.6,11.04 0.6,11.04 0.69,11.13 0.69,11.13C0.791,11.366,0.905,11.596,1.03,11.82L1.03,11.82C1.15,12.027,1.28,12.237,1.42,12.45L1.42,12.5C1.55,12.69,1.69,12.88,1.84,13.06L1.84,13.06 1.95,13.18 2,13.18 2.35,13.54 2.35,13.54 2.7,14 2.7,14C3.323,14.545,4.024,14.994,4.78,15.33L4.78,15.33 4.87,15.41 4.87,15.41 4.87,15.41C5.864,15.812 6.928,16.012 8,16 9.948,16 11.829,15.288 13.29,14L13.29,14 13.65,13.65 14,13.3 14,13.3C15.515,11.573,16.214,9.278,15.92,7z M1.54,10.65C0.538,8.212,0.99,5.417,2.71,3.42L7.27,8 7.27,8 7.27,8 1.54,10.65z M5.36,14.46L8,8.78 8,8.78 8,8.78 8,8.78 12.56,13.34C10.559,15.031,7.78,15.464,5.36,14.46z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M10.68,1.12C11.249,1.035 11.824,0.995 12.4,1 13.05,0.941 13.7,1.099 14.25,1.45 14.609,1.742 14.806,2.188 14.78,2.65 14.775,3.283 14.376,3.846 13.78,4.06L13.78,4.06C14.193,4.273 14.48,4.671 14.55,5.13 14.73,5.77 14.9,6.52 15.01,6.74L13.67,6.74C13.499,6.31 13.369,5.864 13.28,5.41 13.12,4.69 12.88,4.5 12.35,4.49L12,4.49 12,6.77 10.68,6.77 10.68,1.12z M12,3.59L12.51,3.59C13.15,3.59 13.51,3.26 13.51,2.76 13.51,2.26 13.16,1.97 12.51,1.97 12.339,1.965 12.169,1.976 12,2L12,3.59z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

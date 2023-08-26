@@ -1,0 +1,365 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:activatorXb="clr-namespace:XBEliteWPF.Infrastructure.KeyBindingsModel.ActivatorXB;assembly=reWASDCommon" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:XBEliteWPF.Utils.Converters" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:keyBindings="clr-namespace:XBEliteWPF.Infrastructure.KeyBindingsModel;assembly=reWASDCommon" xmlns:keyScanCodes="clr-namespace:XBEliteWPF.Infrastructure.reWASDMapping.KeyScanCodes;assembly=reWASDCommon" xmlns:masks="clr-namespace:XBEliteWPF.Infrastructure.KeyBindingsModel.Mask;assembly=reWASDCommon" xmlns:overlayApi="clr-namespace:reWASDEngine.Services.OverlayAPI" xmlns:reWasdMapping="clr-namespace:XBEliteWPF.Infrastructure.reWASDMapping;assembly=reWASDCommon" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:xb="clr-namespace:XBEliteWPF.Infrastructure.KeyBindingsModel.XB;assembly=reWASDCommon" xmlns:remapWindow="clr-namespace:reWASDEngine.OverlayAPI.RemapWindow" xmlns:overlayApi1="clr-namespace:reWASDEngine.Services.OverlayAPI;assembly=reWASDCommon">
+	<DataTemplate
+		x:Key="KeyScanCodeDataTemplate2"
+		DataType="{x:Type keyScanCodes:KeyScanCodeV2}">
+		<Grid
+			ToolTip="{Binding ToolTip}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					ColumnDefinition.Width="Auto" />
+				<ColumnDefinition
+					ColumnDefinition.Width="*" />
+			</Grid.ColumnDefinitions>
+			<recolorableImages:RecolorableSVG
+				FrameworkElement.Width="16"
+				FrameworkElement.Height="16"
+				IsColorShift="True"
+				ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ItemsControl}}"
+				Drawing="{Binding ConverterParameter=combo, Converter={converters1:BaseRewasdMappingAnnotationIconConverter}}" />
+			<TextBlock
+				Grid.Column="1"
+				FrameworkElement.MinHeight="0"
+				FrameworkElement.Margin="2,0,0,0"
+				FrameworkElement.VerticalAlignment="Center"
+				FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+				TextBlock.TextWrapping="Wrap"
+				AutomationProperties.AutomationId="{Binding Description}"
+				TextBlock.Text="{Binding FriendlyName}" />
+		</Grid>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="{DataTemplateKey {x:Type masks:MaskItemCondition}}"
+		DataType="{x:Type masks:MaskItemCondition}">
+		<Grid>
+			<recolorableImages:RecolorableSVG
+				FrameworkElement.VerticalAlignment="Center"
+				Stretch="Fill"
+				IsColorShift="True"
+				ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ItemsControl}}"
+				UIElement.Visibility="{Binding ControllerButton.IsGamepad, Converter={converters:BooleanToVisibilityConverter}}">
+				<recolorableImages:RecolorableSVG.Drawing>
+					<MultiBinding
+						Converter="{converters1:GamepadButtonAnnotationIconConverter}">
+						<Binding
+							Path="ControllerButton.GamepadButton" />
+						<Binding
+							Path="ControllerType"
+							RelativeSource="{RelativeSource FindAncestor, AncestorType=remapWindow:MaskConditionView}" />
+					</MultiBinding>
+				</recolorableImages:RecolorableSVG.Drawing>
+			</recolorableImages:RecolorableSVG>
+			<ContentControl
+				ContentControl.ContentTemplate="{DynamicResource KeyScanCodeDataTemplate2}"
+				ContentControl.Content="{Binding KeyScanCode}"
+				UIElement.Visibility="{Binding ControllerButton.IsKeyScanCode, Converter={converters:BooleanToVisibilityConverter}}" />
+		</Grid>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="{DataTemplateKey {x:Type activatorXb:BaseMacroAnnotation}}"
+		DataType="{x:Type activatorXb:BaseMacroAnnotation}">
+		<StackPanel
+			FrameworkElement.VerticalAlignment="Center"
+			Orientation="Horizontal">
+			<recolorableImages:RecolorableSVG
+				Name="imgMacroAnnotationIco"
+				FrameworkElement.Margin="2,0,0,0"
+				IsColorShift="True"
+				ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ItemsControl}}"
+				Drawing="{Binding Icon}" />
+			<TextBlock
+				FrameworkElement.Name="desc"
+				TextOptions.TextFormattingMode="Ideal"
+				TextBlock.Text="{Binding Description}" />
+		</StackPanel>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="VirtualGamepadButtonIconOnly"
+		DataType="{x:Type enums:GamepadButton}">
+		<recolorableImages:RecolorableSVG
+			IsColorShift="True"
+			ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+			Drawing="{Binding Converter={converters1:GamepadButtonAnnotationIconConverter}}" />
+	</DataTemplate>
+	<DataTemplate
+		x:Key="{DataTemplateKey {x:Type activatorXb:MacroGamepadAnnotation}}"
+		DataType="{x:Type activatorXb:MacroGamepadAnnotation}">
+		<recolorableImages:RecolorableSVG
+			IsColorShift="True"
+			ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ItemsControl}}">
+			<recolorableImages:RecolorableSVG.Drawing>
+				<MultiBinding
+					Converter="{converters1:GamepadVirtualButtonAnnotationIconConverter}">
+					<Binding
+						Path="Key.VirtualGamepadButton" />
+					<Binding
+						Path="XBBinding.HostCollection"
+						RelativeSource="{RelativeSource FindAncestor, AncestorType=overlayApi1:XBBindingView}" />
+					<Binding
+						Path="XBBinding.HostCollection.SubConfigData.ConfigData.VirtualGamepadType"
+						RelativeSource="{RelativeSource FindAncestor, AncestorType=overlayApi1:XBBindingView}" />
+					<Binding
+						Path="ControllerType"
+						RelativeSource="{RelativeSource FindAncestor, AncestorType=overlayApi1:XBBindingView}" />
+				</MultiBinding>
+			</recolorableImages:RecolorableSVG.Drawing>
+		</recolorableImages:RecolorableSVG>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="RewasdMappingAnnotationIconOnly"
+		DataType="{x:Type reWasdMapping:BaseRewasdMapping}">
+		<recolorableImages:RecolorableSVG
+			FrameworkElement.Margin="0,0,2,0"
+			IsColorShift="True"
+			ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+			Drawing="{Binding Converter={converters1:BaseRewasdMappingAnnotationIconConverter}}"
+			UIElement.Visibility="{Binding Drawing, RelativeSource={RelativeSource Self}, Converter={converters:ValueIsNotNullToVisibilityConverter}}" />
+	</DataTemplate>
+	<DataTemplate
+		x:Key="KeyScanCodeGamepadIconOnly"
+		DataType="{x:Type keyScanCodes:KeyScanCodeV2}">
+		<recolorableImages:RecolorableSVG
+			IsColorShift="True"
+			ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+			Drawing="{Binding VirtualGamepadButton, ConverterParameter='{x:Static keyBindings:ConfigData.ConfigGamepadType}', Converter={converters1:GamepadButtonAnnotationIconConverter}}" />
+	</DataTemplate>
+	<DataTemplate
+		x:Key="RewasdMappingAnnotationDataTemplate"
+		DataType="{x:Type reWasdMapping:BaseRewasdMapping}">
+		<StackPanel
+			Name="textContainer"
+			Orientation="Horizontal">
+			<ContentControl
+				Name="mappingAnnotationIco"
+				ContentControl.ContentTemplate="{DynamicResource RewasdMappingAnnotationIconOnly}"
+				ContentControl.Content="{Binding}"
+				Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}" />
+			<TextBlock
+				Name="tbMappingAnnotation"
+				FrameworkElement.MinHeight="15"
+				FrameworkElement.Margin="0"
+				FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+				TextOptions.TextFormattingMode="Ideal"
+				TextBlock.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+				TextBlock.Text="{Binding ShortFriendlyName}"
+				UIElement.Visibility="{Binding IsVirtualKeyBindVisible, Converter={converters:BooleanToVisibilityConverter}}" />
+		</StackPanel>
+		<DataTemplate.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding IsGamepad}">
+				<Setter
+					TargetName="mappingAnnotationIco"
+					Value="{DynamicResource KeyScanCodeGamepadIconOnly}"
+					Property="ContentControl.ContentTemplate" />
+			</DataTrigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding IsNotMapped}">
+				<Setter
+					TargetName="tbMappingAnnotation"
+					Property="UIElement.Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+		</DataTemplate.Triggers>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="{DataTemplateKey {x:Type activatorXb:ActivatorXBBinding}}"
+		DataType="{x:Type activatorXb:ActivatorXBBinding}">
+		<StackPanel
+			Orientation="Horizontal">
+			<StackPanel
+				Orientation="Horizontal"
+				UIElement.Visibility="{Binding IsLabelMode, FallbackValue=Collapsed, RelativeSource={RelativeSource FindAncestor, AncestorType=overlayApi1:XBBindingView}, Converter={converters:InvertedBooleanToVisibilityConverter}}">
+				<Border
+					UIElement.Visibility="{Binding HostDictionary.IsAnyNonSingleActivatorHasMapping, Converter={converters:BooleanToVisibilityConverter}}">
+					<Border
+						FrameworkElement.Style="{DynamicResource ActivatorAnnotionBorderStyle}"
+						Border.Background="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+						UIElement.Visibility="{Binding IsNotEmpty, Converter={converters:BooleanToVisibilityConverter}}">
+						<recolorableImages:RecolorableSVG
+							ColorShiftBrush="{DynamicResource SingleActivatorBrush}"
+							IsColorShift="True"
+							Stretch="None"
+							Drawing="{Binding ActivatorType, Converter={converters1:ActivatorTypeToDrawingConverter}}" />
+					</Border>
+				</Border>
+				<recolorableImages:RecolorableSVG
+					FrameworkElement.Margin="0,0,4,0"
+					Drawing="{DynamicResource Toggle}"
+					IsColorShift="True"
+					ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+					UIElement.Visibility="{Binding IsToggle, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<recolorableImages:RecolorableSVG
+					FrameworkElement.Margin="0,0,4,0"
+					Drawing="{DynamicResource Turbo}"
+					IsColorShift="True"
+					ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+					UIElement.Visibility="{Binding IsTurbo, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				<ContentControl
+					FrameworkElement.Margin="0,0,0,0"
+					ContentControl.ContentTemplate="{StaticResource RewasdMappingAnnotationDataTemplate}"
+					ContentControl.Content="{Binding MappedKey}"
+					Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+					UIElement.Visibility="{Binding IsMacroMapping, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+				<ItemsControl
+					Name="MacroListBox"
+					FrameworkElement.VerticalAlignment="Center"
+					Control.Background="#00FFFFFF"
+					ItemsControl.ItemsSource="{Binding MacroSequenceAnnotation}"
+					UIElement.Visibility="{Binding MacroSequenceAnnotation, Converter={converters:ValueIsNotNullToVisibilityConverter}}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel
+								IsHitTestVisible="False"
+								Orientation="Horizontal" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ItemsControl>
+				<recolorableImages:RecolorableSVG
+					Name="imgRumbleAnnotationIco"
+					FrameworkElement.Margin="0,2,0,0"
+					ColorShiftBrush="{DynamicResource OverlayForeground}"
+					Drawing="{DynamicResource UriRumble}"
+					IsColorShift="True"
+					UIElement.Visibility="{Binding IsRumble, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+			</StackPanel>
+			<StackPanel
+				Orientation="Horizontal"
+				UIElement.Visibility="{Binding IsLabelMode, FallbackValue=Collapsed, RelativeSource={RelativeSource FindAncestor, AncestorType=overlayApi1:XBBindingView}, Converter={converters:BooleanToVisibilityConverter}}">
+				<Border
+					UIElement.Visibility="{Binding HostDictionary.IsAnyNonSingleActivatorHasLabel, Converter={converters:BooleanToVisibilityConverter}}">
+					<Border
+						FrameworkElement.Style="{DynamicResource ActivatorAnnotionBorderStyle}"
+						Border.Background="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+						UIElement.Visibility="{Binding IsDescriptionPresent, Converter={converters:BooleanToVisibilityConverter}}">
+						<recolorableImages:RecolorableSVG
+							ColorShiftBrush="#FF000000"
+							IsColorShift="True"
+							Stretch="None"
+							Drawing="{Binding ActivatorType, Converter={converters1:ActivatorTypeToDrawingConverter}}" />
+					</Border>
+				</Border>
+				<TextBlock
+					FrameworkElement.MinHeight="18"
+					FrameworkElement.VerticalAlignment="Center"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					TextOptions.TextFormattingMode="Ideal"
+					TextBlock.Text="{Binding Description}" />
+			</StackPanel>
+		</StackPanel>
+		<DataTemplate.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding HostDictionary.HostXBBinding.IsInheritedBinding}">
+				<Setter
+					TargetName="imgRumbleAnnotationIco"
+					Property="recolorableImages:BaseRecolorableImage.IsColorShift"
+					Value="True" />
+				<Setter
+					TargetName="imgRumbleAnnotationIco"
+					Value="{DynamicResource DisabledControlForegroundColor}"
+					Property="recolorableImages:RecolorableSVG.ColorShiftBrush" />
+				<Setter
+					TargetName="MacroListBox"
+					Value="{DynamicResource DisabledControlForegroundColor}"
+					Property="Control.Foreground" />
+			</DataTrigger>
+		</DataTemplate.Triggers>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="XBBindingRemapAnnotation"
+		DataType="{x:Type xb:XBBinding}">
+		<recolorableImages:RecolorableSVG
+			Name="imgRemapedToAnnotationIco"
+			FrameworkElement.Margin="0,0,4,0"
+			ColorShiftBrush="{DynamicResource OverlayForeground}"
+			IsColorShift="True"
+			UIElement.Visibility="{Binding IsRemapedOrUnmappedShouldBeShown, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}">
+			<recolorableImages:RecolorableSVG.Drawing>
+				<MultiBinding
+					Converter="{converters1:GamepadButtonAnnotationIconConverter}">
+					<Binding
+						Path="RemapedTo" />
+					<Binding
+						Path="ControllerType"
+						RelativeSource="{RelativeSource FindAncestor, AncestorType=overlayApi1:XBBindingView}" />
+				</MultiBinding>
+			</recolorableImages:RecolorableSVG.Drawing>
+		</recolorableImages:RecolorableSVG>
+		<DataTemplate.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding IsInheritedBinding}">
+				<Setter
+					TargetName="imgRemapedToAnnotationIco"
+					Value="{DynamicResource DisabledControlForegroundColor}"
+					Property="recolorableImages:RecolorableSVG.ColorShiftBrush" />
+				<Setter
+					TargetName="imgRemapedToAnnotationIco"
+					Property="recolorableImages:BaseRecolorableImage.IsColorShift"
+					Value="True" />
+			</DataTrigger>
+		</DataTemplate.Triggers>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="XBBindingMaskAnnotation"
+		DataType="{x:Type xb:XBBinding}">
+		<recolorableImages:RecolorableSVG
+			FrameworkElement.Margin="0,0,4,0"
+			Drawing="{DynamicResource Mask}"
+			IsColorShift="True"
+			ColorShiftBrush="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ContentControl}}"
+			UIElement.Visibility="{Binding IsMaskVisible, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+	</DataTemplate>
+	<DataTemplate
+		x:Key="XBBindingFakeGlobalVirtualAnnotation"
+		DataType="{x:Type xb:XBBinding}">
+		<StackPanel
+			Orientation="Horizontal">
+			<recolorableImages:RecolorableSVG
+				Name="imgRemapedToAnnotationIco"
+				FrameworkElement.Margin="0,0,4,0"
+				ColorShiftBrush="{DynamicResource AnnotationRecolorBrush}"
+				IsColorShift="True">
+				<recolorableImages:RecolorableSVG.Drawing>
+					<MultiBinding
+						Converter="{converters1:GamepadVirtualButtonAnnotationIconConverter}">
+						<Binding
+							Path="ControllerButton.GamepadButton" />
+						<Binding
+							Path="HostCollection" />
+						<Binding
+							Path="HostCollection.SubConfigData.ConfigData.VirtualGamepadType" />
+						<Binding
+							Path="ControllerType"
+							RelativeSource="{RelativeSource FindAncestor, AncestorType=overlayApi1:XBBindingView}" />
+					</MultiBinding>
+				</recolorableImages:RecolorableSVG.Drawing>
+				<UIElement.Visibility>
+					<MultiBinding
+						Converter="{converters1:VirtualGamepadButtonVisibilityConverter}">
+						<Binding />
+						<Binding
+							Path="HostCollection.SubConfigData.ConfigData.VirtualGamepadType" />
+						<Binding
+							Path="ControllerType"
+							RelativeSource="{RelativeSource FindAncestor, AncestorType=overlayApi1:XBBindingView}" />
+						<Binding
+							Path="Drawing"
+							RelativeSource="{RelativeSource Self}" />
+					</MultiBinding>
+				</UIElement.Visibility>
+			</recolorableImages:RecolorableSVG>
+		</StackPanel>
+		<DataTemplate.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding IsInheritedBinding}">
+				<Setter
+					TargetName="imgRemapedToAnnotationIco"
+					Value="{DynamicResource DisabledControlForegroundColor}"
+					Property="recolorableImages:RecolorableSVG.ColorShiftBrush" />
+			</DataTrigger>
+		</DataTemplate.Triggers>
+	</DataTemplate>
+</ResourceDictionary>

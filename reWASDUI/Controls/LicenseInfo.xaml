@@ -1,0 +1,223 @@
+<UserControl
+	x:Class="reWASDUI.Controls.LicenseInfo" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:license="clr-namespace:reWASDUI.License" xmlns:local="clr-namespace:reWASDUI.Controls" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	FrameworkElement.Margin="24,20,10,20">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type local:LicenseInfo}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+					<RowDefinition
+						RowDefinition.Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid
+					RowSpan="3"
+					FrameworkElement.Margin="0,0"
+					FrameworkElement.HorizontalAlignment="Right"
+					FrameworkElement.VerticalAlignment="Top">
+					<buttons:SVGButton
+						Name="btnShowHideLicenseInfo"
+						Control.FontSize="16"
+						Control.Foreground="#FFFFFFFF"
+						SVGWidth="0"
+						Text="{localization:Translate {x:Static s:StringConsts.STR_SHOW}}"
+						Click="BtnShowHideLicenseInfo_OnClick">
+						<ContentControl.Content>
+							<Grid
+								FrameworkElement.Margin="10,0">
+								<recolorableImages:RecolorableSVG
+									FrameworkElement.VerticalAlignment="Center"
+									ColorShiftBrush="#FFFFFFFF"
+									Drawing="{DynamicResource RollDown}"
+									IsColorShift="True"
+									Stretch="None"
+									UIElement.Visibility="{Binding IsLicenseOpen, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+								<recolorableImages:RecolorableSVG
+									FrameworkElement.VerticalAlignment="Center"
+									ColorShiftBrush="#FFFFFFFF"
+									Drawing="{DynamicResource RollUp}"
+									IsColorShift="True"
+									Stretch="None"
+									UIElement.Visibility="{Binding IsLicenseOpen, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}" />
+							</Grid>
+						</ContentControl.Content>
+					</buttons:SVGButton>
+				</Grid>
+				<TextBlock
+					FrameworkElement.HorizontalAlignment="Left"
+					TextBlock.FontSize="16"
+					TextBlock.FontWeight="SemiBold"
+					TextBlock.Foreground="{DynamicResource CreamBrush}"
+					TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_LICENSE_INFO}}" />
+				<ItemsControl
+					Grid.Row="1"
+					FrameworkElement.Margin="0,22,-20,0"
+					ItemsControl.ItemsSource="{Binding Features}"
+					UIElement.Visibility="{Binding IsLicenseOpen, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<WrapPanel
+								Orientation="Horizontal" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<buttons:SVGButton
+								Name="featureButton"
+								FrameworkElement.Width="36"
+								FrameworkElement.Height="36"
+								FrameworkElement.Margin="0,0,20,20"
+								Control.Background="{DynamicResource CreamBrush}"
+								ColorShiftBrush="{DynamicResource SidePanelBackground}"
+								CornerRadius="36"
+								HighlightedBackground="{DynamicResource CreamBrush}"
+								HighlightedForeground="{DynamicResource SidePanelBackground}"
+								SVGMargin="5,0,0,0"
+								Drawing="{Binding IconUri}"
+								ToolTip="{Binding FeatureStatusToolTip}" />
+							<DataTemplate.Triggers>
+								<DataTrigger
+									Value="False"
+									Binding="{Binding IsFeature}">
+									<Setter
+										TargetName="featureButton"
+										Property="UIElement.Visibility"
+										Value="Collapsed" />
+								</DataTrigger>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding IsInTrialMode}">
+									<Setter
+										TargetName="featureButton"
+										Property="Control.Background"
+										Value="#FFBE8A" />
+									<Setter
+										TargetName="featureButton"
+										Property="buttons:BaseColoredButton.HighlightedBackground"
+										Value="#FFCCA3" />
+									<Setter
+										TargetName="featureButton"
+										Property="ButtonBase.Command"
+										Value="{Binding GoToFeatureCommand}" />
+								</DataTrigger>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding IsNotActivated}">
+									<Setter
+										TargetName="featureButton"
+										Property="Control.Background"
+										Value="#535353" />
+									<Setter
+										TargetName="featureButton"
+										Property="buttons:BaseColoredButton.HighlightedBackground"
+										Value="#616161" />
+									<Setter
+										TargetName="featureButton"
+										Property="buttons:SVGButton.ColorShiftBrush"
+										Value="#C0C1C3" />
+									<Setter
+										TargetName="featureButton"
+										Property="buttons:BaseColoredButton.HighlightedForeground"
+										Value="#C0C1C3" />
+									<Setter
+										TargetName="featureButton"
+										Property="ButtonBase.Command"
+										Value="{Binding GoToFeatureCommand}" />
+								</DataTrigger>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding IsTrialExpired}">
+									<Setter
+										TargetName="featureButton"
+										Property="Control.Background"
+										Value="#C0C1C3" />
+									<Setter
+										TargetName="featureButton"
+										Property="buttons:BaseColoredButton.HighlightedBackground"
+										Value="#CDCED0" />
+									<Setter
+										TargetName="featureButton"
+										Property="ButtonBase.Command"
+										Value="{Binding GoToFeatureCommand}" />
+								</DataTrigger>
+							</DataTemplate.Triggers>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+				<Grid
+					Row="2"
+					FrameworkElement.Margin="0,0,0,0"
+					UIElement.Visibility="{Binding IsLicenseOpen, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="Auto" />
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+					</Grid.ColumnDefinitions>
+					<TextBlock
+						TextBlock.FontSize="12"
+						FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+						TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STRING_SERIAL}}"
+						UIElement.Visibility="{Binding IsPaidUser, Converter={converters:BooleanToVisibilityConverter}}" />
+					<Grid
+						Column="1"
+						FrameworkElement.Margin="0,0,0,0"
+						FrameworkElement.HorizontalAlignment="Left">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<TextBlock
+							FrameworkElement.Margin="6,0,0,0"
+							FrameworkElement.VerticalAlignment="Center"
+							AutomationProperties.AutomationId="tbSerial"
+							TextBlock.FontSize="12"
+							TextBlock.Foreground="#9A9A9A"
+							TextBlock.TextTrimming="CharacterEllipsis"
+							TextBlock.Text="{Binding Serial, Mode=OneWay}"
+							UIElement.Visibility="{Binding IsPaidUser, Converter={converters:BooleanToVisibilityConverter}}" />
+						<buttons:SVGButton
+							Name="CopySerial"
+							Grid.Column="1"
+							FrameworkElement.Width="16"
+							FrameworkElement.Height="16"
+							FrameworkElement.Margin="6,0,0,0"
+							FrameworkElement.HorizontalAlignment="Left"
+							Drawing="{DynamicResource Copy}"
+							SVGMargin="0"
+							UIElement.Visibility="{Binding IsPaidUser, Converter={converters:BooleanToVisibilityConverter}}"
+							Click="CopySerial_OnClick" />
+					</Grid>
+					<TextBlock
+						TextBlock.FontSize="12"
+						FrameworkElement.Style="{DynamicResource LicenseCaptionTextBlockStyle}"
+						TextBlock.Text="{localization:Translate {x:Static s:StringConsts.IDS_LICENSE_FEATURE_EXPIRES}}"
+						UIElement.Visibility="{Binding IsPaidUser, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+					<TextBlock
+						Grid.Column="1"
+						FrameworkElement.Margin="5,0,0,0"
+						AutomationProperties.AutomationId="tbTrialExpireDate"
+						TextBlock.FontSize="12"
+						TextBlock.Foreground="#9A9A9A"
+						TextBlock.Text="{Binding TrialExpiresDate, Mode=OneWay}"
+						UIElement.Visibility="{Binding IsPaidUser, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+				</Grid>
+			</Grid>
+			<ControlTemplate.Triggers>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding IsLicenseOpen, RelativeSource={RelativeSource Self}}">
+					<Setter
+						TargetName="btnShowHideLicenseInfo"
+						Property="buttons:SVGButton.Text"
+						Value="{localization:Translate {x:Static s:StringConsts.STR_HIDE}}" />
+				</DataTrigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

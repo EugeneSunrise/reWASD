@@ -1,0 +1,171 @@
+<UserControl
+	x:Class="reWASDUI.Views.ContentZoneGamepad.GamepadSelector.GamepadList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:dsConverters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:local="clr-namespace:reWASDUI.Views.ContentZoneGamepad.GamepadSelector" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type local:GamepadList}">
+			<Grid
+				Name="Grid"
+				FrameworkElement.VerticalAlignment="Top"
+				FrameworkElement.Height="53"
+				FrameworkElement.HorizontalAlignment="Left">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						ColumnDefinition.Width="*" />
+					<ColumnDefinition
+						ColumnDefinition.Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<ListBox
+					Name="gamepadsList"
+					FrameworkElement.VerticalAlignment="Top"
+					ItemsControl.ItemTemplate="{StaticResource SimpleControllerForListTemplate}"
+					ScrollViewer.CanContentScroll="False"
+					SelectionMode="Single"
+					ItemsControl.ItemsSource="{Binding GamepadService.GamepadCollection}"
+					SelectedItem="{Binding GamepadService.CurrentGamepad}"
+					PreviewMouseDown="ProfilesList_OnPreviewMouseDown"
+					PreviewMouseWheel="gamepadsList_PreviewMouseWheel">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Orientation="Horizontal" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+					<ItemsControl.ItemContainerStyle>
+						<Style
+							BasedOn="{StaticResource {x:Type ListBoxItem}}"
+							TargetType="{x:Type ListBoxItem}">
+							<Setter
+								Property="FrameworkElement.Margin"
+								Value="0,0,0,0" />
+							<Style.Triggers>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding RemapState, ConverterParameter='{x:Static enums:RemapState.RemapOn}', Converter={converters:ValuesAreEqual}}">
+									<Setter
+										Property="AutomationProperties.AutomationId"
+										Value="RemapOn" />
+								</DataTrigger>
+								<DataTrigger
+									Value="False"
+									Binding="{Binding RemapState, ConverterParameter='{x:Static enums:RemapState.RemapOn}', Converter={converters:ValuesAreEqual}}">
+									<Setter
+										Property="AutomationProperties.AutomationId"
+										Value="RemapOff" />
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</ItemsControl.ItemContainerStyle>
+				</ListBox>
+				<StackPanel
+					Name="AdditionaButtonsPanel"
+					Orientation="Horizontal"
+					FrameworkElement.VerticalAlignment="Top"
+					Grid.Column="1"
+					FrameworkElement.Margin="8,2,0,0"
+					UIElement.Visibility="{Binding GamepadService.IsAnyGamepadConnected, Converter={converters:BooleanToVisibilityConverter}}">
+					<Border
+						Name="divider"
+						Border.BorderBrush="#aaaaaa"
+						FrameworkElement.Height="32"
+						Border.BorderThickness="1,0,0,0" />
+					<buttons:SVGButton
+						Name="btnreWASDJunior"
+						FrameworkElement.Height="26"
+						FrameworkElement.Margin="14,0,0,0"
+						FrameworkElement.HorizontalAlignment="Center"
+						Drawing="{DynamicResource Junior}"
+						SVGHeight="16"
+						SVGMargin="0"
+						SVGWidth="16"
+						ToolTip="reWASD Junior"
+						TriggeredBackground="{DynamicResource CreamBrush}"
+						TriggeredForeground="#FF000000"
+						ButtonBase.Command="{Binding OpenMobileConnectionGuideCommand}" />
+					<buttons:SVGButton
+						Name="btnDetectDevice"
+						FrameworkElement.Width="26"
+						FrameworkElement.Height="26"
+						FrameworkElement.Margin="4,0,0,0"
+						FrameworkElement.HorizontalAlignment="Center"
+						Drawing="{DynamicResource DetectDevice}"
+						SVGHeight="16"
+						SVGMargin="5,4"
+						SVGWidth="16"
+						TriggeredBackground="{DynamicResource CreamBrush}"
+						TriggeredForeground="#FF000000"
+						ButtonBase.Command="{Binding StartStopGamepadsDetectionModeCommand}"
+						IsTriggered="{Binding DeviceDetectionService.IsEnabled}">
+						<FrameworkElement.Style>
+							<Style
+								BasedOn="{StaticResource {x:Type buttons:SVGButton}}"
+								TargetType="{x:Type buttons:SVGButton}">
+								<Style.Triggers>
+									<DataTrigger
+										Value="True"
+										Binding="{Binding DeviceDetectionService.IsEnabled}">
+										<Setter
+											Property="FrameworkElement.ToolTip"
+											Value="{localization:Translate {x:Static s:StringConsts.STR_DETECT_ACTIVE_DEVICE_OFF}}" />
+									</DataTrigger>
+									<DataTrigger
+										Value="False"
+										Binding="{Binding DeviceDetectionService.IsEnabled}">
+										<Setter
+											Property="FrameworkElement.ToolTip"
+											Value="{localization:Translate {x:Static s:StringConsts.STR_DETECT_ACTIVE_DEVICE}}" />
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</buttons:SVGButton>
+				</StackPanel>
+			</Grid>
+			<ControlTemplate.Triggers>
+				<Trigger
+					Property="local:GamepadList.IsBigIcons"
+					Value="True">
+					<Setter
+						TargetName="gamepadsList"
+						Value="{StaticResource SimpleControllerForListTemplateBig}"
+						Property="ItemsControl.ItemTemplate" />
+					<Setter
+						TargetName="btnreWASDJunior"
+						Property="buttons:SVGButton.SVGWidth"
+						Value="22" />
+					<Setter
+						TargetName="btnreWASDJunior"
+						Property="buttons:SVGButton.SVGHeight"
+						Value="22" />
+					<Setter
+						TargetName="btnDetectDevice"
+						Property="buttons:SVGButton.SVGWidth"
+						Value="22" />
+					<Setter
+						TargetName="btnDetectDevice"
+						Property="buttons:SVGButton.SVGHeight"
+						Value="22" />
+					<Setter
+						TargetName="btnDetectDevice"
+						Property="FrameworkElement.Width"
+						Value="32" />
+					<Setter
+						TargetName="btnDetectDevice"
+						Property="FrameworkElement.Height"
+						Value="32" />
+					<Setter
+						TargetName="AdditionaButtonsPanel"
+						Property="FrameworkElement.Margin"
+						Value="8,0,0,0" />
+					<Setter
+						TargetName="Grid"
+						Property="FrameworkElement.Height"
+						Value="68" />
+					<Setter
+						TargetName="divider"
+						Property="FrameworkElement.Height"
+						Value="50" />
+				</Trigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</UserControl>

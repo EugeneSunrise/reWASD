@@ -1,0 +1,357 @@
+<bindingFrameViews:BaseBFView
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews.BFShift" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base="clr-namespace:reWASDUI.ViewModels.Base" xmlns:bindingFrame="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame" xmlns:bindingFrameViews="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingFrame.BindingFrameViews" xmlns:buttonBinding="clr-namespace:reWASDUI.Controls.XBBindingControls.ButtonBinding" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:checkBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.CheckBoxes;assembly=DiscSoft.NET.Common" xmlns:comboBoxes="clr-namespace:DiscSoft.NET.Common.View.Controls.ComboBoxes;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:controls1="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters1="clr-namespace:reWASDUI.Utils.Converters" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:enums="clr-namespace:reWASDCommon.Infrastructure.Enums;assembly=reWASDCommon" xmlns:infrastructure="clr-namespace:reWASDCommon.Infrastructure;assembly=reWASDCommon" xmlns:infrastructure1="clr-namespace:reWASDUI.Infrastructure" xmlns:interfaces1="clr-namespace:reWASDUI.Services.Interfaces" xmlns:licenseFeatureManaging="clr-namespace:reWASDUI.Controls.LicenseFeatureManaging" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:markupExtensions="clr-namespace:DiscSoft.NET.Common.Utils.Markup_Extensions;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:reWasdui="clr-namespace:reWASDUI" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common" xmlns:viewModels="clr-namespace:reWASDUI.ViewModels" xmlns:xbEliteWpf="clr-namespace:XBEliteWPF">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingFrameViews:BFShift}">
+			<StackPanel
+				Orientation="Vertical">
+				<Border
+					FrameworkElement.Style="{DynamicResource BindingFrameBackBorderStyle}">
+					<buttons:SVGButton
+						FrameworkElement.HorizontalAlignment="Left"
+						FrameworkElement.Style="{DynamicResource ButtonBackBindingFrame}"
+						ButtonBase.Command="{Binding ShiftBackCommand, RelativeSource={RelativeSource TemplatedParent}}" />
+				</Border>
+				<Border
+					Padding="0"
+					FrameworkElement.Style="{DynamicResource SidebarBorderWithThicknessStyle}">
+					<StackPanel
+						FrameworkElement.Margin="10,5,10,13"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+						<WrapPanel>
+							<TextBlock
+								FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+								TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_JUMP_TO_SHIFT}}" />
+							<buttons:SVGButton
+								Name="btnRemoveShift"
+								FrameworkElement.Margin="3,0,0,3"
+								FrameworkElement.VerticalAlignment="Bottom"
+								FrameworkElement.Style="{DynamicResource SVGButtonRemove}"
+								ColorShiftBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, FallbackValue='{StaticResource ButtonBorderBrush}'}"
+								UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift, Converter={converters:BooleanToVisibilityConverter}}"
+								Click="RemoveJumpToShiftCommand" />
+						</WrapPanel>
+						<licenseFeatureManaging:LicenseFeatureManagingContainer
+							AddLockIcon="False"
+							AssociatedFeatureGUID="{x:Static reWasdui:App.RAPID_FIRE_FEATURE_GUID}">
+							<licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+								<MultiBinding
+									Converter="{converters:MultiBooleanOrConverter}">
+									<Binding
+										Path="LicensingService.IsToggleFeatureUnlocked"
+										RelativeSource="{RelativeSource FindAncestor, AncestorType=infrastructure1:IBaseServicesContainer}" />
+									<Binding
+										Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsAlwaysEnabledJumpToShift" />
+								</MultiBinding>
+							</licenseFeatureManaging:LicenseFeatureManagingContainer.IsFeatureUnlocked>
+							<comboBoxes:ColoredComboBox
+								Name="cmbShift"
+								IsSynchronizedWithCurrentItem="True"
+								Control.BorderBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}"
+								DisabledBorderBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush, ConverterParameter=0.7, Converter={converters:SolidColorBrushSetOpacityViaParamConvertor}}"
+								HighlightedBorderBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}"
+								HighlightedScrollThumbBackground="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}"
+								ItemsControl.ItemsSource="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.JumpToShiftItems, Delay=10}"
+								PopupBorderBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}"
+								SelectedItem="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.JumpToShift, Delay=10}">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<StackPanel
+											FrameworkElement.Height="20"
+											Orientation="Horizontal"
+											AutomationProperties.AutomationId="{Binding}">
+											<recolorableImages:RecolorableSVG
+												FrameworkElement.Width="20"
+												FrameworkElement.Height="16"
+												FrameworkElement.Margin="0,0,8,0"
+												FrameworkElement.VerticalAlignment="Center"
+												IsColorShift="True"
+												AutomationProperties.AutomationId="{Binding}"
+												ColorShiftBrush="{Binding Converter={converters1:ShiftModificatorNumToBrushConverter}}"
+												Drawing="{Binding ConverterParameter=notnull, Converter={converters1:ShiftNumToDrawingConverter}}" />
+											<TextBlock
+												FrameworkElement.VerticalAlignment="Center"
+												AutomationProperties.AutomationId="{Binding}"
+												TextBlock.Text="{Binding Converter={converters1:ShiftNumToTextConverter}}" />
+										</StackPanel>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</comboBoxes:ColoredComboBox>
+						</licenseFeatureManaging:LicenseFeatureManagingContainer>
+						<TextBlock
+							Name="tbMode"
+							FrameworkElement.Margin="0,12,0,0"
+							FrameworkElement.Style="{DynamicResource DTBaseTextBlockStyle}"
+							TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_MODE}}">
+							<UIElement.IsEnabled>
+								<MultiBinding
+									ConverterParameter="({0} &amp;&amp; {1} || {1} &amp;&amp; {2})"
+									Converter="{converters:MultiBooleanParametrizedConverter}">
+									<Binding
+										Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsAlwaysEnabledJumpToShift" />
+									<Binding
+										Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift" />
+									<Binding
+										Path="LicensingService.IsToggleFeatureUnlocked"
+										RelativeSource="{RelativeSource FindAncestor, AncestorType=infrastructure1:IBaseServicesContainer}" />
+								</MultiBinding>
+							</UIElement.IsEnabled>
+						</TextBlock>
+						<StackPanel
+							UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsMainCollection, Converter={converters:BooleanToVisibilityConverter}}">
+							<checkBoxes:FillCheckBox
+								Name="cbHold"
+								FrameworkElement.Margin="0,4,0,0"
+								Control.Foreground="{DynamicResource ForegroundBrush}"
+								FrameworkElement.Style="{DynamicResource ShiftColoredRadioCheckBoxStyle}"
+								ToolTipService.ShowOnDisabled="True"
+								ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_HOLD}}"
+								IsChecked="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsShiftHold}"
+								UIElement.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_SHIFT_UNASSIGNED_TOOLTIP}}"
+								ToolTipService.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift, Converter={converters:InverseBooleanConverter}}" />
+							<licenseFeatureManaging:LicenseFeatureManagingContainer
+								x:Name="LicenseToggle"
+								AssociatedFeatureGUID="{x:Static reWasdui:App.RAPID_FIRE_FEATURE_GUID}"
+								IsFeatureUnlocked="{Binding LicensingService.IsToggleFeatureUnlocked, RelativeSource={RelativeSource FindAncestor, AncestorType=infrastructure1:IBaseServicesContainer}}">
+								<checkBoxes:FillCheckBox
+									Name="cbToggle"
+									FrameworkElement.Margin="0,4,0,0"
+									Control.Foreground="{DynamicResource ForegroundBrush}"
+									ToolTipService.ShowOnDisabled="True"
+									ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_TOGGLE}}"
+									IsChecked="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsShiftToggle}">
+									<UIElement.IsEnabled>
+										<MultiBinding
+											Converter="{converters:MultiBooleanAndConverter}">
+											<Binding
+												Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift" />
+											<Binding
+												Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsPostponeMapping"
+												Converter="{converters:InverseBooleanConverter}" />
+										</MultiBinding>
+									</UIElement.IsEnabled>
+									<FrameworkElement.Style>
+										<Style
+											BasedOn="{StaticResource ShiftColoredRadioCheckBoxStyle}"
+											TargetType="{x:Type checkBoxes:FillCheckBox}">
+											<Style.Triggers>
+												<DataTrigger
+													Value="True"
+													Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsPostponeMapping}">
+													<Setter
+														Property="FrameworkElement.ToolTip"
+														Value="{localization:Translate {x:Static s:StringConsts.STR_TT_POSTPONE_MAPPING_WITH_TOGGLE}}" />
+												</DataTrigger>
+												<DataTrigger
+													Value="True"
+													Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift, Converter={converters:InverseBooleanConverter}}">
+													<Setter
+														Property="FrameworkElement.ToolTip"
+														Value="{localization:Translate {x:Static s:StringConsts.STR_SHIFT_UNASSIGNED_TOOLTIP}}" />
+												</DataTrigger>
+											</Style.Triggers>
+										</Style>
+									</FrameworkElement.Style>
+								</checkBoxes:FillCheckBox>
+							</licenseFeatureManaging:LicenseFeatureManagingContainer>
+						</StackPanel>
+						<licenseFeatureManaging:LicenseFeatureManagingContainer
+							AssociatedFeatureGUID="{x:Static reWasdui:App.RAPID_FIRE_FEATURE_GUID}"
+							IsFeatureUnlocked="{Binding LicensingService.IsToggleFeatureUnlocked, RelativeSource={RelativeSource FindAncestor, AncestorType=infrastructure1:IBaseServicesContainer}}">
+							<checkBoxes:FillCheckBox
+								Name="cbCustom"
+								FrameworkElement.Margin="0,4,0,0"
+								Control.Foreground="{DynamicResource ForegroundBrush}"
+								FrameworkElement.Style="{DynamicResource ShiftColoredRadioCheckBoxStyle}"
+								ToolTipService.ShowOnDisabled="True"
+								ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_CUSTOM}}"
+								IsChecked="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsShiftCustom}"
+								UIElement.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_SHIFT_UNASSIGNED_TOOLTIP}}"
+								ToolTipService.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift, Converter={converters:InverseBooleanConverter}}" />
+						</licenseFeatureManaging:LicenseFeatureManagingContainer>
+						<licenseFeatureManaging:LicenseFeatureManagingContainer
+							x:Name="LicenseDelayBeforeJump"
+							AssociatedFeatureGUID="{x:Static reWasdui:App.RAPID_FIRE_FEATURE_GUID}"
+							IsFeatureUnlocked="{Binding LicensingService.IsToggleFeatureUnlocked, RelativeSource={RelativeSource FindAncestor, AncestorType=infrastructure1:IBaseServicesContainer}}">
+							<StackPanel
+								ToolTipService.ShowOnDisabled="True"
+								UIElement.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift}"
+								ToolTip="{localization:Translate {x:Static s:StringConsts.STR_SHIFT_UNASSIGNED_TOOLTIP}}"
+								ToolTipService.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift, Converter={converters:InverseBooleanConverter}}">
+								<checkBoxes:FillCheckBox
+									Name="chkDelayBeforeJump"
+									FrameworkElement.Margin="0,12,0,8"
+									Control.Foreground="{DynamicResource ForegroundBrush}"
+									FrameworkElement.Style="{DynamicResource ShiftColoredCheckBox}"
+									ToolTipService.ShowOnDisabled="True"
+									ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_DELAY_BEFORE_JUMP}}"
+									IsChecked="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsDelayBerforeJumpChecked}"
+									UIElement.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ActivatorType, ConverterParameter='{x:Static enums:ActivatorType.Start}', Converter={converters:ValuesAreNotEqual}}"
+									ToolTip="{localization:Translate {x:Static s:StringConsts.STR_CANT_DELAY_FOR_START_ACTIVATOR}}"
+									ToolTipService.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ActivatorType, ConverterParameter='{x:Static enums:ActivatorType.Start}', Converter={converters:ValuesAreEqual}}" />
+								<checkBoxes:FillCheckBox
+									Name="chkPostpone"
+									FrameworkElement.Margin="16,0,0,8"
+									Control.Foreground="{DynamicResource ForegroundBrush}"
+									ToolTipService.ShowOnDisabled="True"
+									ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_POSTPONE_MAPPING}}"
+									IsChecked="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsPostponeMapping}">
+									<UIElement.IsEnabled>
+										<MultiBinding
+											Converter="{converters:MultiBooleanAndConverter}">
+											<Binding
+												Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsDelayBerforeJumpChecked" />
+											<Binding
+												Path="GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsShiftToggle"
+												Converter="{converters:InverseBooleanConverter}" />
+										</MultiBinding>
+									</UIElement.IsEnabled>
+									<FrameworkElement.Style>
+										<Style
+											BasedOn="{StaticResource ShiftColoredCheckBox}"
+											TargetType="{x:Type checkBoxes:FillCheckBox}">
+											<Style.Triggers>
+												<DataTrigger
+													Value="True"
+													Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsShiftToggle}">
+													<Setter
+														Property="FrameworkElement.ToolTip"
+														Value="{localization:Translate {x:Static s:StringConsts.STR_TT_POSTPONE_MAPPING_WITH_TOGGLE}}" />
+												</DataTrigger>
+											</Style.Triggers>
+										</Style>
+									</FrameworkElement.Style>
+								</checkBoxes:FillCheckBox>
+								<controls:MacrosDurationContainer
+									x:Name="DelayBeforeJump"
+									FrameworkElement.Margin="16,0,0,0"
+									FrameworkElement.HorizontalAlignment="Left"
+									Control.Foreground="#FFFFFFFF"
+									Minimum="1"
+									Control.BorderBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}"
+									UIElement.IsEnabled="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsDelayBerforeJumpChecked}"
+									Maximum="{markupExtensions:CastObjectToInt {x:Static infrastructure:Constants.DelayBeforeJumpMaxValueInMS}}"
+									UnitsString="{localization:Translate {x:Static s:StringConsts.STR_TIME_UNITS}}"
+									UpDownArrowsBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}"
+									Duration="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.DelayBerforeJump, Mode=TwoWay}">
+									<recolorableImages:RecolorableSVG
+										Name="MacrosPause"
+										FrameworkElement.Margin="5,-1,5,0"
+										Drawing="{DynamicResource MacrosPause}"
+										IsColorShift="True"
+										ColorShiftBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CollectionBrush}" />
+								</controls:MacrosDurationContainer>
+							</StackPanel>
+						</licenseFeatureManaging:LicenseFeatureManagingContainer>
+					</StackPanel>
+				</Border>
+				<TextBlock
+					Name="tbShiftDescription"
+					FrameworkElement.Margin="10,5,10,13"
+					TextBlock.TextWrapping="Wrap">
+					<FrameworkElement.Style>
+						<Style>
+							<Style.Triggers>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsShiftHold}">
+									<Setter
+										Property="TextBlock.Text"
+										Value="{localization:Translate {x:Static s:StringConsts.STR_HOLD_DESCRIPTION}}" />
+								</DataTrigger>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsShiftToggle}">
+									<Setter
+										Property="TextBlock.Text"
+										Value="{localization:Translate {x:Static s:StringConsts.STR_TOGGLE_DESCRIPTION}}" />
+								</DataTrigger>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsShiftCustom}">
+									<Setter
+										Property="TextBlock.Text"
+										Value="{localization:Translate {x:Static s:StringConsts.STR_CUSTOM_DESCRIPTION}}" />
+								</DataTrigger>
+								<DataTrigger
+									Value="False"
+									Binding="{Binding ElementName=tbMode, Path=IsEnabled}">
+									<Setter
+										Property="TextBlock.Foreground"
+										Value="{DynamicResource DisabledControlForegroundColor}" />
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</TextBlock>
+				<StackPanel
+					FrameworkElement.Margin="10,0,10,0"
+					UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.IsJumpToShift, Converter={converters:BooleanToVisibilityConverter}}">
+					<buttonBinding:SingleButtonBinding
+						FrameworkElement.Margin="0,0,0,10"
+						IsChangeCurrentBinding="False"
+						attachedBehaviours:FocusBehavior.InitialyFocused="{Binding Path=(attachedBehaviours:FocusBehavior.InitialyFocused), RelativeSource={RelativeSource TemplatedParent}}"
+						AllowKeyboardHooks="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						ControlsBorderBrush="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ShiftXBBinding.HostCollection.CollectionBrush}"
+						CurrentVirtualGamepad="{Binding GameProfilesService.CurrentGame.CurrentConfig.ConfigData.VirtualGamepadType}"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						TitleKeyMap="{localization:Translate {x:Static s:StringConsts.STR_REWASD_MAPPING}}"
+						XBBinding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ShiftXBBinding}" />
+					<Grid
+						FrameworkElement.Margin="0,0,0,10">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								ColumnDefinition.Width="0.5*" />
+							<ColumnDefinition
+								ColumnDefinition.Width="0.5*" />
+						</Grid.ColumnDefinitions>
+						<controls:KeyComboButtonUC
+							FrameworkElement.Margin="0,0,5,0"
+							XBBinding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ShiftXBBinding}" />
+						<controls:RumbleButtonUC
+							Grid.Column="1"
+							FrameworkElement.Margin="5,0,0,0"
+							BindingFrameViewTypeToReturnBack="{x:Type bindingFrameViews:BFShift}"
+							UIElement.Visibility="{Binding GamepadService.CurrentGamepad.CurrentController.IsRumbleAvailable, Converter={converters:BooleanToVisibilityConverter}}"
+							XBBinding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ShiftXBBinding}" />
+					</Grid>
+					<bindingFrame:TurboToggle
+						FrameworkElement.Margin="0,0,0,10"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}"
+						XBBinding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ShiftXBBinding}" />
+					<UniformGrid
+						FrameworkElement.Margin="-5,0,-5,10"
+						Columns="2">
+						<controls:UnmapSingleControl
+							FrameworkElement.Margin="5,0"
+							XBBinding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ShiftXBBinding}" />
+						<controls:RemapControl
+							FrameworkElement.Margin="5,0"
+							BindingFrameViewTypeToReturnBack="{x:Type bindingFrameViews:BFShift}"
+							XBBinding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ShiftXBBinding}" />
+					</UniformGrid>
+				</StackPanel>
+			</StackPanel>
+			<ControlTemplate.Triggers>
+				<DataTrigger
+					Value="{x:Static enums:ActivatorType.Start}"
+					Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ActivatorType}">
+					<Setter
+						TargetName="cbHold"
+						Property="UIElement.Visibility"
+						Value="Collapsed" />
+				</DataTrigger>
+				<DataTrigger
+					Value="{x:Static enums:ActivatorType.Release}"
+					Binding="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.CurrentXBBinding.CurrentActivatorXBBinding.ActivatorType}">
+					<Setter
+						TargetName="cbHold"
+						Property="UIElement.Visibility"
+						Value="Collapsed" />
+				</DataTrigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</bindingFrameViews:BaseBFView>

@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="IcoFA1BtnM2" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="IcoFA1BtnM2">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M8.879,15.691C7.122,15.219,3.676,14.269,1.578,13.691L1.236,13.597 1.203,13.244C0.809,9.036,0.419,4.751,0.079,0.805L0.01,0 0.768,0.28C5.151,1.898 8.006,3.398 11.193,5.292 14.881,7.483 16.67,10.549 15.752,13.101 15.343,14.239 13.888,16 11.057,16 10.405,16 9.68,15.907 8.879,15.691z M2.193,12.795C4.304,13.377 7.482,14.253 9.145,14.7 13.598,15.896 14.74,12.883 14.786,12.754 15.53,10.685 13.914,8.103 10.669,6.174 7.72,4.421 5.061,3.012 1.172,1.528 1.485,5.132 1.837,8.99 2.193,12.795z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,16,16" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

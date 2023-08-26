@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="UriBtnUnmapped" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="UriBtnUnmapped">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M7,0.5C3.4,0.5 0.5,3.4 0.5,7 0.5,10.6 3.4,13.5 7,13.5 10.6,13.5 13.5,10.6 13.5,7 13.5,3.4 10.6,0.5 7,0.5z M12.6,7C12.6,8.4,12.1,9.6,11.3,10.6L3.4,2.7C4.4,1.9 5.6,1.4 7,1.4 10.1,1.4 12.6,3.9 12.6,7z M1.4,7C1.4,5.6,1.9,4.4,2.7,3.4L10.5,11.2C9.5,12 8.3,12.5 6.9,12.5 3.9,12.6 1.4,10.1 1.4,7z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="0,0,14,14" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

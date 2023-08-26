@@ -1,0 +1,38 @@
+<buttonBinding:BaseButtonBinding
+	x:Class="reWASDUI.Controls.XBBindingControls.ButtonBinding.GamepadButtonBinding" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:buttonBinding="clr-namespace:reWASDUI.Controls.XBBindingControls.ButtonBinding" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:xb="clr-namespace:reWASDUI.Infrastructure.KeyBindings.XB" xmlns:interfaces1="clr-namespace:reWASDUI.Services.Interfaces">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type buttonBinding:GamepadButtonBinding}">
+			<StackPanel xmlns:xbbindingcontrols="clr-namespace:reWASDUI.Controls.XBBindingControls"
+				DataContext="{TemplateBinding xbbindingcontrols:BaseXBBindingUserControl.XBBinding}"
+				UIElement.IsEnabled="{Binding GamepadService.CurrentGamepad.GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+				<StackPanel
+					Orientation="Horizontal">
+					<TextBlock
+						Name="tbTitle"
+						FrameworkElement.Style="{DynamicResource DTTextBlockControlLabelStyle}"
+						TextBlock.Text="{TemplateBinding buttonBinding:BaseButtonBinding.Title}" />
+					<buttons:SVGButton
+						FrameworkElement.Margin="0,0,0,3"
+						FrameworkElement.VerticalAlignment="Bottom"
+						ColorShiftBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+						FrameworkElement.Style="{DynamicResource SVGButtonRemove}"
+						ButtonBase.Command="{Binding RevertRemapCommand}"
+						ButtonBase.CommandParameter="{Binding GamepadButtonToBind, RelativeSource={RelativeSource TemplatedParent}}"
+						UIElement.Visibility="{Binding IsRemapedOrUnmapped, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+				</StackPanel>
+				<controls:ControllerComboBox
+					FrameworkElement.HorizontalAlignment="Stretch"
+					FrameworkElement.VerticalAlignment="Center"
+					Control.BorderBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+					HighlightedBorderBrush="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+					HighlightedScrollThumbBackground="{TemplateBinding buttonBinding:BaseButtonBinding.ControlsBorderBrush}"
+					IsGamepadRemapMode="True"
+					IsGetItemsSourceFromController="True"
+					AssociatedControllerButton="{Binding ControllerButton}"
+					ControllerToGetItemsSourceFrom="{Binding GamepadService.CurrentGamepad.CurrentController}"
+					SelectedItem="{Binding RemapedTo}" />
+			</StackPanel>
+		</ControlTemplate>
+	</Control.Template>
+</buttonBinding:BaseButtonBinding>

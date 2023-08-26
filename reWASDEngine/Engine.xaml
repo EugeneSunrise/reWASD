@@ -1,0 +1,21 @@
+<reWasdEngine:DSBaseApplication
+	x:Class="reWASDEngine.Engine" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:reWasdEngine="clr-namespace:DiscSoft.NET.Common.DSBaseApp;assembly=DiscSoft.NET.Common" xmlns:rewasdengine="clr-namespace:reWASDEngine">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="OverlayAPI/OverlayResources.xaml" />
+				<ResourceDictionary
+					Source="/reWASDResources;component/Images/_ImageCatalog.xaml" />
+				<ResourceDictionary
+					Source="/DiscSoft.NET.Common;component/Themes/_CommonTemplate.xaml" />
+				<ResourceDictionary
+					Source="/reWASDResources;component/Themes/BaseTemplate/_BaseTemplate.xaml" />
+				<ResourceDictionary
+					Source="/reWASDResources;component/SVG/_SVGCatalog.xaml" />
+				<ResourceDictionary
+					Source="Infrastructure/RadialMenu/Themes/Generic.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
+</reWasdEngine:DSBaseApplication>

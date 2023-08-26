@@ -1,0 +1,83 @@
+<base:BaseSecondaryWindow
+	x:Class="reWASDUI.Views.SecondaryWindows.PrintBindingsWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:base="clr-namespace:DiscSoft.NET.Common.View.SecondaryWindows.Base;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:l="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	FrameworkElement.Height="180"
+	FrameworkElement.MinWidth="290"
+	FrameworkElement.MaxWidth="290"
+	attachedBehaviours:FocusBehavior.FocusFirst="true"
+	FrameworkElement.Style="{DynamicResource SecondaryWindowStyle}" xmlns:secondarywindows="clr-namespace:reWASDUI.Views.SecondaryWindows"
+	Title="{l:Translate {x:Static s:StringConsts.STR_SHARE_WINDOW_TITLE}}">
+	<StackPanel>
+		<StackPanel
+			FrameworkElement.Margin="16">
+			<StackPanel>
+				<TextBlock
+					FrameworkElement.Margin="0,0,0,16"
+					FrameworkElement.HorizontalAlignment="Center"
+					TextBlock.FontSize="16"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					TextBlock.Text="{l:Translate {x:Static s:StringConsts.STR_CHOOSE_MODE}}" />
+				<RadioButton
+					Name="rbBlackWhite"
+					IsChecked="True"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_BLACK_AND_WHITE}}" />
+				<RadioButton
+					Name="rbColor"
+					IsChecked="False"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_COLOR}}" />
+			</StackPanel>
+			<StackPanel
+				FrameworkElement.Margin="0,16,0,0">
+				<TextBlock
+					FrameworkElement.Margin="0,0,0,16"
+					FrameworkElement.HorizontalAlignment="Center"
+					TextBlock.FontSize="16"
+					FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+					TextBlock.Text="{l:Translate {x:Static s:StringConsts.STRING_CHOOSE_WHAT_PRINT}}" />
+				<RadioButton
+					Name="rbMappings"
+					IsChecked="True"
+					attachedBehaviours:ToolTipHelper.DisabledToolTip="{l:Translate {x:Static s:StringConsts.STR_NO_MAPPINGS_FOR_DEVICE_SHORT}}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STRING_PRINT_MAPPINGS}}"
+					UIElement.IsEnabled="{Binding ExistBindings}" />
+				<RadioButton
+					Name="rbDescriptions"
+					IsChecked="False"
+					attachedBehaviours:ToolTipHelper.DisabledToolTip="{l:Translate {x:Static s:StringConsts.STR_NO_DESCRIPTIONS_FOR_DEVICE}}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STRING_PRINT_DESCRIPTIONS}}"
+					UIElement.IsEnabled="{Binding ExistDescription}" />
+			</StackPanel>
+		</StackPanel>
+		<Border
+			FrameworkElement.Margin="0,0,5,0"
+			FrameworkElement.Style="{DynamicResource SecondaryWindowFooterBorderStyle}">
+			<StackPanel
+				Orientation="Horizontal"
+				FrameworkElement.Style="{DynamicResource SecondaryWindowFooterContainerStyle}">
+				<!--Присоединяемое событие 'add_Click'.-->
+				<buttons:ColoredButton
+					Name="ButtonOk"
+					FrameworkElement.Margin="0"
+					Control.Padding="10,5"
+					FrameworkElement.Style="{DynamicResource Button}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_PRINT}}">
+					<UIElement.IsEnabled>
+						<MultiBinding
+							Converter="{converters:MultiBooleanOrConverter}">
+							<Binding
+								Path="ExistBindings" />
+							<Binding
+								Path="ExistDescription" />
+						</MultiBinding>
+					</UIElement.IsEnabled>
+				</buttons:ColoredButton>
+				<!--Присоединяемое событие 'add_Click'.-->
+				<buttons:ColoredButton
+					Name="btnCancel"
+					FrameworkElement.Margin="10,0,0,0"
+					Control.Padding="10,5"
+					FrameworkElement.Style="{DynamicResource Button}"
+					ContentControl.Content="{l:Translate {x:Static s:StringConsts.STR_5005_CANCEL}}" />
+			</StackPanel>
+		</Border>
+	</StackPanel>
+</base:BaseSecondaryWindow>

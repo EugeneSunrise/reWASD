@@ -1,0 +1,292 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		x:Key="{x:Type ListBoxItem}"
+		TargetType="{x:Type ListBoxItem}">
+		<Setter
+			Property="Control.Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Control.Padding"
+			Value="0" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0" />
+		<Setter
+			Property="Control.HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="Control.VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Control.IsTabStop"
+			Value="False" />
+		<Setter
+			Property="FrameworkElement.FocusVisualStyle"
+			Value="{DynamicResource InvisibleFocusVisualStyle}" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ListBoxItem}">
+					<Border
+						FrameworkElement.Name="Border"
+						FrameworkElement.Margin="{TemplateBinding FrameworkElement.Margin}"
+						Padding="{TemplateBinding Control.Padding}"
+						Border.Background="{TemplateBinding Control.Background}"
+						Border.BorderBrush="{TemplateBinding Control.Background}"
+						Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+						<ContentPresenter />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ListBoxItemWithEvents"
+		TargetType="{x:Type ListBoxItem}">
+		<Setter
+			Property="Control.Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Control.Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="Control.Padding"
+			Value="0" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0" />
+		<Setter
+			Property="Control.HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="Control.VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Control.IsTabStop"
+			Value="False" />
+		<Setter
+			Property="FrameworkElement.FocusVisualStyle"
+			Value="{DynamicResource InvisibleFocusVisualStyle}" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ListBoxItem}">
+					<Border
+						FrameworkElement.Name="Border"
+						FrameworkElement.Margin="{TemplateBinding FrameworkElement.Margin}"
+						Padding="{TemplateBinding Control.Padding}"
+						Border.Background="{TemplateBinding Control.Background}"
+						Border.BorderBrush="{TemplateBinding Control.Background}"
+						Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+						<ContentPresenter />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource ListBoxItemHoverBackground}"
+								Property="Border.Background" />
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource CreamBrushHighlighted}"
+								Property="Border.Background" />
+						</Trigger>
+						<Trigger
+							Property="ListBoxItem.IsSelected"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource CreamBrush}"
+								Property="Border.Background" />
+							<Setter
+								Property="Control.Foreground"
+								Value="#FF000000" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ListBoxItemProcessList"
+		TargetType="{x:Type ListBoxItem}">
+		<Setter
+			Property="Control.Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Control.Foreground"
+			Value="{DynamicResource ForegroundBrush}" />
+		<Setter
+			Property="Control.Padding"
+			Value="0" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0" />
+		<Setter
+			Property="Control.HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="Control.VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Control.IsTabStop"
+			Value="False" />
+		<Setter
+			Property="FrameworkElement.FocusVisualStyle"
+			Value="{DynamicResource InvisibleFocusVisualStyle}" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ListBoxItem}">
+					<Border
+						FrameworkElement.Name="Border"
+						FrameworkElement.Margin="{TemplateBinding FrameworkElement.Margin}"
+						Padding="{TemplateBinding Control.Padding}"
+						Border.Background="{TemplateBinding Control.Background}"
+						Border.BorderBrush="{TemplateBinding Control.Background}"
+						Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+						<ContentPresenter />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource ListBoxItemHoverBackground}"
+								Property="Border.Background" />
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource CreamBrushHighlighted}"
+								Property="Border.Background" />
+						</Trigger>
+						<Trigger
+							Property="ListBoxItem.IsSelected"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource CreamBrush}"
+								Property="Border.Background" />
+							<Setter
+								Property="Control.Foreground"
+								Value="#FF000000" />
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsKeyboardFocusWithin"
+							Value="True">
+							<Setter
+								Property="ListBoxItem.IsSelected"
+								Value="True" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="ListBoxItemOverlayIcoCategoryList"
+		TargetType="{x:Type ListBoxItem}">
+		<Setter
+			Property="Control.Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Control.Foreground"
+			Value="{DynamicResource CreamBrush}" />
+		<Setter
+			Property="Control.Padding"
+			Value="0" />
+		<Setter
+			Property="FrameworkElement.Margin"
+			Value="0" />
+		<Setter
+			Property="Control.HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="Control.VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Control.BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Control.IsTabStop"
+			Value="False" />
+		<Setter
+			Property="FrameworkElement.FocusVisualStyle"
+			Value="{DynamicResource InvisibleFocusVisualStyle}" />
+		<Setter
+			Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ListBoxItem}">
+					<Border
+						FrameworkElement.Name="Border"
+						FrameworkElement.Margin="{TemplateBinding FrameworkElement.Margin}"
+						Padding="{TemplateBinding Control.Padding}"
+						Border.Background="{TemplateBinding Control.Background}"
+						Border.BorderBrush="{TemplateBinding Control.Background}"
+						Border.BorderThickness="{TemplateBinding Control.BorderThickness}">
+						<ContentPresenter />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource ListBoxItemHoverBackground}"
+								Property="Border.Background" />
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsFocused"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource ButtonActiveForeground}"
+								Property="Border.Background" />
+						</Trigger>
+						<Trigger
+							Property="ListBoxItem.IsSelected"
+							Value="True">
+							<Setter
+								TargetName="Border"
+								Value="{DynamicResource PressedBackgroundBrush}"
+								Property="Border.Background" />
+							<Setter
+								Property="Control.Foreground"
+								Value="#FFFFFFFF" />
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsKeyboardFocusWithin"
+							Value="True">
+							<Setter
+								Property="ListBoxItem.IsSelected"
+								Value="True" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

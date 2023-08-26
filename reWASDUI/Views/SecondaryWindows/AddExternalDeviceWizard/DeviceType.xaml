@@ -1,0 +1,94 @@
+<UserControl
+	x:Class="reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard.DeviceType" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:addExternalDeviceWizard="clr-namespace:reWASDUI.ViewModels.SecondaryWindows.AddExternalDeviceWizard" xmlns:attachedBehaviours="clr-namespace:DiscSoft.NET.Common.Utils.AttachedBehaviours;assembly=DiscSoft.NET.Common" xmlns:buttons="clr-namespace:DiscSoft.NET.Common.View.Controls.Buttons;assembly=DiscSoft.NET.Common" xmlns:controls="clr-namespace:DiscSoft.NET.Common.View.Controls;assembly=DiscSoft.NET.Common" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:localization="clr-namespace:DiscSoft.NET.Common.Localization;assembly=DiscSoft.NET.Common" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:DTEngine;assembly=DiscSoft.NET.Common"
+	FrameworkElement.Height="466" xmlns:addexternaldevicewizard="clr-namespace:reWASDUI.Views.SecondaryWindows.AddExternalDeviceWizard">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="108" />
+			<RowDefinition
+				RowDefinition.Height="*" />
+			<RowDefinition
+				RowDefinition.Height="70" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			Name="AddNewAdapterTB"
+			FrameworkElement.Style="{DynamicResource SecondaryWindowHeaderStyle}"
+			TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_ADD_NEW_ADAPTER}}" />
+		<Grid
+			Row="1"
+			FrameworkElement.Style="{DynamicResource WizardContentGridStyle}">
+			<StackPanel
+				FrameworkElement.HorizontalAlignment="Stretch"
+				FrameworkElement.VerticalAlignment="Top">
+				<TextBlock
+					Name="TypeTB"
+					FrameworkElement.Margin="0,0,0,5"
+					FrameworkElement.Style="{DynamicResource WizardTextBlockStyle}"
+					TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_TYPE}}" />
+				<RadioButton
+					Name="LocalBluetoothRadioButton"
+					FrameworkElement.Style="{DynamicResource WizardRadioButtonStyle}"
+					attachedBehaviours:ToolTipHelper.DisabledToolTip="{Binding BluetoothDisabledToolTip}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_LOCAL_BLUETOOTH}}"
+					IsChecked="{Binding IsBluetooth}"
+					UIElement.IsEnabled="{Binding IsBluetoothCouldBeAdded}" />
+				<RadioButton
+					Name="GIMXRadioButton"
+					ContentControl.Content="GIMX"
+					FrameworkElement.Style="{DynamicResource WizardRadioButtonStyle}"
+					IsChecked="{Binding IsGIMX}" />
+				<RadioButton
+					Name="ESP32RadioButton"
+					FrameworkElement.Style="{DynamicResource WizardRadioButtonStyle}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_ESP32_BLUETOOTH_ADAPTER}}"
+					IsChecked="{Binding IsESP32}" />
+				<RadioButton
+					Name="ESP32S2RadioButton"
+					FrameworkElement.Style="{DynamicResource WizardRadioButtonStyle}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_ESP32_USB_ADAPTER}}"
+					IsChecked="{Binding IsESP32S2}" />
+				<TextBlock
+					Name="AliasTextBlock"
+					FrameworkElement.Margin="0,15,0,0"
+					FrameworkElement.Style="{DynamicResource WizardTextBlockStyle}"
+					TextBlock.Text="{localization:Translate {x:Static s:StringConsts.STR_ALIAS}}" />
+				<controls:WaterMarkTextBox
+					Name="AliasTextBox"
+					FrameworkElement.HorizontalAlignment="Stretch"
+					Control.FontSize="14"
+					MaxLength="20"
+					TextBox.Text="{Binding Alias, UpdateSourceTrigger=PropertyChanged}" />
+			</StackPanel>
+		</Grid>
+		<Border
+			Grid.Row="2"
+			FrameworkElement.Style="{DynamicResource WizardFooterBorderStyle}">
+			<Grid>
+				<buttons:ColoredButton
+					Name="BackButton"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+					ButtonBase.Command="{Binding BackCommand}"
+					ContentControl.Content="{localization:Translate {x:Static s:StringConsts.IDS_WIZARD_BACK}}"
+					UIElement.Visibility="{Binding ExternalDeviceCollection.Count, ConverterParameter=0, Converter={converters:InvertedCompareIntToVisibilityConverter}}" />
+				<StackPanel
+					FrameworkElement.HorizontalAlignment="Right"
+					Orientation="Horizontal">
+					<buttons:ColoredButton
+						Name="NextButton"
+						FrameworkElement.Margin="0,5"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding NextCommand}"
+						ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_5017_NEXT}}"
+						UIElement.IsEnabled="{Binding IsAliasValid}" />
+					<buttons:ColoredButton
+						Name="CancelButton"
+						FrameworkElement.Margin="10,5,40,5"
+						FrameworkElement.Style="{DynamicResource WizardFooterButton}"
+						ButtonBase.Command="{Binding CancelCommand}"
+						ContentControl.Content="{localization:Translate {x:Static s:StringConsts.STR_5005_CANCEL}}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

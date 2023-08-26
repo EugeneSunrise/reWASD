@@ -1,0 +1,52 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingGroup
+		x:Key="Macros" xmlns:svr="clr-namespace:SharpVectors.Runtime;assembly=DiscSoft.NET.Common"
+		svr:SvgObject.Id="Macros">
+		<DrawingGroup.Children>
+			<DrawingGroup
+				svr:SvgLink.Key="DrawingLayer">
+				<DrawingGroup.Children>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="1.5,17.5,6,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="1.5,20.5,6,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry
+								RadiusX="0"
+								RadiusY="0"
+								Rect="1.5,23.5,6,1" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+					<GeometryDrawing
+						Brush="#FFFFFFFF">
+						<GeometryDrawing.Geometry>
+							<PathGeometry
+								FillRule="Nonzero"
+								PathGeometry.Figures="M11.605,13.5L10.657,13.5 9.71,13.5 -0.5,13.5C-0.5,13.5 -1.5,13.5 -1.5,14.5 -1.5,15.3 -1.5,24.4 -1.5,27.5L-2.605,27.5C-3.647,27.5 -4.5,28.4 -4.5,29.5 -4.5,30.6 -3.647,31.5 -2.605,31.5L8.763,31.5C9.805,31.5,10.5,30.6,10.5,29.5L10.5,17.5 11.5,17.5C11.5,17.5 13.5,17.5 13.5,15.5 13.5,13.5 11.605,13.5 11.605,13.5z M6.742,30.5L-2.606,30.5C-3.174,30.5 -3.553,30.1 -3.553,29.5 -3.553,28.9 -3.174,28.5 -2.606,28.5L-0.711000000000001,28.5 0.235999999999999,28.5 6.741,28.5C6.552,28.8 6.499,29.1 6.499,29.5 6.499,29.9 6.553,30.2 6.742,30.5z M8.5,30.5C7.932,30.5 7.5,30.1 7.5,29.5 7.5,28.9 7.932,28.5 8.5,28.5 9.068,28.5 9.5,28.9 9.5,29.5 9.5,30.1 9.068,30.5 8.5,30.5z M9.5,27.8C9.216,27.6,8.879,27.5,8.5,27.5L-0.5,27.5 -0.5,14.5 9.5,14.5 9.5,16.5 9.5,17.5 9.5,27.8z M11.5,16.5L10.5,16.5 10.5,14.5 11.5,14.5C11.5,14.5 12.553,14.5 12.553,15.5 12.553,16.5 11.5,16.5 11.5,16.5z" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+				<DrawingGroup.ClipGeometry>
+					<RectangleGeometry
+						Rect="-4.5,13.5,18,18" />
+				</DrawingGroup.ClipGeometry>
+			</DrawingGroup>
+		</DrawingGroup.Children>
+	</DrawingGroup>
+</ResourceDictionary>

@@ -1,0 +1,266 @@
+<controls:BaseServicesResolvingControl
+	x:Class="reWASDUI.Controls.XBBindingControls.BindingAnnotation.ActivatorVirtualMappingAnnotation" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:activatorXb="clr-namespace:reWASDUI.Infrastructure.KeyBindings.ActivatorXB" xmlns:bindingAnnotation="clr-namespace:reWASDUI.Controls.XBBindingControls.BindingAnnotation" xmlns:buttonBinding="clr-namespace:reWASDUI.Controls.XBBindingControls.ButtonBinding" xmlns:controls="clr-namespace:reWASDUI.Controls" xmlns:converters="clr-namespace:DiscSoft.NET.Common.Utils.Converters;assembly=DiscSoft.NET.Common" xmlns:converters2="clr-namespace:reWASDUI.Utils.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:recolorableImages="clr-namespace:DiscSoft.NET.Common.View.RecolorableImages;assembly=DiscSoft.NET.Common">
+	<Control.Template>
+		<ControlTemplate
+			TargetType="{x:Type bindingAnnotation:ActivatorVirtualMappingAnnotation}">
+			<StackPanel
+				DataContext="{TemplateBinding bindingAnnotation:ActivatorVirtualMappingAnnotation.ActivatorXBBinding}"
+				Orientation="Horizontal">
+				<StackPanel
+					Name="spDescription"
+					Orientation="Horizontal">
+					<UIElement.Visibility>
+						<MultiBinding
+							Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+							<Binding
+								Path="IsLabelMode"
+								FallbackValue="False"
+								RelativeSource="{RelativeSource TemplatedParent}" />
+							<Binding
+								Path="Description"
+								ConverterParameter="invert"
+								Converter="{converters:StringIsNullOrEmpty}" />
+						</MultiBinding>
+					</UIElement.Visibility>
+					<TextBlock
+						Name="tbBindingDescription"
+						FrameworkElement.MinHeight="15"
+						FrameworkElement.VerticalAlignment="Center"
+						FrameworkElement.Style="{DynamicResource DTTextBlockStyle}"
+						TextOptions.TextFormattingMode="Ideal"
+						TextBlock.Text="{Binding Description}" />
+				</StackPanel>
+				<StackPanel
+					Name="spMapping"
+					FrameworkElement.VerticalAlignment="Center"
+					Orientation="Horizontal"
+					UIElement.Visibility="{Binding GameProfilesService.RealCurrentBeingMappedBindingCollection.IsShowMappingsView, FallbackValue=Visible, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:BooleanToVisibilityConverter}}">
+					<StackPanel
+						Orientation="Horizontal">
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+								<Binding
+									Path="HostDictionary.HostXBBinding.IsInheritedBinding"
+									Converter="{converters:InverseBooleanConverter}" />
+								<Binding
+									Path="IsShiftVisible"
+									RelativeSource="{RelativeSource TemplatedParent}" />
+							</MultiBinding>
+						</UIElement.Visibility>
+						<recolorableImages:RecolorableSVG
+							Name="shiftHoldIcon"
+							FrameworkElement.Margin="0,0,2,0"
+							Drawing="{DynamicResource Hold}"
+							IsColorShift="True"
+							ColorShiftBrush="{Binding ShiftModificatorCollection.CollectionBrush}">
+							<UIElement.Visibility>
+								<MultiBinding
+									Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+									<Binding
+										Path="IsShiftHold" />
+									<Binding
+										Path="IsJumpToShift" />
+								</MultiBinding>
+							</UIElement.Visibility>
+						</recolorableImages:RecolorableSVG>
+						<recolorableImages:RecolorableSVG
+							Name="shiftToggleIcon"
+							FrameworkElement.Margin="0,0,2,0"
+							Drawing="{DynamicResource Toggle}"
+							IsColorShift="True"
+							ColorShiftBrush="{Binding ShiftModificatorCollection.CollectionBrush}"
+							UIElement.IsEnabled="{Binding LicensingService.IsToggleFeatureUnlocked, RelativeSource={RelativeSource TemplatedParent}}">
+							<UIElement.Visibility>
+								<MultiBinding
+									Converter="{converters:MultiBooleanAndConverterToVisibilityConverter}">
+									<Binding
+										Path="IsShiftToggle" />
+									<Binding
+										Path="IsJumpToShift" />
+								</MultiBinding>
+							</UIElement.Visibility>
+						</recolorableImages:RecolorableSVG>
+						<recolorableImages:RecolorableSVG
+							Name="shiftIcon"
+							FrameworkElement.Margin="0,0,2,0"
+							IsColorShift="True"
+							ColorShiftBrush="{Binding JumpToShift, Converter={converters2:ShiftModificatorNumToBrushConverter}}"
+							Drawing="{Binding JumpToShift, Converter={converters2:ShiftNumToDrawingConverter}}"
+							UIElement.Visibility="{Binding Drawing, RelativeSource={RelativeSource Self}, Converter={converters:ValueIsNotNullToVisibilityConverter}}">
+							<UIElement.IsEnabled>
+								<MultiBinding
+									ConverterParameter="({0} &amp;&amp; ({1} || ({2} &amp;&amp; !{4})) || ({2} &amp;&amp; {4} &amp;&amp;!{5})) || {3} || {0}"
+									Converter="{converters:MultiBooleanParametrizedConverter}">
+									<MultiBinding.Bindings>
+										<Binding
+											Path="LicensingService.IsToggleFeatureUnlocked"
+											RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding
+											Path="IsShiftToggle" />
+										<Binding
+											Path="IsShiftCustom" />
+										<Binding
+											Path="IsShiftHold" />
+										<Binding
+											Path="IsReturnToMainShift" />
+										<Binding
+											Path="IsHideMappings" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</UIElement.IsEnabled>
+						</recolorableImages:RecolorableSVG>
+					</StackPanel>
+					<StackPanel
+						Name="mappingStackPanel"
+						DataContext="{TemplateBinding bindingAnnotation:ActivatorVirtualMappingAnnotation.ShiftActivatorXBBinding}"
+						Orientation="Horizontal"
+						UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}">
+						<recolorableImages:RecolorableSVG
+							Name="toggle"
+							FrameworkElement.Margin="0,0,4,0"
+							Drawing="{DynamicResource Toggle}"
+							IsColorShift="True"
+							ColorShiftBrush="{Binding HostCollection.CollectionBrush}"
+							UIElement.IsEnabled="{Binding LicensingService.IsToggleFeatureUnlocked, RelativeSource={RelativeSource TemplatedParent}}"
+							UIElement.Visibility="{Binding IsToggle, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+						<recolorableImages:RecolorableSVG
+							Name="turbo"
+							FrameworkElement.Margin="0,0,4,0"
+							Drawing="{DynamicResource Turbo}"
+							IsColorShift="True"
+							ColorShiftBrush="{Binding HostCollection.CollectionBrush}"
+							UIElement.IsEnabled="{Binding LicensingService.IsTurboFeatureUnlocked, RelativeSource={RelativeSource TemplatedParent}}"
+							UIElement.Visibility="{Binding IsTurbo, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+						<ContentControl
+							Name="MappedKey"
+							ContentControl.ContentTemplate="{StaticResource RewasdMappingAnnotationDataTemplate}"
+							ContentControl.Content="{Binding MappedKey}"
+							Control.Foreground="{Binding HostCollection.CollectionBrush}"
+							UIElement.Visibility="{Binding IsMacroMapping, Converter={converters:InvertedBooleanToVisibilityConverter}}" />
+						<ItemsControl
+							Name="MacroListBox"
+							FrameworkElement.VerticalAlignment="Center"
+							Control.Background="#00FFFFFF"
+							Control.Foreground="{Binding HostCollection.CollectionBrush}"
+							UIElement.IsEnabled="{Binding LicensingService.IsMacroFeatureUnlocked, RelativeSource={RelativeSource TemplatedParent}}"
+							ItemsControl.ItemsSource="{Binding MacroSequenceAnnotation}"
+							UIElement.Visibility="{Binding MacroSequenceAnnotation, Converter={converters:ValueIsNotNullToVisibilityConverter}}"
+							MouseLeftButtonDown="ListBox_OnMouseLeftButtonDown">
+							<ItemsControl.ItemsPanel>
+								<ItemsPanelTemplate>
+									<StackPanel
+										IsHitTestVisible="False"
+										Orientation="Horizontal"
+										UIElement.IsEnabled="{Binding GameProfilesService.CurrentGame.CurrentConfig.IsEditConfigMode}" />
+								</ItemsPanelTemplate>
+							</ItemsControl.ItemsPanel>
+						</ItemsControl>
+						<recolorableImages:RecolorableSVG
+							Name="imgRumbleAnnotationIco"
+							FrameworkElement.Margin="0,2,0,0"
+							Drawing="{DynamicResource UriRumble}"
+							UIElement.Visibility="{Binding IsRumble, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+						<recolorableImages:RecolorableSVG
+							Name="imgAdaptiveTriggesAnnotationIco"
+							FrameworkElement.Margin="0,2,0,0"
+							Drawing="{DynamicResource AdaptiveTriggersMapping}"
+							UIElement.Visibility="{Binding IsAdaptiveTriggers, FallbackValue=Collapsed, Converter={converters:BooleanToVisibilityConverter}}" />
+					</StackPanel>
+				</StackPanel>
+			</StackPanel>
+			<ControlTemplate.Triggers>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding ActivatorXBBinding.IsAdaptiveTriggersInherited, RelativeSource={RelativeSource Self}}">
+					<Setter
+						TargetName="imgAdaptiveTriggesAnnotationIco"
+						Property="recolorableImages:BaseRecolorableImage.IsColorShift"
+						Value="True" />
+					<Setter
+						TargetName="imgAdaptiveTriggesAnnotationIco"
+						Value="{DynamicResource DisabledControlForegroundColor}"
+						Property="recolorableImages:RecolorableSVG.ColorShiftBrush" />
+				</DataTrigger>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding ActivatorXBBinding.HostDictionary.HostXBBinding.IsInheritedBinding, RelativeSource={RelativeSource Self}}">
+					<Setter
+						TargetName="mappingStackPanel"
+						Property="FrameworkElement.DataContext"
+						Value="{Binding}" />
+					<Setter
+						TargetName="imgRumbleAnnotationIco"
+						Property="recolorableImages:BaseRecolorableImage.IsColorShift"
+						Value="True" />
+					<Setter
+						TargetName="imgRumbleAnnotationIco"
+						Value="{DynamicResource DisabledControlForegroundColor}"
+						Property="recolorableImages:RecolorableSVG.ColorShiftBrush" />
+					<Setter
+						TargetName="turbo"
+						Value="{DynamicResource DisabledControlForegroundColor}"
+						Property="recolorableImages:RecolorableSVG.ColorShiftBrush" />
+					<Setter
+						TargetName="toggle"
+						Value="{DynamicResource DisabledControlForegroundColor}"
+						Property="recolorableImages:RecolorableSVG.ColorShiftBrush" />
+					<Setter
+						TargetName="MacroListBox"
+						Value="{DynamicResource DisabledControlForegroundColor}"
+						Property="Control.Foreground" />
+					<Setter
+						TargetName="MappedKey"
+						Value="{DynamicResource DisabledControlForegroundColor}"
+						Property="Control.Foreground" />
+					<Setter
+						TargetName="shiftIcon"
+						Value="{DynamicResource DisabledControlForegroundColor}"
+						Property="recolorableImages:RecolorableSVG.ColorShiftBrush" />
+				</DataTrigger>
+				<DataTrigger
+					Value="True"
+					Binding="{Binding ActivatorXBBinding.IsVirtualMappingPresent, RelativeSource={RelativeSource Self}}">
+					<Setter
+						TargetName="imgRumbleAnnotationIco"
+						Property="FrameworkElement.Margin"
+						Value="4,2,0,0" />
+				</DataTrigger>
+				<MultiTrigger>
+					<MultiTrigger.Conditions>
+						<Condition
+							SourceName="spDescription"
+							Property="UIElement.Visibility"
+							Value="Visible" />
+						<Condition
+							SourceName="spMapping"
+							Property="UIElement.Visibility"
+							Value="Visible" />
+					</MultiTrigger.Conditions>
+					<Setter
+						TargetName="spDescription"
+						Property="FrameworkElement.Margin"
+						Value="0,0,3,0" />
+				</MultiTrigger>
+				<DataTrigger
+					Value="true">
+					<DataTrigger.Binding>
+						<MultiBinding
+							Converter="{converters:MultiBooleanAndConverter}">
+							<Binding
+								Converter="{converters:ValueIsNotNull}"
+								RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type buttonBinding:SingleButtonBinding}}" />
+							<Binding
+								Path="IsMouseOver"
+								ElementName="MacroListBox" />
+						</MultiBinding>
+					</DataTrigger.Binding>
+					<Setter
+						TargetName="MacroListBox"
+						Value="{DynamicResource CreamBrushHighlighted}"
+						Property="Control.Foreground" />
+				</DataTrigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Control.Template>
+</controls:BaseServicesResolvingControl>
