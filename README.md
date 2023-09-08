@@ -16,5 +16,11 @@ Step by step for the littlest ones:
 - Move reWASD.dll and reWASDEngine.dll WITH REPLACEMENT in main reWasd folder
 - Start reWASD, all features are available!
 
+# Another Way - Just abuse trial
+- Go to [Forum](https://zelenka.guru/threads/4875915/?pget=1)
+- Register
+- Use translator to your main language
+- Follow the instructions
+
 # NOTICE
 VERSION FOR X86/X64 WILL BE SOON
