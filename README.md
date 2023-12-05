@@ -17,7 +17,7 @@ Step by step for the littlest ones:
 - First of all, delete your current version of reWasd program
 - Go to [Releases](https://github.com/EugeneSunrise/reWASD/releases)
 - Do you see the Assets tab? Fine!
-- Download installer in Assets for cracked version - reWASD670-8034.ARM.exe
+- Download installer in Assets for cracked version - reWASD700-8378(ARM).exe
 - Install!
 - Download reWASD.dll and reWASDEngine.dll in Assets
 - Disable reWASD (if enabled)
