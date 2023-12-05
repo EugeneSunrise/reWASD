@@ -30,5 +30,13 @@ Step by step for the littlest ones:
 - Use translator to your main language
 - Follow the instructions
 
-# NOTICE
-VERSION FOR X86/X64 WILL BE SOON
+## Support the project financially
+
+TRX(Tron): TGztJ8FSwKNSrigESddGq6euHa9UgtkujG
+
+BTC(Bitcoin): bc1q9ym4ac67x9c2slg64lq3u8wczdadj4tep7y2fw
+
+ETH(Ethereum): 0xb9Fa2B5661238eC9D825bdb0379Db5b035179282
+
+**Thanks for the support!**
+
