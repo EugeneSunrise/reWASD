@@ -1,6 +1,6 @@
-# NOTICE 29.11.2023
+# NOTICE 7.12.2023
 - reWASD ARM 7.0.0 Ver. Ready to download(check releases)
-- Return to work x86\x64 version in December, in positive expectation x86\x64 version in early 2024
+- x86\x64 versions very soon!
 - May this holiday season brighten you up with happiness, joy and good cheer!
 
 # reWASD Source Code & Patched Lib's in Releases
