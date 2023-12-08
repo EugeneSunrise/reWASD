@@ -1,7 +1,9 @@
-# NOTICE 7.12.2023
-- reWASD ARM 7.0.0 Ver. Ready to download(check releases)
-- x86\x64 versions very soon!
+# NOTICE 8.12.2023
+- x86\x64 READY TO DOWNLOAD!
 - May this holiday season brighten you up with happiness, joy and good cheer!
+
+# Special Thanks
+HUGE THANKS TO [Eddy](https://github.com/RedDot-3ND7355) ([reWASD](https://github.com/RedDot-3ND7355/reWASD)) ONLY THANKS TO HIM YOU CAN USE X64/86 VERSION FOR FREE, SO BEFORE DOWNLOADING GO TO HIS GITHUB PROFILE AND PUT STARS ON EACH OF HIS PROJECTS!!!!
 
 # reWASD Source Code & Patched Lib's in Releases
 
@@ -10,25 +12,18 @@
 
 # USING
 reWASD has are several versions, the version for Windows x86/x64 and Windows ARM Architecture.
-CURRENT AND ONLY VERSION OF CRACK IS ONLY FOR WINDOWS ARM, NOT X86 OR X64!
 
-Do you have an ARM? Fine!
 Step by step for the littlest ones:
 - First of all, delete your current version of reWasd program
-- Go to [Releases](https://github.com/EugeneSunrise/reWASD/releases)
+- Go to [Releases](https://github.com/EugeneSunrise/reWASD/releases) and pick your version
 - Do you see the Assets tab? Fine!
-- Download installer in Assets for cracked version - reWASD700-8378(ARM).exe
+- Download installer in Assets for cracked version - reWASD700-8378(ARM).exe or reWASD700-8447.exe
 - Install!
-- Download reWASD.dll and reWASDEngine.dll in Assets
+- Download reWASD.dll and reWASDCommon.dll(or reWASDEngine.dll for ARM) in Assets
 - Disable reWASD (if enabled)
-- Move reWASD.dll and reWASDEngine.dll WITH REPLACEMENT in main reWasd folder
+- Move reWASD.dll and reWASDCommon.dll( or reWASDEngine.dll) WITH REPLACEMENT in main reWasd folder
 - Start reWASD, all features are available!
 
-# Another Way - Just abuse trial
-- Go to [Forum](https://zelenka.guru/threads/4875915/?pget=1)
-- Register
-- Use translator to your main language
-- Follow the instructions
 
 ## Support the project financially
 
