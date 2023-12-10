@@ -1,5 +1,5 @@
 # NOTICE 10.12.2023
-- The latest build is not working for everyone, fix will be ready within 2-4 weeks
+- The latest build is not working for everyone, fix will be ready within 1-4 weeks
 - May this holiday season brighten you up with happiness, joy and good cheer!
 
 # Special Thanks
