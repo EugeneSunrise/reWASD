@@ -1,5 +1,5 @@
 # NOTICE 16.12.2023
-- There are small problems with the latest version (7.0) reWASD, but I managed to make a crack for version 6.6-6.7, and probably I will load it first (still need some improvements so that ordinary users can use it) So first wait for version 6.6 or 6.7 in the next couple of days. Another developer (Eddy) also makes a crack, we are also waiting for news from him
+- There are small problems with the latest version (7.0) reWASD, but I managed to make a crack for version 6.6, and probably I will load it first (still need some improvements so that ordinary users can use it) So first wait for version 6.6 in the next couple of days. Another developer (Eddy) also makes a crack, we are also waiting for news from him
 - May this holiday season brighten you up with happiness, joy and good cheer!
 
 # Special Thanks
