@@ -1,4 +1,6 @@
-# NOTICE 16.12.2023
+# NOTICE 16.12.2023 UPDATED
+Guys, crack for version 6.6 is ready, but the setup will not be easy :D(not easy at ALL), cuz I don't have a lot of free time for this shi... ,so should I release with a guide or you will wait for 7.0 version?
+
 - There are small problems with the latest version (7.0) reWASD, but I managed to make a crack for version 6.6, and probably I will load it first (still need some improvements so that ordinary users can use it) So first wait for version 6.6 in the next couple of days. Another developer (Eddy) also makes a crack, we are also waiting for news from him
 - May this holiday season brighten you up with happiness, joy and good cheer!
 
