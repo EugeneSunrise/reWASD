@@ -12,7 +12,7 @@ HUGE THANKS TO [Eddy](https://github.com/RedDot-3ND7355) ([reWASD](https://githu
 ![Screenshot 29-11-2023 at 22-15-35](https://github.com/EugeneSunrise/reWASD/assets/56397706/1d3e6290-73b2-4d19-a826-17667841aaed)
 
 
-# USING
+# USING (For 6.6 version check youtube guide)
 reWASD has are several versions, the version for Windows x86/x64 and Windows ARM Architecture.
 
 Step by step for the littlest ones:
