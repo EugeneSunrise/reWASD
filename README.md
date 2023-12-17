@@ -1,7 +1,13 @@
 # NOTICE 18.12.2023
 - Crack for 6.6 ver ready with youtube guide for those who really wants it, check releases. Version 7.0 crack will be later.
-- FIX for FEATURES READY, GO TEST IT AND GIVE FEEDBACK
 - May this holiday season brighten you up with happiness, joy and good cheer!
+
+# Applying config and nothing happens? 6.6 ver.
+Most likely, you have not imported breakpoints
+
+- There may be two reasons why they are not imported:
+1. You need to select the current assembly in dnSpy, that is, click on reWASDEngine in Assembly editor, I did it in the video at 2:15.
+2. Change the paths to the file reWASDEngine.exe in the file with breakpoints (1337_pus...xml), there are only 4 lines where you need to set the correct path to the file, in the video it is 1:46 minute (also in the video there is only 1 path because today the fix came out and now there are 4)
 
 # Special Thanks
 HUGE THANKS TO [Eddy](https://github.com/RedDot-3ND7355) ([reWASD](https://github.com/RedDot-3ND7355/reWASD)) ONLY THANKS TO HIM YOU CAN USE X64/86 VERSION FOR FREE, SO BEFORE DOWNLOADING GO TO HIS GITHUB PROFILE AND PUT STARS ON EACH OF HIS PROJECTS!!!!
