@@ -3,7 +3,7 @@
 - May this holiday season brighten you up with happiness, joy and good cheer!
 
 # Applying config and nothing happens? 6.6 ver.
-Firtly, check closed issues, before creating new, Take care of your and my time❤️
+Firstly, check closed issues, before creating new, Take care of your and my time❤️
 
 Most likely, you have not imported breakpoints
 
