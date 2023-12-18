@@ -3,6 +3,10 @@
 - Virtual controllers may not work in 6.6ver., wait 7.0ver
 - May this holiday season brighten you up with happiness, joy and good cheer!
 
+# CURRENT STATUS
+- 7.0ver. ARM - FULL WORK! x86/x64 - WAITING CRACK
+- 6.6ver x86/x64 - WORK 
+
 # GUIDE FOR LITTLE ONES ONLY FOR 6.6ver. x64/x86 CRACK
 - FIRST VIDEO GUIDE https://youtu.be/JovXbTjLo7w?si=7h8hVmr_YpCuj4OK
 - SECOND VIDEO GUIDE(FOR NOOBS) https://youtu.be/tFF5TPHk_OQ?si=2setqKzMU0tXeCPd
