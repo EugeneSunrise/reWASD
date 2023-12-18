@@ -1,6 +1,6 @@
 # NOTICE 18.12.2023
 - Crack for 6.6 ver ready with youtube guide for those who really wants it, check releases. Version 7.0 crack will be later.
-- Virtual cobtrollers may not work in 6.6ver., wait 7.0ver
+- Virtual controllers may not work in 6.6ver., wait 7.0ver
 - May this holiday season brighten you up with happiness, joy and good cheer!
 
 # GUIDE FOR LITTLE ONES ONLY FOR 6.6ver. x64/x86 CRACK
