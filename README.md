@@ -4,7 +4,7 @@
 
 # GUIDE FOR LITTLE ONES ONLY FOR 6.6ver. x64/x86 CRACK
 - FIRST VIDEO GUIDE https://youtu.be/JovXbTjLo7w?si=7h8hVmr_YpCuj4OK
-- SECOND VIDEO GUIDE https://youtu.be/tFF5TPHk_OQ?si=2setqKzMU0tXeCPd
+- SECOND VIDEO GUIDE(FOR NOOBS) https://youtu.be/tFF5TPHk_OQ?si=2setqKzMU0tXeCPd
 
 # TEXT GUIDE 
 1. Extract the files from the archive to the folder with reWASD
