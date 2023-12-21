@@ -30,6 +30,16 @@ Most likely, you have not imported breakpoints
 1. You need to select the current assembly in dnSpy, that is, click on reWASDEngine in Assembly editor, I did it in the video at 2:15.
 2. Change the paths to the file reWASDEngine.exe in the file with breakpoints (1337_pus...xml), there are only 4 lines where you need to set the correct path to the file, in the video it is 1:46 minute (also in the video there is only 1 path because today the fix came out and now there are 4)
 
+# Startup automation for dnSpy
+Use autohotkey, make a simple file including lines below, and move it to startup folder, then it can be automaticly run when You start PC and placed in tray menu:
+- Run, D:\reWASD1\dnSpy-net-win32\dnSpy.exe
+- Sleep 3000
+- Send {F5}
+- Sleep 2000
+- Send {Enter}
+- Sleep 1000
+- Winhide dnSpy
+
 # Special Thanks
 HUGE THANKS TO [Eddy](https://github.com/RedDot-3ND7355) ([reWASD](https://github.com/RedDot-3ND7355/reWASD)) ONLY THANKS TO HIM YOU CAN USE X64/86 VERSION FOR FREE, SO BEFORE DOWNLOADING GO TO HIS GITHUB PROFILE AND PUT STARS ON EACH OF HIS PROJECTS!!!!
 
