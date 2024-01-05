@@ -9,7 +9,7 @@
 
 # GUIDE FOR LITTLE ONES ONLY FOR 6.6ver. x64/x86 CRACK
 - FIRST VIDEO GUIDE https://youtu.be/JovXbTjLo7w?si=7h8hVmr_YpCuj4OK
-- SECOND VIDEO GUIDE(FOR NOOBS) https://youtu.be/tFF5TPHk_OQ?si=2setqKzMU0tXeCPd
+- SECOND VIDEO GUIDE(FOR NOOBS) https://youtu.be/n7Vfj1zMvP8?si=zW3uqiUTpNTbyRHl
 
 # TEXT GUIDE 
 1. Extract the files from the archive to the folder with reWASD
@@ -29,6 +29,10 @@ Most likely, you have not imported breakpoints
 - There may be two reasons why they are not imported:
 1. You need to select the current assembly in dnSpy, that is, click on reWASDEngine in Assembly editor, I did it in the video at 2:15.
 2. Change the paths to the file reWASDEngine.exe in the file with breakpoints (1337_pus...xml), there are only 4 lines where you need to set the correct path to the file, in the video it is 1:46 minute (also in the video there is only 1 path because today the fix came out and now there are 4)
+
+# Everything was working for a few days and suddenly an error? (XamlReader.WrapException....)
+Defender killed some reWASD files (that you moved from archive to folder), add reWASD folder or reWASD files to defender (or your antivirus) whitelist.
+![Screenshot](https://github.com/EugeneSunrise/reWASD/assets/56397706/3a5da084-68e6-41a0-b477-b735840ed18b)
 
 # Startup automation for dnSpy
 Use autohotkey, make a simple file including lines below, and move it to startup folder, then it can be automaticly run when You start PC and placed in tray menu:
