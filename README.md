@@ -8,8 +8,9 @@
 - 6.6ver x86/x64 - WORK 
 
 # GUIDE FOR LITTLE ONES ONLY FOR 6.6ver. x64/x86 CRACK
-- FIRST VIDEO GUIDE https://youtu.be/JovXbTjLo7w?si=7h8hVmr_YpCuj4OK
-- SECOND VIDEO GUIDE(FOR NOOBS) https://youtu.be/n7Vfj1zMvP8?si=zW3uqiUTpNTbyRHl
+YT blocks so i have uploaded to mega cloud
+- FIRST VIDEO GUIDE https://mega.nz/file/AP51BQIQ#bwNmDOsiPYGk0O03H-tSc5ObuOzVtgb58ddTKqWQGlk
+- SECOND VIDEO GUIDE(FOR NOOBS) https://mega.nz/file/tTYGWZiB#LA9Sr4kOIswYFSf51fuN4wg88qOIQjaY_Y-B-4qNzM8
 
 # TEXT GUIDE 
 1. Extract the files from the archive to the folder with reWASD
