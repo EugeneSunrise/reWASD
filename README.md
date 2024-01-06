@@ -9,8 +9,8 @@
 
 # GUIDE FOR LITTLE ONES ONLY FOR 6.6ver. x64/x86 CRACK
 YT blocks so i have uploaded to mega cloud
-- FIRST VIDEO GUIDE https://mega.nz/file/AP51BQIQ#bwNmDOsiPYGk0O03H-tSc5ObuOzVtgb58ddTKqWQGlk
-- SECOND VIDEO GUIDE(FOR NOOBS) https://mega.nz/file/tTYGWZiB#LA9Sr4kOIswYFSf51fuN4wg88qOIQjaY_Y-B-4qNzM8
+- FIRST VIDEO GUIDE [First guide](https://mega.nz/file/AP51BQIQ#bwNmDOsiPYGk0O03H-tSc5ObuOzVtgb58ddTKqWQGlk)
+- SECOND VIDEO GUIDE(FOR NOOBS) [Second guide](https://mega.nz/file/tTYGWZiB#LA9Sr4kOIswYFSf51fuN4wg88qOIQjaY_Y-B-4qNzM8)
 
 # TEXT GUIDE 
 1. Extract the files from the archive to the folder with reWASD
