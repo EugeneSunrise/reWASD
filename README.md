@@ -1,6 +1,6 @@
-# NOTICE 18.12.2023
-- Crack for 6.6 ver ready with youtube guide for those who really wants it, check releases. Version 7.0 crack will be later.
-- Virtual controllers may not work for everyone in 6.6ver., wait 7.0ver
+# NOTICE 06.01.2024
+- Just updated readme, all info you need
+- If there is any news I will update the readme immediately
 - May this holiday season brighten you up with happiness, joy and good cheer!
 
 # CURRENT STATUS
