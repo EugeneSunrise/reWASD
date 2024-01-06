@@ -46,10 +46,15 @@ Use autohotkey, make a simple file including lines below, and move it to startup
 - Winhide dnSpy
 
 # Special Thanks
-HUGE THANKS TO [Eddy](https://github.com/RedDot-3ND7355) ([reWASD](https://github.com/RedDot-3ND7355/reWASD)) ONLY THANKS TO HIM YOU CAN USE X64/86 VERSION FOR FREE, SO BEFORE DOWNLOADING GO TO HIS GITHUB PROFILE AND PUT STARS ON EACH OF HIS PROJECTS!!!!
+- HUGE THANKS TO [Eddy](https://github.com/RedDot-3ND7355) ([reWASD](https://github.com/RedDot-3ND7355/reWASD)) ONLY THANKS TO HIM YOU CAN USE X64/86 VERSION FOR FREE, SO BEFORE DOWNLOADING GO TO HIS GITHUB PROFILE AND PUT STARS ON EACH OF HIS PROJECTS!!!!
+- ALSO BIG CREDITS TO [Lucas](https://github.com/lukasbrauneruv) for providing the Zoom's 50$ - "The Finals" [CONFIG](https://drive.google.com/file/d/15L47Oa1uzCqDQ7sjSoOhhp4yOp156paC/view)(AimAssist+Recoil):
+"It has some recoil configs for different weapons. F5 stops/start the script and 5 6 7 8 are different weapon recoil setups. Also here is a picture of recommended controller settings for maximum aimassist"
+![recommended controller settings](https://github.com/EugeneSunrise/reWASD/assets/56397706/5320c8e1-9807-4e65-883a-caf602e0a57c)
+
+# Antivirus says there are trojans in the files?
+In the archive is dnSpy - a program for reversing .net applications, it is scolded by antivirus also the other files have no signature, so it can also be a red factor for antivirus. You can download dnSpy from the official repository on github (and configure it yourself). If you still think I'm trying to plant a trojan and upload hentai to your PC so just don't download the crack and don't bother me.
 
 # reWASD Source Code & Patched Lib's in Releases
-
 ![Screenshot 29-11-2023 at 22-15-35](https://github.com/EugeneSunrise/reWASD/assets/56397706/1d3e6290-73b2-4d19-a826-17667841aaed)
 
 
