@@ -3,6 +3,9 @@
 - If there is any news I will update the readme immediately
 - May this holiday season brighten you up with happiness, joy and good cheer!
 
+# WANNA ASK ME SOMETHING OR YOU NEED HELP?
+Use "Discussions tab", instead of "Issues"!
+
 # CURRENT STATUS
 - 7.0ver. ARM - FULL WORK! x86/x64 - WAITING CRACK
 - 6.6ver x86/x64 - WORK 
