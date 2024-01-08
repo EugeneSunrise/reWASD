@@ -27,7 +27,7 @@ YT blocks so i have uploaded to mega cloud
 8. Close reWASD only from tray windows and then close dnSpy
 
 # Applying config and nothing happens? 6.6 ver.
-FIRSTLY, CHECK CLOSED ISSUES AND TWO VIDEO GUIDES, BEFORE CREATING NEW, TAKE CARE OF YOUR AND MY TIME❤️
+FIRSTLY, CHECK CLOSED ISSUES AND TWO VIDEO GUIDES, USE DISCUSSIONS TO ASK ME, TAKE CARE OF YOUR AND MY TIME❤️
 
 Most likely, you have not imported breakpoints
 - There may be two reasons why they are not imported:
