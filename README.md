@@ -50,9 +50,11 @@ Use autohotkey, make a simple file including lines below, and move it to startup
 
 # Special Thanks
 - HUGE THANKS TO [Eddy](https://github.com/RedDot-3ND7355) ([reWASD](https://github.com/RedDot-3ND7355/reWASD)) ONLY THANKS TO HIM YOU CAN USE X64/86 VERSION FOR FREE, SO BEFORE DOWNLOADING GO TO HIS GITHUB PROFILE AND PUT STARS ON EACH OF HIS PROJECTS!!!!
-- **CONFIG WAS FIXED(AND NOT WORKING ANYMORE),WAITING WHEN SOMEONE SHARES A NEW CFG AND I WILL IMMEADIATELY UPDATE LINKS** ALSO BIG CREDITS TO [Lucas](https://github.com/lukasbrauneruv) for providing the Zoom's 50$ - "The Finals" [CONFIG](https://drive.google.com/file/d/15L47Oa1uzCqDQ7sjSoOhhp4yOp156paC/view)(AimAssist+Recoil):
+- Read below if the config doesn't work. ALSO BIG CREDITS TO [Lucas](https://github.com/lukasbrauneruv) for providing the Zoom's 50$ - "The Finals" [CONFIG](https://drive.google.com/file/d/15L47Oa1uzCqDQ7sjSoOhhp4yOp156paC/view)(AimAssist+Recoil):
 "It has some recoil configs for different weapons. F5 stops/start the script and 5 6 7 8 are different weapon recoil setups. Also here is a picture of recommended controller settings for maximum aimassist"
 ![recommended controller settings](https://github.com/EugeneSunrise/reWASD/assets/56397706/5320c8e1-9807-4e65-883a-caf602e0a57c)
+- Thanks to [Whiz](https://github.com/Time2Whizard) for the provided bypass AC:
+"The AC is Blocking reWASD itself, funnily reWASD works even disabled. Simply start the script enable toggle for mouse move and exit reWASD from the tray icon. This will bypass the reWASD Controller input detection."
 
 # Antivirus says there are trojans in the files? // Trojan:Win32/Znyonm
 Quick answer - it's false positive, if you don't trust it so don't download it.
