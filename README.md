@@ -79,7 +79,9 @@ Step by step for the littlest ones:
 - Start reWASD, all features are available!
 
 
-## Support the project financially
+## Support the project 
+
+Put "star" on this project or if you want to help with money:
 
 TRX(Tron): TGztJ8FSwKNSrigESddGq6euHa9UgtkujG
 
