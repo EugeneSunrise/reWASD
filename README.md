@@ -1,4 +1,5 @@
 # Notice 06.01.2024
+**6.02.2024 NEED SOME TESTER -> TELEGRAM: @sunrjze
 - If there is any news I will update the readme immediately
 
 # Wanna ask me something or You need help?
