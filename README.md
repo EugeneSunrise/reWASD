@@ -1,5 +1,5 @@
-# Notice 06.01.2024
-- If there is any news I will update the readme immediately
+# Notice 16.02.2024
+- Expecting
 
 # Wanna ask me something or You need help?
 Use "Discussions tab"
@@ -7,6 +7,7 @@ Use "Discussions tab"
 # Current Status
 - 7.0v x86 - Cracked features (not license), Arm - Full work!
 - 6.6v x86 - Work via dnSpy
+- reWASD Junior IOS 2.8.1 decrypted. reWASD 7.0 - compatibility
 
 # Special Thanks
 - Bless [Eddy](https://github.com/RedDot-3ND7355)❤️ ([reWASD](https://github.com/RedDot-3ND7355/reWASD))
