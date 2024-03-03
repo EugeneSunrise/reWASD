@@ -1,5 +1,5 @@
 # Notice 03.03
-- Alert 🚨, need testers, telegram: @sunrjze
+- 7.0 full crack release ready, release tomorrow
 
 # Wanna ask me something or You need help?
 Use "Discussions tab"
