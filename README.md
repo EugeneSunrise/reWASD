@@ -1,5 +1,5 @@
-# Notice 16.02.2024
-- Expecting
+# Notice 03.03
+- Alert 🚨, need testers, telegram: @sunrjze
 
 # Wanna ask me something or You need help?
 Use "Discussions tab"
