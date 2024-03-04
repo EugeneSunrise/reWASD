@@ -28,4 +28,4 @@ Step by step for the littlest ones:
 - Start reWASD and Enjoy!
 
 # Preview
-![Screenshot 29-11-2023 at 22-15-35](https://github.com/EugeneSunrise/reWASD/assets/56397706/1d3e6290-73b2-4d19-a826-17667841aaed)
+![Screenshot 04-03-2024 at 18-13-32](https://github.com/EugeneSunrise/EugeneSunrise/assets/56397706/cec3ad35-ce8d-425d-a9b7-d0a553517f04)
