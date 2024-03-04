@@ -11,6 +11,7 @@ Use "Discussions tab"
 
 # Special Thanks
 - Bless [Eddy](https://github.com/RedDot-3ND7355)❤️ ([reWASD](https://github.com/RedDot-3ND7355/reWASD))
+- Bless [Flavio](https://github.com/Hitmasu)💪 Star this project [Jitex](https://github.com/Hitmasu/Jitex)
 
 # Guide
 reWASD has are several versions, the version for Windows x86/x64 and Windows ARM Architecture.
