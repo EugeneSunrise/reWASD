@@ -22,6 +22,7 @@ Step by step for the littlest ones:
 - Download reWASDCommon.dll in Assets.
 - Install reWASD700-8447.exe!
 - Launch reWASD one time after installation and close it from tray.
+- "Unblock" in properties of reWASDCommon.dll if needed.
 - Move reWASDCommon.dll in reWASD folder
 - Start reWASD and Enjoy!
 
