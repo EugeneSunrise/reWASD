@@ -1,18 +1,3 @@
-# Notice 04.03
-- 7.0 FULL CRACK READY -> CHECK RELEASES
-- 7.1 will be later
-
-# Wanna ask me something or You need help?
-Use "Discussions tab"
-
-# Current Status
-- 7.0v x86/x64/arm64 - FULL WORK!
-- reWASD Junior IOS 2.8.1 decrypted. reWASD 7.0 - compatibility
-
-# Special Thanks
-- Bless [Eddy](https://github.com/RedDot-3ND7355)❤️ ([reWASD](https://github.com/RedDot-3ND7355/reWASD))
-- Bless [Flavio](https://github.com/Hitmasu)💪 Star this project [Jitex](https://github.com/Hitmasu/Jitex)
-
 # Guide
 reWASD has are several versions, the version for Windows x86/x64 and Windows ARM Architecture.
 Step by step for the littlest ones:
@@ -29,3 +14,7 @@ Step by step for the littlest ones:
 
 # Preview
 ![Screenshot 04-03-2024 at 18-13-32](https://github.com/EugeneSunrise/EugeneSunrise/assets/56397706/cec3ad35-ce8d-425d-a9b7-d0a553517f04)
+
+# Special Thanks
+- Bless [Eddy](https://github.com/RedDot-3ND7355)❤️ ([reWASD](https://github.com/RedDot-3ND7355/reWASD))
+- Bless [Flavio](https://github.com/Hitmasu)💪 Star this project [Jitex](https://github.com/Hitmasu/Jitex)
