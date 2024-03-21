@@ -1,6 +1,6 @@
 # Guide
 reWASD has are several versions, the version for Windows x86/x64 and Windows ARM Architecture.
-Step by step for the littlest ones:
+Step by step for the little ones:
 - First of all, delete your current reWASD version by using unins.exe in reWASD folder.
 - Go to [Releases](https://github.com/EugeneSunrise/reWASD/releases) and pick your version
 - Do you see the Assets tab? Fine!
