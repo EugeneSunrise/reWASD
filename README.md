@@ -12,9 +12,6 @@ Step by step for the littlest ones:
 - Move reWASDCommon.dll in reWASD folder
 - Start reWASD and Enjoy!
 
-# Preview
-![Screenshot 04-03-2024 at 18-13-32](https://github.com/EugeneSunrise/EugeneSunrise/assets/56397706/cec3ad35-ce8d-425d-a9b7-d0a553517f04)
-
 # Special Thanks
 - Bless [Eddy](https://github.com/RedDot-3ND7355)❤️ ([reWASD](https://github.com/RedDot-3ND7355/reWASD))
 - Bless [Flavio](https://github.com/Hitmasu)💪 Star this project [Jitex](https://github.com/Hitmasu/Jitex)
