@@ -1,6 +1,3 @@
-# NOTICE 21.04
-reWASD devs🤕🤡 removed support for 7.0 and 7.1, that mean crack no longer works right now, but don't worry guys, we will fix that, just need to wait❤️
-
 # Guide
 reWASD has are several versions, the version for Windows x86/x64 and Windows ARM Architecture.
 Step by step for the little ones:
